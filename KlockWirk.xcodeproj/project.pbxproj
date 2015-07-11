@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7181B513B6A001FCF54 /* AppDelegate.swift */; };
+		4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A71A1B513B6A001FCF54 /* ViewController.swift */; };
+		4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71C1B513B6A001FCF54 /* Main.storyboard */; };
+		4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71F1B513B6A001FCF54 /* Images.xcassets */; };
+		4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */; };
+		4D49A72F1B513B6A001FCF54 /* KlockWirkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D49A7291B513B6A001FCF54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D49A70B1B513B6A001FCF54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D49A7121B513B6A001FCF54;
+			remoteInfo = KlockWirk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D49A7131B513B6A001FCF54 /* KlockWirk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlockWirk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D49A7171B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D49A7181B513B6A001FCF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4D49A71A1B513B6A001FCF54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D49A71D1B513B6A001FCF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4D49A71F1B513B6A001FCF54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D49A7221B513B6A001FCF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4D49A7281B513B6A001FCF54 /* KlockWirkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlockWirkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D49A72D1B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlockWirkTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D49A7101B513B6A001FCF54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D49A7251B513B6A001FCF54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D49A70A1B513B6A001FCF54 = {
+			isa = PBXGroup;
+			children = (
+				4D49A7151B513B6A001FCF54 /* KlockWirk */,
+				4D49A72B1B513B6A001FCF54 /* KlockWirkTests */,
+				4D49A7141B513B6A001FCF54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D49A7141B513B6A001FCF54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A7131B513B6A001FCF54 /* KlockWirk.app */,
+				4D49A7281B513B6A001FCF54 /* KlockWirkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D49A7151B513B6A001FCF54 /* KlockWirk */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A7181B513B6A001FCF54 /* AppDelegate.swift */,
+				4D49A71A1B513B6A001FCF54 /* ViewController.swift */,
+				4D49A71C1B513B6A001FCF54 /* Main.storyboard */,
+				4D49A71F1B513B6A001FCF54 /* Images.xcassets */,
+				4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */,
+				4D49A7161B513B6A001FCF54 /* Supporting Files */,
+			);
+			path = KlockWirk;
+			sourceTree = "<group>";
+		};
+		4D49A7161B513B6A001FCF54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A7171B513B6A001FCF54 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D49A72B1B513B6A001FCF54 /* KlockWirkTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */,
+				4D49A72C1B513B6A001FCF54 /* Supporting Files */,
+			);
+			path = KlockWirkTests;
+			sourceTree = "<group>";
+		};
+		4D49A72C1B513B6A001FCF54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A72D1B513B6A001FCF54 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D49A7121B513B6A001FCF54 /* KlockWirk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D49A7321B513B6A001FCF54 /* Build configuration list for PBXNativeTarget "KlockWirk" */;
+			buildPhases = (
+				4D49A70F1B513B6A001FCF54 /* Sources */,
+				4D49A7101B513B6A001FCF54 /* Frameworks */,
+				4D49A7111B513B6A001FCF54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KlockWirk;
+			productName = KlockWirk;
+			productReference = 4D49A7131B513B6A001FCF54 /* KlockWirk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D49A7271B513B6A001FCF54 /* KlockWirkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D49A7351B513B6A001FCF54 /* Build configuration list for PBXNativeTarget "KlockWirkTests" */;
+			buildPhases = (
+				4D49A7241B513B6A001FCF54 /* Sources */,
+				4D49A7251B513B6A001FCF54 /* Frameworks */,
+				4D49A7261B513B6A001FCF54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D49A72A1B513B6A001FCF54 /* PBXTargetDependency */,
+			);
+			name = KlockWirkTests;
+			productName = KlockWirkTests;
+			productReference = 4D49A7281B513B6A001FCF54 /* KlockWirkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D49A70B1B513B6A001FCF54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = KlockWirk;
+				TargetAttributes = {
+					4D49A7121B513B6A001FCF54 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					4D49A7271B513B6A001FCF54 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 4D49A7121B513B6A001FCF54;
+					};
+				};
+			};
+			buildConfigurationList = 4D49A70E1B513B6A001FCF54 /* Build configuration list for PBXProject "KlockWirk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D49A70A1B513B6A001FCF54;
+			productRefGroup = 4D49A7141B513B6A001FCF54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D49A7121B513B6A001FCF54 /* KlockWirk */,
+				4D49A7271B513B6A001FCF54 /* KlockWirkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D49A7111B513B6A001FCF54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
+				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
+				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D49A7261B513B6A001FCF54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D49A70F1B513B6A001FCF54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */,
+				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D49A7241B513B6A001FCF54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D49A72F1B513B6A001FCF54 /* KlockWirkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D49A72A1B513B6A001FCF54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D49A7121B513B6A001FCF54 /* KlockWirk */;
+			targetProxy = 4D49A7291B513B6A001FCF54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4D49A71C1B513B6A001FCF54 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D49A71D1B513B6A001FCF54 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D49A7221B513B6A001FCF54 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D49A7301B513B6A001FCF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4D49A7311B513B6A001FCF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4D49A7331B513B6A001FCF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KlockWirk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4D49A7341B513B6A001FCF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KlockWirk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4D49A7361B513B6A001FCF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KlockWirkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KlockWirk.app/KlockWirk";
+			};
+			name = Debug;
+		};
+		4D49A7371B513B6A001FCF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KlockWirkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KlockWirk.app/KlockWirk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D49A70E1B513B6A001FCF54 /* Build configuration list for PBXProject "KlockWirk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D49A7301B513B6A001FCF54 /* Debug */,
+				4D49A7311B513B6A001FCF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D49A7321B513B6A001FCF54 /* Build configuration list for PBXNativeTarget "KlockWirk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D49A7331B513B6A001FCF54 /* Debug */,
+				4D49A7341B513B6A001FCF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4D49A7351B513B6A001FCF54 /* Build configuration list for PBXNativeTarget "KlockWirkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D49A7361B513B6A001FCF54 /* Debug */,
+				4D49A7371B513B6A001FCF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D49A70B1B513B6A001FCF54 /* Project object */;
+}
