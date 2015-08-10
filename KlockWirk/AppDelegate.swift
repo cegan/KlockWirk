@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        loadApplicationSettings()
+        setUserInterfaceDefaults()
+        
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.tabBarController
+        self.window?.makeKeyAndVisible()
+        
+        
+//        var service = KlockWirkServices()
+//        service.getOrders()
+        
+        
         return true
     }
 
@@ -39,6 +53,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    
+    func loadApplicationSettings(){
+        
+        ApplicationInformation.setKlockWirkBaseUrl((NSBundle.mainBundle().infoDictionary?["RevelBaseAPI"] as? String)!)
+    }
+    
+    
+    func setUserInterfaceDefaults(){
+        
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 255, green: 45, blue: 85, alpha: 1.0)]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState: UIControlState.Normal)
+        UINavigationBar.appearance().translucent = true
     }
 
 

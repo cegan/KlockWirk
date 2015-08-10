@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D39E7BE1B6EE08500DC82DF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7BD1B6EE08500DC82DF /* Login.swift */; };
+		4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */; };
+		4D39E7CA1B6EE23600DC82DF /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */; };
+		4D39E7CB1B6EE23600DC82DF /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */; };
 		4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7181B513B6A001FCF54 /* AppDelegate.swift */; };
 		4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A71A1B513B6A001FCF54 /* ViewController.swift */; };
 		4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71C1B513B6A001FCF54 /* Main.storyboard */; };
 		4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71F1B513B6A001FCF54 /* Images.xcassets */; };
 		4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */; };
 		4D49A72F1B513B6A001FCF54 /* KlockWirkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */; };
+		4D49A73A1B51430D001FCF54 /* KlockWirkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */; };
+		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
+		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
+		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
+		4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D221B5147F10056800C /* AFJSONRequestOperation.m */; };
+		4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D241B5147F10056800C /* AFNetworkActivityIndicatorManager.m */; };
+		4DDA8D331B5147F10056800C /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D271B5147F10056800C /* AFPropertyListRequestOperation.m */; };
+		4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D291B5147F10056800C /* AFURLConnectionOperation.m */; };
+		4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D2B1B5147F10056800C /* AFXMLRequestOperation.m */; };
+		4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */; };
+		4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D381B514AC50056800C /* ApplicationInformation.swift */; };
+		4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D3D1B5150FE0056800C /* Constants.swift */; };
+		4DDA8D411B51679D0056800C /* OrdersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D401B51679D0056800C /* OrdersService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D39E7BD1B6EE08500DC82DF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkTabBarController.swift; sourceTree = "<group>"; };
+		4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		4D49A7131B513B6A001FCF54 /* KlockWirk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlockWirk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D49A7171B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D49A7181B513B6A001FCF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +57,31 @@
 		4D49A7281B513B6A001FCF54 /* KlockWirkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlockWirkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D49A72D1B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlockWirkTests.swift; sourceTree = "<group>"; };
+		4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkServices.swift; sourceTree = "<group>"; };
+		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		4DDA8D1D1B5147F10056800C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		4DDA8D1F1B5147F10056800C /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		4DDA8D211B5147F10056800C /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		4DDA8D221B5147F10056800C /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		4DDA8D231B5147F10056800C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		4DDA8D241B5147F10056800C /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		4DDA8D251B5147F10056800C /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		4DDA8D261B5147F10056800C /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		4DDA8D271B5147F10056800C /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		4DDA8D281B5147F10056800C /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		4DDA8D291B5147F10056800C /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		4DDA8D2A1B5147F10056800C /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		4DDA8D2B1B5147F10056800C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		4DDA8D2C1B5147F10056800C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		4DDA8D381B514AC50056800C /* ApplicationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInformation.swift; sourceTree = "<group>"; };
+		4DDA8D3D1B5150FE0056800C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4DDA8D3F1B51679D0056800C /* OrdersService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersService.h; sourceTree = "<group>"; };
+		4DDA8D401B51679D0056800C /* OrdersService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +102,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D39E7BA1B6EE06300DC82DF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */,
+				4D39E7C71B6EE22400DC82DF /* Schedule */,
+				4D39E7BB1B6EE06300DC82DF /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4D39E7BB1B6EE06300DC82DF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4D39E7BD1B6EE08500DC82DF /* Login.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4D39E7C71B6EE22400DC82DF /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */,
+				4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		4D49A70A1B513B6A001FCF54 = {
 			isa = PBXGroup;
 			children = (
+				4DDA8D181B5147760056800C /* bridge.h */,
 				4D49A7151B513B6A001FCF54 /* KlockWirk */,
 				4D49A72B1B513B6A001FCF54 /* KlockWirkTests */,
 				4D49A7141B513B6A001FCF54 /* Products */,
@@ -77,6 +151,11 @@
 		4D49A7151B513B6A001FCF54 /* KlockWirk */ = {
 			isa = PBXGroup;
 			children = (
+				4D39E7BA1B6EE06300DC82DF /* ViewControllers */,
+				4DDA8D3C1B5150F00056800C /* Models */,
+				4DDA8D371B514AB00056800C /* Utilities */,
+				4D49A7381B5142BB001FCF54 /* Services */,
+				4DDA8D191B5147F10056800C /* Frameworks */,
 				4D49A7181B513B6A001FCF54 /* AppDelegate.swift */,
 				4D49A71A1B513B6A001FCF54 /* ViewController.swift */,
 				4D49A71C1B513B6A001FCF54 /* Main.storyboard */,
@@ -110,6 +189,66 @@
 				4D49A72D1B513B6A001FCF54 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D49A7381B5142BB001FCF54 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */,
+				4DDA8D3F1B51679D0056800C /* OrdersService.h */,
+				4DDA8D401B51679D0056800C /* OrdersService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4DDA8D191B5147F10056800C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA8D1A1B5147F10056800C /* AFNetworking */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DDA8D1A1B5147F10056800C /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */,
+				4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */,
+				4DDA8D1D1B5147F10056800C /* AFHTTPRequestOperation.h */,
+				4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */,
+				4DDA8D1F1B5147F10056800C /* AFImageRequestOperation.h */,
+				4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */,
+				4DDA8D211B5147F10056800C /* AFJSONRequestOperation.h */,
+				4DDA8D221B5147F10056800C /* AFJSONRequestOperation.m */,
+				4DDA8D231B5147F10056800C /* AFNetworkActivityIndicatorManager.h */,
+				4DDA8D241B5147F10056800C /* AFNetworkActivityIndicatorManager.m */,
+				4DDA8D251B5147F10056800C /* AFNetworking.h */,
+				4DDA8D261B5147F10056800C /* AFPropertyListRequestOperation.h */,
+				4DDA8D271B5147F10056800C /* AFPropertyListRequestOperation.m */,
+				4DDA8D281B5147F10056800C /* AFURLConnectionOperation.h */,
+				4DDA8D291B5147F10056800C /* AFURLConnectionOperation.m */,
+				4DDA8D2A1B5147F10056800C /* AFXMLRequestOperation.h */,
+				4DDA8D2B1B5147F10056800C /* AFXMLRequestOperation.m */,
+				4DDA8D2C1B5147F10056800C /* UIImageView+AFNetworking.h */,
+				4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		4DDA8D371B514AB00056800C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA8D381B514AC50056800C /* ApplicationInformation.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4DDA8D3C1B5150F00056800C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA8D3D1B5150FE0056800C /* Constants.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +300,7 @@
 				TargetAttributes = {
 					4D49A7121B513B6A001FCF54 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = MFFRX45CX4;
 					};
 					4D49A7271B513B6A001FCF54 = {
 						CreatedOnToolsVersion = 6.2;
@@ -195,6 +335,7 @@
 				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
 				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
 				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
+				4D39E7CB1B6EE23600DC82DF /* ScheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +353,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
 				4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */,
+				4DDA8D331B5147F10056800C /* AFPropertyListRequestOperation.m in Sources */,
+				4D39E7CA1B6EE23600DC82DF /* ScheduleViewController.swift in Sources */,
+				4D49A73A1B51430D001FCF54 /* KlockWirkServices.swift in Sources */,
+				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
+				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,
+				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
+				4DDA8D411B51679D0056800C /* OrdersService.m in Sources */,
+				4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */,
+				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
+				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
+				4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */,
+				4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */,
+				4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */,
+				4D39E7BE1B6EE08500DC82DF /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,9 +493,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d72f4ca3-9db3-40c0-827c-7bbafb2fd486";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
 		};
@@ -346,9 +507,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d72f4ca3-9db3-40c0-827c-7bbafb2fd486";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;
 		};
@@ -405,6 +570,7 @@
 				4D49A7341B513B6A001FCF54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D49A7351B513B6A001FCF54 /* Build configuration list for PBXNativeTarget "KlockWirkTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +579,7 @@
 				4D49A7371B513B6A001FCF54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
