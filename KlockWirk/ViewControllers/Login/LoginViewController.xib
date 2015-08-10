@@ -54,7 +54,7 @@
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LOh-2M-drT"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="h6B-9a-UvC"/>
             </constraints>
-            <point key="canvasLocation" x="-36" y="245"/>
+            <point key="canvasLocation" x="-200" y="231"/>
         </view>
     </objects>
 </document>
