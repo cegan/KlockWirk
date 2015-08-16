@@ -28,4 +28,38 @@ class ApplicationInformation{
             return ""
         }
     }
+    
+    
+    class func setKlockWirkers(klockWirkers:[KlockWirker]){
+        
+        
+        let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirkers)
+        NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
+        
+       
+    }
+    
+    
+    class func getKlockWirkers() -> NSMutableArray{
+        
+        let klockWirkersData    = NSUserDefaults.standardUserDefaults().objectForKey("KlockWirkersKey") as? NSData
+        var klockWirkersArray   = NSKeyedUnarchiver.unarchiveObjectWithData(klockWirkersData!) as? [KlockWirker]
+        
+        var objects = NSMutableArray(array: klockWirkersArray!)
+        
+        
+        return objects
+        
+    }
+    
+        
+        
+        
+//        var defaults = NSUserDefaults.standardUserDefaults()
+//        
+//        var myarray : NSArray = defaults.objectForKey("KlockWirkersKey") as! NSArray
+//        
+//        return myarray as! [KlockWirker]
+    
+    
 }

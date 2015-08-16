@@ -13,7 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
-
+    var loginControllerNavigationController: UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle: nil))
+    
+    
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -22,12 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.tabBarController
+        self.window?.rootViewController = self.loginControllerNavigationController
         self.window?.makeKeyAndVisible()
         
         
-//        var service = KlockWirkServices()
-//        service.getOrders()
+        
+        
+        
+        var service = KlockWirkServices()
+        service.getAllKlockWirkers()
         
         
         return true
@@ -59,13 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func loadApplicationSettings(){
         
-        ApplicationInformation.setKlockWirkBaseUrl((NSBundle.mainBundle().infoDictionary?["RevelBaseAPI"] as? String)!)
+        ApplicationInformation.setKlockWirkBaseUrl((NSBundle.mainBundle().infoDictionary?["KlockWirkBaseAPI"] as? String)!)
     }
     
     
     func setUserInterfaceDefaults(){
         
-        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 255, green: 45, blue: 85, alpha: 1.0)]
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState: UIControlState.Normal)
         UINavigationBar.appearance().translucent = true

@@ -15,18 +15,12 @@ class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         
         initializeViewProperties()
-
-       
     }
 
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
-    
+   
     
     func initializeViewProperties(){
         
-        self.title = "KlockWirk"
+        self.title = "Schedule"
     }
 }

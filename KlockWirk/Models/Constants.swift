@@ -13,7 +13,9 @@ import Foundation
 
 struct ServiceEndpoints {
     
-    static let OrderEndpoint     = "/resources/OrderHistory/?format=json"
+    static let OrderEndpoint        = "/resources/OrderHistory/?format=json"
+    static let KlockWirkersEndpoint         = "klockwirkers/"
+    static let MerchantsEndpoint            = "merchants/"
 }
 
 

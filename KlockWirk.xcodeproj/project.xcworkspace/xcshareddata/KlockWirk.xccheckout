@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F11C335-67CC-47EA-9A40-E2D5865E9154</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KlockWirk</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>96044DDF703C9A3363CD4B532267A97672C5884C</key>
+		<string>https://github.com/cegan/KlockWirk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KlockWirk.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>96044DDF703C9A3363CD4B532267A97672C5884C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cegan/KlockWirk.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>96044DDF703C9A3363CD4B532267A97672C5884C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>96044DDF703C9A3363CD4B532267A97672C5884C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KlockWirk</string>
+		</dict>
+	</array>
+</dict>
+</plist>

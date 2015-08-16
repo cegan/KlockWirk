@@ -19,6 +19,20 @@
 		4D49A73A1B51430D001FCF54 /* KlockWirkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */; };
 		4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E62E1B782A4B00A1F25D /* LoginViewController.swift */; };
 		4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E62F1B782A4B00A1F25D /* LoginViewController.xib */; };
+		4D79E6351B7EBA4500A1F25D /* KlockWirkerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6331B7EBA4500A1F25D /* KlockWirkerSetupViewController.swift */; };
+		4D79E6361B7EBA4500A1F25D /* KlockWirkerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E6341B7EBA4500A1F25D /* KlockWirkerSetupViewController.xib */; };
+		4D79E6391B7EBA5B00A1F25D /* MerchantSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6371B7EBA5B00A1F25D /* MerchantSetupViewController.swift */; };
+		4D79E63A1B7EBA5B00A1F25D /* MerchantSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E6381B7EBA5B00A1F25D /* MerchantSetupViewController.xib */; };
+		4D79E63C1B7EC64900A1F25D /* KlockWirker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */; };
+		4D79E63E1B7EC65800A1F25D /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E63D1B7EC65800A1F25D /* Merchant.swift */; };
+		4D79E6451B7F68AB00A1F25D /* OrdersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6441B7F68AB00A1F25D /* OrdersService.swift */; };
+		4D79E6471B7F6A7D00A1F25D /* JSONUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */; };
+		4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */; };
+		4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */; };
+		4D79E6521B80187900A1F25D /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6501B80187900A1F25D /* ReportsViewController.swift */; };
+		4D79E6531B80187900A1F25D /* ReportsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E6511B80187900A1F25D /* ReportsViewController.xib */; };
+		4D79E6561B80192F00A1F25D /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6541B80192F00A1F25D /* NewKlockWirkerViewController.swift */; };
+		4D79E6571B80192F00A1F25D /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E6551B80192F00A1F25D /* NewKlockWirkerViewController.xib */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
 		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
 		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
@@ -30,7 +44,6 @@
 		4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */; };
 		4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D381B514AC50056800C /* ApplicationInformation.swift */; };
 		4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D3D1B5150FE0056800C /* Constants.swift */; };
-		4DDA8D411B51679D0056800C /* OrdersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D401B51679D0056800C /* OrdersService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +73,20 @@
 		4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkServices.swift; sourceTree = "<group>"; };
 		4D79E62E1B782A4B00A1F25D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D79E62F1B782A4B00A1F25D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		4D79E6331B7EBA4500A1F25D /* KlockWirkerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSetupViewController.swift; sourceTree = "<group>"; };
+		4D79E6341B7EBA4500A1F25D /* KlockWirkerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSetupViewController.xib; sourceTree = "<group>"; };
+		4D79E6371B7EBA5B00A1F25D /* MerchantSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantSetupViewController.swift; sourceTree = "<group>"; };
+		4D79E6381B7EBA5B00A1F25D /* MerchantSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantSetupViewController.xib; sourceTree = "<group>"; };
+		4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirker.swift; sourceTree = "<group>"; };
+		4D79E63D1B7EC65800A1F25D /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
+		4D79E6441B7F68AB00A1F25D /* OrdersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersService.swift; sourceTree = "<group>"; };
+		4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtilities.swift; sourceTree = "<group>"; };
+		4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageKlockWirkersViewController.swift; sourceTree = "<group>"; };
+		4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageKlockWirkersViewController.xib; sourceTree = "<group>"; };
+		4D79E6501B80187900A1F25D /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		4D79E6511B80187900A1F25D /* ReportsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportsViewController.xib; sourceTree = "<group>"; };
+		4D79E6541B80192F00A1F25D /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
+		4D79E6551B80192F00A1F25D /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -82,8 +109,6 @@
 		4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		4DDA8D381B514AC50056800C /* ApplicationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInformation.swift; sourceTree = "<group>"; };
 		4DDA8D3D1B5150FE0056800C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4DDA8D3F1B51679D0056800C /* OrdersService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersService.h; sourceTree = "<group>"; };
-		4DDA8D401B51679D0056800C /* OrdersService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +132,11 @@
 		4D39E7BA1B6EE06300DC82DF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4D79E62D1B782A3900A1F25D /* Login */,
 				4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */,
+				4D79E64F1B80186000A1F25D /* Reports */,
+				4D79E64A1B8008DC00A1F25D /* ManageKlockWirkers */,
+				4D79E6321B7EBA2100A1F25D /* AccountSetup */,
+				4D79E62D1B782A3900A1F25D /* Login */,
 				4D39E7C71B6EE22400DC82DF /* Schedule */,
 				4D39E7BB1B6EE06300DC82DF /* Login */,
 			);
@@ -197,8 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */,
-				4DDA8D3F1B51679D0056800C /* OrdersService.h */,
-				4DDA8D401B51679D0056800C /* OrdersService.m */,
+				4D79E6441B7F68AB00A1F25D /* OrdersService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,6 +237,37 @@
 				4D79E62F1B782A4B00A1F25D /* LoginViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		4D79E6321B7EBA2100A1F25D /* AccountSetup */ = {
+			isa = PBXGroup;
+			children = (
+				4D79E6331B7EBA4500A1F25D /* KlockWirkerSetupViewController.swift */,
+				4D79E6341B7EBA4500A1F25D /* KlockWirkerSetupViewController.xib */,
+				4D79E6371B7EBA5B00A1F25D /* MerchantSetupViewController.swift */,
+				4D79E6381B7EBA5B00A1F25D /* MerchantSetupViewController.xib */,
+			);
+			path = AccountSetup;
+			sourceTree = "<group>";
+		};
+		4D79E64A1B8008DC00A1F25D /* ManageKlockWirkers */ = {
+			isa = PBXGroup;
+			children = (
+				4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */,
+				4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */,
+				4D79E6541B80192F00A1F25D /* NewKlockWirkerViewController.swift */,
+				4D79E6551B80192F00A1F25D /* NewKlockWirkerViewController.xib */,
+			);
+			path = ManageKlockWirkers;
+			sourceTree = "<group>";
+		};
+		4D79E64F1B80186000A1F25D /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				4D79E6501B80187900A1F25D /* ReportsViewController.swift */,
+				4D79E6511B80187900A1F25D /* ReportsViewController.xib */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 		4DDA8D191B5147F10056800C /* Frameworks */ = {
@@ -250,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDA8D381B514AC50056800C /* ApplicationInformation.swift */,
+				4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				4DDA8D3D1B5150FE0056800C /* Constants.swift */,
+				4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */,
+				4D79E63D1B7EC65800A1F25D /* Merchant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,11 +404,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */,
 				4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */,
+				4D79E6361B7EBA4500A1F25D /* KlockWirkerSetupViewController.xib in Resources */,
 				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
 				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
 				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
+				4D79E6571B80192F00A1F25D /* NewKlockWirkerViewController.xib in Resources */,
+				4D79E63A1B7EBA5B00A1F25D /* MerchantSetupViewController.xib in Resources */,
 				4D39E7CB1B6EE23600DC82DF /* ScheduleViewController.xib in Resources */,
+				4D79E6531B80187900A1F25D /* ReportsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,19 +433,27 @@
 			files = (
 				4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */,
 				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
+				4D79E6471B7F6A7D00A1F25D /* JSONUtilities.swift in Sources */,
+				4D79E6391B7EBA5B00A1F25D /* MerchantSetupViewController.swift in Sources */,
+				4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */,
 				4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */,
 				4DDA8D331B5147F10056800C /* AFPropertyListRequestOperation.m in Sources */,
 				4D39E7CA1B6EE23600DC82DF /* ScheduleViewController.swift in Sources */,
+				4D79E63C1B7EC64900A1F25D /* KlockWirker.swift in Sources */,
+				4D79E63E1B7EC65800A1F25D /* Merchant.swift in Sources */,
 				4D49A73A1B51430D001FCF54 /* KlockWirkServices.swift in Sources */,
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
 				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
-				4DDA8D411B51679D0056800C /* OrdersService.m in Sources */,
 				4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */,
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
+				4D79E6451B7F68AB00A1F25D /* OrdersService.swift in Sources */,
+				4D79E6521B80187900A1F25D /* ReportsViewController.swift in Sources */,
 				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
+				4D79E6351B7EBA4500A1F25D /* KlockWirkerSetupViewController.swift in Sources */,
+				4D79E6561B80192F00A1F25D /* NewKlockWirkerViewController.swift in Sources */,
 				4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */,
 				4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */,
 				4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */,

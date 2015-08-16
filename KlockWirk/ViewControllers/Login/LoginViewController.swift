@@ -9,27 +9,29 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
     }
-    */
 
+    @IBAction func login(sender: AnyObject) {
+        
+        var tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+        
+        self.navigationController?.pushViewController(tabBarController, animated: false)
+        
+        
+    }
+    @IBAction func newMerchantAccount(sender: AnyObject) {
+        
+        self.presentViewController(UINavigationController(rootViewController: MerchantSetupViewController(nibName: "MerchantSetupViewController", bundle: nil)), animated: true, completion: nil)
+    }
+
+    @IBAction func newKlockWirkerAccount(sender: AnyObject) {
+        
+        self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController(nibName: "KlockWirkerSetupViewController", bundle: nil)), animated: true, completion: nil)
+    }
 }

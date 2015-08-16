@@ -12,6 +12,46 @@ import Foundation
 
 class KlockWirkServices{
     
+    
+    func getAllKlockWirkers(){
+        
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodGet)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSArray
+            
+            ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(jsonResult))
+        })
+        
+        task.resume()
+    }
+    
+    
+    
+    func addNewKlockWirker(){
+        
+        
+    }
+    
+    
+    
+    func updateKlockWirker(klockWirker: KlockWirker){
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     func getOrders(){
         
@@ -24,7 +64,6 @@ class KlockWirkServices{
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             var result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-            
             
         })
         
@@ -40,7 +79,6 @@ class KlockWirkServices{
         
         
         return operation
-        
     }
 
 
@@ -50,9 +88,9 @@ class KlockWirkServices{
         
         var request = getHttpClient().requestWithMethod(httpMethod, path:endPoint, parameters: nil)
         
-        request.addValue("application/json", forHTTPHeaderField:"Content-Type")
-        request.addValue("6089f802008f4a27b254bbab455622a7:d3d65e48c168412899fe4c4cb339fa1e107d1ffa44fe438fb96732a9ec0a1aaf", forHTTPHeaderField: HTTPConstants.Authorization)
-        
+//        request.addValue("application/json", forHTTPHeaderField:"Content-Type")
+//        request.addValue("6089f802008f4a27b254bbab455622a7:d3d65e48c168412899fe4c4cb339fa1e107d1ffa44fe438fb96732a9ec0a1aaf", forHTTPHeaderField: HTTPConstants.Authorization)
+//        
         
         return request
     }
@@ -60,9 +98,11 @@ class KlockWirkServices{
     
     func getHttpClient() -> AFHTTPClient{
         
+        var x = ApplicationInformation.getKlockWirkBaseUrl() as String
+        
         var httpClient = AFHTTPClient(baseURL: NSURL(string: ApplicationInformation.getKlockWirkBaseUrl() as String))
         
-        httpClient.parameterEncoding = AFFormURLParameterEncoding
+       // httpClient.parameterEncoding = AFFormURLParameterEncoding
         
         return httpClient
     }
