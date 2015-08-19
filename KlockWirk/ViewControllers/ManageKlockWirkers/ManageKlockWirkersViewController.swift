@@ -21,6 +21,11 @@ class ManageKlockWirkersViewController: UITableViewController {
         setupTableViewDelegates()
         setupNavigationBar()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        setupViewProperties()
+    }
 
     
     
@@ -37,7 +42,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     func setupNavigationBar(){
         
-        var addKlockWirker = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirker"))
+        let addKlockWirker = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirker"))
         self.tabBarController?.navigationItem.rightBarButtonItem = addKlockWirker
     }
     
@@ -72,7 +77,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath) 
         
         let office = self.klockWirkers[indexPath.row] as! KlockWirker
         

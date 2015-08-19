@@ -32,8 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        var service = KlockWirkServices()
+        let service = KlockWirkServices()
         service.getAllKlockWirkers()
+        
+        var k = KlockWirker()
+        
+        
+        
+        k.firstName = "CaseyEE"
+        k.lastName = "Egan"
+        k.emailAddress = "c.egan@me.com"
+        k.phoneNumber = "2222222222"
+        k.password  = "tester1111"
+        
+        service.addNewKlockWirker(k)
         
         
         return true

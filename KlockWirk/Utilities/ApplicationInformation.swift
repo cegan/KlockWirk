@@ -42,13 +42,18 @@ class ApplicationInformation{
     
     class func getKlockWirkers() -> NSMutableArray{
         
-        let klockWirkersData    = NSUserDefaults.standardUserDefaults().objectForKey("KlockWirkersKey") as? NSData
-        var klockWirkersArray   = NSKeyedUnarchiver.unarchiveObjectWithData(klockWirkersData!) as? [KlockWirker]
+        if let klockWirkersData = NSUserDefaults.standardUserDefaults().objectForKey("KlockWirkersKey") as? NSData {
+            
+            let klockWirkersArray   = NSKeyedUnarchiver.unarchiveObjectWithData(klockWirkersData) as? [KlockWirker]
+            
+            let objects = NSMutableArray(array: klockWirkersArray!)
+            
+            
+            return objects
+        }
         
-        var objects = NSMutableArray(array: klockWirkersArray!)
+        return NSMutableArray()
         
-        
-        return objects
         
     }
     

@@ -367,6 +367,8 @@
 		4D49A70B1B513B6A001FCF54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = KlockWirk;
 				TargetAttributes = {
@@ -584,7 +586,7 @@
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d72f4ca3-9db3-40c0-827c-7bbafb2fd486";
+				PROVISIONING_PROFILE = "7a44e749-0434-4222-97bc-8f4ecfee04bc";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
@@ -598,7 +600,7 @@
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d72f4ca3-9db3-40c0-827c-7bbafb2fd486";
+				PROVISIONING_PROFILE = "7a44e749-0434-4222-97bc-8f4ecfee04bc";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;

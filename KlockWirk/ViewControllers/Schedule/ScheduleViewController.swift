@@ -14,13 +14,18 @@ class ScheduleViewController: UIViewController {
         
         super.viewDidLoad()
         
-        initializeViewProperties()
+        setupViewProperties()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        setupViewProperties()
     }
 
    
     
-    func initializeViewProperties(){
+    func setupViewProperties(){
         
-        self.title = "Schedule"
+        self.tabBarController?.navigationItem.title = "Schedule"
     }
 }

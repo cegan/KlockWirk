@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func login(sender: AnyObject) {
         
-        var tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+        let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
         
         self.navigationController?.pushViewController(tabBarController, animated: false)
         

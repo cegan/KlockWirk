@@ -18,7 +18,7 @@ class JSONUtilities{
         
         for element in kws {
             
-            var klockWirker = KlockWirker()
+            let klockWirker = KlockWirker()
             
             klockWirker.klockWirkerId = element.objectForKey("KlockWirkerId") as? Int
             klockWirker.firstName = element.objectForKey("FirstName") as? String

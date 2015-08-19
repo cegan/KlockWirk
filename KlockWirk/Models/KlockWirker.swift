@@ -22,7 +22,7 @@ class KlockWirker: NSObject, NSCoding{
     override init() {}
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         
         self.klockWirkerId = aDecoder.decodeObjectForKey("klockWirkerId") as? Int
         self.firstName = aDecoder.decodeObjectForKey("firstName") as? String
