@@ -72,6 +72,46 @@ class KlockWirkServices{
     }
     
     
+    func registerKlockWirker(emailAddress: String, phoneNumber: String, password: String){
+        
+        
+        NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
+        
+        
+//        let session = NSURLSession.sharedSession()
+//        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
+//        
+//        let params = ["FirstName":"",
+//            "LastName":"",
+//            "Email":emailAddress,
+//            "Phone":phoneNumber,
+//            "Password":password] as Dictionary<String, String>
+//        
+//        do {
+//            
+//            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+//            
+//        } catch {
+//            
+//            print(error)
+//        }
+//        
+//        
+//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            
+//            if let httpResponse = response as? NSHTTPURLResponse {
+//                
+//                if(httpResponse.statusCode == 200){
+//                    
+//                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+//                }
+//            }
+//        })
+//        
+//        task.resume()
+    }
+    
+    
     
     
     

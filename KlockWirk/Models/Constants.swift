@@ -14,6 +14,7 @@ struct NotificationConstants {
     
     static let AddNewKlockWirkerCompeleted  = "AddNewKlockWirkerCompeleted"
     static let RetrieveKlockWirkersCompeleted  = "RetrieveKlockWirkersCompeleted"
+    static let RegisterKlockWirkerCompeleted  = "RegisterKlockWirkerCompeleted"
 }
 
 
