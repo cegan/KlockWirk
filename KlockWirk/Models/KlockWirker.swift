@@ -22,6 +22,16 @@ class KlockWirker: NSObject, NSCoding{
     override init() {}
     
     
+    init(firstName : String, lastName : String, emailAddress: String, phoneNumber: String, password: String) {
+        
+        self.firstName = firstName
+        self.lastName = lastName
+        self.emailAddress = emailAddress
+        self.phoneNumber = phoneNumber
+        self.password = password
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) {
         
         self.klockWirkerId = aDecoder.decodeObjectForKey("klockWirkerId") as? Int

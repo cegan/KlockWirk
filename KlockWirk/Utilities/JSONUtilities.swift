@@ -33,4 +33,22 @@ class JSONUtilities{
         return klockWirkers
     }
     
+    
+    class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
+        
+        
+        let klockWirker = KlockWirker()
+            
+        klockWirker.klockWirkerId = kw.objectForKey("KlockWirkerId") as? Int
+        klockWirker.firstName = kw.objectForKey("FirstName") as? String
+        klockWirker.lastName = kw.objectForKey("LastName") as? String
+        klockWirker.emailAddress = kw.objectForKey("Email") as? String
+        klockWirker.phoneNumber = kw.objectForKey("Phone") as? String
+            
+        
+        return klockWirker
+        
+    }
+    
+    
 }

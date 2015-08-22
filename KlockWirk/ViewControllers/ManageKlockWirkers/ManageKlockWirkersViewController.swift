@@ -10,31 +10,22 @@ import UIKit
 
 class ManageKlockWirkersViewController: UITableViewController {
     
-    let klockWirkers = ApplicationInformation.getKlockWirkers()
+    var klockWirkers = ApplicationInformation.getKlockWirkers()
     
     
-    override func viewDidLoad() {
+    func refreshKlockWirkers(){
         
-        super.viewDidLoad()
+        klockWirkers = ApplicationInformation.getKlockWirkers()
         
-        setupViewProperties()
-        setupTableViewDelegates()
-        setupNavigationBar()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        setupViewProperties()
+        self.tableView.reloadData()
     }
 
-    
-    
-    
     func addNewKlockWirker(){
         
         self.presentViewController(UINavigationController(rootViewController: NewKlockWirkerViewController(nibName: "NewKlockWirkerViewController", bundle: nil)), animated: true, completion: nil)
-        
     }
+    
+    
     
     
     
@@ -60,6 +51,24 @@ class ManageKlockWirkersViewController: UITableViewController {
    
     
     
+    //MARK: Native View Delegates
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        setupViewProperties()
+        setupTableViewDelegates()
+        setupNavigationBar()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        setupViewProperties()
+        refreshKlockWirkers()
+    }
+    
     
     
     
@@ -77,7 +86,9 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath) 
+        let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath)
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         let office = self.klockWirkers[indexPath.row] as! KlockWirker
         
@@ -88,9 +99,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        NotificationUtilities.postNotifiaction(Notifications.UserDidSlectOffice, dataToPost: self.offices[indexPath.row] as Office, keyForData: Keys.SelectedOfficeKey)
-//        
-//        self.closeOfficeSelection()
+        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker), animated: false)
     }
     
 }

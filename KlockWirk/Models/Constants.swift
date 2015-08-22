@@ -10,6 +10,19 @@ import Foundation
 
 
 
+struct NotificationConstants {
+    
+    static let AddNewKlockWirkerCompeleted  = "AddNewKlockWirkerCompeleted"
+    static let RetrieveKlockWirkersCompeleted  = "RetrieveKlockWirkersCompeleted"
+}
+
+
+struct Keys{
+    
+    static let KlockWirkersKey                = "KlockWirkersKey"
+    static let KlockWirkerKey                = "KlockWirkerKey"
+}
+
 
 struct ServiceEndpoints {
     

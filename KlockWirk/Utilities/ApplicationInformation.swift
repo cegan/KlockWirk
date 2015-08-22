@@ -32,11 +32,22 @@ class ApplicationInformation{
     
     class func setKlockWirkers(klockWirkers:[KlockWirker]){
         
-        
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirkers)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
+    }
+    
+    
+    class func addKlockWirker(klockWirker:KlockWirker){
         
-       
+        
+        let existingKlockWirkers = getKlockWirkers()
+        
+        existingKlockWirkers.addObject(klockWirker)
+        
+
+    
+        let myData = NSKeyedArchiver.archivedDataWithRootObject(existingKlockWirkers)
+        NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
     }
     
     
@@ -48,13 +59,10 @@ class ApplicationInformation{
             
             let objects = NSMutableArray(array: klockWirkersArray!)
             
-            
             return objects
         }
         
         return NSMutableArray()
-        
-        
     }
     
         

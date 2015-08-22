@@ -14,7 +14,7 @@ class KlockWirkServices{
     
     
     func getAllKlockWirkers(){
-        
+    
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodGet)
         
@@ -22,13 +22,11 @@ class KlockWirkServices{
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
             
-            ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(jsonResult))
+            NotificationUtilities.postNotifiaction(NotificationConstants.RetrieveKlockWirkersCompeleted, dataToPost: jsonResult, keyForData: Keys.KlockWirkersKey)
         })
         
         task.resume()
     }
-    
-    
     
     func addNewKlockWirker(klockWirkerToAdd:KlockWirker){
         
@@ -54,14 +52,19 @@ class KlockWirkServices{
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-             var result  = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            if let httpResponse = response as? NSHTTPURLResponse {
+              
+                if(httpResponse.statusCode == 200){
             
+                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    
+                    NotificationUtilities.postNotifiaction(NotificationConstants.AddNewKlockWirkerCompeleted, dataToPost: result, keyForData: Keys.KlockWirkerKey)
+                }
+            }
         })
         
         task.resume()
     }
-    
-    
     
     func updateKlockWirker(klockWirker: KlockWirker){
         
