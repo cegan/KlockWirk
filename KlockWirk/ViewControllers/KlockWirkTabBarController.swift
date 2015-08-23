@@ -11,10 +11,10 @@ import Foundation
 
 class KlockWirkTabBarController : UITabBarController{
     
-    let scheduleViewController   = ScheduleViewController(nibName: "ScheduleViewController", bundle: nil)
-    let manageKlockWirkersViewController  = ManageKlockWirkersViewController(nibName: "ManageKlockWirkersViewController", bundle: nil)
-    let reportsViewController  = ReportsViewController(nibName: "ReportsViewController", bundle: nil)
-    let settingsViewController  = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+    let scheduleViewController              = ScheduleViewController(nibName: "ScheduleViewController", bundle: nil)
+    let manageKlockWirkersViewController    = ManageKlockWirkersViewController(nibName: "ManageKlockWirkersViewController", bundle: nil)
+    let reportsViewController               = ReportsViewController(nibName: "ReportsViewController", bundle: nil)
+    let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
     init(){
@@ -31,12 +31,10 @@ class KlockWirkTabBarController : UITabBarController{
             [UINavigationController(rootViewController: scheduleViewController),
                 UINavigationController(rootViewController: manageKlockWirkersViewController),
                 UINavigationController(rootViewController: reportsViewController),
-        UINavigationController(rootViewController: settingsViewController)]
+                UINavigationController(rootViewController: settingsViewController)]
         
         
         self.navigationItem.setHidesBackButton(true, animated: false)
-        
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
