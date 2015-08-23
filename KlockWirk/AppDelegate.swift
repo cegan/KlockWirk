@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let service = KlockWirkServices()
         service.getAllKlockWirkers()
         
+
+        
         return true
     }
     

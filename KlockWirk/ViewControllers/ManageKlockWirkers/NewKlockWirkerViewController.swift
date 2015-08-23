@@ -12,6 +12,7 @@ class NewKlockWirkerViewController: UIViewController {
 
     
     let klockWirkService = KlockWirkServices()
+   
     
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -46,7 +47,6 @@ class NewKlockWirkerViewController: UIViewController {
     
         ApplicationInformation.addKlockWirker(JSONUtilities.parseKlockWirker(data[Keys.KlockWirkerKey]!))
         
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -65,7 +65,10 @@ class NewKlockWirkerViewController: UIViewController {
     
     
     func submitButtonTapped(){
-        
+
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+       
         klockWirkService.addNewKlockWirker(KlockWirker(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, phoneNumber: phone.text!, password: "test"))
     }
     
@@ -73,7 +76,6 @@ class NewKlockWirkerViewController: UIViewController {
     func cancelButtonTapped(){
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     

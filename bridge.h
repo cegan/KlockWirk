@@ -10,5 +10,6 @@
 #define KlockWirk_bridge_h
 
 #import "AFNetworking.h"
+#import "MBProgressHUD.h"
 
 #endif

@@ -35,8 +35,6 @@ class KlockWirkerSetupViewController: UIViewController {
         self.title = "Registration"
     }
     
-    
-    
     func setupNavigationButtons(){
         
         let submit = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.Plain, target: self, action: "submitButtonTapped")

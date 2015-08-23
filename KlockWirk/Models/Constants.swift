@@ -15,6 +15,8 @@ struct NotificationConstants {
     static let AddNewKlockWirkerCompeleted  = "AddNewKlockWirkerCompeleted"
     static let RetrieveKlockWirkersCompeleted  = "RetrieveKlockWirkersCompeleted"
     static let RegisterKlockWirkerCompeleted  = "RegisterKlockWirkerCompeleted"
+    static let LoginFailed  = "LoginFailed"
+    static let LoginSuccessful  = "LoginSuccessful"
 }
 
 
@@ -22,14 +24,16 @@ struct Keys{
     
     static let KlockWirkersKey                = "KlockWirkersKey"
     static let KlockWirkerKey                = "KlockWirkerKey"
+    static let LoginDataKey                = "LoginDataKey"
 }
 
 
 struct ServiceEndpoints {
     
-    static let OrderEndpoint        = "/resources/OrderHistory/?format=json"
+    static let OrderEndpoint                = "/resources/OrderHistory/?format=json"
     static let KlockWirkersEndpoint         = "klockwirkers/"
     static let MerchantsEndpoint            = "merchants/"
+    static let LoginEndpoint                = "Login/"
 }
 
 
