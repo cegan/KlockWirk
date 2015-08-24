@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     
     let loginService = LoginService()
+    let klockWirkService = KlockWirkServices()
     
     @IBOutlet weak var emaiAddress: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -43,8 +44,22 @@ class LoginViewController: UIViewController {
             name:NotificationConstants.LoginSuccessful,
             object: nil
         )
+        
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "retrieveKlockWirkersCompeleted:",
+            name:NotificationConstants.RetrieveKlockWirkersCompeleted,
+            object: nil
+        )
     }
     
+    
+    func retrieveKlockWirkersCompeleted(notification: NSNotification){
+    
+        storeKlockWirkers(notification.userInfo as! Dictionary<String, NSArray>)
+        loadMerchantTabBarController()
+    }
     
     
     func loginFailed(){
@@ -64,8 +79,8 @@ class LoginViewController: UIViewController {
         let loginInfo = data[Keys.LoginDataKey]
         
         
-        let isKlockWirker = loginInfo!.objectForKey("isKlockWirker") as? Bool
-        let isMerchant = loginInfo!.objectForKey("isMerchant") as? Bool
+        let isKlockWirker   = loginInfo!.objectForKey("isKlockWirker") as? Bool
+        let isMerchant      = loginInfo!.objectForKey("isMerchant") as? Bool
         
         
         if(isKlockWirker == true){
@@ -76,12 +91,24 @@ class LoginViewController: UIViewController {
         }
         if(isMerchant == true){
             
-            let tabBarController:MerchantTabBarController = MerchantTabBarController()
-            
-            self.navigationController?.pushViewController(tabBarController, animated: false)
-        }
-       
+            ApplicationInformation.setMerchantId((loginInfo!.objectForKey("MerchantId") as? Int!)!)
         
+            klockWirkService.getAllKlockWirkers(ApplicationInformation.getMerchantId())
+        }
+    }
+    
+    
+    func storeKlockWirkers(klockWirkers: Dictionary<String, NSArray>){
+        
+        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers[Keys.KlockWirkersKey]!))
+    }
+    
+    
+    func loadMerchantTabBarController(){
+        
+        let tabBarController:MerchantTabBarController = MerchantTabBarController()
+        
+        self.navigationController?.pushViewController(tabBarController, animated: false)
         
     }
     

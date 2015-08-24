@@ -29,13 +29,18 @@ class ApplicationInformation{
         }
     }
     
-    
     class func setKlockWirkers(klockWirkers:[KlockWirker]){
         
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirkers)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
     }
     
+    
+    class func setMerchantId(merchantId: Int){
+        
+        NSUserDefaults.standardUserDefaults().setObject(merchantId, forKey: "MerchantId")
+        
+    }
     
     class func addKlockWirker(klockWirker:KlockWirker){
         
@@ -49,7 +54,6 @@ class ApplicationInformation{
         let myData = NSKeyedArchiver.archivedDataWithRootObject(existingKlockWirkers)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
     }
-    
     
     class func getKlockWirkers() -> NSMutableArray{
         
@@ -65,14 +69,22 @@ class ApplicationInformation{
         return NSMutableArray()
     }
     
+    class func getMerchantId() -> Int{
+        
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("MerchantId") as? Int {
+            
+            return value
+            
+        } else {
+            
+            return 0
+        }
+    }
+    
         
         
         
-//        var defaults = NSUserDefaults.standardUserDefaults()
-//        
-//        var myarray : NSArray = defaults.objectForKey("KlockWirkersKey") as! NSArray
-//        
-//        return myarray as! [KlockWirker]
+
     
     
 }

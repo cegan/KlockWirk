@@ -30,10 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         
-        let service = KlockWirkServices()
-        service.getAllKlockWirkers()
-        
-
+//        let service = KlockWirkServices()
+//        service.getAllKlockWirkers()
+//        
+//
         
         return true
     }
@@ -41,14 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func registerNotifications(){
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "addKlockWirkers:",
-            name:NotificationConstants.RetrieveKlockWirkersCompeleted,
-            object: nil
-        )
+//        let notificationCenter = NSNotificationCenter.defaultCenter()
+//        
+//        notificationCenter.addObserver(
+//            self,
+//            selector: "addKlockWirkers:",
+//            name:NotificationConstants.RetrieveKlockWirkersCompeleted,
+//            object: nil
+//        )
     }
     
     
