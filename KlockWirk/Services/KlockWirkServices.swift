@@ -38,7 +38,8 @@ class KlockWirkServices{
             "LastName":klockWirkerToAdd.lastName!,
             "Email":klockWirkerToAdd.emailAddress!,
             "Phone":klockWirkerToAdd.phoneNumber!,
-            "Password":klockWirkerToAdd.password!] as Dictionary<String, String>
+            "Password":klockWirkerToAdd.password!,
+            "MerchantId":"1"] as Dictionary<String, String>
         
         do {
             
@@ -74,41 +75,45 @@ class KlockWirkServices{
     
     func registerKlockWirker(emailAddress: String, phoneNumber: String, password: String){
         
+    
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerRegistration, httpMethod: HTTPConstants.HTTPMethodPost)
         
-        NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
+        let params = [
+            "Email":emailAddress,
+            "Phone":phoneNumber,
+            "Password":password] as Dictionary<String, String>
+        
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            
+        } catch {
+            
+            print(error)
+        }
         
         
-//        let session = NSURLSession.sharedSession()
-//        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
-//        
-//        let params = ["FirstName":"",
-//            "LastName":"",
-//            "Email":emailAddress,
-//            "Phone":phoneNumber,
-//            "Password":password] as Dictionary<String, String>
-//        
-//        do {
-//            
-//            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
-//            
-//        } catch {
-//            
-//            print(error)
-//        }
-//        
-//        
-//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-//            
-//            if let httpResponse = response as? NSHTTPURLResponse {
-//                
-//                if(httpResponse.statusCode == 200){
-//                    
-//                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-//                }
-//            }
-//        })
-//        
-//        task.resume()
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                if(httpResponse.statusCode == 200){
+                    
+                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
+                    })
+                    
+                    
+                }
+            }
+        })
+        
+        task.resume()
     }
     
     

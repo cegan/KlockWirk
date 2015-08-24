@@ -69,7 +69,7 @@ class NewKlockWirkerViewController: UIViewController {
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
        
-        klockWirkService.addNewKlockWirker(KlockWirker(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, phoneNumber: phone.text!, password: "test"))
+        klockWirkService.addNewKlockWirker(KlockWirker(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, phoneNumber: phone.text!, password: ""))
     }
     
     

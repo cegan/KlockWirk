@@ -31,8 +31,6 @@ class LoginService{
                         
                          NotificationUtilities.postNotifiaction(NotificationConstants.LoginSuccessful, dataToPost: jsonResult, keyForData: Keys.LoginDataKey)
                     })
-                    
-                   
                 }
                 
                 if(httpResponse.statusCode == 401){

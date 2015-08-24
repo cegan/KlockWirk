@@ -60,9 +60,29 @@ class LoginViewController: UIViewController {
     
     func loginWasSuccessful(notification: NSNotification){
         
-        let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+        var data = notification.userInfo as! Dictionary<String,NSDictionary>
+        let loginInfo = data[Keys.LoginDataKey]
         
-        self.navigationController?.pushViewController(tabBarController, animated: false)
+        
+        let isKlockWirker = loginInfo!.objectForKey("isKlockWirker") as? Bool
+        let isMerchant = loginInfo!.objectForKey("isMerchant") as? Bool
+        
+        
+        if(isKlockWirker == true){
+            
+            let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+            
+            self.navigationController?.pushViewController(tabBarController, animated: false)
+        }
+        if(isMerchant == true){
+            
+            let tabBarController:MerchantTabBarController = MerchantTabBarController()
+            
+            self.navigationController?.pushViewController(tabBarController, animated: false)
+        }
+       
+        
+        
     }
     
 

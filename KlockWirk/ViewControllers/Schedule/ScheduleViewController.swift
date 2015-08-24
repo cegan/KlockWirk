@@ -10,6 +10,27 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
+    
+    
+    var x: String  = ""
+    
+    init(value: String){
+        
+        super.init(nibName: "ScheduleViewController", bundle: nil);
+        
+       
+        
+        x = value
+        
+    }
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,5 +48,7 @@ class ScheduleViewController: UIViewController {
     func setupViewProperties(){
         
         self.tabBarController?.navigationItem.title = "Schedule"
+        
+       label.text = x
     }
 }
