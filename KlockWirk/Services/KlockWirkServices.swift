@@ -13,8 +13,9 @@ import Foundation
 class KlockWirkServices{
     
     
-    func getAllKlockWirkers(merchantId: Int){
     
+    func getAllKlockWirkers(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
+        
         let parameters = ["merchantId":merchantId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
@@ -25,20 +26,21 @@ class KlockWirkServices{
             
             dispatch_async(dispatch_get_main_queue(), {
                 
-                NotificationUtilities.postNotifiaction(NotificationConstants.RetrieveKlockWirkersCompeleted, dataToPost: jsonResult, keyForData: Keys.KlockWirkersKey)
+                onCompletion(response: jsonResult)
             })
-            
-            
         })
         
         task.resume()
+        
     }
     
-    func addNewKlockWirker(klockWirkerToAdd:KlockWirker){
+    
+    
+    func addNewKlockWirker(klockWirkerToAdd:KlockWirker, onCompletion: (response: NSDictionary) -> ()){
         
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
-       
+        
         
         let params = ["FirstName":klockWirkerToAdd.firstName!,
             "LastName":klockWirkerToAdd.lastName!,
@@ -60,12 +62,15 @@ class KlockWirkServices{
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             if let httpResponse = response as? NSHTTPURLResponse {
-              
+                
                 if(httpResponse.statusCode == 200){
-            
+                    
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     
-                    NotificationUtilities.postNotifiaction(NotificationConstants.AddNewKlockWirkerCompeleted, dataToPost: result, keyForData: Keys.KlockWirkerKey)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: result)
+                    })
                 }
             }
         })
@@ -73,15 +78,11 @@ class KlockWirkServices{
         task.resume()
     }
     
-    func updateKlockWirker(klockWirker: KlockWirker){
-        
-        
-    }
     
+
     
     func registerKlockWirker(emailAddress: String, phoneNumber: String, password: String){
         
-    
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerRegistration, httpMethod: HTTPConstants.HTTPMethodPost)
         

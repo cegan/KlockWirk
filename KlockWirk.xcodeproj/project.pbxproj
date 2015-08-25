@@ -22,7 +22,6 @@
 		4D39E7CA1B6EE23600DC82DF /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */; };
 		4D39E7CB1B6EE23600DC82DF /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */; };
 		4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7181B513B6A001FCF54 /* AppDelegate.swift */; };
-		4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A71A1B513B6A001FCF54 /* ViewController.swift */; };
 		4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71C1B513B6A001FCF54 /* Main.storyboard */; };
 		4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71F1B513B6A001FCF54 /* Images.xcassets */; };
 		4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */; };
@@ -86,7 +85,6 @@
 		4D49A7131B513B6A001FCF54 /* KlockWirk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlockWirk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D49A7171B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D49A7181B513B6A001FCF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D49A71A1B513B6A001FCF54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D49A71D1B513B6A001FCF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D49A71F1B513B6A001FCF54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D49A7221B513B6A001FCF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -224,16 +222,15 @@
 		4D49A7151B513B6A001FCF54 /* KlockWirk */ = {
 			isa = PBXGroup;
 			children = (
+				4D49A7181B513B6A001FCF54 /* AppDelegate.swift */,
+				4D49A71C1B513B6A001FCF54 /* Main.storyboard */,
+				4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */,
+				4D49A71F1B513B6A001FCF54 /* Images.xcassets */,
 				4D39E7BA1B6EE06300DC82DF /* ViewControllers */,
 				4DDA8D3C1B5150F00056800C /* Models */,
 				4DDA8D371B514AB00056800C /* Utilities */,
 				4D49A7381B5142BB001FCF54 /* Services */,
 				4DDA8D191B5147F10056800C /* Frameworks */,
-				4D49A7181B513B6A001FCF54 /* AppDelegate.swift */,
-				4D49A71A1B513B6A001FCF54 /* ViewController.swift */,
-				4D49A71C1B513B6A001FCF54 /* Main.storyboard */,
-				4D49A71F1B513B6A001FCF54 /* Images.xcassets */,
-				4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */,
 				4D49A7161B513B6A001FCF54 /* Supporting Files */,
 			);
 			path = KlockWirk;
@@ -495,7 +492,6 @@
 				4D79E6391B7EBA5B00A1F25D /* MerchantSetupViewController.swift in Sources */,
 				4D2C546A1B8A907B0007AFD5 /* MerchantTabBarController.swift in Sources */,
 				4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */,
-				4D49A71B1B513B6A001FCF54 /* ViewController.swift in Sources */,
 				4D2C545B1B8A03130007AFD5 /* MBProgressHUD.m in Sources */,
 				4D2C54561B88244F0007AFD5 /* AccountSetupConfirmationViewController.swift in Sources */,
 				4D2C545D1B8A6D9E0007AFD5 /* LoginService.swift in Sources */,

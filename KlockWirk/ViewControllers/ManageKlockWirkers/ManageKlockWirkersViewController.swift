@@ -10,7 +10,7 @@ import UIKit
 
 class ManageKlockWirkersViewController: UITableViewController {
     
-    var klockWirkers = ApplicationInformation.getKlockWirkers()
+    var klockWirkers = NSMutableArray()
     
     
     func refreshKlockWirkers(){

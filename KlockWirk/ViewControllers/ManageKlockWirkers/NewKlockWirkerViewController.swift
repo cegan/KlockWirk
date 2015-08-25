@@ -24,7 +24,6 @@ class NewKlockWirkerViewController: UIViewController {
         
         super.viewDidLoad()
 
-        registerNotification()
         setupViewProperties()
         setupNavigationButtons()
     }
@@ -39,37 +38,21 @@ class NewKlockWirkerViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = submit
     }
     
-    
-    
-    func newKlockWirkerWasSuccessfullyAdded(notification: NSNotification){
-        
-        var data = notification.userInfo as! Dictionary<String,NSDictionary>
-    
-        ApplicationInformation.addKlockWirker(JSONUtilities.parseKlockWirker(data[Keys.KlockWirkerKey]!))
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    func registerNotification(){
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "newKlockWirkerWasSuccessfullyAdded:",
-            name:NotificationConstants.AddNewKlockWirkerCompeleted,
-            object: nil
-        )
-    }
-    
+
     
     func submitButtonTapped(){
 
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
-       
-        klockWirkService.addNewKlockWirker(KlockWirker(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, phoneNumber: phone.text!, password: ""))
+        
+        let kw = KlockWirker(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, phoneNumber: phone.text!, password: "")
+        
+        klockWirkService.addNewKlockWirker(kw) { (response: NSDictionary) in
+            
+            ApplicationInformation.addKlockWirker(JSONUtilities.parseKlockWirker(response))
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     

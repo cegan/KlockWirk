@@ -33,56 +33,9 @@ class LoginViewController: UIViewController {
             name:NotificationConstants.LoginFailed,
             object: nil
         )
-        
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "loginWasSuccessful:",
-            name:NotificationConstants.LoginSuccessful,
-            object: nil
-        )
-        
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "retrieveKlockWirkersCompeleted:",
-            name:NotificationConstants.RetrieveKlockWirkersCompeleted,
-            object: nil
-        )
-    }
-    
-    func retrieveKlockWirkersCompeleted(notification: NSNotification){
-    
-        storeKlockWirkers(notification.userInfo as! Dictionary<String, NSArray>)
-        loadMerchantTabBarController()
-    }
-    
-    func loginWasSuccessful(notification: NSNotification){
-        
-        var data = notification.userInfo as! Dictionary<String,NSDictionary>
-        let loginInfo = data[Keys.LoginDataKey]
-        
-        
-        let isKlockWirker   = loginInfo!.objectForKey("isKlockWirker") as? Bool
-        let isMerchant      = loginInfo!.objectForKey("isMerchant") as? Bool
-        
-        
-        if(isKlockWirker == true){
-            
-            let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
-            
-            self.navigationController?.pushViewController(tabBarController, animated: false)
-        }
-        if(isMerchant == true){
-            
-            ApplicationInformation.setMerchantId((loginInfo!.objectForKey("MerchantId") as? Int!)!)
-            
-            klockWirkService.getAllKlockWirkers(ApplicationInformation.getMerchantId())
-        }
     }
     
     func loginFailed(){
-        
         
         let alertController = UIAlertController(title: "Login", message:
             "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
@@ -93,17 +46,21 @@ class LoginViewController: UIViewController {
     
     
     
-    
-    //MARK: Utility Methods
-    
-    func storeKlockWirkers(klockWirkers: Dictionary<String, NSArray>){
+    func storeKlockWirkers(klockWirkers: NSArray){
         
-        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers[Keys.KlockWirkersKey]!))
+        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers))
     }
     
     func loadMerchantTabBarController(){
         
         let tabBarController:MerchantTabBarController = MerchantTabBarController()
+        
+        self.navigationController?.pushViewController(tabBarController, animated: false)
+    }
+    
+    func loadKlockWirkerTabBarController(){
+        
+        let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
         
         self.navigationController?.pushViewController(tabBarController, animated: false)
         
@@ -128,7 +85,27 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(sender: AnyObject) {
         
-        loginService.login(emaiAddress.text!, password: password.text!)
+        loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
+            
+            let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
+            let isMerchant      = response.objectForKey("isMerchant") as? Bool
+            let merchantId      = response.objectForKey("MerchantId") as? Int
+            
+            if(isKlockWirker == true){
+                
+                self.loadKlockWirkerTabBarController()
+            }
+            if(isMerchant == true){
+                
+                self.klockWirkService.getAllKlockWirkers(merchantId!) {(response: NSArray) in
+                    
+                    ApplicationInformation.setMerchantId(merchantId!)
+                    ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
+                
+                    self.loadMerchantTabBarController()
+                }
+            }
+        }
     }
     
     @IBAction func newMerchantAccount(sender: AnyObject) {
