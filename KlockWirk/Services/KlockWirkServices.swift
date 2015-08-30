@@ -31,8 +31,29 @@ class KlockWirkServices{
         })
         
         task.resume()
-        
     }
+    
+    func getMerchant(merchantId: Int, onCompletion: (response: NSDictionary) -> ()) {
+        
+        let parameters = ["merchantId":merchantId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.MerchantsEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
+    
+    
     
     
     
@@ -77,9 +98,6 @@ class KlockWirkServices{
         
         task.resume()
     }
-    
-    
-
     
     func registerKlockWirker(emailAddress: String, phoneNumber: String, password: String){
         
@@ -132,7 +150,7 @@ class KlockWirkServices{
     func getOrders(){
         
         
-        let baseUrl = ApplicationInformation.getKlockWirkBaseUrl() as String
+        let baseUrl = "https://gate25.revelup.com"
         let session = NSURLSession.sharedSession()
         
         let request = getUrlRequestForEndpoint(ServiceEndpoints.OrderEndpoint, httpMethod: HTTPConstants.HTTPMethodGet)
@@ -172,9 +190,8 @@ class KlockWirkServices{
         let request = getHttpClient().requestWithMethod(httpMethod, path:endPoint, parameters: nil)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-//        request.addValue("application/json", forHTTPHeaderField:"Content-Type")
-//        request.addValue("6089f802008f4a27b254bbab455622a7:d3d65e48c168412899fe4c4cb339fa1e107d1ffa44fe438fb96732a9ec0a1aaf", forHTTPHeaderField: HTTPConstants.Authorization)
-//        
+        request.addValue("6089f802008f4a27b254bbab455622a7:d3d65e48c168412899fe4c4cb339fa1e107d1ffa44fe438fb96732a9ec0a1aaf", forHTTPHeaderField: HTTPConstants.Authorization)
+        
         
         return request
     }

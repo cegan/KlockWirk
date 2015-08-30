@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     
     let loginService        = LoginService()
@@ -76,8 +76,35 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         registerNotification()
+        setupDelegates()
     }
     
+    
+    func setupDelegates(){
+        
+        emaiAddress.delegate = self
+        password.delegate = self
+    }
+    
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if(textField.tag == 0){
+            
+        }
+        else{
+            
+            textField.text = ""
+            password.secureTextEntry = true
+        }
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    
+        
+    }
     
     
     
@@ -97,9 +124,13 @@ class LoginViewController: UIViewController {
             }
             if(isMerchant == true){
                 
+                self.klockWirkService.getMerchant(merchantId!) {(response: NSDictionary) in
+                    
+                    ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
+                }
+                
                 self.klockWirkService.getAllKlockWirkers(merchantId!) {(response: NSArray) in
                     
-                    ApplicationInformation.setMerchantId(merchantId!)
                     ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
                 
                     self.loadMerchantTabBarController()

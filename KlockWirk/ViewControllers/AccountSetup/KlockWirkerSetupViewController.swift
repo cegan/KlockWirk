@@ -63,8 +63,6 @@ class KlockWirkerSetupViewController: UIViewController {
         let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
         
         self.navigationController?.pushViewController(tabBarController, animated: false)
-        
-       // self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

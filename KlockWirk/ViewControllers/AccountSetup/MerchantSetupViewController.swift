@@ -10,23 +10,43 @@ import UIKit
 
 class MerchantSetupViewController: UIViewController {
     
-//    init(){
-//        
-//        super.init(nibName: "MerchantSetupViewController", bundle: nil);
-//    }
-//    
-//    required init(coder aDecoder: NSCoder) {
-//        
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
+
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupViewProperties()
+        setupNavigationButtons()
+    }
+    
+    func setupViewProperties(){
+        
+        self.title = "Registration"
+    }
+    
+    
+    func setupNavigationButtons(){
+        
+        let submit = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.Plain, target: self, action: "submitButtonTapped")
+        let cancel = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
+        
+        self.navigationItem.leftBarButtonItem = cancel
+        self.navigationItem.rightBarButtonItem = submit
     }
 
+    
+    
+    func submitButtonTapped(){
+        
+    }
+    
+    
+    func cancelButtonTapped(){
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
   
 
 }
