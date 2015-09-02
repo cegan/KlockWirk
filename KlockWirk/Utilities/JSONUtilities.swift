@@ -61,7 +61,7 @@ class JSONUtilities{
         merchant.posSystemBaseApiUrl = m.objectForKey("PosSystemBaseApiUrl") as? String
         merchant.posSystemApiKey = m.objectForKey("PosSystemApiKey") as? String
         merchant.posSystem = m.objectForKey("PosSystem") as? String
-        merchant.name = m.objectForKey("Name") as? String
+        merchant.firstName = m.objectForKey("Name") as? String
         merchant.address = m.objectForKey("Address") as? String
         merchant.city = m.objectForKey("City") as? String
         merchant.state = m.objectForKey("State") as? String

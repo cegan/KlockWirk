@@ -137,6 +137,44 @@ class KlockWirkServices{
     }
     
     
+    func registerMerchant(merchant: Merchant, onCompletion: (response: NSDictionary) -> ()){
+        
+//        let session = NSURLSession.sharedSession()
+//        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerRegistration, httpMethod: HTTPConstants.HTTPMethodPost)
+//        
+//        let params = [
+//            "Email":emailAddress,
+//            "Phone":phoneNumber,
+//            "Password":password] as Dictionary<String, String>
+//        
+//        do {
+//            
+//            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+//            
+//        } catch {
+//            
+//            print(error)
+//        }
+//        
+//        
+//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            
+//            if let httpResponse = response as? NSHTTPURLResponse {
+//                
+//                if(httpResponse.statusCode == 200){
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        
+//                        NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
+//                    })
+//                }
+//            }
+//        })
+//        
+//        task.resume()
+    }
+    
+    
     
     
     
