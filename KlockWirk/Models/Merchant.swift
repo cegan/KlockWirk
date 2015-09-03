@@ -13,21 +13,21 @@ import Foundation
 class Merchant: NSObject, NSCoding{
     
     
-    var merchantId: Int?
-    var posSystemId: Int?
-    var posSystemBaseApiUrl: String?
-    var posSystemApiKey: String?
-    var posSystem: String?
-    var firstName: String?
-    var lastName: String?
-    var address: String?
-    var city: String?
-    var state: String?
-    var zipCode: String?
-    var manager: String?
-    var phone: String?
-    var email: String?
-    var password: String?
+    var merchantId: Int = 0
+    var posSystemId: Int = 0
+    var posSystemBaseApiUrl: String = ""
+    var posSystemApiKey: String = ""
+    var posSystem: String = "'"
+    var firstName: String = ""
+    var lastName: String = ""
+    var address: String = ""
+    var city: String = ""
+    var state: String = ""
+    var zipCode: String = ""
+    var manager: String = ""
+    var phone: String = ""
+    var email: String = ""
+    var password: String = ""
     
     
     override init() {}
@@ -35,21 +35,21 @@ class Merchant: NSObject, NSCoding{
     
     required init?(coder aDecoder: NSCoder) {
         
-        self.merchantId = aDecoder.decodeObjectForKey("merchantId") as? Int
-        self.posSystemId = aDecoder.decodeObjectForKey("posSystemId") as? Int
-        self.posSystemBaseApiUrl = aDecoder.decodeObjectForKey("posSystemBaseApiUrl") as? String
-        self.posSystemApiKey = aDecoder.decodeObjectForKey("posSystemApiKey") as? String
-        self.posSystem = aDecoder.decodeObjectForKey("posSystem") as? String
-        self.firstName = aDecoder.decodeObjectForKey("firstName") as? String
-        self.lastName = aDecoder.decodeObjectForKey("lastName") as? String
-        self.address = aDecoder.decodeObjectForKey("address") as? String
-        self.city = aDecoder.decodeObjectForKey("city") as? String
-        self.state = aDecoder.decodeObjectForKey("state") as? String
-        self.zipCode = aDecoder.decodeObjectForKey("zipCode") as? String
-        self.manager = aDecoder.decodeObjectForKey("manager") as? String
-        self.phone = aDecoder.decodeObjectForKey("phone") as? String
-        self.email = aDecoder.decodeObjectForKey("email") as? String
-        self.password = aDecoder.decodeObjectForKey("password") as? String
+        self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
+        self.posSystemId = (aDecoder.decodeObjectForKey("posSystemId") as? Int!)!
+        self.posSystemBaseApiUrl = (aDecoder.decodeObjectForKey("posSystemBaseApiUrl") as? String!)!
+        self.posSystemApiKey = (aDecoder.decodeObjectForKey("posSystemApiKey") as? String)!
+        self.posSystem = (aDecoder.decodeObjectForKey("posSystem") as? String)!
+        self.firstName = (aDecoder.decodeObjectForKey("firstName") as? String)!
+        self.lastName = (aDecoder.decodeObjectForKey("lastName") as? String)!
+        self.address = (aDecoder.decodeObjectForKey("address") as? String)!
+        self.city = (aDecoder.decodeObjectForKey("city") as? String)!
+        self.state = (aDecoder.decodeObjectForKey("state") as? String)!
+        self.zipCode = (aDecoder.decodeObjectForKey("zipCode") as? String)!
+        self.manager = (aDecoder.decodeObjectForKey("manager") as? String)!
+        self.phone = (aDecoder.decodeObjectForKey("phone") as? String)!
+        self.email = (aDecoder.decodeObjectForKey("email") as? String)!
+        self.password = (aDecoder.decodeObjectForKey("password") as? String)!
     }
     
     

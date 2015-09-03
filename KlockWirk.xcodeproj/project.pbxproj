@@ -23,6 +23,8 @@
 		4D2C54761B952BD20007AFD5 /* EnrollmentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54741B952BD20007AFD5 /* EnrollmentViewCell.swift */; };
 		4D2C54771B952BD20007AFD5 /* EnrollmentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54751B952BD20007AFD5 /* EnrollmentViewCell.xib */; };
 		4D2C547B1B9536A60007AFD5 /* AccountSetupField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */; };
+		4D2C547D1B97C7F20007AFD5 /* MerchantServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547C1B97C7F20007AFD5 /* MerchantServices.swift */; };
+		4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547E1B97C8CE0007AFD5 /* BaseKlockWirkService.swift */; };
 		4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */; };
 		4D39E7CA1B6EE23600DC82DF /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */; };
 		4D39E7CB1B6EE23600DC82DF /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */; };
@@ -87,6 +89,8 @@
 		4D2C54741B952BD20007AFD5 /* EnrollmentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentViewCell.swift; sourceTree = "<group>"; };
 		4D2C54751B952BD20007AFD5 /* EnrollmentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollmentViewCell.xib; sourceTree = "<group>"; };
 		4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupField.swift; sourceTree = "<group>"; };
+		4D2C547C1B97C7F20007AFD5 /* MerchantServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantServices.swift; sourceTree = "<group>"; };
+		4D2C547E1B97C8CE0007AFD5 /* BaseKlockWirkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseKlockWirkService.swift; sourceTree = "<group>"; };
 		4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkTabBarController.swift; sourceTree = "<group>"; };
 		4D39E7C81B6EE23600DC82DF /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4D39E7C91B6EE23600DC82DF /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
@@ -281,8 +285,10 @@
 			isa = PBXGroup;
 			children = (
 				4D49A7391B51430D001FCF54 /* KlockWirkServices.swift */,
+				4D2C547C1B97C7F20007AFD5 /* MerchantServices.swift */,
 				4D79E6441B7F68AB00A1F25D /* OrdersService.swift */,
 				4D2C545C1B8A6D9E0007AFD5 /* LoginService.swift */,
+				4D2C547E1B97C8CE0007AFD5 /* BaseKlockWirkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				4D79E63E1B7EC65800A1F25D /* Merchant.swift in Sources */,
 				4D49A73A1B51430D001FCF54 /* KlockWirkServices.swift in Sources */,
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
+				4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */,
 				4D2C545F1B8A70B10007AFD5 /* DictionaryExtenstions.swift in Sources */,
 				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
@@ -537,6 +544,7 @@
 				4D2C54761B952BD20007AFD5 /* EnrollmentViewCell.swift in Sources */,
 				4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */,
 				4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */,
+				4D2C547D1B97C7F20007AFD5 /* MerchantServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

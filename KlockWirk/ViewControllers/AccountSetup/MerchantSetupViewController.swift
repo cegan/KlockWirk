@@ -11,6 +11,7 @@ import UIKit
 class MerchantSetupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var merchantSetupFields = NSMutableArray()
+    let merchantService    = MerchantServices()
     let klockWirkService    = KlockWirkServices()
     
     @IBOutlet weak var merchantSetupTable: UITableView!
@@ -26,9 +27,6 @@ class MerchantSetupViewController: UIViewController, UITableViewDataSource, UITa
         setupNavigationButtons()
         
         merchantSetupFields = self.getMerchantSetupFields()
-        
-        
-        
     }
     
     
@@ -100,19 +98,17 @@ class MerchantSetupViewController: UIViewController, UITableViewDataSource, UITa
         let posSystem = merchantSetupTable.cellForRowAtIndexPath(NSIndexPath(forRow: 9, inSection: 0)) as! EnrollmentViewCell
         let password = merchantSetupTable.cellForRowAtIndexPath(NSIndexPath(forRow: 10, inSection: 0)) as! EnrollmentViewCell
         
-        returnMerchant.firstName = firstName.enrollmentTextField.text
-        returnMerchant.lastName = lastName.enrollmentTextField.text
-        returnMerchant.address = address.enrollmentTextField.text
-        returnMerchant.city = city.enrollmentTextField.text
-        returnMerchant.state = state.enrollmentTextField.text
-        returnMerchant.zipCode = zipCode.enrollmentTextField.text
-        returnMerchant.phone = phone.enrollmentTextField.text
-        returnMerchant.email = email.enrollmentTextField.text
-        returnMerchant.manager = manager.enrollmentTextField.text
-        returnMerchant.posSystem = posSystem.enrollmentTextField.text
-        returnMerchant.password = password.enrollmentTextField.text
-        
-
+        returnMerchant.firstName = firstName.enrollmentTextField.text!
+        returnMerchant.lastName = lastName.enrollmentTextField.text!
+        returnMerchant.address = address.enrollmentTextField.text!
+        returnMerchant.city = city.enrollmentTextField.text!
+        returnMerchant.state = state.enrollmentTextField.text!
+        returnMerchant.zipCode = zipCode.enrollmentTextField.text!
+        returnMerchant.phone = phone.enrollmentTextField.text!
+        returnMerchant.email = email.enrollmentTextField.text!
+        returnMerchant.manager = manager.enrollmentTextField.text!
+        returnMerchant.posSystem = posSystem.enrollmentTextField.text!
+        returnMerchant.password = password.enrollmentTextField.text!
         
         return returnMerchant
         
@@ -122,10 +118,23 @@ class MerchantSetupViewController: UIViewController, UITableViewDataSource, UITa
     
     func submitButtonTapped(){
     
-        klockWirkService.registerMerchant(getCompletedMerchantRegistration()) { (response: NSDictionary) in
-            
-            
+        merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: NSDictionary) in
         
+            ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
+            ApplicationInformation.setKlockWirkers([KlockWirker]())
+         
+//            self.klockWirkService.getAllKlockWirkers(ApplicationInformation.getMerchantId()) {(response: NSArray) in
+//                
+//                ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
+//                
+//                ApplicationInformation.setKlockWirkers([KlockWirker]())
+//            }
+            
+            
+            
+            let tabBarController:MerchantTabBarController = MerchantTabBarController()
+            
+            self.navigationController?.pushViewController(tabBarController, animated: false)
         }
     }
     

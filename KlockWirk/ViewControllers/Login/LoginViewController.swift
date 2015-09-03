@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     let loginService        = LoginService()
     let klockWirkService    = KlockWirkServices()
+    let merchantService     = MerchantServices()
     
     @IBOutlet weak var emaiAddress: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -124,7 +125,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             }
             if(isMerchant == true){
                 
-                self.klockWirkService.getMerchant(merchantId!) {(response: NSDictionary) in
+                self.merchantService.getMerchant(merchantId!) {(response: NSDictionary) in
                     
                     ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
                 }

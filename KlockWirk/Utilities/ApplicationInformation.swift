@@ -91,7 +91,7 @@ class ApplicationInformation{
         
         if let merchant = getMerchant() {
             
-            return merchant.merchantId!
+            return merchant.merchantId
             
         } else {
             

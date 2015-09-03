@@ -71,7 +71,6 @@ class KlockWirkerSetupViewController: UIViewController {
         klockWirkService.registerKlockWirker(emailAddress.text!, phoneNumber: phoneNumber.text!, password: password.text!)
     }
     
-    
     func cancelButtonTapped(){
      
         self.dismissViewControllerAnimated(true, completion: nil)

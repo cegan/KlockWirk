@@ -56,19 +56,19 @@ class JSONUtilities{
         
         let merchant = Merchant()
         
-        merchant.merchantId = m.objectForKey("MerchantId") as? Int
-        merchant.posSystemId = m.objectForKey("PosSystemId") as? Int
-        merchant.posSystemBaseApiUrl = m.objectForKey("PosSystemBaseApiUrl") as? String
-        merchant.posSystemApiKey = m.objectForKey("PosSystemApiKey") as? String
-        merchant.posSystem = m.objectForKey("PosSystem") as? String
-        merchant.firstName = m.objectForKey("Name") as? String
-        merchant.address = m.objectForKey("Address") as? String
-        merchant.city = m.objectForKey("City") as? String
-        merchant.state = m.objectForKey("State") as? String
-        merchant.zipCode = m.objectForKey("ZipCode") as? String
-        merchant.manager = m.objectForKey("Manager") as? String
-        merchant.phone = m.objectForKey("Phone") as? String
-        merchant.email = m.objectForKey("Email") as? String
+        merchant.merchantId = (m.objectForKey("MerchantId") as? Int)!
+        merchant.posSystemId = (m.objectForKey("PosSystemId") as? Int)!
+        merchant.posSystemBaseApiUrl = (m.objectForKey("PosSystemBaseApiUrl") as? String)!
+        merchant.posSystemApiKey = (m.objectForKey("PosSystemApiKey") as? String)!
+        merchant.posSystem = (m.objectForKey("PosSystem") as? String)!
+        merchant.firstName = (m.objectForKey("Name") as? String)!
+        merchant.address = (m.objectForKey("Address") as? String)!
+        merchant.city = (m.objectForKey("City") as? String)!
+        merchant.state = (m.objectForKey("State") as? String)!
+        merchant.zipCode = (m.objectForKey("ZipCode") as? String)!
+        merchant.manager = (m.objectForKey("Manager") as? String)!
+        merchant.phone = (m.objectForKey("Phone") as? String)!
+        merchant.email = (m.objectForKey("Email") as? String)!
        
         return merchant
     }
