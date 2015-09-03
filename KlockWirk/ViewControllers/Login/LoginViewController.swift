@@ -16,9 +16,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     let merchantService     = MerchantServices()
     
     @IBOutlet weak var emaiAddress: UITextField!
-    @IBOutlet weak var password: UITextField!
-
-    
+    @IBOutlet weak var password: UITextField!    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
 
@@ -43,9 +42,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        stopActivityIndicator()
     }
     
     
+    
+    //MARK: Setup Methods
+    
+    func setupViewProperties(){
+        
+        self.title = "KlockWirk"
+    }
+    
+    func setupNavigationButtons(){
+        
+        let register = UIBarButtonItem(title: "Register", style: UIBarButtonItemStyle.Plain, target: self, action: "registerButtonTapped")
+        
+        self.navigationItem.rightBarButtonItem = register
+    }
+    
+    func setupDelegates(){
+        
+        emaiAddress.delegate = self
+        password.delegate = self
+    }
+    
+    
+    
+    //MARK: Utility Methods
     
     func storeKlockWirkers(klockWirkers: NSArray){
         
@@ -67,6 +92,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         
     }
     
+    func startActivityIndicator(){
+        
+        activityIndicator.hidden = false;
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator(){
+        
+        activityIndicator.hidden = true;
+        activityIndicator.stopAnimating()
+    }
+    
 
     
     
@@ -77,16 +114,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         
         registerNotification()
+        setupViewProperties()
+        setupNavigationButtons()
         setupDelegates()
-    }
-    
-    
-    func setupDelegates(){
         
-        emaiAddress.delegate = self
-        password.delegate = self
+        activityIndicator.hidden = true
     }
-    
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
@@ -100,7 +133,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
-    
     func textFieldDidEndEditing(textField: UITextField) {
         
     
@@ -109,9 +141,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     
     
+    
+    
     //MARK: Actions
     
     @IBAction func login(sender: AnyObject) {
+        
+        startActivityIndicator()
         
         loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
             
@@ -140,13 +176,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
-    @IBAction func newMerchantAccount(sender: AnyObject) {
+    func registerButtonTapped(){
         
-        self.presentViewController(UINavigationController(rootViewController: MerchantSetupViewController(nibName: "MerchantSetupViewController", bundle: nil)), animated: true, completion: nil)
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        
+        let klockWirkerAction = UIAlertAction(title: "KlockWirker", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            
+            self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController(nibName: "KlockWirkerSetupViewController", bundle: nil)), animated: true, completion: nil)
+            
+        })
+        let merchantAction = UIAlertAction(title: "Merchant", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            
+            self.presentViewController(UINavigationController(rootViewController: MerchantSetupViewController(nibName: "MerchantSetupViewController", bundle: nil)), animated: true, completion: nil)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(klockWirkerAction)
+        optionMenu.addAction(merchantAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
 
-    @IBAction func newKlockWirkerAccount(sender: AnyObject) {
-        
-        self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController(nibName: "KlockWirkerSetupViewController", bundle: nil)), animated: true, completion: nil)
-    }
+
 }
