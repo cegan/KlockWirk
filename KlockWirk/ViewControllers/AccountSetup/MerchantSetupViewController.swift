@@ -12,7 +12,7 @@ class MerchantSetupViewController: UIViewController, UITableViewDataSource, UITa
 
     var merchantSetupFields = NSMutableArray()
     let merchantService    = MerchantServices()
-    let klockWirkService    = KlockWirkServices()
+    let klockWirkService    = KlockWirkerServices()
     
     @IBOutlet weak var merchantSetupTable: UITableView!
     

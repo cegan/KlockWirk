@@ -11,7 +11,7 @@ import UIKit
 class NewKlockWirkerViewController: UIViewController {
 
     
-    let klockWirkService = KlockWirkServices()
+    let klockWirkService = KlockWirkerServices()
    
     
     @IBOutlet weak var firstName: UITextField!

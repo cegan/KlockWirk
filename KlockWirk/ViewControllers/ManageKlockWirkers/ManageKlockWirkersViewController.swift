@@ -34,7 +34,8 @@ class ManageKlockWirkersViewController: UITableViewController {
     func setupNavigationBar(){
         
         let addKlockWirker = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirker"))
-        self.tabBarController?.navigationItem.rightBarButtonItem = addKlockWirker
+        
+        self.navigationItem.rightBarButtonItem = addKlockWirker
     }
     
     func setupTableViewDelegates(){

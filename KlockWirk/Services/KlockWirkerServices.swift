@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class KlockWirkServices : BaseKlockWirkService{
+class KlockWirkerServices : BaseKlockWirkService{
     
     
     

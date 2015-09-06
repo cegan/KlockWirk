@@ -25,10 +25,10 @@ class EnrollmentViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         
-        if(enrollmentTextField.text == ""){
-            
-            enrollmentTextField.text = accountSetupField.defaluValue
-        }
+//        if(enrollmentTextField.text == ""){
+//            
+//            enrollmentTextField.text = accountSetupField.defaluValue
+//        }
     }
     
     
@@ -43,6 +43,7 @@ class EnrollmentViewCell: UITableViewCell, UITextFieldDelegate {
         
         accountSetupField = detail
         
-        enrollmentTextField.text = accountSetupField.defaluValue
+        enrollmentTextField.placeholder = accountSetupField.defaluValue
+     //   enrollmentTextField.text = accountSetupField.defaluValue
     }
 }

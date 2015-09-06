@@ -10,9 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    
-    var loginControllerNavigationController: UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle: nil))
-    
+
     
     override func viewDidLoad() {
         
@@ -25,7 +23,7 @@ class SettingsViewController: UIViewController {
         
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window!.rootViewController = loginControllerNavigationController
+        appDelegate.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         
     }
 

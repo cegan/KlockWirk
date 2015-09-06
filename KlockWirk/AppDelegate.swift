@@ -20,38 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        registerNotifications()
         loadApplicationSettings()
         setUserInterfaceDefaults()
         
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.loginControllerNavigationController
+        //self.window?.rootViewController = self.loginControllerNavigationController
+        
+        self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        
+        
         self.window?.makeKeyAndVisible()
-        
-        
-//        let service = KlockWirkServices()
-//        service.getOrders()
-        
-
         
         return true
     }
     
     
-    func registerNotifications(){
-        
-//        let notificationCenter = NSNotificationCenter.defaultCenter()
-//        
-//        notificationCenter.addObserver(
-//            self,
-//            selector: "addKlockWirkers:",
-//            name:NotificationConstants.RetrieveKlockWirkersCompeleted,
-//            object: nil
-//        )
-    }
-    
-    
+
     
     func addKlockWirkers(notification: NSNotification){
         
@@ -91,7 +76,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUserInterfaceDefaults(){
         
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+       // UINavigationBar.appearance().backgroundColor = UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)
+      //  UINavigationBar.appearance().backgroundColor = UIColor.blueColor()
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)]
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState: UIControlState.Normal)
         UINavigationBar.appearance().translucent = true
     }

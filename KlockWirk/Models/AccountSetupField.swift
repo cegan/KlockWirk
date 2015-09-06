@@ -27,7 +27,4 @@ public class AccountSetupField{
         self.value = val
         self.tag = tag
     }
-    
-    
-    
 }

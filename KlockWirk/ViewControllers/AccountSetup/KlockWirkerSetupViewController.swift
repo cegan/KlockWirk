@@ -11,7 +11,7 @@ import UIKit
 class KlockWirkerSetupViewController: UIViewController {
 
 
-    let klockWirkService = KlockWirkServices()
+    let klockWirkService = KlockWirkerServices()
     
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
