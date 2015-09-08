@@ -65,7 +65,7 @@
                 <constraint firstItem="yJG-DP-fow" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c9u-Wq-VJa"/>
                 <constraint firstItem="hTh-VU-yDK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="x4V-ec-82g"/>
             </constraints>
-            <point key="canvasLocation" x="213" y="350"/>
+            <point key="canvasLocation" x="-133" y="275"/>
         </view>
     </objects>
 </document>

@@ -40,38 +40,4 @@ class BaseKlockWirkService{
         
         return httpClient
     }
-    
-    
-    
-    
-//    
-//    func getOrders(){
-//        
-//        
-//        let baseUrl = "https://gate25.revelup.com"
-//        let session = NSURLSession.sharedSession()
-//        
-//        let request = getUrlRequestForEndpoint(ServiceEndpoints.OrderEndpoint, httpMethod: HTTPConstants.HTTPMethodGet)
-//        
-//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-//            
-//            var result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-//            
-//        })
-//        
-//        task.resume()
-//    }
-//    
-//    
-//    func getOrdersOperation() -> AFHTTPRequestOperation{
-//        
-//        let request = getUrlRequestForEndpoint(ServiceEndpoints.OrderEndpoint, httpMethod: HTTPConstants.HTTPMethodGet)
-//        
-//        let operation = AFHTTPRequestOperation(request: request)
-//        
-//        
-//        return operation
-//    }
-    
-    
 }

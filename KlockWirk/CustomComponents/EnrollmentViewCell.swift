@@ -34,7 +34,10 @@ class EnrollmentViewCell: UITableViewCell, UITextFieldDelegate {
     
     func setupCellProperties(){
         
-        enrollmentTextField.borderStyle = UITextBorderStyle.None
+        //enrollmentTextField.borderStyle = UITextBorderStyle.None
+        
+        enrollmentTextField.borderStyle = UITextBorderStyle.RoundedRect
+        
         enrollmentTextField.delegate = self
         selectionStyle = UITableViewCellSelectionStyle.None
     }

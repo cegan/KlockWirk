@@ -11,12 +11,13 @@ import Foundation
 
 class KlockWirker: NSObject, NSCoding{
 
-    var klockWirkerId: Int?
-    var firstName: String?
-    var lastName: String?
-    var emailAddress: String?
-    var phoneNumber: String?
-    var password: String?
+    var klockWirkerId: Int = 0
+    var firstName: String = ""
+    var lastName: String = ""
+    var emailAddress: String = ""
+    var phoneNumber: String = ""
+    var password: String = ""
+    var confirmPassword: String = ""
     
     
     override init() {}
@@ -34,12 +35,13 @@ class KlockWirker: NSObject, NSCoding{
     
     required init?(coder aDecoder: NSCoder) {
         
-        self.klockWirkerId = aDecoder.decodeObjectForKey("klockWirkerId") as? Int
-        self.firstName = aDecoder.decodeObjectForKey("firstName") as? String
-        self.lastName = aDecoder.decodeObjectForKey("lastName") as? String
-        self.emailAddress = aDecoder.decodeObjectForKey("emailAddress") as? String
-        self.phoneNumber = aDecoder.decodeObjectForKey("phoneNumber") as? String
-        self.password = aDecoder.decodeObjectForKey("password") as? String
+        self.klockWirkerId = (aDecoder.decodeObjectForKey("klockWirkerId") as? Int)!
+        self.firstName = (aDecoder.decodeObjectForKey("firstName") as? String)!
+        self.lastName = (aDecoder.decodeObjectForKey("lastName") as? String)!
+        self.emailAddress = (aDecoder.decodeObjectForKey("emailAddress") as? String)!
+        self.phoneNumber = (aDecoder.decodeObjectForKey("phoneNumber") as? String)!
+        self.password = (aDecoder.decodeObjectForKey("password") as? String)!
+        self.confirmPassword = (aDecoder.decodeObjectForKey("confirmPassword") as? String)!
     }
     
     
@@ -51,6 +53,7 @@ class KlockWirker: NSObject, NSCoding{
         aCoder.encodeObject(emailAddress, forKey: "emailAddress")
         aCoder.encodeObject(phoneNumber, forKey: "phoneNumber")
         aCoder.encodeObject(password, forKey: "password")
+        aCoder.encodeObject(confirmPassword, forKey: "confirmPassword")
         
     }
 }

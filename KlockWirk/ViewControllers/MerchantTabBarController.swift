@@ -13,9 +13,9 @@ import Foundation
 class MerchantTabBarController :UITabBarController{
     
     
-    let scheduleViewController              = ScheduleViewController(value: "Welcome Merchant")
+    let homeViewController                  = HomeViewController(nibName: "HomeViewController", bundle: nil)
+    let scheduleViewController              = ScheduleViewController(value: "")
     let manageKlockWirkersViewController    = ManageKlockWirkersViewController(nibName: "ManageKlockWirkersViewController", bundle: nil)
-    let reportsViewController               = ReportsViewController(nibName: "ReportsViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
@@ -23,16 +23,16 @@ class MerchantTabBarController :UITabBarController{
         
         super.init(nibName: nil, bundle: nil);
         
-        scheduleViewController.tabBarItem      = UITabBarItem(title: "Schedule", image: UIImage(named:"calendar.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
-        manageKlockWirkersViewController.tabBarItem     = UITabBarItem(title: "Manage KlockWirkers", image: UIImage(named:"manageKlockwirkers.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
-        reportsViewController.tabBarItem     = UITabBarItem(title: "Reports", image: UIImage(named:"reports.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
+        homeViewController.tabBarItem      = UITabBarItem(title: "Home", image: UIImage(named:"home.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
+        scheduleViewController.tabBarItem      = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
+        manageKlockWirkersViewController.tabBarItem     = UITabBarItem(title: "Manage KlockWirkers", image: UIImage(named:"manageKlockwirkers.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
         settingsViewController.tabBarItem     = UITabBarItem(title: "Setings", image: UIImage(named:"settings.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 4)
         
         
         self.viewControllers =
-            [UINavigationController(rootViewController: scheduleViewController),
+            [UINavigationController(rootViewController: homeViewController),
+                UINavigationController(rootViewController: scheduleViewController),
                 UINavigationController(rootViewController: manageKlockWirkersViewController),
-                UINavigationController(rootViewController: reportsViewController),
                 UINavigationController(rootViewController: settingsViewController)]
         
         

@@ -68,7 +68,7 @@ class KlockWirkerSetupViewController: UIViewController {
     
     func submitButtonTapped(){
         
-        klockWirkService.registerKlockWirker(emailAddress.text!, phoneNumber: phoneNumber.text!, password: password.text!)
+        //klockWirkService.registerKlockWirker(emailAddress.text!, phoneNumber: phoneNumber.text!, password: password.text!)
     }
     
     func cancelButtonTapped(){

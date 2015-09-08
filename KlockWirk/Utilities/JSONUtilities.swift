@@ -20,11 +20,11 @@ class JSONUtilities{
             
             let klockWirker = KlockWirker()
             
-            klockWirker.klockWirkerId = element.objectForKey("KlockWirkerId") as? Int
-            klockWirker.firstName = element.objectForKey("FirstName") as? String
-            klockWirker.lastName = element.objectForKey("LastName") as? String
-            klockWirker.emailAddress = element.objectForKey("Email") as? String
-            klockWirker.phoneNumber = element.objectForKey("Phone") as? String
+            klockWirker.klockWirkerId = (element.objectForKey("KlockWirkerId") as? Int)!
+            klockWirker.firstName = (element.objectForKey("FirstName") as? String)!
+            klockWirker.lastName = (element.objectForKey("LastName") as? String)!
+            klockWirker.emailAddress = (element.objectForKey("Email") as? String)!
+            klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
     
             klockWirkers.append(klockWirker)
         
@@ -36,18 +36,15 @@ class JSONUtilities{
     
     class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
         
-        
         let klockWirker = KlockWirker()
             
-        klockWirker.klockWirkerId = kw.objectForKey("KlockWirkerId") as? Int
-        klockWirker.firstName = kw.objectForKey("FirstName") as? String
-        klockWirker.lastName = kw.objectForKey("LastName") as? String
-        klockWirker.emailAddress = kw.objectForKey("Email") as? String
-        klockWirker.phoneNumber = kw.objectForKey("Phone") as? String
-            
+        klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
+        klockWirker.firstName = (kw.objectForKey("FirstName") as? String)!
+        klockWirker.lastName = (kw.objectForKey("LastName") as? String)!
+        klockWirker.emailAddress = (kw.objectForKey("Email") as? String)!
+        klockWirker.phoneNumber = (kw.objectForKey("Phone") as? String)!
         
         return klockWirker
-        
     }
     
     

@@ -16,15 +16,20 @@ class SettingsViewController: UIViewController {
         
         super.viewDidLoad()
         
+        setupViewProperties()
     }
-
-  
-    @IBAction func logoutTouched(sender: AnyObject) {
+    
+    
+    func setupViewProperties(){
         
+        self.navigationItem.title = "Settings"
+    }
+    
+
+    @IBAction func logoutTouched(sender: AnyObject) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        
     }
 
 }

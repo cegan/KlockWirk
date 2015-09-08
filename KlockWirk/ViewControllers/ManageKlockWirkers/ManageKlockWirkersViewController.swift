@@ -47,7 +47,7 @@ class ManageKlockWirkersViewController: UITableViewController {
    
     func setupViewProperties(){
         
-        self.tabBarController?.navigationItem.title = "Manage KlockWirkers"
+        self.navigationItem.title = "Manage KlockWirkers"
     }
    
     
@@ -93,7 +93,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         
         let office = self.klockWirkers[indexPath.row] as! KlockWirker
         
-        cell.textLabel?.text = office.firstName! + " " + office.lastName!
+        cell.textLabel?.text = office.firstName + " " + office.lastName
         
         return cell
     }

@@ -12,8 +12,6 @@ import Foundation
 
 class KlockWirkerServices : BaseKlockWirkService{
     
-    
-    
     func getAllKlockWirkers(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
         
         let parameters = ["merchantId":merchantId]
@@ -38,11 +36,11 @@ class KlockWirkerServices : BaseKlockWirkService{
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
         
-        let params = ["FirstName":klockWirkerToAdd.firstName!,
-            "LastName":klockWirkerToAdd.lastName!,
-            "Email":klockWirkerToAdd.emailAddress!,
-            "Phone":klockWirkerToAdd.phoneNumber!,
-            "Password":klockWirkerToAdd.password!,
+        let params = ["FirstName":klockWirkerToAdd.firstName,
+            "LastName":klockWirkerToAdd.lastName,
+            "Email":klockWirkerToAdd.emailAddress,
+            "Phone":klockWirkerToAdd.phoneNumber,
+            "Password":klockWirkerToAdd.password,
             "MerchantId":String(ApplicationInformation.getMerchantId())] as Dictionary<String, String>
         
         do {
@@ -68,21 +66,27 @@ class KlockWirkerServices : BaseKlockWirkService{
                         onCompletion(response: result)
                     })
                 }
+                else{
+                    
+                    let result:NSDictionary = ["statusCode":httpResponse.statusCode] as Dictionary<String, Int>
+                    
+                    onCompletion(response: result)
+                }
             }
         })
         
         task.resume()
     }
     
-    func registerKlockWirker(emailAddress: String, phoneNumber: String, password: String){
+    func registerKlockWirker(klockWirker: KlockWirker,onCompletion: (response: NSDictionary) -> ()){
         
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerRegistration, httpMethod: HTTPConstants.HTTPMethodPost)
         
         let params = [
-            "Email":emailAddress,
-            "Phone":phoneNumber,
-            "Password":password] as Dictionary<String, String>
+            "Email":klockWirker.emailAddress,
+            "Phone":klockWirker.phoneNumber,
+            "Password":klockWirker.password] as Dictionary<String, String>
         
         do {
             
@@ -100,29 +104,29 @@ class KlockWirkerServices : BaseKlockWirkService{
                 
                 if(httpResponse.statusCode == 200){
                     
+                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    
                     dispatch_async(dispatch_get_main_queue(), {
+                    
+                        onCompletion(response: result)
                         
                         NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
                     })
+                }
+                else{
+                    
+                    let statusCode:NSDictionary = ["statusCode":httpResponse.statusCode] as Dictionary<String, Int>
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: statusCode)
+                    }) 
                 }
             }
         })
         
         task.resume()
     }
-
-    
-    
-    
-    
-    
-    
-
-    
-
-
-
-
 }
 
 

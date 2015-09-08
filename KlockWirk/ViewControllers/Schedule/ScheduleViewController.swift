@@ -10,19 +10,10 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    
-    
-    var x: String  = ""
-    
+
     init(value: String){
         
         super.init(nibName: "ScheduleViewController", bundle: nil);
-        
-       
-        
-        x = value
-        
     }
     
     
@@ -36,19 +27,30 @@ class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         
         setupViewProperties()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         
         setupViewProperties()
     }
-
-   
+    
+    func setupNavigationBar(){
+        
+        let addNewSchedule = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewSchedule"))
+        
+        self.navigationItem.rightBarButtonItem = addNewSchedule
+    }
+    
+    
+    func addNewSchedule(){
+        
+        self.presentViewController(UINavigationController(rootViewController: NewScheduleViewController(nibName: "NewScheduleViewController", bundle: nil)), animated: true, completion: nil)
+    }
+    
     
     func setupViewProperties(){
         
-        self.tabBarController?.navigationItem.title = "Schedule"
-        
-       label.text = x
+        self.navigationItem.title = "Schedules"
     }
 }

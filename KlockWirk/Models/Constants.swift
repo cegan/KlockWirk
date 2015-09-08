@@ -35,6 +35,12 @@ struct ServiceEndpoints {
 }
 
 
+struct HTTPStatusCodes {
+    
+    static let HTTPNotFound = 404
+}
+
+
 struct HTTPConstants {
     
     static let HTTPMethodPost    = "POST"
