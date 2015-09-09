@@ -231,7 +231,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             (alert: UIAlertAction!) -> Void in
             
             self.presentViewController(UINavigationController(rootViewController: MerchantSetupViewController(nibName: "MerchantSetupViewController", bundle: nil)), animated: true, completion: nil)
-            
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
