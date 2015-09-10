@@ -47,7 +47,7 @@ class ManageKlockWirkersViewController: UITableViewController {
    
     func setupViewProperties(){
         
-        self.navigationItem.title = "Manage KlockWirkers"
+        self.navigationItem.title = "KlockWirkers"
     }
    
     

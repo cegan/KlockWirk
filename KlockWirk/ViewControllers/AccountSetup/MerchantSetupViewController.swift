@@ -27,6 +27,26 @@ class MerchantSetupViewController: UITableViewController {
         merchantSetupFields = self.getMerchantSetupFields()
     }
 
+    func displayActivityindicator(){
+        
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+    }
+    
+    
+    func endEditing(){
+        
+        view.endEditing(true)
+    }
+    
+    func loadMerchantTabBarController(){
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let tabBarController:MerchantTabBarController = MerchantTabBarController()
+        
+        appDelegate.window!.rootViewController = tabBarController
+    }
 
     func setupTableViewProperties(){
         
@@ -52,29 +72,29 @@ class MerchantSetupViewController: UITableViewController {
         
         let returnMerchant = Merchant()
         
-        let firstName = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! EnrollmentViewCell
-        let lastName = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! EnrollmentViewCell
-        let address = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)) as! EnrollmentViewCell
-        let city = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)) as! EnrollmentViewCell
-        let state = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 4, inSection: 0)) as! EnrollmentViewCell
-        let zipCode = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 5, inSection: 0)) as! EnrollmentViewCell
-        let phone = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 6, inSection: 0)) as! EnrollmentViewCell
-        let email = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 7, inSection: 0)) as! EnrollmentViewCell
-        let manager = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 8, inSection: 0)) as! EnrollmentViewCell
-        let posSystem = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 9, inSection: 0)) as! EnrollmentViewCell
-        let password = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 10, inSection: 0)) as! EnrollmentViewCell
+        let firstName = merchantSetupFields.objectAtIndex(0) as! AccountSetupField
+        let lastName = merchantSetupFields.objectAtIndex(1) as! AccountSetupField
+        let address = merchantSetupFields.objectAtIndex(2) as! AccountSetupField
+        let city = merchantSetupFields.objectAtIndex(3) as! AccountSetupField
+        let state = merchantSetupFields.objectAtIndex(4) as! AccountSetupField
+        let zipCode = merchantSetupFields.objectAtIndex(5) as! AccountSetupField
+        let phone = merchantSetupFields.objectAtIndex(6) as! AccountSetupField
+        let email = merchantSetupFields.objectAtIndex(7) as! AccountSetupField
+        let manager = merchantSetupFields.objectAtIndex(8) as! AccountSetupField
+        let posSystem = merchantSetupFields.objectAtIndex(9) as! AccountSetupField
+        let password = merchantSetupFields.objectAtIndex(10) as! AccountSetupField
         
-        returnMerchant.firstName = firstName.enrollmentTextField.text!
-        returnMerchant.lastName = lastName.enrollmentTextField.text!
-        returnMerchant.address = address.enrollmentTextField.text!
-        returnMerchant.city = city.enrollmentTextField.text!
-        returnMerchant.state = state.enrollmentTextField.text!
-        returnMerchant.zipCode = zipCode.enrollmentTextField.text!
-        returnMerchant.phone = phone.enrollmentTextField.text!
-        returnMerchant.email = email.enrollmentTextField.text!
-        returnMerchant.manager = manager.enrollmentTextField.text!
-        returnMerchant.posSystem = posSystem.enrollmentTextField.text!
-        returnMerchant.password = password.enrollmentTextField.text!
+        returnMerchant.firstName = firstName.value!
+        returnMerchant.lastName = lastName.value!
+        returnMerchant.address = address.value!
+        returnMerchant.city = city.value!
+        returnMerchant.state = state.value!
+        returnMerchant.zipCode = zipCode.value!
+        returnMerchant.phone = phone.value!
+        returnMerchant.email = email.value!
+        returnMerchant.manager = manager.value!
+        returnMerchant.posSystem = posSystem.value!
+        returnMerchant.password = password.value!
         
         return returnMerchant
         
@@ -102,15 +122,14 @@ class MerchantSetupViewController: UITableViewController {
     
     func submitButtonTapped(){
         
+        endEditing()
+        displayActivityindicator()
+        
         merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: NSDictionary) in
             
             ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
             ApplicationInformation.setKlockWirkers([KlockWirker]())
-            
-
-            let tabBarController:MerchantTabBarController = MerchantTabBarController()
-            
-            self.navigationController?.pushViewController(tabBarController, animated: false)
+            self.loadMerchantTabBarController()
         }
     }
     
@@ -135,26 +154,33 @@ class MerchantSetupViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if(section == 0) {
-            var view = UIView() // The width will be the same as the cell, and the height should be set in tableView:heightForRowAtIndexPath:
-            var label = UILabel()
-            label.text="My Details"
-            //let button   = UIButton.buttonWithType(UIButtonType.System) as UIButton
-            // button.addTarget(self, action: "visibleRow:", forControlEvents:.TouchUpInside)
-            //label.setTranslatesAutoresizingMaskIntoConstraints(false)
-            // button.setTranslatesAutoresizingMaskIntoConstraints(false)
-            //button.setTitle("Test Title", forState: .Normal)
-            // let views = ["label": label,"button":button,"view": view]
-            view.addSubview(label)
-            //view.addSubview(button)
-            // var horizontallayoutContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[label]-60-[button]-10-|", options: .AlignAllCenterY, metrics: nil, views: views)
-            // view.addConstraints(horizontallayoutContraints)
             
-            // var verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
-            // view.addConstraint(verticalLayoutContraint)
+            let view = UIView(frame: CGRectMake(20, 10, 330, 10))
+            let label = UILabel(frame: CGRectMake(20, 10, 330, 40))
+            
+            label.text = "Enter the below information to register as a new merchant"
+            label.textColor = UIColor.lightGrayColor()
+            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
+            label.numberOfLines = 2
+            
+            view.addSubview(label)
+            
             return view
         }
-        return nil
         
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        switch (section) {
+            
+        case 0:
+            return 80
+            
+        default:
+            return 50
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
