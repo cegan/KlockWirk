@@ -15,7 +15,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     func refreshKlockWirkers(){
         
-        klockWirkers = ApplicationInformation.getKlockWirkers()
+        klockWirkers = (ApplicationInformation.getMerchant()?.klockWirkers)!
         
         self.tableView.reloadData()
     }
@@ -25,9 +25,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         self.presentViewController(UINavigationController(rootViewController: NewKlockWirkerViewController(nibName: "NewKlockWirkerViewController", bundle: nil)), animated: true, completion: nil)
     }
     
-    
-    
-    
+
     
     //MARK: Setup
     
@@ -51,6 +49,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     }
    
     
+
     
     //MARK: Native View Delegates
     
@@ -64,9 +63,15 @@ class ManageKlockWirkersViewController: UITableViewController {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
+    }
+    
     override func viewWillAppear(animated: Bool) {
         
-        setupViewProperties()
+        self.navigationItem.title = "KlockWirkers"
         refreshKlockWirkers()
     }
     

@@ -28,6 +28,8 @@ class Merchant: NSObject, NSCoding{
     var phone: String = ""
     var email: String = ""
     var password: String = ""
+    var schedules: NSMutableArray = NSMutableArray()
+    var klockWirkers: NSMutableArray = NSMutableArray()
     
     
     override init() {}
@@ -50,6 +52,8 @@ class Merchant: NSObject, NSCoding{
         self.phone = (aDecoder.decodeObjectForKey("phone") as? String)!
         self.email = (aDecoder.decodeObjectForKey("email") as? String)!
         self.password = (aDecoder.decodeObjectForKey("password") as? String)!
+        self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSMutableArray)!
+        self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSMutableArray)!
     }
     
     
@@ -70,5 +74,7 @@ class Merchant: NSObject, NSCoding{
         aCoder.encodeObject(phone, forKey: "phone")
         aCoder.encodeObject(email, forKey: "email")
         aCoder.encodeObject(password, forKey: "password")
+        aCoder.encodeObject(schedules, forKey: "schedules")
+        aCoder.encodeObject(klockWirkers, forKey: "klockWirkers")
     }
 }

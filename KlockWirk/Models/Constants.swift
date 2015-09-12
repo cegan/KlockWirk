@@ -32,6 +32,7 @@ struct ServiceEndpoints {
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
+    static let ScheduleEndpoint             = "Schedules/"
 }
 
 

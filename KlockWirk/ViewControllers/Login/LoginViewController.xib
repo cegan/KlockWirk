@@ -42,27 +42,34 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
-                    <rect key="frame" x="225" y="280" width="150" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1" customClass="TKTransitionSubmitButton" customModule="KlockWirk" customModuleProvider="target">
+                    <rect key="frame" x="142" y="280" width="317" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="KGw-KC-kYZ"/>
-                        <constraint firstAttribute="width" constant="150" id="dGh-3u-7pb"/>
+                        <constraint firstAttribute="height" constant="40" id="esE-hf-UjS"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                    <state key="normal" title="Log in">
+                    <state key="normal" title="Sign In">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                            <color key="value" red="0.11764705882352941" green="0.6705882352941176" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="login:" destination="-1" eventType="touchUpInside" id="YKI-q0-Ncy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
-                    <rect key="frame" x="225" y="418" width="150" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3" customClass="TKTransitionSubmitButton" customModule="KlockWirk" customModuleProvider="target">
+                    <rect key="frame" x="142" y="418" width="317" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="DdY-0u-POH"/>
+                        <constraint firstAttribute="height" constant="40" id="flq-Nb-pNl"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                    <state key="normal" title="Register"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
                     </connections>
@@ -70,16 +77,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fGU-Jf-om1" firstAttribute="leading" secondItem="ZBe-dW-Rc3" secondAttribute="leading" id="I7m-I8-aY2"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="Lbl-rf-nvs"/>
-                <constraint firstItem="fGU-Jf-om1" firstAttribute="centerX" secondItem="faR-vW-8Fo" secondAttribute="centerX" id="MvN-9I-CyM"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="ELB-Vv-LIT" secondAttribute="leading" id="SAB-Rx-QjG"/>
-                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="trailing" secondItem="fGU-Jf-om1" secondAttribute="trailing" id="Wa4-wq-EoO"/>
+                <constraint firstItem="fGU-Jf-om1" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="TCR-y4-x17"/>
+                <constraint firstItem="fGU-Jf-om1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Zxh-au-pVm"/>
+                <constraint firstItem="fGU-Jf-om1" firstAttribute="top" secondItem="faR-vW-8Fo" secondAttribute="bottom" constant="28" id="a3h-d7-bau"/>
+                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="trailing" secondItem="fGU-Jf-om1" secondAttribute="trailing" id="bV5-VL-AyQ"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="top" secondItem="ELB-Vv-LIT" secondAttribute="bottom" constant="14" id="cyQ-gA-JQD"/>
+                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="leading" secondItem="fGU-Jf-om1" secondAttribute="leading" id="d2z-TF-66B"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ehl-jy-cbo"/>
-                <constraint firstItem="fGU-Jf-om1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="h34-fN-Rop"/>
-                <constraint firstItem="fGU-Jf-om1" firstAttribute="top" secondItem="faR-vW-8Fo" secondAttribute="bottom" constant="28" id="hSP-ql-Pvw"/>
-                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="98" id="qSj-4n-b0R"/>
+                <constraint firstItem="fGU-Jf-om1" firstAttribute="leading" secondItem="faR-vW-8Fo" secondAttribute="leading" id="fD7-ka-qWr"/>
+                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="98" id="w1N-4b-0J9"/>
             </constraints>
             <point key="canvasLocation" x="-2356" y="-222"/>
         </view>

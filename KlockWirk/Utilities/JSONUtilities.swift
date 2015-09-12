@@ -50,7 +50,6 @@ class JSONUtilities{
     
     class func parseMerchant(m: NSDictionary) -> Merchant{
         
-        
         let merchant = Merchant()
         
         merchant.merchantId = (m.objectForKey("MerchantId") as? Int)!
@@ -66,6 +65,34 @@ class JSONUtilities{
         merchant.manager = (m.objectForKey("Manager") as? String)!
         merchant.phone = (m.objectForKey("Phone") as? String)!
         merchant.email = (m.objectForKey("Email") as? String)!
+        
+        
+        let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
+        
+        for obj: AnyObject in merchantSchedules {
+            
+            let schedule = Schedule()
+            
+            schedule.merchantId = (obj.objectForKey("MerchantId") as? Int)!
+            
+            merchant.schedules.addObject(schedule)
+        }
+        
+
+        let klockWirkers = (m.objectForKey("KlockWirkers") as? NSArray)!
+        
+        for element: AnyObject in klockWirkers {
+            
+            let klockWirker = KlockWirker()
+            
+            klockWirker.klockWirkerId = (element.objectForKey("KlockWirkerId") as? Int)!
+            klockWirker.firstName = (element.objectForKey("FirstName") as? String)!
+            klockWirker.lastName = (element.objectForKey("LastName") as? String)!
+            klockWirker.emailAddress = (element.objectForKey("Email") as? String)!
+            klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
+            
+            merchant.klockWirkers.addObject(klockWirker)
+        }
        
         return merchant
     }

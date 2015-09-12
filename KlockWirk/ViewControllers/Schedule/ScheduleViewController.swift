@@ -11,6 +11,8 @@ import UIKit
 class ScheduleViewController: UIViewController {
 
 
+    
+    
     init(value: String){
         
         super.init(nibName: "ScheduleViewController", bundle: nil);
@@ -45,9 +47,8 @@ class ScheduleViewController: UIViewController {
     
     func addNewSchedule(){
         
-        self.presentViewController(UINavigationController(rootViewController: NewScheduleViewController(nibName: "NewScheduleViewController", bundle: nil)), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController: AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
     }
-    
     
     func setupViewProperties(){
         

@@ -11,6 +11,7 @@ import UIKit
 class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate   {
 
     
+    var merchant = Merchant()
     let klockWirkService = KlockWirkerServices()
     var klockWirkerRegistrationFields = NSMutableArray()
     @IBOutlet weak var newKlockWirkerTableView: UITableView!
@@ -24,6 +25,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         setupTableViewDelegates()
         setupTableViewProperties()
         
+        merchant = ApplicationInformation.getMerchant()!
         klockWirkerRegistrationFields = getKlockWirkerRegistrationFields()
     }
     
@@ -87,7 +89,9 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
         klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
             
-            ApplicationInformation.addKlockWirker(JSONUtilities.parseKlockWirker(response))
+            self.merchant.klockWirkers.addObject(JSONUtilities.parseKlockWirker(response))
+            
+            ApplicationInformation.setMerchant(self.merchant)
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }

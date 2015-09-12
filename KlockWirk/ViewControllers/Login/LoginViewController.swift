@@ -8,8 +8,9 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate  {
+class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate  {
     
+    var btn: TKTransitionSubmitButton!
     
     let loginService        = LoginService()
     let klockWirkService    = KlockWirkerServices()
@@ -17,10 +18,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     let activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: TKTransitionSubmitButton!
+    @IBOutlet weak var loginButton: TKTransitionSubmitButton!
     @IBOutlet weak var emaiAddress: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    
+    
+    
+    
+    func onTapButton(button: TKTransitionSubmitButton) {
+        
+        button.animate(100000, completion: { () -> () in
+
+        })
+    }
 
 
     //MARK: Notifications
@@ -39,6 +51,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     func loginFailed(){
         
+        
+        loginButton.returnToOriginalState()
+        
         let alertController = UIAlertController(title: "Login", message:
             "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
@@ -47,8 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         
         stopActivityIndicator()
     }
-    
-    
+
     func installSplashImage(){
         
         let u = ImageUtilities()
@@ -82,22 +96,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     func setupLoginButton(){
         
-        activityIndicator.hidden = true
-        activityIndicator.color = UIColor.whiteColor()
-        activityIndicator.frame = CGRectMake(125, 12, 15, 15)
         
-        loginButton.backgroundColor = UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)
-        loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        loginButton.layer.cornerRadius = 5
+        loginButton.setTitle("Sign in", forState: .Normal)
+        loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 14)
         
-        loginButton.addSubview(activityIndicator)
-    }
-
-    func setupRegisterButton(){
         
-        registerButton.backgroundColor = UIColor.redColor()
-        registerButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        registerButton.layer.cornerRadius = 5
+//        activityIndicator.hidden = true
+//        activityIndicator.color = UIColor.whiteColor()
+//        activityIndicator.frame = CGRectMake(125, 12, 15, 15)
+        
+       // loginButton.backgroundColor = UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)
+       // loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+      //  loginButton.layer.cornerRadius = 5
+        
+       // loginButton.addSubview(activityIndicator)
     }
     
     func setupViewProperties(){
@@ -129,28 +141,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     func loadMerchantTabBarController(){
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let tabBarController:MerchantTabBarController = MerchantTabBarController()
-        
-        appDelegate.window!.rootViewController = tabBarController
-        
-        //self.navigationController?.pushViewController(tabBarController, animated: false)
+        let tbc = MerchantTabBarController()
+        tbc.transitioningDelegate = self
+        self.presentViewController(tbc, animated: true, completion: nil)
     }
     
     func loadKlockWirkerTabBarController(){
         
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-       
-        
-        
-        let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
-        
-        appDelegate.window!.rootViewController = tabBarController
-        
-        //self.navigationController?.pushViewController(tabBarController, animated: false)
-        
+        let tbc = KlockWirkTabBarController()
+        tbc.transitioningDelegate = self
+        self.presentViewController(tbc, animated: true, completion: nil)
     }
     
     func startActivityIndicator(){
@@ -177,11 +177,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         registerNotification()
         setupViewProperties()
         setupLoginButton()
-        setupRegisterButton()
         setupNavigationButtons()
         setupDelegates()
         installSplashImage()
-  
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -209,6 +207,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     
     
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return TKFadeInAnimator(transitionDuration: 1.0, startingAlpha: 0.6)
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
     
     
     //MARK: Actions
@@ -250,6 +258,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     }
     
     @IBAction func login(sender: AnyObject) {
+        
+        
+        loginButton.animate(100000, completion: { () -> () in
+            
+        })
+        
         
         self.view.endEditing(true)
         startActivityIndicator()
