@@ -11,7 +11,7 @@ import Foundation
 
 class KlockWirkTabBarController : UITabBarController{
     
-    let scheduleViewController  = ScheduleViewController(value: "Welcome KlockWirker")
+    let homeViewController  = HomeViewController(nibName: "HomeViewController", bundle: nil)
     let settingsViewController  = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
@@ -19,11 +19,11 @@ class KlockWirkTabBarController : UITabBarController{
         
         super.init(nibName: nil, bundle: nil);
         
-        scheduleViewController.tabBarItem     = UITabBarItem(title: "Schedule", image: UIImage(named:"calendar.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
+        homeViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
         settingsViewController.tabBarItem     = UITabBarItem(title: "Settings", image: UIImage(named:"settings.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
         
         self.viewControllers = [
-            UINavigationController(rootViewController: scheduleViewController),
+            UINavigationController(rootViewController: homeViewController),
             UINavigationController(rootViewController: settingsViewController)]
         
         self.navigationItem.setHidesBackButton(true, animated: false)

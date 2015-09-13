@@ -14,7 +14,7 @@ class MerchantTabBarController :UITabBarController{
     
     
     let homeViewController                  = HomeViewController(nibName: "HomeViewController", bundle: nil)
-    let scheduleViewController              = ScheduleViewController(value: "")
+    let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let manageKlockWirkersViewController    = ManageKlockWirkersViewController(nibName: "ManageKlockWirkersViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     

@@ -1,15 +1,16 @@
 //
-//  HomeViewController.swift
+//  ScheduleDetailViewController.swift
 //  KlockWirk
 //
-//  Created by Casey Egan on 9/7/15.
+//  Created by Casey Egan on 9/13/15.
 //  Copyright © 2015 KlockWirk. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ScheduleDetailViewController: UIViewController {
 
+    
     var pieChart:Chart!
     
     override func viewDidLoad() {
@@ -24,17 +25,13 @@ class HomeViewController: UIViewController {
     func setupChart(){
         
         pieChart = Chart()
-        pieChart.view.frame = CGRectMake(0, 50, view.frame.width, view.frame.width)
+        pieChart.view.frame = CGRectMake(0, 20, view.frame.width, view.frame.width)
         
         view.addSubview(pieChart.view)
     }
     
     func setupViewProperties(){
         
-        self.navigationItem.title = "Home"
+        self.navigationItem.title = "Schedule Detail"
     }
-    
-
 }
-
-
