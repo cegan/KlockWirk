@@ -12,7 +12,6 @@
 		4D2C54531B880EE40007AFD5 /* KlockWirkerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54511B880EE40007AFD5 /* KlockWirkerDetailViewController.xib */; };
 		4D2C545B1B8A03130007AFD5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C545A1B8A03130007AFD5 /* MBProgressHUD.m */; };
 		4D2C545D1B8A6D9E0007AFD5 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C545C1B8A6D9E0007AFD5 /* LoginService.swift */; };
-		4D2C545F1B8A70B10007AFD5 /* DictionaryExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C545E1B8A70B10007AFD5 /* DictionaryExtenstions.swift */; };
 		4D2C54631B8A7A8F0007AFD5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54611B8A7A8F0007AFD5 /* SettingsViewController.swift */; };
 		4D2C54641B8A7A8F0007AFD5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54621B8A7A8F0007AFD5 /* SettingsViewController.xib */; };
 		4D2C546A1B8A907B0007AFD5 /* MerchantTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54691B8A907B0007AFD5 /* MerchantTabBarController.swift */; };
@@ -21,7 +20,6 @@
 		4D2C547B1B9536A60007AFD5 /* AccountSetupField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */; };
 		4D2C547D1B97C7F20007AFD5 /* MerchantServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547C1B97C7F20007AFD5 /* MerchantServices.swift */; };
 		4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C547E1B97C8CE0007AFD5 /* BaseKlockWirkService.swift */; };
-		4D2C54811B9AA1580007AFD5 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54801B9AA1580007AFD5 /* ImageUtilities.swift */; };
 		4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54821B9C03000007AFD5 /* PosSalesService.swift */; };
 		4D2C54861B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */; };
 		4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */; };
@@ -108,7 +106,6 @@
 		4D2C54591B8A03130007AFD5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4D2C545A1B8A03130007AFD5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4D2C545C1B8A6D9E0007AFD5 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		4D2C545E1B8A70B10007AFD5 /* DictionaryExtenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtenstions.swift; sourceTree = "<group>"; };
 		4D2C54611B8A7A8F0007AFD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4D2C54621B8A7A8F0007AFD5 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4D2C54691B8A907B0007AFD5 /* MerchantTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantTabBarController.swift; sourceTree = "<group>"; };
@@ -117,7 +114,6 @@
 		4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupField.swift; sourceTree = "<group>"; };
 		4D2C547C1B97C7F20007AFD5 /* MerchantServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantServices.swift; sourceTree = "<group>"; };
 		4D2C547E1B97C8CE0007AFD5 /* BaseKlockWirkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseKlockWirkService.swift; sourceTree = "<group>"; };
-		4D2C54801B9AA1580007AFD5 /* ImageUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		4D2C54821B9C03000007AFD5 /* PosSalesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosSalesService.swift; sourceTree = "<group>"; };
 		4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSetupViewController.swift; sourceTree = "<group>"; };
 		4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSetupViewController.xib; sourceTree = "<group>"; };
@@ -528,8 +524,6 @@
 				4D2C544E1B87F59F0007AFD5 /* NotificationUtilities.swift */,
 				4DDA8D381B514AC50056800C /* ApplicationInformation.swift */,
 				4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */,
-				4D2C545E1B8A70B10007AFD5 /* DictionaryExtenstions.swift */,
-				4D2C54801B9AA1580007AFD5 /* ImageUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -699,7 +693,6 @@
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
 				4D2C54A01BA3ABC20007AFD5 /* ScheduleService.swift in Sources */,
 				4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */,
-				4D2C545F1B8A70B10007AFD5 /* DictionaryExtenstions.swift in Sources */,
 				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
 				4D2C54C81BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m in Sources */,
@@ -707,7 +700,6 @@
 				4D2C54D41BA3D0DF0007AFD5 /* DatePickerViewController.swift in Sources */,
 				4D2C54C71BA3C1210007AFD5 /* RSDFCustomDatePickerView.m in Sources */,
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
-				4D2C54811B9AA1580007AFD5 /* ImageUtilities.swift in Sources */,
 				4D2C54521B880EE40007AFD5 /* KlockWirkerDetailViewController.swift in Sources */,
 				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */,

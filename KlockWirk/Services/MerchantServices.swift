@@ -12,7 +12,6 @@ import Foundation
 
 class MerchantServices: BaseKlockWirkService{
     
-    
     func getMerchant(merchantId: Int, onCompletion: (response: NSDictionary) -> ()) {
         
         let parameters = ["merchantId":merchantId]

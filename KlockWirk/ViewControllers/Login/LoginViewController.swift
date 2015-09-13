@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
 
     func installSplashImage(){
         
-        let u = ImageUtilities()
+       
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
        
       
@@ -283,14 +283,16 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 self.merchantService.getMerchant(merchantId!) {(response: NSDictionary) in
                     
                     ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
-                }
-                
-                self.klockWirkService.getAllKlockWirkers(merchantId!) {(response: NSArray) in
-                    
-                    ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
-                
                     self.loadMerchantTabBarController()
+                    
                 }
+                
+//                self.klockWirkService.getAllKlockWirkers(merchantId!) {(response: NSArray) in
+//                    
+//                    ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
+//                
+//                    self.loadMerchantTabBarController()
+//                }
             }
         }
     }

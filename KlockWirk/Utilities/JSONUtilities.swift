@@ -33,7 +33,6 @@ class JSONUtilities{
         return klockWirkers
     }
     
-    
     class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
         
         let klockWirker = KlockWirker()
@@ -46,7 +45,6 @@ class JSONUtilities{
         
         return klockWirker
     }
-    
     
     class func parseMerchant(m: NSDictionary) -> Merchant{
         
