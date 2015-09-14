@@ -261,6 +261,10 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func login(sender: AnyObject) {
         
         
+        ApplicationInformation.setIsKlockWirker(false)
+        ApplicationInformation.setIsMerchant(false)
+        
+        
         loginButton.animate(100000, completion: { () -> () in
             
         })
@@ -278,22 +282,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             
             if(isKlockWirker == true){
                 
-                self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: NSDictionary) in
-                    
-                    let klockWirker = JSONUtilities.parseKlockWirker(response)
-                    let schedules = (response.objectForKey("KlockWirkerSchedules") as? NSArray)!
-                    
-                    for element: AnyObject in schedules {
-                    
-                        let merchantScheduleId = (element.objectForKey("MerchantSchedluleId") as? Int)!
-                        
-                        self.scheduleService.getMerchantScheduleById(merchantScheduleId) {(response: NSDictionary) in
-                            
-                           klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(response))
-                        }
-                    }
-                    
-                    ApplicationInformation.setKlockWirker(klockWirker)
+                self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
+                
+                    ApplicationInformation.setKlockWirker(response)
                     self.loadKlockWirkerTabBarController()
                 }
             }

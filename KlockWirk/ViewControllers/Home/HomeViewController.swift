@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var scheduleSummaryFields = NSMutableArray()
     var pieChart:Chart!
     
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -28,13 +31,41 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    func refresh(){
+
+    
+    //MARK: Setup Methods
+    
+    func setupChart(){
         
-        
-        pieChart.refresh()
-        
+        pieChart = Chart()
+        pieChart.view.frame = CGRectMake(0, 10, view.frame.width, view.frame.width)
+    
+        view.addSubview(pieChart.view)
     }
     
+    func setupNavigationBar(){
+        
+        let refresh = UIBarButtonItem(image: UIImage(named: "refresh.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refresh"))
+        
+        self.navigationItem.rightBarButtonItem = refresh
+    }
+    
+    func setupTableViewDelegates(){
+        
+        scheduleSummayTableView.delegate = self
+        scheduleSummayTableView.dataSource = self
+        scheduleSummayTableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
+    }
+    
+    func setupViewProperties(){
+        
+        self.navigationItem.title = "Home"
+    }
+    
+    
+    
+    
+    //MARK: Utility Methods
     
     func getScheduleSummaryFields() -> NSMutableArray{
         
@@ -48,37 +79,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return scheduleSummarFieldsFields
     }
     
-    
-    func setupNavigationBar(){
+    func refresh(){
         
-        let refresh = UIBarButtonItem(image: UIImage(named: "refresh.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refresh"))
-        
-        self.navigationItem.rightBarButtonItem = refresh
-    }
-    
-    
-    
-    
-    
-    
-    func setupChart(){
-        
-        pieChart = Chart()
-        pieChart.view.frame = CGRectMake(0, 10, view.frame.width, view.frame.width)
-    
-        view.addSubview(pieChart.view)
-    }
-    
-    func setupTableViewDelegates(){
-        
-        scheduleSummayTableView.delegate = self
-        scheduleSummayTableView.dataSource = self
-        scheduleSummayTableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
-    }
-    
-    func setupViewProperties(){
-        
-        self.navigationItem.title = "Home"
+        pieChart.refresh()
     }
     
     

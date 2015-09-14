@@ -314,6 +314,7 @@
 		4D2C54CF1BA3C48C0007AFD5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4DE754981BA77EA500D3FE29 /* ScheduleSummary */,
 				4D2C55411BA4A8770007AFD5 /* Chart */,
 				4D2C54D21BA3D0DF0007AFD5 /* DatePickerViewController.swift */,
 				4D2C54D31BA3D0DF0007AFD5 /* DatePickerViewController.xib */,
@@ -547,6 +548,13 @@
 				4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4DE754981BA77EA500D3FE29 /* ScheduleSummary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScheduleSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

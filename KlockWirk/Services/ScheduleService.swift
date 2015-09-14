@@ -107,52 +107,12 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-//    func getAllMerchantSchedules(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
-//        
-//        let parameters = ["merchantId":merchantId]
-//        let session = NSURLSession.sharedSession()
-//        let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-//        
-//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-//            
-//            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-//            
-//            dispatch_async(dispatch_get_main_queue(), {
-//                
-//                onCompletion(response: jsonResult)
-//            })
-//        })
-//        
-//        task.resume()
-//    }
+
+    func getMerchantScheduleByIds(scheduleIds: String, onCompletion: (response: NSArray) -> ()) {
     
-    func getMerchantScheduleById(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
-    
-        let parameters = ["scheduleId":scheduleId]
+        let parameters = ["scheduleIds":scheduleIds]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                onCompletion(response: jsonResult)
-            })
-        })
-        
-        task.resume()
-    }
-    
-    
-    
-    func getScheduledKlockWirkers(klockWirkerId: Int, merchantId: Int, onCompletion: (response: NSArray) -> ()) {
-        
-        //let parameters = ["klockWirkerId":klockWirkerId, "merchantId":merchantId]
-        let parameters = ["klockWirkerId":31, "merchantId":7]
-        let session = NSURLSession.sharedSession()
-        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
@@ -166,5 +126,8 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
+    
+    
+
     
 }

@@ -11,6 +11,7 @@ import UIKit
 class SchedulesTableViewController: UITableViewController {
     
     var merchant = Merchant()
+    var klockWirker = KlockWirker()
     var schedules = NSMutableArray()
     
     
@@ -20,8 +21,16 @@ class SchedulesTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        merchant = ApplicationInformation.getMerchant()!
-        schedules = merchant.schedules
+        if(ApplicationInformation.isKlockWirker()){
+            
+            klockWirker = ApplicationInformation.getKlockWirker()!
+            schedules = klockWirker.schedules
+        }
+        else if(ApplicationInformation.isMerchant()){
+            
+            merchant = ApplicationInformation.getMerchant()!
+            schedules = merchant.schedules
+        }
         
         setupViewProperties()
         setupNavigationBar()

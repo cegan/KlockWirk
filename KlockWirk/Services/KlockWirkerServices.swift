@@ -31,7 +31,7 @@ class KlockWirkerServices : BaseKlockWirkService{
         task.resume()
     }
     
-    func getKlockWirker(klockWirkerId: Int, onCompletion: (response: NSDictionary) -> ()) {
+    func getKlockWirker(klockWirkerId: Int, onCompletion: (response: KlockWirker) -> ()) {
         
         let parameters = ["klockWirkerId":klockWirkerId]
         let session = NSURLSession.sharedSession()
@@ -39,12 +39,36 @@ class KlockWirkerServices : BaseKlockWirkService{
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            let scheduleService     = SchedulService()
+            let jsonResult          = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            let klockWirker         = JSONUtilities.parseKlockWirker(jsonResult)
+            let schedules           = (jsonResult.objectForKey("KlockWirkerSchedules") as? NSArray)!
             
-            dispatch_async(dispatch_get_main_queue(), {
+            var array:Array<String> = []
+           
+            
+            for element: AnyObject in schedules {
                 
-                onCompletion(response: jsonResult)
-            })
+                let merchantScheduleId = (element.objectForKey("MerchantSchedluleId") as? Int)!
+                
+                array.append(String(merchantScheduleId))
+            }
+            
+            let scheduleIds = ",".join(array)
+            
+            
+            scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
+            
+                for obj: AnyObject in response {
+                    
+                   klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                
+                    onCompletion(response: klockWirker)
+                })
+            }
         })
         
         task.resume()

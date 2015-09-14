@@ -30,12 +30,15 @@ class ApplicationInformation{
     
     class func setMerchant(merchant: Merchant){
         
+        self.setIsMerchant(true)
+        
         let myData = NSKeyedArchiver.archivedDataWithRootObject(merchant)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "MerchantKey")
     }
     
-    
     class func setKlockWirker(klockWirker: KlockWirker){
+        
+        self.setIsKlockWirker(true)
         
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirker)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkerKey")
@@ -65,7 +68,6 @@ class ApplicationInformation{
         
         return Merchant()
     }
-    
     
     class func getKlockWirker() -> KlockWirker?{
         
@@ -102,6 +104,43 @@ class ApplicationInformation{
         } else {
             
             return 0
+        }
+    }
+    
+    
+    class func setIsMerchant(isMerchant: Bool){
+        
+        NSUserDefaults.standardUserDefaults().setObject(isMerchant, forKey: "isMerchant")
+    }
+    
+    class func setIsKlockWirker(isKlockWirker: Bool){
+        
+        NSUserDefaults.standardUserDefaults().setObject(isKlockWirker, forKey: "isKlockWirker")
+    }
+    
+    
+    class func isMerchant() -> Bool{
+        
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("isMerchant") as? Bool {
+            
+            return value
+            
+        } else {
+            
+            return false
+        }
+    }
+    
+    
+    class func isKlockWirker() -> Bool{
+        
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("isKlockWirker") as? Bool {
+            
+            return value
+            
+        } else {
+            
+            return false
         }
     }
 }
