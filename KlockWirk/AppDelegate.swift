@@ -35,15 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
-
-    
-    func addKlockWirkers(notification: NSNotification){
-        
-        var data = notification.userInfo as! Dictionary<String, NSArray>
-        
-        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(data[Keys.KlockWirkersKey]!))
-    }
 
     func applicationWillResignActive(application: UIApplication) {
        

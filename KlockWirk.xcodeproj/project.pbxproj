@@ -87,6 +87,9 @@
 		4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */; };
 		4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */; };
 		4DE754911BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548F1BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib */; };
+		4DE754941BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */; };
+		4DE754951BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754931BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib */; };
+		4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +214,9 @@
 		4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulesTableViewController.xib; sourceTree = "<group>"; };
 		4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		4DE7548F1BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController.xib; sourceTree = "<group>"; };
+		4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		4DE754931BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,8 @@
 			children = (
 				4D2C54741B952BD20007AFD5 /* EnrollmentViewCell.swift */,
 				4D2C54751B952BD20007AFD5 /* EnrollmentViewCell.xib */,
+				4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */,
+				4DE754931BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -536,6 +544,7 @@
 				4D2C549D1BA111190007AFD5 /* Schedule.swift */,
 				4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */,
 				4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */,
+				4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -638,6 +647,7 @@
 				4D2C54771B952BD20007AFD5 /* EnrollmentViewCell.xib in Resources */,
 				4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */,
 				4D2C54941B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib in Resources */,
+				4DE754951BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib in Resources */,
 				4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */,
 				4D2C548C1B9E5B950007AFD5 /* HomeViewController.xib in Resources */,
 			);
@@ -673,6 +683,7 @@
 				4D2C544F1B87F59F0007AFD5 /* NotificationUtilities.swift in Sources */,
 				4D2C549B1B9FBD0B0007AFD5 /* MerchantSetupViewController.swift in Sources */,
 				4D2C546A1B8A907B0007AFD5 /* MerchantTabBarController.swift in Sources */,
+				4DE754941BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift in Sources */,
 				4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */,
 				4D2C54C31BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m in Sources */,
 				4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */,
@@ -708,6 +719,7 @@
 				4D2C54E11BA441960007AFD5 /* FadeTransition.swift in Sources */,
 				4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */,
 				4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */,
+				4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
 				4D2C54CA1BA3C1210007AFD5 /* RSDFDatePickerDayCell.m in Sources */,
 				4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */,

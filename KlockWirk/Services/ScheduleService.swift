@@ -32,7 +32,8 @@ class SchedulService: BaseKlockWirkService{
             "DateCreated":FormatDate(schedule.dateCreated),
             "ShiftStartDateTime":FormatDate(schedule.startDateTime),
             "ShiftEndDateTime":FormatDate(schedule.endDateTime),
-            "KlockWirkerPercentage":String(schedule.KlockWirkerPercentage)] as Dictionary<String, String>
+            "Line":schedule.line,
+            "KlockWirkerPercentage":String(schedule.KlockWirkerPercentage)] as Dictionary<String, NSObject>
         
         do {
             
@@ -52,6 +53,14 @@ class SchedulService: BaseKlockWirkService{
                     
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     
+                    let mId = (result.objectForKey("MerchantId") as? Int)!
+                    let scheduleId = (result.objectForKey("ScheduleId") as? Int)!
+                    
+                    for kw in schedule.klockWirkers {
+                        
+                        self.addKlockWirkersToSchedule(kw as! KlockWirker, merchantScheduleId: scheduleId, merchantId: mId)
+                    }
+                
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         onCompletion(response: result)
@@ -63,11 +72,87 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-    func getAllMerchantSchedules(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
+    func addKlockWirkersToSchedule(klockWirker: KlockWirker, merchantScheduleId: Int, merchantId: Int){
+    
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodPost)
         
-        let parameters = ["merchantId":merchantId]
+        let params = [
+            "KlockWirkerId":String(klockWirker.klockWirkerId),
+            "MerchantSchedluleId":String(merchantScheduleId),
+            "MerchantId":String(merchantId)] as Dictionary<String, String>
+        
+        
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            
+        } catch {
+            
+            print(error)
+        }
+        
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                if(httpResponse.statusCode == 200){
+                    
+                   // let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                }
+            }
+        })
+        
+        task.resume()
+    }
+    
+//    func getAllMerchantSchedules(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
+//        
+//        let parameters = ["merchantId":merchantId]
+//        let session = NSURLSession.sharedSession()
+//        let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+//        
+//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            
+//            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                
+//                onCompletion(response: jsonResult)
+//            })
+//        })
+//        
+//        task.resume()
+//    }
+    
+    func getMerchantScheduleById(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
+    
+        let parameters = ["scheduleId":scheduleId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
+    
+    
+    func getScheduledKlockWirkers(klockWirkerId: Int, merchantId: Int, onCompletion: (response: NSArray) -> ()) {
+        
+        //let parameters = ["klockWirkerId":klockWirkerId, "merchantId":merchantId]
+        let parameters = ["klockWirkerId":31, "merchantId":7]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
@@ -81,4 +166,5 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
+    
 }

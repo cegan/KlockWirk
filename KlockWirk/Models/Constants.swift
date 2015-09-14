@@ -29,10 +29,12 @@ struct ServiceEndpoints {
     
     static let OrderEndpoint                = "/resources/OrderHistory/?format=json"
     static let KlockWirkersEndpoint         = "klockwirkers/"
+    static let KlockWirkerEndpoint         = "klockwirker/"
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
     static let ScheduleEndpoint             = "Schedules/"
+    static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
 }
 
 

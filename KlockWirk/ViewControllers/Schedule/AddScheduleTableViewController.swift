@@ -62,7 +62,12 @@ class AddScheduleTableViewController: UITableViewController {
     
     func submitButtonTapped(){
         
+        
         let schedule = Schedule()
+        
+        let kw = KlockWirker()
+        
+        kw.klockWirkerId = 31
         
         schedule.KlockWirkerPercentage = 20
         schedule.dateCreated = NSDate()
@@ -70,9 +75,9 @@ class AddScheduleTableViewController: UITableViewController {
         schedule.endDateTime = NSDate()
         
         
+        schedule.klockWirkers.addObject(kw)
+        
         scheduleService.addSchedule(schedule, merchantId: ApplicationInformation.getMerchantId()) { (response: NSDictionary) in
-            
-            
             
         }
         

@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     let loginService        = LoginService()
     let klockWirkService    = KlockWirkerServices()
     let merchantService     = MerchantServices()
+    let scheduleService     = SchedulService()
     
     let activityIndicator = UIActivityIndicatorView()
     
@@ -273,10 +274,28 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
             let isMerchant      = response.objectForKey("isMerchant") as? Bool
             let merchantId      = response.objectForKey("MerchantId") as? Int
+            let klockWirkerId   = response.objectForKey("KlockWirkerId") as? Int
             
             if(isKlockWirker == true){
                 
-                self.loadKlockWirkerTabBarController()
+                self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: NSDictionary) in
+                    
+                    let klockWirker = JSONUtilities.parseKlockWirker(response)
+                    let schedules = (response.objectForKey("KlockWirkerSchedules") as? NSArray)!
+                    
+                    for element: AnyObject in schedules {
+                    
+                        let merchantScheduleId = (element.objectForKey("MerchantSchedluleId") as? Int)!
+                        
+                        self.scheduleService.getMerchantScheduleById(merchantScheduleId) {(response: NSDictionary) in
+                            
+                           klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(response))
+                        }
+                    }
+                    
+                    ApplicationInformation.setKlockWirker(klockWirker)
+                    self.loadKlockWirkerTabBarController()
+                }
             }
             if(isMerchant == true){
                 
@@ -284,15 +303,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                     
                     ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
                     self.loadMerchantTabBarController()
-                    
                 }
-                
-//                self.klockWirkService.getAllKlockWirkers(merchantId!) {(response: NSArray) in
-//                    
-//                    ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(response))
-//                
-//                    self.loadMerchantTabBarController()
-//                }
             }
         }
     }

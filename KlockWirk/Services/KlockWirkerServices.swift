@@ -31,6 +31,44 @@ class KlockWirkerServices : BaseKlockWirkService{
         task.resume()
     }
     
+    func getKlockWirker(klockWirkerId: Int, onCompletion: (response: NSDictionary) -> ()) {
+        
+        let parameters = ["klockWirkerId":klockWirkerId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
+    func getKlockWirkerSchedules(klockWirkerId: Int, onCompletion: (response: NSArray) -> ()) {
+        
+        let parameters = ["klockWirkerId":klockWirkerId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
     func addNewKlockWirker(klockWirkerToAdd:KlockWirker, onCompletion: (response: NSDictionary) -> ()){
         
         let session = NSURLSession.sharedSession()

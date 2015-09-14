@@ -72,6 +72,7 @@ class JSONUtilities{
             let schedule = Schedule()
             
             schedule.merchantId = (obj.objectForKey("MerchantId") as? Int)!
+            //schedule.isCurrentSchedule = (obj.objectForKey("IsCurrentSchedule") as? Bool)!
             
             merchant.schedules.addObject(schedule)
         }
@@ -93,5 +94,20 @@ class JSONUtilities{
         }
        
         return merchant
+    }
+    
+    class func parseMerchantSchedule(s: NSDictionary) -> Schedule{
+        
+        let schedule = Schedule()
+        
+        schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
+//        schedule.startDateTime = (s.objectForKey("ShiftStartDateTime") as? NSDate)!
+//        schedule.endDateTime = (s.objectForKey("ShiftEndDateTime") as? NSDate)!
+//        schedule.line = (s.objectForKey("Line") as? Int)!
+      
+        
+        return schedule
+        
+        
     }
 }

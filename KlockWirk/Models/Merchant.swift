@@ -17,7 +17,7 @@ class Merchant: NSObject, NSCoding{
     var posSystemId: Int = 0
     var posSystemBaseApiUrl: String = ""
     var posSystemApiKey: String = ""
-    var posSystem: String = "'"
+    var posSystem: String = ""
     var firstName: String = ""
     var lastName: String = ""
     var address: String = ""

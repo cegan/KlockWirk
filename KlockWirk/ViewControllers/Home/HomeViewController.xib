@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="KlockWirk" customModuleProvider="target">
             <connections>
+                <outlet property="scheduleSummayTableView" destination="0Mu-x0-o2B" id="7SM-xo-lE2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,8 +15,22 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-x0-o2B">
+                    <rect key="frame" x="0.0" y="246" width="600" height="339"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="339" id="dh6-79-PiK"/>
+                    </constraints>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="622" y="231"/>
+            <constraints>
+                <constraint firstItem="0Mu-x0-o2B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3vL-kZ-Kiz"/>
+                <constraint firstAttribute="trailing" secondItem="0Mu-x0-o2B" secondAttribute="trailing" id="DZ6-GP-dNK"/>
+                <constraint firstAttribute="bottom" secondItem="0Mu-x0-o2B" secondAttribute="bottom" constant="15" id="Yc3-Q1-A0h"/>
+            </constraints>
+            <point key="canvasLocation" x="384" y="143"/>
         </view>
     </objects>
 </document>

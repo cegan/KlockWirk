@@ -14,6 +14,7 @@ class Schedule: NSObject, NSCoding{
     var merchantId: Int       = 0
     var KlockWirkerPercentage: Int       = 0
     var line: Int                       = 0
+    var isCurrentSchedule: Bool            = false
     var dateCreated: NSDate             = NSDate()
     var startDateTime: NSDate           = NSDate()
     var endDateTime: NSDate             = NSDate()
@@ -28,6 +29,7 @@ class Schedule: NSObject, NSCoding{
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
         self.KlockWirkerPercentage = (aDecoder.decodeObjectForKey("percent") as? Int)!
         self.line = (aDecoder.decodeObjectForKey("line") as? Int)!
+        self.isCurrentSchedule = (aDecoder.decodeObjectForKey("isCurrentSchedule") as? Bool)!
         self.dateCreated = (aDecoder.decodeObjectForKey("dateCreated") as? NSDate)!
         self.startDateTime = (aDecoder.decodeObjectForKey("startDateTime") as? NSDate)!
         self.endDateTime = (aDecoder.decodeObjectForKey("endDateTime") as? NSDate)!
@@ -40,6 +42,7 @@ class Schedule: NSObject, NSCoding{
         aCoder.encodeObject(merchantId, forKey: "merchantId")
         aCoder.encodeObject(KlockWirkerPercentage, forKey: "percent")
         aCoder.encodeObject(line, forKey: "line")
+        aCoder.encodeObject(isCurrentSchedule, forKey: "isCurrentSchedule")
         aCoder.encodeObject(dateCreated, forKey: "dateCreated")
         aCoder.encodeObject(startDateTime, forKey: "startDateTime")
         aCoder.encodeObject(endDateTime, forKey: "endDateTime")
