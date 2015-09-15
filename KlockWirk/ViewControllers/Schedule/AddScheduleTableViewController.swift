@@ -10,6 +10,9 @@ import UIKit
 
 class AddScheduleTableViewController: UITableViewController {
     
+
+    let completedSchedule = Schedule()
+    
     let scheduleService = SchedulService()
     var scheduleFields = NSMutableArray()
     
@@ -24,8 +27,17 @@ class AddScheduleTableViewController: UITableViewController {
         
         setupViewProperties()
         setupTableViewProperties()
+      //  setupTableViewGestureRecognizers()
         setupNavigationButtons()
+        
+        
+        
     }
+    
+    
+    
+    
+    
     
     override func viewWillDisappear(animated: Bool) {
         
@@ -38,6 +50,11 @@ class AddScheduleTableViewController: UITableViewController {
         self.navigationItem.title = "Add Schedule"
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.tableView.endEditing(true)
+    }
+    
     
     
     func setupViewProperties(){
@@ -47,8 +64,16 @@ class AddScheduleTableViewController: UITableViewController {
  
     func setupTableViewProperties(){
         
-        //tableView.registerNib(UINib(nibName: "EnrollmentViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ScheduleCell");
+        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ScheduleCell");
+        
+        tableView.registerNib(UINib(nibName: "ScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
+        tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
+    }
+    
+    func setupTableViewGestureRecognizers(){
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "cancelTableViewEditing")
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     func setupNavigationButtons(){
@@ -62,25 +87,12 @@ class AddScheduleTableViewController: UITableViewController {
     
     func submitButtonTapped(){
         
-        
-        let schedule = Schedule()
-        
-        let kw = KlockWirker()
-        
-        kw.klockWirkerId = 31
-        
-        schedule.KlockWirkerPercentage = 20
-        schedule.dateCreated = NSDate()
-        schedule.startDateTime = NSDate()
-        schedule.endDateTime = NSDate()
-        
-        
-        schedule.klockWirkers.addObject(kw)
+        let schedule = getCompletedSchedule()
         
         scheduleService.addSchedule(schedule, merchantId: ApplicationInformation.getMerchantId()) { (response: NSDictionary) in
             
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
     }
     
     func cancelButtonTapped(){
@@ -96,12 +108,47 @@ class AddScheduleTableViewController: UITableViewController {
         
         let scheduleFields = NSMutableArray()
         
-        scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "", tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Percentage", val: "", tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", tag: 1))
+        scheduleFields.addObject(AccountSetupField(lbl: "Line", val: "", tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "", tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "Select KlockWirkers", val: "", tag: 5))
         
         return scheduleFields
+    }
+    
+    func getCompletedSchedule() -> Schedule{
+        
+        let kw = KlockWirker()
+        
+        kw.klockWirkerId = 31
+        
+        
+        
+        let schedule = Schedule()
+        
+        let percent = scheduleFields.objectAtIndex(0) as! AccountSetupField
+        let line = scheduleFields.objectAtIndex(1) as! AccountSetupField
+//        let startDate = scheduleFields.objectAtIndex(2) as! AccountSetupField
+//        let endDate = scheduleFields.objectAtIndex(3) as! AccountSetupField
+        let startDate = NSDate()
+        let endDate = NSDate()
+        
+        schedule.KlockWirkerPercentage = Int(percent.value!)!
+        schedule.line = Int(line.value!)!
+        schedule.startDateTime = startDate
+        schedule.endDateTime = endDate
+        
+        
+        schedule.klockWirkers.addObject(kw)
+       
+        return schedule
+    }
+    
+    func cancelTableViewEditing(shouldCancel: Bool){
+        
+        self.tableView.endEditing(shouldCancel)
+    
     }
     
     
@@ -121,24 +168,74 @@ class AddScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        var cell :UITableViewCell!
         
         let accountField = scheduleFields.objectAtIndex(indexPath.row) as! AccountSetupField
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+       
+        switch(indexPath.row){
+            
+            case 0:
+                cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
+                (cell as! InputTableViewCell).bindCellDetail(accountField)
+            
+            case 1:
+                cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
+                (cell as! InputTableViewCell).bindCellDetail(accountField)
+                           
+            case 2:
+                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
+                (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            case 3:
+                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
+                (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            case 4:
+                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
+                (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            default:
+                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath)
+        }
     
         
-        cell.textLabel?.text = accountField.defaluValue
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+    
         return cell
     
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        self.navigationController?.pushViewController(DatePickerViewController(), animated: true)
+        switch(indexPath.row){
+            
+        case 0:
+            cancelTableViewEditing(true)
+            
+        case 1:
+            cancelTableViewEditing(true)
+            
+        case 2:
+            cancelTableViewEditing(false)
+            self.navigationController?.pushViewController(DatePickerViewController(), animated: true)
+            
+        case 3:
+            cancelTableViewEditing(false)
+            self.navigationController?.pushViewController(DatePickerViewController(), animated: true)
+            
+        case 4:
+            cancelTableViewEditing(false)
+            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(nibName: "KlockWirkerSelectionTableViewController", bundle: nil), animated: true)
+            
+        default:
+            return
+            
     }
+        
+}
 
     
 }
