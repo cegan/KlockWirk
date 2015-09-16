@@ -72,6 +72,8 @@ class JSONUtilities{
             let schedule = Schedule()
             
             schedule.merchantId = (obj.objectForKey("MerchantId") as? Int)!
+            schedule.line = (obj.objectForKey("Line") as? Double)!
+            schedule.KlockWirkerPercentage = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
             //schedule.isCurrentSchedule = (obj.objectForKey("IsCurrentSchedule") as? Bool)!
             
             merchant.schedules.addObject(schedule)
@@ -103,11 +105,10 @@ class JSONUtilities{
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
 //        schedule.startDateTime = (s.objectForKey("ShiftStartDateTime") as? NSDate)!
 //        schedule.endDateTime = (s.objectForKey("ShiftEndDateTime") as? NSDate)!
-//        schedule.line = (s.objectForKey("Line") as? Int)!
+        schedule.line = (s.objectForKey("Line") as? Double)!
+        schedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
       
         
         return schedule
-        
-        
     }
 }

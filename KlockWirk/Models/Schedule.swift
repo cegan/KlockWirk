@@ -12,8 +12,8 @@ import Foundation
 class Schedule: NSObject, NSCoding{
     
     var merchantId: Int       = 0
-    var KlockWirkerPercentage: Int       = 0
-    var line: Int                       = 0
+    var KlockWirkerPercentage: Double       = 0
+    var line: Double                       = 0
     var isCurrentSchedule: Bool            = false
     var dateCreated: NSDate             = NSDate()
     var startDateTime: NSDate           = NSDate()
@@ -27,8 +27,8 @@ class Schedule: NSObject, NSCoding{
     required init?(coder aDecoder: NSCoder) {
         
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
-        self.KlockWirkerPercentage = (aDecoder.decodeObjectForKey("percent") as? Int)!
-        self.line = (aDecoder.decodeObjectForKey("line") as? Int)!
+        self.KlockWirkerPercentage = (aDecoder.decodeObjectForKey("percent") as? Double)!
+        self.line = (aDecoder.decodeObjectForKey("line") as? Double)!
         self.isCurrentSchedule = (aDecoder.decodeObjectForKey("isCurrentSchedule") as? Bool)!
         self.dateCreated = (aDecoder.decodeObjectForKey("dateCreated") as? NSDate)!
         self.startDateTime = (aDecoder.decodeObjectForKey("startDateTime") as? NSDate)!

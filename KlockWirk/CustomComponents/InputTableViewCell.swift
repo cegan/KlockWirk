@@ -47,6 +47,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         accountSetupField = detail
         
         cellLabel.text = detail.defaluValue
+        cellInput.text = detail.value
         
         setupCellProperties(detail.tag!)
     }

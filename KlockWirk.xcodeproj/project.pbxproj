@@ -25,8 +25,6 @@
 		4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */; };
 		4D2C548B1B9E5B950007AFD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54891B9E5B950007AFD5 /* HomeViewController.swift */; };
 		4D2C548C1B9E5B950007AFD5 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C548A1B9E5B950007AFD5 /* HomeViewController.xib */; };
-		4D2C54931B9E68720007AFD5 /* KlockWirkerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54911B9E68720007AFD5 /* KlockWirkerSelectionViewController.swift */; };
-		4D2C54941B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54921B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib */; };
 		4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */; };
 		4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */; };
 		4D2C549B1B9FBD0B0007AFD5 /* MerchantSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */; };
@@ -96,6 +94,8 @@
 		4DE754A21BA7870D00D3FE29 /* InputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A01BA7870D00D3FE29 /* InputTableViewCell.xib */; };
 		4DE754A51BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754A31BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.swift */; };
 		4DE754A61BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */; };
+		4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */; };
+		4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,8 +128,6 @@
 		4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSetupViewController.xib; sourceTree = "<group>"; };
 		4D2C54891B9E5B950007AFD5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D2C548A1B9E5B950007AFD5 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		4D2C54911B9E68720007AFD5 /* KlockWirkerSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSelectionViewController.swift; sourceTree = "<group>"; };
-		4D2C54921B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionViewController.xib; sourceTree = "<group>"; };
 		4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
 		4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
 		4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantSetupViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +227,8 @@
 		4DE754A01BA7870D00D3FE29 /* InputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputTableViewCell.xib; sourceTree = "<group>"; };
 		4DE754A31BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSelectionTableViewController.swift; sourceTree = "<group>"; };
 		4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewController.xib; sourceTree = "<group>"; };
+		4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +278,8 @@
 				4DE7549A1BA77F4A00D3FE29 /* ScheduleTableViewCell.xib */,
 				4DE7549F1BA7870D00D3FE29 /* InputTableViewCell.swift */,
 				4DE754A01BA7870D00D3FE29 /* InputTableViewCell.xib */,
+				4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */,
+				4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -384,8 +386,6 @@
 		4D39E7C71B6EE22400DC82DF /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				4D2C54911B9E68720007AFD5 /* KlockWirkerSelectionViewController.swift */,
-				4D2C54921B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib */,
 				4D2C54D61BA3D51A0007AFD5 /* AddScheduleTableViewController.swift */,
 				4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */,
 				4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */,
@@ -671,11 +671,11 @@
 				4DE754A21BA7870D00D3FE29 /* InputTableViewCell.xib in Resources */,
 				4DE754A61BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib in Resources */,
 				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
+				4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */,
 				4DE754911BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib in Resources */,
 				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
 				4D2C54771B952BD20007AFD5 /* EnrollmentViewCell.xib in Resources */,
 				4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */,
-				4D2C54941B9E68720007AFD5 /* KlockWirkerSelectionViewController.xib in Resources */,
 				4DE754951BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib in Resources */,
 				4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */,
 				4D2C548C1B9E5B950007AFD5 /* HomeViewController.xib in Resources */,
@@ -715,6 +715,7 @@
 				4D2C546A1B8A907B0007AFD5 /* MerchantTabBarController.swift in Sources */,
 				4DE754941BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift in Sources */,
 				4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */,
+				4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */,
 				4D2C54C31BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m in Sources */,
 				4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */,
 				4D2C545B1B8A03130007AFD5 /* MBProgressHUD.m in Sources */,
@@ -746,7 +747,6 @@
 				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */,
 				4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */,
-				4D2C54931B9E68720007AFD5 /* KlockWirkerSelectionViewController.swift in Sources */,
 				4D2C54E11BA441960007AFD5 /* FadeTransition.swift in Sources */,
 				4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */,
 				4DE754A11BA7870D00D3FE29 /* InputTableViewCell.swift in Sources */,

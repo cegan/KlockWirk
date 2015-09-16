@@ -33,7 +33,7 @@ class SchedulService: BaseKlockWirkService{
             "ShiftStartDateTime":FormatDate(schedule.startDateTime),
             "ShiftEndDateTime":FormatDate(schedule.endDateTime),
             "Line":schedule.line,
-            "KlockWirkerPercentage":String(schedule.KlockWirkerPercentage)] as Dictionary<String, NSObject>
+            "KlockWirkerPercentage":schedule.KlockWirkerPercentage] as Dictionary<String, NSObject>
         
         do {
             

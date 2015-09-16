@@ -10,9 +10,9 @@ import UIKit
 
 class SchedulesTableViewController: UITableViewController {
     
-    var merchant = Merchant()
+    var merchant    = Merchant()
     var klockWirker = KlockWirker()
-    var schedules = NSMutableArray()
+    var schedules   = NSMutableArray()
     
     
     //MARK: View Delegates
@@ -21,26 +21,14 @@ class SchedulesTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        if(ApplicationInformation.isKlockWirker()){
-            
-            klockWirker = ApplicationInformation.getKlockWirker()!
-            schedules = klockWirker.schedules
-        }
-        else if(ApplicationInformation.isMerchant()){
-            
-            merchant = ApplicationInformation.getMerchant()!
-            schedules = merchant.schedules
-        }
-        
-        setupViewProperties()
         setupNavigationBar()
-        
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "scheduleCell");
+        setupTableViewProperties()
     }
     
     override func viewWillAppear(animated: Bool) {
         
         setupViewProperties()
+        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -50,8 +38,12 @@ class SchedulesTableViewController: UITableViewController {
     
     
     
+    //MARK: Setup Methods
     
+    func setupTableViewProperties(){
     
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "scheduleCell");
+    }
     
     func setupNavigationBar(){
         
@@ -68,6 +60,26 @@ class SchedulesTableViewController: UITableViewController {
     func setupViewProperties(){
         
         self.navigationItem.title = "Schedules"
+    }
+    
+    
+    
+    //MARK: Utility Methods
+    
+    func loadData(){
+        
+        if(ApplicationInformation.isKlockWirker()){
+            
+            klockWirker = ApplicationInformation.getKlockWirker()!
+            schedules = klockWirker.schedules
+        }
+        else if(ApplicationInformation.isMerchant()){
+            
+            merchant = ApplicationInformation.getMerchant()!
+            schedules = merchant.schedules
+        }
+        
+        tableView.reloadData()
     }
     
     
@@ -92,14 +104,15 @@ class SchedulesTableViewController: UITableViewController {
         
         let schedule = self.schedules[indexPath.row] as! Schedule
         
-        cell.textLabel?.text = ""
+        cell.textLabel?.text = String(schedule.line)
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        self.navigationController?.pushViewController(ScheduleDetailViewController(nibName: "ScheduleDetailViewController", bundle: nil), animated: false)
+        let schedule = schedules.objectAtIndex(indexPath.row) as! Schedule
+        self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
     }
     
 }

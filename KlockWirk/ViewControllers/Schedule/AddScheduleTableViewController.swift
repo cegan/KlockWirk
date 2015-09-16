@@ -13,6 +13,7 @@ class AddScheduleTableViewController: UITableViewController {
 
     let completedSchedule = Schedule()
     
+    var merchant = Merchant()
     let scheduleService = SchedulService()
     var scheduleFields = NSMutableArray()
     
@@ -23,21 +24,13 @@ class AddScheduleTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        merchant = ApplicationInformation.getMerchant()!
         scheduleFields = getScheduleFields()
         
         setupViewProperties()
         setupTableViewProperties()
-      //  setupTableViewGestureRecognizers()
         setupNavigationButtons()
-        
-        
-        
     }
-    
-    
-    
-    
-    
     
     override func viewWillDisappear(animated: Bool) {
         
@@ -64,16 +57,8 @@ class AddScheduleTableViewController: UITableViewController {
  
     func setupTableViewProperties(){
         
-        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ScheduleCell");
-        
         tableView.registerNib(UINib(nibName: "ScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
         tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
-    }
-    
-    func setupTableViewGestureRecognizers(){
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: "cancelTableViewEditing")
-        self.view.addGestureRecognizer(tapGesture)
     }
     
     func setupNavigationButtons(){
@@ -90,6 +75,10 @@ class AddScheduleTableViewController: UITableViewController {
         let schedule = getCompletedSchedule()
         
         scheduleService.addSchedule(schedule, merchantId: ApplicationInformation.getMerchantId()) { (response: NSDictionary) in
+            
+            self.merchant.schedules.addObject(JSONUtilities.parseMerchantSchedule(response))
+            
+            ApplicationInformation.setMerchant(self.merchant)
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -109,39 +98,39 @@ class AddScheduleTableViewController: UITableViewController {
         let scheduleFields = NSMutableArray()
         
         scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Line", val: "", tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "", tag: 2))
         scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "", tag: 3))
         scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", tag: 4))
-        scheduleFields.addObject(AccountSetupField(lbl: "Select KlockWirkers", val: "", tag: 5))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", tag: 5))
         
         return scheduleFields
     }
     
     func getCompletedSchedule() -> Schedule{
         
-        let kw = KlockWirker()
-        
-        kw.klockWirkerId = 31
-        
-        
         
         let schedule = Schedule()
         
         let percent = scheduleFields.objectAtIndex(0) as! AccountSetupField
         let line = scheduleFields.objectAtIndex(1) as! AccountSetupField
-//        let startDate = scheduleFields.objectAtIndex(2) as! AccountSetupField
-//        let endDate = scheduleFields.objectAtIndex(3) as! AccountSetupField
+        //let startDate = scheduleFields.objectAtIndex(2) as! AccountSetupField
+        //let endDate = scheduleFields.objectAtIndex(3) as! AccountSetupField
         let startDate = NSDate()
         let endDate = NSDate()
         
-        schedule.KlockWirkerPercentage = Int(percent.value!)!
-        schedule.line = Int(line.value!)!
+        schedule.KlockWirkerPercentage = Double(percent.value!)!
+        schedule.line = Double(line.value!)!
         schedule.startDateTime = startDate
         schedule.endDateTime = endDate
         
+        for kw in merchant.klockWirkers {
+            
+            if(kw.isSelected == true){
+                
+                schedule.klockWirkers.addObject(kw)
+            }
+        }
         
-        schedule.klockWirkers.addObject(kw)
-       
         return schedule
     }
     
@@ -228,7 +217,7 @@ class AddScheduleTableViewController: UITableViewController {
             
         case 4:
             cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(nibName: "KlockWirkerSelectionTableViewController", bundle: nil), animated: true)
+            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(merchant: merchant), animated: true)
             
         default:
             return

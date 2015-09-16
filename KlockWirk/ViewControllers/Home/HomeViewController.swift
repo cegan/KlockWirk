@@ -13,15 +13,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var scheduleSummayTableView: UITableView!
     
     var scheduleSummaryFields = NSMutableArray()
+    var schedule = Schedule()
+    var merchant = Merchant()
     var pieChart:Chart!
-    
-    
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        merchant = ApplicationInformation.getMerchant()!
+        schedule = merchant.schedules.objectAtIndex(0) as! Schedule
         scheduleSummaryFields = getScheduleSummaryFields()
         
         setupViewProperties()
@@ -71,8 +73,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let scheduleSummarFieldsFields = NSMutableArray()
         
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: "$10,000", tag: 1))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: "5.0", tag: 2))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: String(schedule.line), tag: 1))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: String(schedule.KlockWirkerPercentage), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift", val: "12:00-5:00", tag: 3))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 4))
         
@@ -107,7 +109,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let view = UIView()
             let label = UILabel()
             
-            label.text = "Schedule Summary - Last Update Today @ 3:19 pm"
+            label.text = "Schedule Summary"
             label.textColor = UIColor.lightGrayColor()
             
             label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)

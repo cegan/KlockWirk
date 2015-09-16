@@ -14,6 +14,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     var merchant = Merchant()
     let klockWirkService = KlockWirkerServices()
     var klockWirkerRegistrationFields = NSMutableArray()
+    
     @IBOutlet weak var newKlockWirkerTableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,13 +31,16 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     
+    
+    //MARK: Utility Methods
+    
     func getKlockWirkerRegistrationFields() -> NSMutableArray{
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
         klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "First Name", val: "", tag: 1))
         klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Last Name", val: "", tag: 2))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email Address", val: "", tag: 3))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", tag: 3))
         klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", tag: 4))
         
         return klockWirkerRegistrationFields
@@ -46,31 +50,32 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         
         let klockWirker = KlockWirker()
         
-        let firstName = newKlockWirkerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! EnrollmentViewCell
-        let lastName = newKlockWirkerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! EnrollmentViewCell
-        let emailAddress = newKlockWirkerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)) as! EnrollmentViewCell
-        let phoneNumber = newKlockWirkerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)) as! EnrollmentViewCell
+        let firstName = klockWirkerRegistrationFields.objectAtIndex(0) as! AccountSetupField
+        let lastName = klockWirkerRegistrationFields.objectAtIndex(1) as! AccountSetupField
+        let email = klockWirkerRegistrationFields.objectAtIndex(2) as! AccountSetupField
+        let phone = klockWirkerRegistrationFields.objectAtIndex(3) as! AccountSetupField
         
-        klockWirker.firstName = firstName.enrollmentTextField.text!
-        klockWirker.lastName = lastName.enrollmentTextField.text!
-        klockWirker.emailAddress = emailAddress.enrollmentTextField.text!
-        klockWirker.phoneNumber = phoneNumber.enrollmentTextField.text!
-        klockWirker.password = ""
+        klockWirker.firstName = firstName.value!
+        klockWirker.lastName = lastName.value!
+        klockWirker.emailAddress = email.value!
+        klockWirker.phoneNumber = phone.value!
         
         return klockWirker
     }
     
     
+    
+    //MARK: Setup Methods
+    
     func setupTableViewProperties(){
         
-        newKlockWirkerTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        newKlockWirkerTableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
     func setupTableViewDelegates(){
         
         newKlockWirkerTableView.delegate = self
         newKlockWirkerTableView.dataSource = self
-        newKlockWirkerTableView.registerNib(UINib(nibName: "EnrollmentViewCell", bundle: nil), forCellReuseIdentifier: "enrollmentTableViewCell")
     }
     
     func setupNavigationButtons(){
@@ -83,6 +88,8 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     func submitButtonTapped(){
+        
+        newKlockWirkerTableView.endEditing(true)
         
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
@@ -152,10 +159,9 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-
+    
         let accountField = klockWirkerRegistrationFields.objectAtIndex(indexPath.row) as! AccountSetupField
-        let cell:EnrollmentViewCell = newKlockWirkerTableView.dequeueReusableCellWithIdentifier("enrollmentTableViewCell") as! EnrollmentViewCell
+        let cell:InputTableViewCell = newKlockWirkerTableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
        
         cell.bindCellDetail(accountField)
         
