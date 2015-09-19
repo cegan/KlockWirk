@@ -60,5 +60,6 @@ struct HTTPConstants {
     static let HTTPMethodPost    = "POST"
     static let HTTPMethodGet     = "GET"
     static let HTTPMethodDelete  = "DELETE"
+    static let HTTPMethodPut     = "PUT"
     static let Authorization     = "API-AUTHENTICATION"
 }

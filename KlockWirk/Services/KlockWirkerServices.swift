@@ -31,7 +31,7 @@ class KlockWirkerServices : BaseKlockWirkService{
         task.resume()
     }
     
-    func deleteKlockWirker(klockWirkerId: Int, onCompletion: (response: NSDictionary) -> ()) {
+    func deleteKlockWirker(klockWirkerId: NSNumber, onCompletion: (response: NSDictionary) -> ()) {
         
         let parameters = ["id":klockWirkerId]
         let session = NSURLSession.sharedSession()
@@ -49,6 +49,45 @@ class KlockWirkerServices : BaseKlockWirkService{
         
         task.resume()
     }
+    
+    
+    
+    func updateKlockWirker(klockWirker: KlockWirker, onCompletion: (response: NSDictionary) -> ()) {
+        
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerEndpoint, httpMethod: HTTPConstants.HTTPMethodPut)
+        
+        
+        let params = ["FirstName":klockWirker.firstName,
+            "LastName":klockWirker.lastName,
+            "Email":klockWirker.emailAddress,
+            "Phone":klockWirker.phoneNumber,
+            "Password":klockWirker.password,
+            "KlockWirkerId":String(klockWirker.klockWirkerId),
+            "MerchantId":String(ApplicationInformation.getMerchantId())] as Dictionary<String, String>
+
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            
+        } catch {
+            
+            print(error)
+        }
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
     
     func getKlockWirker(klockWirkerId: Int, onCompletion: (response: KlockWirker) -> ()) {
         

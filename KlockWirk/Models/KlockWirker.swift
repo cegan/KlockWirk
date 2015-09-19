@@ -11,7 +11,7 @@ import Foundation
 
 class KlockWirker: NSObject, NSCoding{
 
-    var klockWirkerId: Int = 0
+    var klockWirkerId: NSNumber = 0
     var firstName: String = ""
     var lastName: String = ""
     var emailAddress: String = ""

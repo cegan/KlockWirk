@@ -1,4 +1,4 @@
-//
+////
 //  ApplicationInformation.swift
 //  KlockWirk
 //
@@ -43,6 +43,26 @@ class ApplicationInformation{
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirker)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkerKey")
     }
+    
+    class func setIsMerchant(isMerchant: Bool){
+        
+        NSUserDefaults.standardUserDefaults().setObject(isMerchant, forKey: "isMerchant")
+    }
+    
+    class func setIsKlockWirker(isKlockWirker: Bool){
+        
+        NSUserDefaults.standardUserDefaults().setObject(isKlockWirker, forKey: "isKlockWirker")
+    }
+    
+    
+    class func replaceKlockWirker(kw: KlockWirker, index: Int){
+        
+        let merchant = getMerchant()
+        merchant!.klockWirkers.replaceObjectAtIndex(index, withObject: kw)
+    
+        setMerchant(merchant!)
+    }
+    
     
     
     class func getKlockWirkBaseUrl() -> NSString{
@@ -108,15 +128,7 @@ class ApplicationInformation{
     }
     
     
-    class func setIsMerchant(isMerchant: Bool){
-        
-        NSUserDefaults.standardUserDefaults().setObject(isMerchant, forKey: "isMerchant")
-    }
-    
-    class func setIsKlockWirker(isKlockWirker: Bool){
-        
-        NSUserDefaults.standardUserDefaults().setObject(isKlockWirker, forKey: "isKlockWirker")
-    }
+
     
     
     
@@ -143,7 +155,6 @@ class ApplicationInformation{
             return false
         }
     }
-    
     
     class func isKlockWirker() -> Bool{
         

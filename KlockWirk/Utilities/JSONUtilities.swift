@@ -14,9 +14,7 @@ class JSONUtilities{
     
     class func parseKlockWirkers(kws: NSArray) -> NSMutableArray{
         
-        //var klockWirkers = [KlockWirker]()
-        
-        var klockWirkers = NSMutableArray()
+        let klockWirkers = NSMutableArray()
         
         for element in kws {
             
@@ -27,8 +25,7 @@ class JSONUtilities{
             klockWirker.lastName = (element.objectForKey("LastName") as? String)!
             klockWirker.emailAddress = (element.objectForKey("Email") as? String)!
             klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
-    
-         //   klockWirkers.append(klockWirker)
+            klockWirker.password = (element.objectForKey("Password") as? String)!
             
             klockWirkers.addObject(klockWirker)
         
@@ -46,6 +43,7 @@ class JSONUtilities{
         klockWirker.lastName = (kw.objectForKey("LastName") as? String)!
         klockWirker.emailAddress = (kw.objectForKey("Email") as? String)!
         klockWirker.phoneNumber = (kw.objectForKey("Phone") as? String)!
+        klockWirker.password = (kw.objectForKey("Password") as? String)!
         
         return klockWirker
     }

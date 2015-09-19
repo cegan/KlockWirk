@@ -16,15 +16,17 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     let klockWirkerService = KlockWirkerServices()
     let merchantService = MerchantServices()
     
+    var klockWirkerIndex  = 0
     var klockWirkerDetail = KlockWirker()
     var klockWirkerFields = NSMutableArray()
     
     
-    init(klockWirker: KlockWirker){
+    init(klockWirker: KlockWirker, index: Int){
         
         super.init(nibName: "KlockWirkerDetailViewController", bundle: nil);
         
         klockWirkerDetail = klockWirker
+        klockWirkerIndex  = index
     }
     
     
@@ -33,6 +35,9 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    //MARK: View Delegates
     
     override func viewDidLoad() {
         
@@ -46,6 +51,23 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         setupTableViewDelegates()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        if(isModified()){
+            
+            let klockWirker = getUpdateKlockWirker()
+            
+            ApplicationInformation.replaceKlockWirker(klockWirker, index: klockWirkerIndex)
+            
+            klockWirkerService.updateKlockWirker(klockWirker) { (response: NSDictionary) in
+                
+            }
+        }
+    }
+    
+    
+
+
     
     
     //MARK: Setup Methods
@@ -77,8 +99,62 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     }
     
     
-    func deleteKlockWirker(){
     
+
+    
+    //MARK: Utility Methods
+    
+    func isModified() -> Bool{
+        
+        let firstName = klockWirkerFields.objectAtIndex(0) as! AccountSetupField
+        let lastName = klockWirkerFields.objectAtIndex(1) as! AccountSetupField
+        let email = klockWirkerFields.objectAtIndex(2) as! AccountSetupField
+        let phone = klockWirkerFields.objectAtIndex(3) as! AccountSetupField
+        
+        
+        if(firstName.value == klockWirkerDetail.firstName &&
+            lastName.value == klockWirkerDetail.lastName &&
+            email.value == klockWirkerDetail.emailAddress &&
+            phone.value == klockWirkerDetail.phoneNumber){
+                
+                return false
+        }
+        
+        
+        return true;
+        
+    }
+    
+    func getKlockWirkerFields() -> NSMutableArray{
+        
+        let klockWirkerFields = NSMutableArray()
+        
+        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, type:.String, tag: 1))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, type:.String, tag: 2))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, type:.String, tag: 3))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, type:.String, tag: 4))
+       
+        return klockWirkerFields
+    }
+    
+    func getUpdateKlockWirker() -> KlockWirker{
+        
+        let firstName = klockWirkerFields.objectAtIndex(0) as! AccountSetupField
+        let lastName = klockWirkerFields.objectAtIndex(1) as! AccountSetupField
+        let email = klockWirkerFields.objectAtIndex(2) as! AccountSetupField
+        let phone = klockWirkerFields.objectAtIndex(3) as! AccountSetupField
+        
+    
+        klockWirkerDetail.firstName = firstName.value!
+        klockWirkerDetail.lastName = lastName.value!
+        klockWirkerDetail.emailAddress = email.value!
+        klockWirkerDetail.phoneNumber = phone.value!
+        
+        return klockWirkerDetail
+    }
+    
+    func deleteKlockWirker(){
+        
         klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
             
             let merchant = ApplicationInformation.getMerchant()
@@ -91,7 +167,6 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         }
     }
     
-    
     func moreOptions(){
         
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
@@ -101,7 +176,7 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
             
             (alert: UIAlertAction!) -> Void in
             
-                self.deleteKlockWirker()
+            self.deleteKlockWirker()
             
         })
         
@@ -115,23 +190,6 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    //MARK: Utility Methods
-    
-    func getKlockWirkerFields() -> NSMutableArray{
-        
-        let klockWirkerFields = NSMutableArray()
-        
-        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, type:.String, tag: 1))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, type:.String, tag: 2))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, type:.String, tag: 3))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, type:.String, tag: 4))
-       
-        return klockWirkerFields
     }
     
     

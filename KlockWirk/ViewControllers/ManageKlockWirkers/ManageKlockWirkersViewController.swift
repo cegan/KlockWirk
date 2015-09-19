@@ -10,6 +10,8 @@ import UIKit
 
 class ManageKlockWirkersViewController: UITableViewController {
     
+    
+    let merchantService = MerchantServices()
     var klockWirkers = NSMutableArray()
     
     
@@ -105,7 +107,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker), animated: true)
+        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker, index: indexPath.row), animated: true)
     }
     
 }
