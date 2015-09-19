@@ -64,6 +64,15 @@ class ApplicationInformation{
     }
     
     
+    class func removeKlockWirker(kw: KlockWirker, index: Int){
+        
+        let merchant = getMerchant()
+        merchant!.klockWirkers.removeObject(kw)
+        
+        setMerchant(merchant!)
+    }
+    
+    
     
     class func getKlockWirkBaseUrl() -> NSString{
         

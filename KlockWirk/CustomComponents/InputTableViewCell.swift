@@ -27,6 +27,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
     }
     
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         
         if(accountSetupField.fieldType == .Currency){
@@ -51,14 +52,16 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    
     func textFieldDidEndEditing(textField: UITextField) {
         
         accountSetupField.value = textField.text
         
-        if(accountSetupField.fieldType == .Currency){
+        if(textField.text != ""){
             
-            textField.text = NumberFormatter.formatDoubleToCurrency(Double(textField.text!)!)
+            if(accountSetupField.fieldType == .Currency){
+                
+                textField.text = NumberFormatter.formatDoubleToCurrency(Double(textField.text!)!)
+            }
         }
     }
     
@@ -78,9 +81,6 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         cellLabel.text = detail.defaluValue
         cellInput.text = detail.value
-        
-        
-       // NumberFormatter.formatDoubleToCurrency(Double(detail.value!)!)
         
         setupCellProperties(detail.tag!)
     }

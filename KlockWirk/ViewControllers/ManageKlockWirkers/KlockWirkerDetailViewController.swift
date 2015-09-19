@@ -53,6 +53,9 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     override func viewWillDisappear(animated: Bool) {
         
+        
+        klockWirkerDetailTableView.endEditing(true)
+        
         if(isModified()){
             
             let klockWirker = getUpdateKlockWirker()
@@ -154,6 +157,8 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     }
     
     func deleteKlockWirker(){
+        
+        ApplicationInformation.removeKlockWirker(self.self.klockWirkerDetail, index: 0)
         
         klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
             

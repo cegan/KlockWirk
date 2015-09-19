@@ -99,9 +99,8 @@ class AddScheduleTableViewController: UITableViewController {
         
         scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, tag: 1))
         scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "",type:.String, tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", type:.String, tag: 4))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, tag: 5))
+        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, tag: 4))
         
         return scheduleFields
     }
@@ -209,11 +208,11 @@ class AddScheduleTableViewController: UITableViewController {
             
         case 2:
             cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(DatePickerViewController(), animated: true)
+            self.navigationController?.pushViewController(DatePicker(style: UITableViewStyle.Grouped), animated: true)
             
         case 3:
             cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(DatePickerViewController(), animated: true)
+            self.navigationController?.pushViewController(DatePicker(style: UITableViewStyle.Grouped), animated: true)
             
         case 4:
             cancelTableViewEditing(false)

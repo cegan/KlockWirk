@@ -13,6 +13,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tv: UITableView!
     
     let scheduleService = SchedulService()
+    let merchantService = MerchantServices()
  
     var selectedSchedule = Schedule()
     var scheduleSummaryFields = NSMutableArray()
@@ -42,6 +43,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         loadSheeduledKlockWirkers()
         setupViewProperties()
+        setupNavigationBar()
         setupTableViewDelegates()
         setupChart()
     }
@@ -83,6 +85,16 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         view.addSubview(pieChart.view)
     }
     
+    func setupNavigationBar(){
+        
+        if(!ApplicationInformation.isReadOnly()){
+            
+            let deleteSchedule = UIBarButtonItem(image: UIImage(named: "more.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("moreOptions"))
+            
+            self.navigationItem.rightBarButtonItem = deleteSchedule
+        }
+    }
+    
     func setupViewProperties(){
         
         self.navigationItem.title = "Schedule Detail"
@@ -98,7 +110,42 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     
     
+    func moreOptions(){
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete Schedule", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            
+            self.deleteSchedule()
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
     
+    
+    func deleteSchedule(){
+        
+        scheduleService.deleteSchedule(selectedSchedule.scheduleId) { (response:NSDictionary) in
+            
+            self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
+                
+                ApplicationInformation.setMerchant(response)
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+    }
     
     
     
@@ -116,6 +163,35 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         return scheduleSummarFieldsFields
     }
+    
+    func getSelectedKlockWirkers() -> NSMutableArray{
+        
+        var merchant = Merchant()
+        let isMerhant = ApplicationInformation.isMerchant()
+        
+        if(isMerhant){
+            
+            merchant = ApplicationInformation.getMerchant()!
+            
+            for kws in merchant.klockWirkers {
+                
+                let klockWirker = kws as! KlockWirker
+                
+                for k in selectedSchedule.klockWirkers {
+                    
+                    let kk = k as! KlockWirker
+                    
+                    if(klockWirker.klockWirkerId == kk.klockWirkerId){
+                        
+                        klockWirker.isSelected = true
+                    }
+                }
+            }
+        }
+        
+        return merchant.klockWirkers
+    }
+
     
     
     
@@ -163,33 +239,6 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     
-    func getSelectedKlockWirkers() -> NSMutableArray{
-        
-        var merchant = Merchant()
-        let isMerhant = ApplicationInformation.isMerchant()
-        
-        if(isMerhant){
-            
-            merchant = ApplicationInformation.getMerchant()!
-            
-            for kws in merchant.klockWirkers {
-                
-                let klockWirker = kws as! KlockWirker
-                
-                for k in selectedSchedule.klockWirkers {
-                    
-                    let kk = k as! KlockWirker
-                    
-                    if(klockWirker.klockWirkerId == kk.klockWirkerId){
-                        
-                        klockWirker.isSelected = true
-                    }
-                }
-            }
-        }
-        
-        return merchant.klockWirkers
-    }
     
 
 

@@ -150,6 +150,28 @@ class SchedulService: BaseKlockWirkService{
     }
     
     
+    
+    func deleteSchedule(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
+        
+        let parameters = ["id":scheduleId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodDelete, parameters: parameters)
+        
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary   
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
+    
 
     
 }

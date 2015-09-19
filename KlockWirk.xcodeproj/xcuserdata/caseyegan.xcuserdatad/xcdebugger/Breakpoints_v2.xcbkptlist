@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Utilities/ApplicationInformation.swift"
-            timestampString = "464362109.85544"
+            filePath = "KlockWirk/Services/ScheduleService.swift"
+            timestampString = "464369494.194958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "replaceKlockWirker(_:index:)"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "deleteSchedule(_:onCompletion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,61 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/ManageKlockWirkers/KlockWirkerDetailViewController.swift"
-            timestampString = "464364506.463922"
+            filePath = "KlockWirk/Services/ScheduleService.swift"
+            timestampString = "464369555.515837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "getUpdateKlockWirker()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/ManageKlockWirkers/KlockWirkerDetailViewController.swift"
-            timestampString = "464364506.463922"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "viewWillDisappear(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Utilities/JSONUtilities.swift"
-            timestampString = "464364692.498311"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "parseKlockWirkers(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Utilities/JSONUtilities.swift"
-            timestampString = "464364707.912043"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "parseKlockWirkers(_:)"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "deleteSchedule(_:onCompletion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

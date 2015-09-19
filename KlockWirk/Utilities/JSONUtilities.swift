@@ -105,6 +105,7 @@ class JSONUtilities{
         
         let schedule = Schedule()
         
+        schedule.scheduleId = (s.objectForKey("ScheduleId") as? Int)!
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
 //        schedule.startDateTime = (s.objectForKey("ShiftStartDateTime") as? NSDate)!
 //        schedule.endDateTime = (s.objectForKey("ShiftEndDateTime") as? NSDate)!

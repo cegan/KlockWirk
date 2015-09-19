@@ -81,6 +81,8 @@
 		4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */; };
 		4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D381B514AC50056800C /* ApplicationInformation.swift */; };
 		4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D3D1B5150FE0056800C /* Constants.swift */; };
+		4DE743A61BADEE180093FA1C /* DVDatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743A51BADEE180093FA1C /* DVDatePickerTableViewCell.swift */; };
+		4DE743A91BADEE5A0093FA1C /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743A81BADEE5A0093FA1C /* DatePicker.swift */; };
 		4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */; };
 		4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */; };
 		4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */; };
@@ -215,6 +217,8 @@
 		4DDA8D2D1B5147F10056800C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		4DDA8D381B514AC50056800C /* ApplicationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInformation.swift; sourceTree = "<group>"; };
 		4DDA8D3D1B5150FE0056800C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4DE743A51BADEE180093FA1C /* DVDatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVDatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		4DE743A81BADEE5A0093FA1C /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesTableViewController.swift; sourceTree = "<group>"; };
 		4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulesTableViewController.xib; sourceTree = "<group>"; };
 		4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		4D2C54731B952BAD0007AFD5 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				4DE743A51BADEE180093FA1C /* DVDatePickerTableViewCell.swift */,
 				4D2C54741B952BD20007AFD5 /* EnrollmentViewCell.swift */,
 				4D2C54751B952BD20007AFD5 /* EnrollmentViewCell.xib */,
 				4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */,
@@ -334,6 +339,7 @@
 		4D2C54CF1BA3C48C0007AFD5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4DE743A71BADEE5A0093FA1C /* DatePicker */,
 				4DE754981BA77EA500D3FE29 /* ScheduleSummary */,
 				4D2C55411BA4A8770007AFD5 /* Chart */,
 				4D2C54D21BA3D0DF0007AFD5 /* DatePickerViewController.swift */,
@@ -571,6 +577,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4DE743A71BADEE5A0093FA1C /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				4DE743A81BADEE5A0093FA1C /* DatePicker.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
 		4DE754981BA77EA500D3FE29 /* ScheduleSummary */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +772,8 @@
 				4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
 				4D2C54CA1BA3C1210007AFD5 /* RSDFDatePickerDayCell.m in Sources */,
+				4DE743A61BADEE180093FA1C /* DVDatePickerTableViewCell.swift in Sources */,
+				4DE743A91BADEE5A0093FA1C /* DatePicker.swift in Sources */,
 				4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */,
 				4D2C54761B952BD20007AFD5 /* EnrollmentViewCell.swift in Sources */,
 				4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */,
