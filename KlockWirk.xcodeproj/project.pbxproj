@@ -96,6 +96,7 @@
 		4DE754A61BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */; };
 		4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */; };
 		4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */; };
+		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,7 @@
 		4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewController.xib; sourceTree = "<group>"; };
 		4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +553,7 @@
 				4D2C544E1B87F59F0007AFD5 /* NotificationUtilities.swift */,
 				4DDA8D381B514AC50056800C /* ApplicationInformation.swift */,
 				4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */,
+				4DED61051BA9044400E09A12 /* NumberFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */,
 				4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */,
 				4D2C54C31BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m in Sources */,
+				4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */,
 				4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */,
 				4D2C545B1B8A03130007AFD5 /* MBProgressHUD.m in Sources */,
 				4D2C54CB1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m in Sources */,

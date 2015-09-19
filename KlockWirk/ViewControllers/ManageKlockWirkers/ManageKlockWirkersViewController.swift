@@ -104,11 +104,8 @@ class ManageKlockWirkersViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        let x = self.klockWirkers[indexPath.row] as! KlockWirker
-        
-        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker), animated: false)
+
+        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker), animated: true)
     }
     
 }

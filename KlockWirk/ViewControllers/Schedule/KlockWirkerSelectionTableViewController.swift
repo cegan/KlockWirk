@@ -10,14 +10,15 @@ import UIKit
 
 class KlockWirkerSelectionTableViewController: UITableViewController {
     
-    var selectedMerchant = Merchant()
+    var klockWirkers = NSMutableArray()
+    var isReadOnly = false
     
-    
-    init(merchant: Merchant){
+    init(kws: NSMutableArray, readOnly: Bool){
         
         super.init(nibName: "KlockWirkerSelectionTableViewController", bundle: nil);
         
-        selectedMerchant = merchant
+        klockWirkers = kws
+        isReadOnly = readOnly
     }
     
     
@@ -27,6 +28,11 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     }
     
     
+    
+    
+    
+    //MARK: View Delegates
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,8 +41,7 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
         setupNavigationButtons()
     }
     
-    
-    
+
     
     //MARK: Setup Methods
     
@@ -47,24 +52,36 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     
     func setupViewProperties(){
         
-        self.navigationItem.title = "Select KlockWirkers"
+        if(!isReadOnly){
+            
+            self.navigationItem.title = "Select KlockWirkers"
+        }
+        else{
+            
+            self.navigationItem.title = "KlockWirkers"
+        }
     }
-    
     
     func setupNavigationButtons(){
         
-        let done = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneButtonTapped")
-        
-        self.navigationItem.rightBarButtonItem = done
+        if(!isReadOnly){
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneButtonTapped")
+        }
     }
    
     
+    
+    //MARK: Events
     
     func doneButtonTapped(){
         
         self.navigationController?.popViewControllerAnimated(true)
         
     }
+    
+    
+    
     
     
     //MARK: TableView Delegates
@@ -76,13 +93,13 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return selectedMerchant.klockWirkers.count
+        return klockWirkers.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("KlockWirkerCell", forIndexPath: indexPath) as! KlockWirkerSelectionTableViewCell
-        let kw = self.selectedMerchant.klockWirkers[indexPath.row] as! KlockWirker
+        let kw = klockWirkers[indexPath.row] as! KlockWirker
         
         if(kw.isSelected == true){
             
@@ -100,21 +117,22 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let kw = self.selectedMerchant.klockWirkers[indexPath.row] as! KlockWirker
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! KlockWirkerSelectionTableViewCell
-        
-    
-        if(kw.isSelected == true){
+        if(!isReadOnly){
             
-            kw.isSelected = false
-            cell.setIsImageViewHidden(true)
-        }
-        else{
+            let kw = klockWirkers[indexPath.row] as! KlockWirker
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! KlockWirkerSelectionTableViewCell
             
-            kw.isSelected = true
-            cell.setIsImageViewHidden(false)
+            
+            if(kw.isSelected == true){
+                
+                kw.isSelected = false
+                cell.setIsImageViewHidden(true)
+            }
+            else{
+                
+                kw.isSelected = true
+                cell.setIsImageViewHidden(false)
+            }
         }
     }
-   
-  
 }

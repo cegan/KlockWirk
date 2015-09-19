@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        NumberFormatter.formatDoubleToCurrency(200000)
+        
         loadApplicationSettings()
         setUserInterfaceDefaults()
         

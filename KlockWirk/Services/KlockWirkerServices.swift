@@ -31,6 +31,25 @@ class KlockWirkerServices : BaseKlockWirkService{
         task.resume()
     }
     
+    func deleteKlockWirker(klockWirkerId: Int, onCompletion: (response: NSDictionary) -> ()) {
+        
+        let parameters = ["id":klockWirkerId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerEndpoint, httpMethod: HTTPConstants.HTTPMethodDelete, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: jsonResult)
+            })
+        })
+        
+        task.resume()
+    }
+    
     func getKlockWirker(klockWirkerId: Int, onCompletion: (response: KlockWirker) -> ()) {
         
         let parameters = ["klockWirkerId":klockWirkerId]
@@ -57,18 +76,43 @@ class KlockWirkerServices : BaseKlockWirkService{
             let scheduleIds = ",".join(array)
             
             
-            scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
-            
-                for obj: AnyObject in response {
+            if(!scheduleIds.isEmpty){
+                
+                
+                scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
                     
-                   klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
+                    for obj: AnyObject in response {
+                        
+                        klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: klockWirker)
+                    })
                 }
+            }
+            else{
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                
+                    
                     onCompletion(response: klockWirker)
                 })
             }
+            
+            
+//            scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
+//            
+//                for obj: AnyObject in response {
+//                    
+//                   klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
+//                }
+//                
+//                dispatch_async(dispatch_get_main_queue(), {
+//                
+//                    onCompletion(response: klockWirker)
+//                })
+//            }
         })
         
         task.resume()

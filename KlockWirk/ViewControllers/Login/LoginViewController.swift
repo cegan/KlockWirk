@@ -271,7 +271,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         
         self.view.endEditing(true)
-        startActivityIndicator()
+       
         
         loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
             
@@ -290,9 +290,10 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             }
             if(isMerchant == true){
                 
-                self.merchantService.getMerchant(merchantId!) {(response: NSDictionary) in
+                self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
                     
-                    ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
+                    ApplicationInformation.setMerchant(response)
+
                     self.loadMerchantTabBarController()
                 }
             }

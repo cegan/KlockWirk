@@ -25,15 +25,17 @@ class SchedulesTableViewController: UITableViewController {
         setupTableViewProperties()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        
-        setupViewProperties()
-        loadData()
-    }
-    
     override func viewWillDisappear(animated: Bool) {
         
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        
         self.navigationItem.title = "Schedules"
+        loadData()
+        
     }
     
     
@@ -47,9 +49,12 @@ class SchedulesTableViewController: UITableViewController {
     
     func setupNavigationBar(){
         
-        let addNewSchedule = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewSchedule"))
-        
-        self.navigationItem.rightBarButtonItem = addNewSchedule
+        if(!ApplicationInformation.isReadOnly()){
+            
+            let addNewSchedule = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewSchedule"))
+            
+            self.navigationItem.rightBarButtonItem = addNewSchedule
+        }
     }
     
     func addNewSchedule(){
@@ -104,7 +109,7 @@ class SchedulesTableViewController: UITableViewController {
         
         let schedule = self.schedules[indexPath.row] as! Schedule
         
-        cell.textLabel?.text = String(schedule.line)
+        cell.textLabel?.text = NumberFormatter.formatDoubleToCurrency(schedule.line)
         
         return cell
     }
@@ -112,6 +117,7 @@ class SchedulesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let schedule = schedules.objectAtIndex(indexPath.row) as! Schedule
+        
         self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
     }
     

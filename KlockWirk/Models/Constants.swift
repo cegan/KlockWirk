@@ -10,6 +10,16 @@ import Foundation
 
 
 
+enum InputFieldTypes {
+    
+    case Currency
+    case Percent
+    case String
+    case Email
+    case Phone
+    
+}
+
 struct NotificationConstants {
     
     static let RegisterKlockWirkerCompeleted  = "RegisterKlockWirkerCompeleted"
@@ -29,12 +39,13 @@ struct ServiceEndpoints {
     
     static let OrderEndpoint                = "/resources/OrderHistory/?format=json"
     static let KlockWirkersEndpoint         = "klockwirkers/"
-    static let KlockWirkerEndpoint         = "klockwirker/"
+    static let KlockWirkerEndpoint          = "klockwirker/"
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
     static let ScheduleEndpoint             = "Schedules/"
     static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
+    static let KlockWirkersByScheduleId             = "klockwirkers/GetKlockWirkersForScheduleId/"
 }
 
 
@@ -48,5 +59,6 @@ struct HTTPConstants {
     
     static let HTTPMethodPost    = "POST"
     static let HTTPMethodGet     = "GET"
+    static let HTTPMethodDelete  = "DELETE"
     static let Authorization     = "API-AUTHENTICATION"
 }

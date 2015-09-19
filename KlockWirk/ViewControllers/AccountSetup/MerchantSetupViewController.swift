@@ -104,18 +104,18 @@ class MerchantSetupViewController: UITableViewController {
         
         let merchantFields = NSMutableArray()
         
-        merchantFields.addObject(AccountSetupField(lbl: "First Name", val: "", tag: 1))
-        merchantFields.addObject(AccountSetupField(lbl: "Last Name", val: "", tag: 2))
-        merchantFields.addObject(AccountSetupField(lbl: "Address", val: "", tag: 3))
-        merchantFields.addObject(AccountSetupField(lbl: "City", val: "", tag: 4))
-        merchantFields.addObject(AccountSetupField(lbl: "State", val: "", tag: 5))
-        merchantFields.addObject(AccountSetupField(lbl: "ZipCode", val: "", tag: 6))
-        merchantFields.addObject(AccountSetupField(lbl: "Phone", val: "", tag: 7))
-        merchantFields.addObject(AccountSetupField(lbl: "Email", val: "", tag: 8))
-        merchantFields.addObject(AccountSetupField(lbl: "Manager", val: "", tag: 9))
-        merchantFields.addObject(AccountSetupField(lbl: "Pos System", val: "", tag: 10))
-        merchantFields.addObject(AccountSetupField(lbl: "Password", val: "", tag: 11))
-        merchantFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", tag: 12))
+        merchantFields.addObject(AccountSetupField(lbl: "First Name", val: "",type:.String, tag: 1))
+        merchantFields.addObject(AccountSetupField(lbl: "Last Name", val: "",type:.String, tag: 2))
+        merchantFields.addObject(AccountSetupField(lbl: "Address", val: "", type:.String, tag: 3))
+        merchantFields.addObject(AccountSetupField(lbl: "City", val: "", type:.String, tag: 4))
+        merchantFields.addObject(AccountSetupField(lbl: "State", val: "", type:.String, tag: 5))
+        merchantFields.addObject(AccountSetupField(lbl: "ZipCode", val: "", type:.String, tag: 6))
+        merchantFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 7))
+        merchantFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 8))
+        merchantFields.addObject(AccountSetupField(lbl: "Manager", val: "",type:.String, tag: 9))
+        merchantFields.addObject(AccountSetupField(lbl: "Pos System", val: "", type:.String, tag: 10))
+        merchantFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, tag: 11))
+        merchantFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, tag: 12))
         
         return merchantFields
     }
@@ -128,7 +128,7 @@ class MerchantSetupViewController: UITableViewController {
         merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: NSDictionary) in
             
             ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
-            ApplicationInformation.setKlockWirkers([KlockWirker]())
+            ApplicationInformation.setKlockWirkers(NSMutableArray())
             self.loadMerchantTabBarController()
         }
     }

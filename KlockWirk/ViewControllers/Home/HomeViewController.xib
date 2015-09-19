@@ -16,21 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-x0-o2B">
-                    <rect key="frame" x="0.0" y="246" width="600" height="339"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-x0-o2B">
+                    <rect key="frame" x="0.0" y="273" width="600" height="327"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="339" id="dh6-79-PiK"/>
+                        <constraint firstAttribute="height" constant="327" id="io3-FG-mlB"/>
                     </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="0Mu-x0-o2B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3vL-kZ-Kiz"/>
-                <constraint firstAttribute="trailing" secondItem="0Mu-x0-o2B" secondAttribute="trailing" id="DZ6-GP-dNK"/>
-                <constraint firstAttribute="bottom" secondItem="0Mu-x0-o2B" secondAttribute="bottom" constant="15" id="Yc3-Q1-A0h"/>
+                <constraint firstItem="0Mu-x0-o2B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bmq-Av-Zuh"/>
+                <constraint firstAttribute="bottom" secondItem="0Mu-x0-o2B" secondAttribute="bottom" id="Dt1-xn-tSp"/>
+                <constraint firstAttribute="trailing" secondItem="0Mu-x0-o2B" secondAttribute="trailing" id="H4Z-FT-Ott"/>
             </constraints>
-            <point key="canvasLocation" x="384" y="143"/>
+            <point key="canvasLocation" x="312" y="51"/>
         </view>
     </objects>
 </document>

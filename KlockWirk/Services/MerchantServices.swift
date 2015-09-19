@@ -12,7 +12,7 @@ import Foundation
 
 class MerchantServices: BaseKlockWirkService{
     
-    func getMerchant(merchantId: Int, onCompletion: (response: NSDictionary) -> ()) {
+    func getMerchant(merchantId: Int, onCompletion: (response: Merchant) -> ()) {
         
         let parameters = ["merchantId":merchantId]
         let session = NSURLSession.sharedSession()
@@ -22,9 +22,11 @@ class MerchantServices: BaseKlockWirkService{
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             
+            let merchant = JSONUtilities.parseMerchant(jsonResult)
+            
             dispatch_async(dispatch_get_main_queue(), {
                 
-                onCompletion(response: jsonResult)
+                onCompletion(response: merchant)
             })
         })
         

@@ -88,8 +88,8 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", tag: 2))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 2))
         
         return klockWirkerRegistrationFields
     }
@@ -99,8 +99,8 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Password", val: "", tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, tag: 1))
        
         return klockWirkerRegistrationFields
     }
@@ -142,18 +142,18 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
             
             klockWirkService.registerKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
                 
-                let statusCode = (response.objectForKey("statusCode") as? Int)!
+//                let statusCode = (response.objectForKey("statusCode") as? Int)!
+//                
+//                if(statusCode == HTTPStatusCodes.HTTPNotFound){
+//                    
+//                    self.displayAlert("Not Found")
+//                }
+//                else{
                 
-                if(statusCode == HTTPStatusCodes.HTTPNotFound){
-                    
-                    self.displayAlert("Not Found")
-                }
-                else{
-                    
                     let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
                     
                     self.navigationController?.pushViewController(tabBarController, animated: false)
-                }
+             //   }
             }
         }
         else{

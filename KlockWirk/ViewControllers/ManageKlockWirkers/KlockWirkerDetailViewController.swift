@@ -13,6 +13,9 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     @IBOutlet weak var klockWirkerDetailTableView: UITableView!
     
+    let klockWirkerService = KlockWirkerServices()
+    let merchantService = MerchantServices()
+    
     var klockWirkerDetail = KlockWirker()
     var klockWirkerFields = NSMutableArray()
     
@@ -37,13 +40,20 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         
         klockWirkerFields = getKlockWirkerFields()
         
+        setupViewProperties()
         setupTableViewProperties()
+        setupNavigationBar()
         setupTableViewDelegates()
     }
     
     
     
     //MARK: Setup Methods
+    
+    func setupViewProperties(){
+        
+        navigationItem.title = klockWirkerDetail.firstName + " " + klockWirkerDetail.lastName
+    }
     
     func setupTableViewDelegates(){
         
@@ -56,6 +66,59 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         klockWirkerDetailTableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
+    func setupNavigationBar(){
+        
+        if(!ApplicationInformation.isReadOnly()){
+            
+            let deleteKlockWirker = UIBarButtonItem(image: UIImage(named: "more.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("moreOptions"))
+            
+            self.navigationItem.rightBarButtonItem = deleteKlockWirker
+        }
+    }
+    
+    
+    func deleteKlockWirker(){
+    
+        klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
+            
+            let merchant = ApplicationInformation.getMerchant()
+            
+            self.merchantService.getMerchant(merchant!.merchantId) {(response: Merchant) in
+                
+                ApplicationInformation.setMerchant(response)
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+    }
+    
+    
+    func moreOptions(){
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        
+        let deleteAction = UIAlertAction(title: "Delete KlockWirker", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            
+                self.deleteKlockWirker()
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    
+    
     
     //MARK: Utility Methods
     
@@ -63,10 +126,10 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         
         let klockWirkerFields = NSMutableArray()
         
-        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, tag: 1))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, tag: 2))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, tag: 3))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, tag: 4))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, type:.String, tag: 1))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, type:.String, tag: 2))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, type:.String, tag: 3))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, type:.String, tag: 4))
        
         return klockWirkerFields
     }

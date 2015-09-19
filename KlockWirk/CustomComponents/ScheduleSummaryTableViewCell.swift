@@ -29,5 +29,8 @@ class ScheduleSummaryTableViewCell: UITableViewCell {
         
         cellLabel.text = scheduleSummaryField.label
         cellValue.text = scheduleSummaryField.value
+        
+        
+        selectionStyle = UITableViewCellSelectionStyle.None
     }
 }

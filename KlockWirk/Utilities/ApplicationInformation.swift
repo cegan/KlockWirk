@@ -17,7 +17,7 @@ class ApplicationInformation{
         NSUserDefaults.standardUserDefaults().setObject(baseUrl, forKey: "RevelBaseAPI")
     }
     
-    class func setKlockWirkers(klockWirkers:[KlockWirker]){
+    class func setKlockWirkers(klockWirkers:NSMutableArray){
         
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirkers)
         NSUserDefaults.standardUserDefaults().setObject(myData, forKey: "KlockWirkersKey")
@@ -118,6 +118,19 @@ class ApplicationInformation{
         NSUserDefaults.standardUserDefaults().setObject(isKlockWirker, forKey: "isKlockWirker")
     }
     
+    
+    
+    class func isReadOnly() -> Bool{
+        
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("isMerchant") as? Bool {
+            
+            return !value
+            
+        }
+        
+        return false
+
+    }
     
     class func isMerchant() -> Bool{
         

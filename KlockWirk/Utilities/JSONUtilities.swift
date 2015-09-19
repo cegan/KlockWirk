@@ -12,9 +12,11 @@ import Foundation
 
 class JSONUtilities{
     
-    class func parseKlockWirkers(kws: NSArray) -> [KlockWirker]{
+    class func parseKlockWirkers(kws: NSArray) -> NSMutableArray{
         
-        var klockWirkers = [KlockWirker]()
+        //var klockWirkers = [KlockWirker]()
+        
+        var klockWirkers = NSMutableArray()
         
         for element in kws {
             
@@ -26,7 +28,9 @@ class JSONUtilities{
             klockWirker.emailAddress = (element.objectForKey("Email") as? String)!
             klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
     
-            klockWirkers.append(klockWirker)
+         //   klockWirkers.append(klockWirker)
+            
+            klockWirkers.addObject(klockWirker)
         
         }
         
@@ -71,6 +75,7 @@ class JSONUtilities{
             
             let schedule = Schedule()
             
+            schedule.scheduleId = (obj.objectForKey("ScheduleId") as? Int)!
             schedule.merchantId = (obj.objectForKey("MerchantId") as? Int)!
             schedule.line = (obj.objectForKey("Line") as? Double)!
             schedule.KlockWirkerPercentage = (obj.objectForKey("KlockWirkerPercentage") as? Double)!

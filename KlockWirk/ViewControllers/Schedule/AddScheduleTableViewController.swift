@@ -97,11 +97,11 @@ class AddScheduleTableViewController: UITableViewController {
         
         let scheduleFields = NSMutableArray()
         
-        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "", tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "", tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", tag: 4))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", tag: 5))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, tag: 1))
+        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Start Date", val: "",type:.String, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "End Date", val: "", type:.String, tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, tag: 5))
         
         return scheduleFields
     }
@@ -217,7 +217,7 @@ class AddScheduleTableViewController: UITableViewController {
             
         case 4:
             cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(merchant: merchant), animated: true)
+            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: merchant.klockWirkers, readOnly: ApplicationInformation.isReadOnly()), animated: true)
             
         default:
             return

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleDetailViewController" customModule="KlockWirk" customModuleProvider="target">
             <connections>
-                <outlet property="schedulDetailTableView" destination="P1s-VX-Qo2" id="HkM-wL-HCp"/>
+                <outlet property="tv" destination="g7u-GK-CWm" id="8Ge-3a-Iq2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,21 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P1s-VX-Qo2">
-                    <rect key="frame" x="0.0" y="226" width="600" height="321"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-GK-CWm">
+                    <rect key="frame" x="0.0" y="227" width="600" height="373"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="321" id="3kM-se-lJq"/>
+                        <constraint firstAttribute="height" constant="373" id="qie-Vy-WAg"/>
                     </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="P1s-VX-Qo2" secondAttribute="bottom" constant="53" id="3KJ-qv-32K"/>
-                <constraint firstItem="P1s-VX-Qo2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MO5-lg-uNk"/>
-                <constraint firstAttribute="trailing" secondItem="P1s-VX-Qo2" secondAttribute="trailing" id="pPL-MJ-OM8"/>
+                <constraint firstItem="g7u-GK-CWm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JT7-N1-k9t"/>
+                <constraint firstAttribute="bottom" secondItem="g7u-GK-CWm" secondAttribute="bottom" id="JZZ-qb-mxq"/>
+                <constraint firstAttribute="trailing" secondItem="g7u-GK-CWm" secondAttribute="trailing" id="wJ2-RF-VTd"/>
             </constraints>
-            <point key="canvasLocation" x="-13" y="207"/>
+            <point key="canvasLocation" x="-167" y="137"/>
         </view>
     </objects>
 </document>

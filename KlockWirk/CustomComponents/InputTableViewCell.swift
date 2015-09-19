@@ -27,9 +27,39 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if(accountSetupField.fieldType == .Currency){
+            
+            textField.keyboardType = UIKeyboardType.DecimalPad
+        }
+        if(accountSetupField.fieldType == .Percent){
+            
+            textField.keyboardType = UIKeyboardType.DecimalPad
+        }
+        if(accountSetupField.fieldType == .String){
+            
+            textField.keyboardType = UIKeyboardType.Alphabet
+        }
+        if(accountSetupField.fieldType == .Email){
+            
+            textField.keyboardType = UIKeyboardType.EmailAddress
+        }
+        if(accountSetupField.fieldType == .Phone){
+            
+            textField.keyboardType = UIKeyboardType.PhonePad
+        }
+    }
+    
+    
     func textFieldDidEndEditing(textField: UITextField) {
         
         accountSetupField.value = textField.text
+        
+        if(accountSetupField.fieldType == .Currency){
+            
+            textField.text = NumberFormatter.formatDoubleToCurrency(Double(textField.text!)!)
+        }
     }
     
     
@@ -48,6 +78,9 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         cellLabel.text = detail.defaluValue
         cellInput.text = detail.value
+        
+        
+       // NumberFormatter.formatDoubleToCurrency(Double(detail.value!)!)
         
         setupCellProperties(detail.tag!)
     }

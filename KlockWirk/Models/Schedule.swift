@@ -11,6 +11,7 @@ import Foundation
 
 class Schedule: NSObject, NSCoding{
     
+    var scheduleId: Int       = 0
     var merchantId: Int       = 0
     var KlockWirkerPercentage: Double       = 0
     var line: Double                       = 0
@@ -26,6 +27,7 @@ class Schedule: NSObject, NSCoding{
     
     required init?(coder aDecoder: NSCoder) {
         
+        self.scheduleId = (aDecoder.decodeObjectForKey("scheduleId") as? Int)!
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
         self.KlockWirkerPercentage = (aDecoder.decodeObjectForKey("percent") as? Double)!
         self.line = (aDecoder.decodeObjectForKey("line") as? Double)!
@@ -39,6 +41,7 @@ class Schedule: NSObject, NSCoding{
     
     func encodeWithCoder(aCoder: NSCoder) {
         
+        aCoder.encodeObject(scheduleId, forKey: "scheduleId")
         aCoder.encodeObject(merchantId, forKey: "merchantId")
         aCoder.encodeObject(KlockWirkerPercentage, forKey: "percent")
         aCoder.encodeObject(line, forKey: "line")
