@@ -37,15 +37,11 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         merchant = ApplicationInformation.getMerchant()!
         scheduleFields = getScheduleFields()
         
-       
         setupTableViewProperties()
         setupNavigationButtons()
         
-        
         datePicker.shiftStartDateSelectedDelegate = self
         datePicker.shiftEndDateSelectedDelegate = self
-        
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -111,10 +107,12 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         scheduleService.addSchedule(schedule, merchantId: ApplicationInformation.getMerchantId()) { (response: NSDictionary) in
             
-            self.merchant.schedules.addObject(JSONUtilities.parseMerchantSchedule(response))
+            let schedule = JSONUtilities.parseMerchantSchedule(response)
+            
+            self.merchant.schedules.addObject(schedule)
             
             ApplicationInformation.setMerchant(self.merchant)
-            
+        
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -145,15 +143,15 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let schedule = Schedule()
         
-        let percent = scheduleFields.objectAtIndex(0) as! AccountSetupField
-        let line = scheduleFields.objectAtIndex(1) as! AccountSetupField
-        let startDate = shiftStartDate
-        let endDate = shiftEndDate
+        let percent     = scheduleFields.objectAtIndex(0) as! AccountSetupField
+        let line        = scheduleFields.objectAtIndex(1) as! AccountSetupField
+        let startDate   = shiftStartDate
+        let endDate     = shiftEndDate
         
-        schedule.KlockWirkerPercentage = Double(percent.value!)!
-        schedule.line = Double(line.value!)!
-        schedule.startDateTime = startDate
-        schedule.endDateTime = endDate
+        schedule.KlockWirkerPercentage  = Double(percent.value!)!
+        schedule.line                   = Double(line.value!)!
+        schedule.startDateTime          = startDate
+        schedule.endDateTime            = endDate
         
         for kw in merchant.klockWirkers {
             

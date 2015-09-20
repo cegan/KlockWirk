@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KlockWirk/ViewControllers/Schedule/AddScheduleTableViewController.swift"
-            timestampString = "464443676.155462"
+            timestampString = "464450177.050959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "didSelectShiftStartDate(_:)"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "submitButtonTapped()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KlockWirk/ViewControllers/Schedule/AddScheduleTableViewController.swift"
-            timestampString = "464443859.453289"
+            timestampString = "464450177.050959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "didSelectShiftEndDate(_:)"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "getCompletedSchedule()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

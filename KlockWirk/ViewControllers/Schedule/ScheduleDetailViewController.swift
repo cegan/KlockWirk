@@ -35,6 +35,11 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     
+
+    
+    
+    //MARK: View Delegates
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -59,18 +64,9 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         self.navigationItem.title = "Schedule Detail"
         loadSheeduledKlockWirkers()
-        
     }
     
-    func loadSheeduledKlockWirkers(){
-        
-        scheduleService.getKlockWirkersOnSchedule(selectedSchedule.scheduleId) { (response:NSArray) in
-            
-            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response)
-        }
-        
-        tv.reloadData()
-    }
+    
     
     
     
@@ -110,42 +106,6 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     
     
-    func moreOptions(){
-        
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
-        
-        let deleteAction = UIAlertAction(title: "Delete Schedule", style: .Default, handler: {
-            
-            (alert: UIAlertAction!) -> Void in
-            
-            self.deleteSchedule()
-            
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            
-            (alert: UIAlertAction!) -> Void in
-        })
-        
-        
-        optionMenu.addAction(deleteAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.presentViewController(optionMenu, animated: true, completion: nil)
-    }
-    
-    
-    func deleteSchedule(){
-        
-        scheduleService.deleteSchedule(selectedSchedule.scheduleId) { (response:NSDictionary) in
-            
-            self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
-                
-                ApplicationInformation.setMerchant(response)
-                self.navigationController?.popViewControllerAnimated(true)
-            }
-        }
-    }
     
     
     
@@ -158,8 +118,9 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.line), tag: 1))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: "0.00", tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 3))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift", val: "12:00-5:00", tag: 4))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 6))
         
         return scheduleSummarFieldsFields
     }
@@ -191,10 +152,54 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         return merchant.klockWirkers
     }
-
     
+    func moreOptions(){
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete Schedule", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            
+            self.deleteSchedule()
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
     
+    func deleteSchedule(){
+        
+        scheduleService.deleteSchedule(selectedSchedule.scheduleId) { (response:NSDictionary) in
+            
+            self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
+                
+                ApplicationInformation.setMerchant(response)
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+    }
     
+    func loadSheeduledKlockWirkers(){
+        
+        scheduleService.getKlockWirkersOnSchedule(selectedSchedule.scheduleId) { (response:NSArray) in
+            
+            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response)
+        }
+        
+        tv.reloadData()
+    }
+    
+      
     
     
     //MARK: TableView Delegates
@@ -216,7 +221,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         cell.bindCellDetails(scheduleSummaryField)
         
-        if(indexPath.row == 4){
+        if(indexPath.row == 5){
             
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
@@ -229,7 +234,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     
         switch(indexPath.row){
             
-            case 4:
+            case 5:
                 
                 self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: getSelectedKlockWirkers(),readOnly: ApplicationInformation.isReadOnly()), animated: true)
 

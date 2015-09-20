@@ -21,11 +21,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-hM-muL">
-                        <rect key="frame" x="197" y="11" width="110" height="21"/>
+                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-hM-muL">
+                        <rect key="frame" x="112" y="11" width="195" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="NYI-Ql-ySN"/>
-                            <constraint firstAttribute="width" constant="110" id="O7f-Sk-ycq"/>
+                            <constraint firstAttribute="height" constant="21" id="yHO-mZ-2BY"/>
+                            <constraint firstAttribute="width" constant="195" id="yQ7-4b-Z6K"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,8 +39,8 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hQR-hM-muL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Yr8-Fy-4Hb"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="hQR-hM-muL" secondAttribute="trailing" constant="5" id="xhL-6x-u3H"/>
+                    <constraint firstItem="hQR-hM-muL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="104" id="H94-tY-W3W"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hQR-hM-muL" secondAttribute="trailing" constant="5" id="qCN-in-icT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

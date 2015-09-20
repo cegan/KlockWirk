@@ -73,12 +73,17 @@ class JSONUtilities{
             
             let schedule = Schedule()
             
-            schedule.scheduleId = (obj.objectForKey("ScheduleId") as? Int)!
-            schedule.merchantId = (obj.objectForKey("MerchantId") as? Int)!
-            schedule.line = (obj.objectForKey("Line") as? Double)!
-            schedule.KlockWirkerPercentage = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
-            //schedule.isCurrentSchedule = (obj.objectForKey("IsCurrentSchedule") as? Bool)!
+            schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
+            schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
+            schedule.line                   = (obj.objectForKey("Line") as? Double)!
+            schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
+            schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
+            schedule.endDateTime            =  DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
             
+            
+           // DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
+           
+
             merchant.schedules.addObject(schedule)
         }
         
@@ -107,8 +112,8 @@ class JSONUtilities{
         
         schedule.scheduleId = (s.objectForKey("ScheduleId") as? Int)!
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
-//        schedule.startDateTime = (s.objectForKey("ShiftStartDateTime") as? NSDate)!
-//        schedule.endDateTime = (s.objectForKey("ShiftEndDateTime") as? NSDate)!
+        schedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
+        schedule.endDateTime = DateUtilities.dateValueOfString((s.objectForKey("ShiftEndDateTime") as? String)!)
         schedule.line = (s.objectForKey("Line") as? Double)!
         schedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
       
