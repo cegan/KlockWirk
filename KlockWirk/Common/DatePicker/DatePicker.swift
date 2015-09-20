@@ -32,6 +32,8 @@ class DatePicker: UITableViewController {
     
     override func viewDidLoad() {
         
+        setupViewProperties()
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
         
@@ -39,6 +41,18 @@ class DatePicker: UITableViewController {
         cells = [[DVDatePickerTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)],
                 [DVDatePickerTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)]]
     }
+    
+    
+    func setupViewProperties(){
+        
+        self.navigationItem.title = "Select Shift"
+    }
+    
+    
+    
+    
+    
+    
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
@@ -62,7 +76,6 @@ class DatePicker: UITableViewController {
         return cells[section].count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = cells[indexPath.section][indexPath.row] as! UITableViewCell
@@ -73,8 +86,6 @@ class DatePicker: UITableViewController {
             
             if (cell.isKindOfClass(DVDatePickerTableViewCell)) {
                 
-                
-
                 let t = cell as! DVDatePickerTableViewCell
                 
                 t.leftLabel.text = "Shift Start"

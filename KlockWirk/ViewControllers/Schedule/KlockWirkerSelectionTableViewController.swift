@@ -47,6 +47,7 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     
     func setupTableViewProperties(){
         
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.registerNib(UINib(nibName: "KlockWirkerSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "KlockWirkerCell")
     }
     

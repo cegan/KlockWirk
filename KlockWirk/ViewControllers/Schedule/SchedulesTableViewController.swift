@@ -23,8 +23,11 @@ class SchedulesTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        loadData()
+        
         setupNavigationBar()
         setupTableViewProperties()
+        setupTableViewHeader()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -46,7 +49,11 @@ class SchedulesTableViewController: UITableViewController {
     
     func setupTableViewProperties(){
     
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "scheduleCell");
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+       // tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "scheduleCell");
+        
+        tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
+        
     }
     
     func setupNavigationBar(){
@@ -90,8 +97,45 @@ class SchedulesTableViewController: UITableViewController {
     }
     
     
+    func setupTableViewHeader(){
+        
+        let merchantNameLabel = UILabel(frame: CGRectMake(15, 5, 200, 20))
+        merchantNameLabel.text = "Gate 25"
+        merchantNameLabel.textColor = UIColor(red: 150.0/255.0, green: 150.0/255.0, blue: 150.0/255.0, alpha: 1.0)
+        merchantNameLabel.font = UIFont (name: "HelveticaNeue", size: 15)
+        
+        
+        let numberOfSchedules = UILabel(frame: CGRectMake(15, 22, 200, 20))
+        numberOfSchedules.text = String(schedules.count) + " Schedules"
+        numberOfSchedules.textColor = UIColor(red: 150.0/255.0, green: 150.0/255.0, blue: 150.0/255.0, alpha: 1.0)
+        numberOfSchedules.font = UIFont (name: "HelveticaNeue-LightItalic", size: 10)
+        
+        
+        
+        let dummyViewHeight = 45.0
+        let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: dummyViewHeight))
+        
+        dummyView.addSubview(merchantNameLabel)
+        dummyView.addSubview(numberOfSchedules)
+        
+        dummyView.backgroundColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1.0)
+        
+        self.tableView.tableHeaderView = dummyView
+        self.tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        
+        
+    }
+
     
+
     //MARK: TableView Delegates
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 152
+        
+     //   return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -105,15 +149,42 @@ class SchedulesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+    
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("TestTableViewCell", forIndexPath: indexPath) as! TestTableViewCell
+        
         
         let schedule = self.schedules[indexPath.row] as! Schedule
         
-        cell.textLabel?.text = NumberFormatter.formatDoubleToCurrency(schedule.line)
+        
+        cell.bindCellDetails(schedule)
+        
+        
         
         return cell
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
+//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+//        cell.selectionStyle = UITableViewCellSelectionStyle.None
+//        
+//        let schedule = self.schedules[indexPath.row] as! Schedule
+//        
+//        cell.textLabel?.text = NumberFormatter.formatDoubleToCurrency(schedule.line)
+//        
+//        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

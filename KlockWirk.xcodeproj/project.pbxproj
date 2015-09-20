@@ -99,6 +99,8 @@
 		4DE754A61BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */; };
 		4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */; };
 		4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */; };
+		4DEA19251BAF14610091B44D /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA19231BAF14610091B44D /* TestTableViewCell.swift */; };
+		4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEA19241BAF14610091B44D /* TestTableViewCell.xib */; };
 		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +238,8 @@
 		4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewController.xib; sourceTree = "<group>"; };
 		4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		4DEA19231BAF14610091B44D /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		4DEA19241BAF14610091B44D /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,6 +295,8 @@
 				4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */,
 				4DE743AA1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift */,
 				4DE743AB1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib */,
+				4DEA19231BAF14610091B44D /* TestTableViewCell.swift */,
+				4DEA19241BAF14610091B44D /* TestTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				4DE743AD1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib in Resources */,
 				4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */,
 				4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */,
+				4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */,
 				4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */,
 				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
 				4DE7549C1BA77F4A00D3FE29 /* ScheduleTableViewCell.xib in Resources */,
@@ -745,6 +752,7 @@
 				4DE754A51BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.swift in Sources */,
 				4D2C545D1B8A6D9E0007AFD5 /* LoginService.swift in Sources */,
 				4D2C54E01BA441960007AFD5 /* CGRectEx.swift in Sources */,
+				4DEA19251BAF14610091B44D /* TestTableViewCell.swift in Sources */,
 				4DDA8D331B5147F10056800C /* AFPropertyListRequestOperation.m in Sources */,
 				4D2C54C91BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m in Sources */,
 				4D2C55431BA4A88A0007AFD5 /* Chart.swift in Sources */,

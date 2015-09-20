@@ -87,6 +87,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func setupTableViewProperties(){
         
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.registerNib(UINib(nibName: "ScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
         tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
         tableView.registerNib(UINib(nibName: "SelectedShiftTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectedShiftTableViewCell")
@@ -94,14 +95,14 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func setupNavigationButtons(){
         
-        let submit = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.Plain, target: self, action: "submitButtonTapped")
+        let add = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: "addButtonTapped")
         let cancel = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
         
         self.navigationItem.leftBarButtonItem = cancel
-        self.navigationItem.rightBarButtonItem = submit
+        self.navigationItem.rightBarButtonItem = add
     }
     
-    func submitButtonTapped(){
+    func addButtonTapped(){
         
         let schedule = getCompletedSchedule()
         

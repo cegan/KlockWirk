@@ -180,7 +180,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         setupLoginButton()
         setupNavigationButtons()
         setupDelegates()
-        installSplashImage()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -69,6 +69,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     func setupTableViewProperties(){
         
+        newKlockWirkerTableView.tableFooterView = UIView(frame: CGRectZero)
         newKlockWirkerTableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
@@ -80,14 +81,14 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     func setupNavigationButtons(){
         
-        let submit = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.Plain, target: self, action: "submitButtonTapped")
+        let submit = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: "addButtonTapped")
         let cancel = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
         
         self.navigationItem.leftBarButtonItem = cancel
         self.navigationItem.rightBarButtonItem = submit
     }
 
-    func submitButtonTapped(){
+    func addButtonTapped(){
         
         newKlockWirkerTableView.endEditing(true)
         

@@ -88,15 +88,15 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     func setupTableViewProperties(){
         
+        klockWirkerDetailTableView.tableFooterView = UIView(frame: CGRectZero)
         klockWirkerDetailTableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
     func setupNavigationBar(){
         
         if(!ApplicationInformation.isReadOnly()){
-            
-            let deleteKlockWirker = UIBarButtonItem(image: UIImage(named: "more.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("moreOptions"))
-            
+
+            let deleteKlockWirker = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteButtonTapped")
             self.navigationItem.rightBarButtonItem = deleteKlockWirker
         }
     }
@@ -172,9 +172,9 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         }
     }
     
-    func moreOptions(){
+    func deleteButtonTapped(){
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Confirm", preferredStyle: .ActionSheet)
         
         
         let deleteAction = UIAlertAction(title: "Delete KlockWirker", style: .Default, handler: {

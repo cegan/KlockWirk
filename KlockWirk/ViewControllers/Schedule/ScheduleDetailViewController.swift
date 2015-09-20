@@ -48,9 +48,12 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         loadSheeduledKlockWirkers()
         setupViewProperties()
+        setupTableViewProperties()
         setupNavigationBar()
         setupTableViewDelegates()
         setupChart()
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -101,6 +104,11 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         tv.delegate = self
         tv.dataSource = self
         tv.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
+    }
+    
+    func setupTableViewProperties(){
+        
+        tv.tableFooterView = UIView(frame: CGRectZero)
     }
     
     

@@ -39,9 +39,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadData()  
         
         setupViewProperties()
+        setupTableViewProperties()
+        setupTableViewDelegates()
         setupNavigationBar()
         setupChart()
-        setupTableViewDelegates()
+        
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -88,7 +90,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         scheduleSummayTableView.delegate = self
         scheduleSummayTableView.dataSource = self
-        scheduleSummayTableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
     }
     
     func setupViewProperties(){
@@ -96,6 +97,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.title = "Home"
     }
     
+    func setupTableViewProperties(){
+        
+        scheduleSummayTableView.tableFooterView = UIView(frame: CGRectZero)
+        scheduleSummayTableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
+    }
     
     
     
@@ -108,8 +114,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(schedule.line), tag: 1))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(0), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(schedule.KlockWirkerPercentage), tag: 3))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift", val: "12:00-5:00", tag: 4))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(schedule.startDateTime), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(schedule.endDateTime), tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 6))
         
         return scheduleSummarFieldsFields
     }
@@ -175,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.layoutSubviews()
         
         
-        if(indexPath.row == 4){
+        if(indexPath.row == 5){
             
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
@@ -191,7 +198,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         switch(indexPath.row){
             
-        case 4:
+        case 5:
             self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: schedule.klockWirkers,readOnly: ApplicationInformation.isReadOnly()), animated: true)
             
             
