@@ -8,14 +8,24 @@
 
 import UIKit
 
-class AddScheduleTableViewController: UITableViewController {
+
+
+
+class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSelectedDelegate, ShiftEndDateWasSelectedDelegate{
     
 
-    let completedSchedule = Schedule()
+    var dateWasSelected     = false
+    var shiftStartDate      = NSDate()
+    var shiftEndDate        = NSDate()
     
-    var merchant = Merchant()
-    let scheduleService = SchedulService()
-    var scheduleFields = NSMutableArray()
+    let datePicker          = DatePicker(style: UITableViewStyle.Grouped)
+    let completedSchedule   = Schedule()
+    var merchant            = Merchant()
+    let scheduleService     = SchedulService()
+    var scheduleFields      = NSMutableArray()
+    
+    
+    
     
     
     //MARK: View Delegates
@@ -27,9 +37,15 @@ class AddScheduleTableViewController: UITableViewController {
         merchant = ApplicationInformation.getMerchant()!
         scheduleFields = getScheduleFields()
         
-        setupViewProperties()
+       
         setupTableViewProperties()
         setupNavigationButtons()
+        
+        
+        datePicker.shiftStartDateSelectedDelegate = self
+        datePicker.shiftEndDateSelectedDelegate = self
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -41,6 +57,7 @@ class AddScheduleTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         
         self.navigationItem.title = "Add Schedule"
+        self.tableView.reloadData()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -50,15 +67,33 @@ class AddScheduleTableViewController: UITableViewController {
     
     
     
-    func setupViewProperties(){
+    
+    
+    //MARK: Date Picker Delegates
+    
+    func didSelectShiftStartDate(date: NSDate){
         
-        
+        dateWasSelected = true
+        shiftStartDate = date
     }
- 
+    
+    func didSelectShiftEndDate(date: NSDate){
+        
+        dateWasSelected = true
+        shiftEndDate = date
+    }
+    
+    
+    
+    
+    
+    //MARK: Setup Methods
+    
     func setupTableViewProperties(){
         
         tableView.registerNib(UINib(nibName: "ScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
         tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
+        tableView.registerNib(UINib(nibName: "SelectedShiftTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectedShiftTableViewCell")
     }
     
     func setupNavigationButtons(){
@@ -91,6 +126,7 @@ class AddScheduleTableViewController: UITableViewController {
     
     
     
+    
     //MARK: Utility Methods
     
     func getScheduleFields() -> NSMutableArray{
@@ -107,15 +143,12 @@ class AddScheduleTableViewController: UITableViewController {
     
     func getCompletedSchedule() -> Schedule{
         
-        
         let schedule = Schedule()
         
         let percent = scheduleFields.objectAtIndex(0) as! AccountSetupField
         let line = scheduleFields.objectAtIndex(1) as! AccountSetupField
-        //let startDate = scheduleFields.objectAtIndex(2) as! AccountSetupField
-        //let endDate = scheduleFields.objectAtIndex(3) as! AccountSetupField
-        let startDate = NSDate()
-        let endDate = NSDate()
+        let startDate = shiftStartDate
+        let endDate = shiftEndDate
         
         schedule.KlockWirkerPercentage = Double(percent.value!)!
         schedule.line = Double(line.value!)!
@@ -144,6 +177,20 @@ class AddScheduleTableViewController: UITableViewController {
     
     //MARK: TableView Delegates
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if(dateWasSelected){
+            
+            if(indexPath.row == 2){
+                
+                return 125
+            }
+            
+        }
+        
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
@@ -171,10 +218,21 @@ class AddScheduleTableViewController: UITableViewController {
                 (cell as! InputTableViewCell).bindCellDetail(accountField)
                            
             case 2:
-                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
-                (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
-                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+                
+                if(dateWasSelected){
+                    
+                    cell = tableView.dequeueReusableCellWithIdentifier("SelectedShiftTableViewCell", forIndexPath: indexPath) as! SelectedShiftTableViewCell
+                    (cell as! SelectedShiftTableViewCell).bindCellDetil(DateUtilities.stringValueOfShiftDate(shiftStartDate), shiftEnd: DateUtilities.stringValueOfShiftDate(shiftEndDate))
+                }
+                else{
+                    
+                    cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
+                    (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
+                }
             
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+                
+
             case 3:
                 cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
                 (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
@@ -208,13 +266,9 @@ class AddScheduleTableViewController: UITableViewController {
             
         case 2:
             cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(DatePicker(style: UITableViewStyle.Grouped), animated: true)
+            self.navigationController?.pushViewController(datePicker, animated: true)
             
         case 3:
-            cancelTableViewEditing(false)
-            self.navigationController?.pushViewController(DatePicker(style: UITableViewStyle.Grouped), animated: true)
-            
-        case 4:
             cancelTableViewEditing(false)
             self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: merchant.klockWirkers, readOnly: ApplicationInformation.isReadOnly()), animated: true)
             
@@ -222,7 +276,6 @@ class AddScheduleTableViewController: UITableViewController {
             return
             
     }
-        
 }
 
     

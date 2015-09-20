@@ -8,8 +8,26 @@
 
 import UIKit
 
+
+protocol ShiftStartDateWasSelectedDelegate {
+    
+    func didSelectShiftStartDate(date: NSDate)
+}
+
+
+protocol ShiftEndDateWasSelectedDelegate {
+    
+    func didSelectShiftEndDate(date: NSDate)
+}
+
+
+
+
 class DatePicker: UITableViewController {
 
+    
+    var shiftStartDateSelectedDelegate:ShiftStartDateWasSelectedDelegate?
+    var shiftEndDateSelectedDelegate:ShiftEndDateWasSelectedDelegate?
     var cells:NSArray = []
     
     override func viewDidLoad() {
@@ -19,13 +37,15 @@ class DatePicker: UITableViewController {
         
         // Cells is a 2D array containing sections and rows.
         cells = [[DVDatePickerTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)],
-        [DVDatePickerTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)]]
+                [DVDatePickerTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)]]
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        
         if (cell.isKindOfClass(DVDatePickerTableViewCell)) {
+            
             return (cell as! DVDatePickerTableViewCell).datePickerHeight()
         }
         
@@ -52,6 +72,8 @@ class DatePicker: UITableViewController {
         case 0:
             
             if (cell.isKindOfClass(DVDatePickerTableViewCell)) {
+                
+                
 
                 let t = cell as! DVDatePickerTableViewCell
                 
@@ -79,7 +101,6 @@ class DatePicker: UITableViewController {
         }
 
         return UITableViewCell()
-
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -89,6 +110,16 @@ class DatePicker: UITableViewController {
         if (cell.isKindOfClass(DVDatePickerTableViewCell)) {
             
             let datePickerTableViewCell = cell as! DVDatePickerTableViewCell
+            
+            if(indexPath.section == 0){
+       
+                shiftStartDateSelectedDelegate?.didSelectShiftStartDate(datePickerTableViewCell.date)
+            }
+            
+            if(indexPath.section == 1){
+
+                shiftEndDateSelectedDelegate?.didSelectShiftEndDate(datePickerTableViewCell.date)
+            }
         
             
             datePickerTableViewCell.selectedInTableView(tableView)

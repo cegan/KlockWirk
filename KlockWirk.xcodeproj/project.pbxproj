@@ -45,8 +45,6 @@
 		4D2C54CC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54BC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m */; };
 		4D2C54CD1BA3C1210007AFD5 /* RSDFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54BE1BA3C1210007AFD5 /* RSDFDatePickerView.m */; };
 		4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54C01BA3C1210007AFD5 /* RSDFDatePickerViewController.m */; };
-		4D2C54D41BA3D0DF0007AFD5 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54D21BA3D0DF0007AFD5 /* DatePickerViewController.swift */; };
-		4D2C54D51BA3D0DF0007AFD5 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54D31BA3D0DF0007AFD5 /* DatePickerViewController.xib */; };
 		4D2C54D81BA3D51A0007AFD5 /* AddScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54D61BA3D51A0007AFD5 /* AddScheduleTableViewController.swift */; };
 		4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */; };
 		4D2C54E01BA441960007AFD5 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54DB1BA441960007AFD5 /* CGRectEx.swift */; };
@@ -83,6 +81,9 @@
 		4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D3D1B5150FE0056800C /* Constants.swift */; };
 		4DE743A61BADEE180093FA1C /* DVDatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743A51BADEE180093FA1C /* DVDatePickerTableViewCell.swift */; };
 		4DE743A91BADEE5A0093FA1C /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743A81BADEE5A0093FA1C /* DatePicker.swift */; };
+		4DE743AC1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743AA1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift */; };
+		4DE743AD1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE743AB1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib */; };
+		4DE743AF1BAE631D0093FA1C /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */; };
 		4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */; };
 		4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */; };
 		4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */; };
@@ -166,8 +167,6 @@
 		4D2C54BE1BA3C1210007AFD5 /* RSDFDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerView.m; sourceTree = "<group>"; };
 		4D2C54BF1BA3C1210007AFD5 /* RSDFDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerViewController.h; sourceTree = "<group>"; };
 		4D2C54C01BA3C1210007AFD5 /* RSDFDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerViewController.m; sourceTree = "<group>"; };
-		4D2C54D21BA3D0DF0007AFD5 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		4D2C54D31BA3D0DF0007AFD5 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		4D2C54D61BA3D51A0007AFD5 /* AddScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddScheduleTableViewController.xib; sourceTree = "<group>"; };
 		4D2C54DB1BA441960007AFD5 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
@@ -219,6 +218,9 @@
 		4DDA8D3D1B5150FE0056800C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4DE743A51BADEE180093FA1C /* DVDatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVDatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		4DE743A81BADEE5A0093FA1C /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		4DE743AA1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedShiftTableViewCell.swift; sourceTree = "<group>"; };
+		4DE743AB1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedShiftTableViewCell.xib; sourceTree = "<group>"; };
+		4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesTableViewController.swift; sourceTree = "<group>"; };
 		4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulesTableViewController.xib; sourceTree = "<group>"; };
 		4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,8 @@
 				4DE754A01BA7870D00D3FE29 /* InputTableViewCell.xib */,
 				4DE754A71BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift */,
 				4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */,
+				4DE743AA1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift */,
+				4DE743AB1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -342,8 +346,6 @@
 				4DE743A71BADEE5A0093FA1C /* DatePicker */,
 				4DE754981BA77EA500D3FE29 /* ScheduleSummary */,
 				4D2C55411BA4A8770007AFD5 /* Chart */,
-				4D2C54D21BA3D0DF0007AFD5 /* DatePickerViewController.swift */,
-				4D2C54D31BA3D0DF0007AFD5 /* DatePickerViewController.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -560,6 +562,7 @@
 				4DDA8D381B514AC50056800C /* ApplicationInformation.swift */,
 				4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */,
 				4DED61051BA9044400E09A12 /* NumberFormatter.swift */,
+				4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -677,8 +680,8 @@
 			files = (
 				4D2C54641B8A7A8F0007AFD5 /* SettingsViewController.xib in Resources */,
 				4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */,
+				4DE743AD1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib in Resources */,
 				4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */,
-				4D2C54D51BA3D0DF0007AFD5 /* DatePickerViewController.xib in Resources */,
 				4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */,
 				4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */,
 				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
@@ -721,6 +724,7 @@
 				4D2C54E31BA441960007AFD5 /* SpinerLayer.swift in Sources */,
 				4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */,
 				4D2C54E41BA441960007AFD5 /* TransitionSubmitButton.swift in Sources */,
+				4DE743AC1BAE4F260093FA1C /* SelectedShiftTableViewCell.swift in Sources */,
 				4D2C54CC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m in Sources */,
 				4D2C54631B8A7A8F0007AFD5 /* SettingsViewController.swift in Sources */,
 				4D2C54C41BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m in Sources */,
@@ -758,7 +762,6 @@
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
 				4D2C54C81BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m in Sources */,
 				4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */,
-				4D2C54D41BA3D0DF0007AFD5 /* DatePickerViewController.swift in Sources */,
 				4D2C54C71BA3C1210007AFD5 /* RSDFCustomDatePickerView.m in Sources */,
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
 				4D2C54521B880EE40007AFD5 /* KlockWirkerDetailViewController.swift in Sources */,
@@ -779,6 +782,7 @@
 				4DDA8D391B514AC50056800C /* ApplicationInformation.swift in Sources */,
 				4D2C548B1B9E5B950007AFD5 /* HomeViewController.swift in Sources */,
 				4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */,
+				4DE743AF1BAE631D0093FA1C /* DateUtilities.swift in Sources */,
 				4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */,
 				4D2C547D1B97C7F20007AFD5 /* MerchantServices.swift in Sources */,
 				4D2C54861B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift in Sources */,

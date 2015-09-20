@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Services/ScheduleService.swift"
-            timestampString = "464369494.194958"
+            filePath = "KlockWirk/ViewControllers/Schedule/AddScheduleTableViewController.swift"
+            timestampString = "464443676.155462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "deleteSchedule(_:onCompletion:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "didSelectShiftStartDate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Services/ScheduleService.swift"
-            timestampString = "464369555.515837"
+            filePath = "KlockWirk/ViewControllers/Schedule/AddScheduleTableViewController.swift"
+            timestampString = "464443859.453289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "deleteSchedule(_:onCompletion:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "didSelectShiftEndDate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
