@@ -102,6 +102,7 @@
 		4DEA19251BAF14610091B44D /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA19231BAF14610091B44D /* TestTableViewCell.swift */; };
 		4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEA19241BAF14610091B44D /* TestTableViewCell.xib */; };
 		4DEA192C1BAF864E0091B44D /* SortingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */; };
+		4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192D1BB091BF0091B44D /* DateCompare.swift */; };
 		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +243,7 @@
 		4DEA19231BAF14610091B44D /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		4DEA19241BAF14610091B44D /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingUtilities.swift; sourceTree = "<group>"; };
+		4DEA192D1BB091BF0091B44D /* DateCompare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompare.swift; sourceTree = "<group>"; };
 		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -571,6 +573,7 @@
 				4DED61051BA9044400E09A12 /* NumberFormatter.swift */,
 				4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */,
 				4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */,
+				4DEA192D1BB091BF0091B44D /* DateCompare.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
 				4D2C54521B880EE40007AFD5 /* KlockWirkerDetailViewController.swift in Sources */,
 				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */,
 				4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */,
 				4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */,
 				4D2C54E11BA441960007AFD5 /* FadeTransition.swift in Sources */,

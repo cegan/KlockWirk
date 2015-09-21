@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let scheduleService         = SchedulService()
     var scheduleSummaryFields   = NSMutableArray()
-    var schedule                = Schedule()
+    var currentSchedule         = Schedule()
     var merchant                = Merchant()
     var pieChart:Chart          = Chart()
     
@@ -26,9 +26,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         loadKlockWirkersOnSchedule()
         
+        setupChart()
         setupViewProperties()
         setupTableViewProperties()
         setupTableViewDelegates()
@@ -84,25 +85,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         merchant = ApplicationInformation.getMerchant()!
         
-        if(merchant.schedules.count > 0){
+        if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
             
-            schedule                = merchant.schedules[0]
+            currentSchedule         = schedule
             scheduleSummaryFields   = getScheduleSummaryFields()
             scheduleSummayTableView.reloadData()
             scheduleSummayTableView.hidden = false
-            setupChart()
+            setPieChartHidden(false)
+            
         }
         else{
             
             clearUI()
+            //displayNoSchedulesHeader()
         }
     }
     
     func loadKlockWirkersOnSchedule(){
         
-        scheduleService.getKlockWirkersOnSchedule(schedule.scheduleId) { (response:NSArray) in
+        scheduleService.getKlockWirkersOnSchedule(currentSchedule.scheduleId) { (response:NSArray) in
             
-            self.schedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
+            self.currentSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
         }
     }
     
@@ -135,10 +138,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func setupChart(){
-        
-        pieChart = Chart()
+    
         pieChart.view.frame = CGRectMake(0, 10, view.frame.width, 300)
         view.addSubview(pieChart.view)
+        
+        pieChart.view.hidden = true
     }
     
     func setupNavigationBar(){
@@ -173,11 +177,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let scheduleSummarFieldsFields = NSMutableArray()
         
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(schedule.line), tag: 1))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(currentSchedule.line), tag: 1))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(0), tag: 2))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(schedule.KlockWirkerPercentage), tag: 3))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(schedule.startDateTime), tag: 4))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(schedule.endDateTime), tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(currentSchedule.KlockWirkerPercentage), tag: 3))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(currentSchedule.startDateTime), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(currentSchedule.endDateTime), tag: 5))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 6))
         
         return scheduleSummarFieldsFields
@@ -185,7 +189,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func refresh(){
         
-        pieChart.refresh()
+        refreshHomeSchedule()
     }
     
     
@@ -261,7 +265,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         switch(indexPath.row){
             
         case 5:
-            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: schedule.klockWirkers,readOnly: ApplicationInformation.isReadOnly()), animated: true)
+            self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: currentSchedule.klockWirkers,readOnly: ApplicationInformation.isReadOnly()), animated: true)
             
             
         default:

@@ -29,4 +29,38 @@ class DateUtilities{
         
         return dateFormatter.dateFromString(date)!;
     }
+    
+    
+    class func getCurrentSchedule(schedules: [Schedule]) -> Schedule?{
+    
+        for schedule: Schedule in schedules {
+            
+            let result = isBetweenMyTwoDates(schedule.startDateTime,shiftEndDate: schedule.endDateTime, today: NSDate())
+            
+            if(result){
+                
+                schedule.isCurrentSchedule = true;
+                
+                return schedule
+            }
+        }
+
+        return nil
+    }
+    
+    
+    class func isBetweenMyTwoDates(shiftStartDate: NSDate, shiftEndDate:NSDate, today: NSDate) -> Bool {
+        
+        let dateMaker = NSDateFormatter()
+        dateMaker.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        
+        if shiftStartDate.compare(today) == .OrderedAscending && shiftEndDate.compare(today) == .OrderedDescending {
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    
 }

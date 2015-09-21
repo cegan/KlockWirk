@@ -25,6 +25,8 @@ class MerchantServices: BaseKlockWirkService{
             
             ApplicationInformation.setMerchant(merchant)
             
+
+            
             dispatch_async(dispatch_get_main_queue(), {
                 
                 onCompletion(response: merchant)

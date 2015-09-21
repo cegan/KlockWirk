@@ -30,7 +30,7 @@
                 <constraint firstAttribute="bottom" secondItem="0Mu-x0-o2B" secondAttribute="bottom" id="Dt1-xn-tSp"/>
                 <constraint firstAttribute="trailing" secondItem="0Mu-x0-o2B" secondAttribute="trailing" id="H4Z-FT-Ott"/>
             </constraints>
-            <point key="canvasLocation" x="312" y="51"/>
+            <point key="canvasLocation" x="264" y="60"/>
         </view>
     </objects>
 </document>
