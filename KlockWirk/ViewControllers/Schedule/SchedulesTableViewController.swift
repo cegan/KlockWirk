@@ -10,10 +10,10 @@ import UIKit
 
 class SchedulesTableViewController: UITableViewController {
     
-    var addSchedule = AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)
-    var merchant    = Merchant()
-    var klockWirker = KlockWirker()
-    var schedules:[Schedule] = []
+    var addSchedule             = AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)
+    var merchant                = Merchant()
+    var klockWirker             = KlockWirker()
+    var schedules:[Schedule]    = []
     
     
     
@@ -40,23 +40,8 @@ class SchedulesTableViewController: UITableViewController {
         
         self.navigationItem.title = "Schedules"
         loadData()
-        
-//        var swiftArray = schedules as AnyObject as! [Schedule]
-//        
-//        let x = swiftArray.sort(self.sortSchedulesByStartDate)
-//        
-//        
-//        let y = swiftArray.sort(SortingUtilities.sortSchedulesByStartDate)
-        
     }
     
-    
-    
-    
-    func sortSchedulesByStartDate(compare:Schedule, to:Schedule) -> Bool {
-        
-        return compare.startDateTime.compare(to.startDateTime) == NSComparisonResult.OrderedAscending
-    }
     
     
     
@@ -105,7 +90,7 @@ class SchedulesTableViewController: UITableViewController {
         else if(ApplicationInformation.isMerchant()){
             
             merchant = ApplicationInformation.getMerchant()!
-            schedules = merchant.schedules
+            schedules = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
         }
         
         tableView.reloadData()
@@ -148,8 +133,6 @@ class SchedulesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         return 152
-        
-     //   return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -164,50 +147,21 @@ class SchedulesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-    
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("TestTableViewCell", forIndexPath: indexPath) as! TestTableViewCell
-        
-        
-        let schedule = self.schedules[indexPath.row] as! Schedule
+    
+        let schedule = self.schedules[indexPath.row] 
         
         
         cell.bindCellDetails(schedule)
         
-        
-        
+    
         return cell
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
-//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-//        cell.selectionStyle = UITableViewCellSelectionStyle.None
-//        
-//        let schedule = self.schedules[indexPath.row] as! Schedule
-//        
-//        cell.textLabel?.text = NumberFormatter.formatDoubleToCurrency(schedule.line)
-//        
-//        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
-        
-        
-        let schedule = schedules[indexPath.row] as! Schedule
+    
+        let schedule = schedules[indexPath.row] 
         
         self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
     }
