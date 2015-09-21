@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if(merchant.schedules.count > 0){
             
-            //schedule = merchant.schedules.objectAtIndex(0) as! Schedule
+            schedule = merchant.schedules[0]
         }
         
         scheduleSummaryFields = getScheduleSummaryFields()
