@@ -122,7 +122,7 @@ class KlockWirkerServices : BaseKlockWirkService{
                     
                     for obj: AnyObject in response {
                         
-                        klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
+                        klockWirker.schedules.append(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), {

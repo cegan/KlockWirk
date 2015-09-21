@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if(merchant.schedules.count > 0){
             
-            schedule = merchant.schedules.objectAtIndex(0) as! Schedule
+            //schedule = merchant.schedules.objectAtIndex(0) as! Schedule
         }
         
         scheduleSummaryFields = getScheduleSummaryFields()
@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         scheduleService.getKlockWirkersOnSchedule(schedule.scheduleId) { (response:NSArray) in
             
-            self.schedule.klockWirkers = JSONUtilities.parseKlockWirkers(response)
+            self.schedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
         }
     }
     

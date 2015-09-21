@@ -135,9 +135,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     //MARK: Utility Methods
     
-    func storeKlockWirkers(klockWirkers: NSArray){
+    func storeKlockWirkers(klockWirkers: [KlockWirker]){
         
-        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers))
+        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers) as! [KlockWirker])
     }
     
     func loadMerchantTabBarController(){

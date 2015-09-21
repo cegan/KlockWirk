@@ -101,6 +101,7 @@
 		4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */; };
 		4DEA19251BAF14610091B44D /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA19231BAF14610091B44D /* TestTableViewCell.swift */; };
 		4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEA19241BAF14610091B44D /* TestTableViewCell.xib */; };
+		4DEA192C1BAF864E0091B44D /* SortingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */; };
 		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +241,7 @@
 		4DE754A81BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4DEA19231BAF14610091B44D /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		4DEA19241BAF14610091B44D /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
+		4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingUtilities.swift; sourceTree = "<group>"; };
 		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -569,6 +571,7 @@
 				4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */,
 				4DED61051BA9044400E09A12 /* NumberFormatter.swift */,
 				4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */,
+				4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				4D2C548B1B9E5B950007AFD5 /* HomeViewController.swift in Sources */,
 				4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */,
 				4DE743AF1BAE631D0093FA1C /* DateUtilities.swift in Sources */,
+				4DEA192C1BAF864E0091B44D /* SortingUtilities.swift in Sources */,
 				4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */,
 				4D2C547D1B97C7F20007AFD5 /* MerchantServices.swift in Sources */,
 				4D2C54861B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift in Sources */,

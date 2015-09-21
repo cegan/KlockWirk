@@ -19,7 +19,7 @@ class KlockWirker: NSObject, NSCoding{
     var password: String = ""
     var confirmPassword: String = ""
     var isSelected: Bool = false
-    var schedules: NSMutableArray = NSMutableArray()
+    var schedules:[Schedule] = []
     
     
     override init() {}
@@ -45,7 +45,7 @@ class KlockWirker: NSObject, NSCoding{
         self.password = (aDecoder.decodeObjectForKey("password") as? String)!
         self.confirmPassword = (aDecoder.decodeObjectForKey("confirmPassword") as? String)!
         self.isSelected = (aDecoder.decodeObjectForKey("isSelected") as? Bool)!
-        self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSMutableArray)!
+        self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSArray)! as! [Schedule]
     }
     
     

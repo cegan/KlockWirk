@@ -10,10 +10,10 @@ import UIKit
 
 class KlockWirkerSelectionTableViewController: UITableViewController {
     
-    var klockWirkers = NSMutableArray()
+    var klockWirkers:[KlockWirker] = []
     var isReadOnly = false
     
-    init(kws: NSMutableArray, readOnly: Bool){
+    init(kws: [KlockWirker], readOnly: Bool){
         
         super.init(nibName: "KlockWirkerSelectionTableViewController", bundle: nil);
         

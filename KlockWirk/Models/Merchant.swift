@@ -28,8 +28,8 @@ class Merchant: NSObject, NSCoding{
     var phone: String = ""
     var email: String = ""
     var password: String = ""
-    var schedules: NSMutableArray = NSMutableArray()
-    var klockWirkers: NSMutableArray = NSMutableArray()
+    var schedules:[Schedule] = []
+    var klockWirkers:[KlockWirker] = []
     
     
     override init() {}
@@ -52,8 +52,8 @@ class Merchant: NSObject, NSCoding{
         self.phone = (aDecoder.decodeObjectForKey("phone") as? String)!
         self.email = (aDecoder.decodeObjectForKey("email") as? String)!
         self.password = (aDecoder.decodeObjectForKey("password") as? String)!
-        self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSMutableArray)!
-        self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSMutableArray)!
+        self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSArray)! as! [Schedule]
+        self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSArray)! as! [KlockWirker]
     }
     
     

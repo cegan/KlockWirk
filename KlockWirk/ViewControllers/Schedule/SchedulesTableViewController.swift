@@ -13,7 +13,7 @@ class SchedulesTableViewController: UITableViewController {
     var addSchedule = AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)
     var merchant    = Merchant()
     var klockWirker = KlockWirker()
-    var schedules   = NSMutableArray()
+    var schedules:[Schedule] = []
     
     
     
@@ -41,6 +41,21 @@ class SchedulesTableViewController: UITableViewController {
         self.navigationItem.title = "Schedules"
         loadData()
         
+//        var swiftArray = schedules as AnyObject as! [Schedule]
+//        
+//        let x = swiftArray.sort(self.sortSchedulesByStartDate)
+//        
+//        
+//        let y = swiftArray.sort(SortingUtilities.sortSchedulesByStartDate)
+        
+    }
+    
+    
+    
+    
+    func sortSchedulesByStartDate(compare:Schedule, to:Schedule) -> Bool {
+        
+        return compare.startDateTime.compare(to.startDateTime) == NSComparisonResult.OrderedAscending
     }
     
     
@@ -189,7 +204,10 @@ class SchedulesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let schedule = schedules.objectAtIndex(indexPath.row) as! Schedule
+        
+        
+        
+        let schedule = schedules[indexPath.row] as! Schedule
         
         self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
     }

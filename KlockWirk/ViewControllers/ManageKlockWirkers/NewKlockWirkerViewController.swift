@@ -97,7 +97,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
         klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
             
-            self.merchant.klockWirkers.addObject(JSONUtilities.parseKlockWirker(response))
+            self.merchant.klockWirkers.append(JSONUtilities.parseKlockWirker(response))
             
             ApplicationInformation.setMerchant(self.merchant)
             

@@ -110,7 +110,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
             
             let schedule = JSONUtilities.parseMerchantSchedule(response)
             
-            self.merchant.schedules.addObject(schedule)
+            self.merchant.schedules.append(schedule)
             
             ApplicationInformation.setMerchant(self.merchant)
         
@@ -158,7 +158,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
             
             if(kw.isSelected == true){
                 
-                schedule.klockWirkers.addObject(kw)
+                schedule.klockWirkers.append(kw)
             }
         }
         

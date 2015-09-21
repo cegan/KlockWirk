@@ -133,7 +133,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         return scheduleSummarFieldsFields
     }
     
-    func getSelectedKlockWirkers() -> NSMutableArray{
+    func getSelectedKlockWirkers() -> [KlockWirker]{
         
         var merchant = Merchant()
         let isMerhant = ApplicationInformation.isMerchant()
@@ -144,11 +144,11 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
             
             for kws in merchant.klockWirkers {
                 
-                let klockWirker = kws as! KlockWirker
+                let klockWirker = kws
                 
                 for k in selectedSchedule.klockWirkers {
                     
-                    let kk = k as! KlockWirker
+                    let kk = k
                     
                     if(klockWirker.klockWirkerId == kk.klockWirkerId){
                         
@@ -201,7 +201,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         scheduleService.getKlockWirkersOnSchedule(selectedSchedule.scheduleId) { (response:NSArray) in
             
-            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response)
+            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
         }
         
         tv.reloadData()

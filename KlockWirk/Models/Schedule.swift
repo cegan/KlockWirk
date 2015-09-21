@@ -19,7 +19,7 @@ class Schedule: NSObject, NSCoding{
     var dateCreated: NSDate             = NSDate()
     var startDateTime: NSDate           = NSDate()
     var endDateTime: NSDate             = NSDate()
-    var klockWirkers: NSMutableArray    = NSMutableArray()
+    var klockWirkers:[KlockWirker] = []
    
     
     override init() {}
@@ -35,7 +35,7 @@ class Schedule: NSObject, NSCoding{
         self.dateCreated = (aDecoder.decodeObjectForKey("dateCreated") as? NSDate)!
         self.startDateTime = (aDecoder.decodeObjectForKey("startDateTime") as? NSDate)!
         self.endDateTime = (aDecoder.decodeObjectForKey("endDateTime") as? NSDate)!
-        self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSMutableArray)!
+        self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSArray)! as! [KlockWirker]
     }
     
     

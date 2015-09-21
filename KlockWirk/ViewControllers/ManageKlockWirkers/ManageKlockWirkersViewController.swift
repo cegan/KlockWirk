@@ -12,7 +12,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     
     let merchantService = MerchantServices()
-    var klockWirkers = NSMutableArray()
+    var klockWirkers:[KlockWirker] = []
     
     
     func refreshKlockWirkers(){
@@ -95,6 +95,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        refreshKlockWirkers()
         setupViewProperties()
         setupTableViewHeader()
         setupTableViewProperties()

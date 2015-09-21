@@ -12,9 +12,9 @@ import Foundation
 
 class JSONUtilities{
     
-    class func parseKlockWirkers(kws: NSArray) -> NSMutableArray{
+    class func parseKlockWirkers(kws: NSArray) -> NSArray{
         
-        let klockWirkers = NSMutableArray()
+        var klockWirkers:[KlockWirker] = []
         
         for element in kws {
             
@@ -27,7 +27,7 @@ class JSONUtilities{
             klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
             klockWirker.password = (element.objectForKey("Password") as? String)!
             
-            klockWirkers.addObject(klockWirker)
+            klockWirkers.append(klockWirker)
         
         }
         
@@ -51,7 +51,7 @@ class JSONUtilities{
     class func parseMerchant(m: NSDictionary) -> Merchant{
         
         let merchant = Merchant()
-        
+       
         merchant.merchantId = (m.objectForKey("MerchantId") as? Int)!
         merchant.posSystemId = (m.objectForKey("PosSystemId") as? Int)!
         merchant.posSystemBaseApiUrl = (m.objectForKey("PosSystemBaseApiUrl") as? String)!
@@ -79,13 +79,12 @@ class JSONUtilities{
             schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
             schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
             schedule.endDateTime            =  DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
-            
-            
-           // DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
-           
-
-            merchant.schedules.addObject(schedule)
+    
+            merchant.schedules.append(schedule)
         }
+        
+        merchant.schedules = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+        
         
 
         let klockWirkers = (m.objectForKey("KlockWirkers") as? NSArray)!
@@ -100,8 +99,12 @@ class JSONUtilities{
             klockWirker.emailAddress = (element.objectForKey("Email") as? String)!
             klockWirker.phoneNumber = (element.objectForKey("Phone") as? String)!
             
-            merchant.klockWirkers.addObject(klockWirker)
+            merchant.klockWirkers.append(klockWirker)
         }
+        
+        
+        merchant.klockWirkers = merchant.klockWirkers.sort(SortingUtilities.sortKlockWirkersAscending)
+        
        
         return merchant
     }
