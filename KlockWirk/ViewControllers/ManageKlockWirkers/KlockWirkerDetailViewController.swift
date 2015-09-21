@@ -53,7 +53,6 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     override func viewWillDisappear(animated: Bool) {
         
-        
         klockWirkerDetailTableView.endEditing(true)
         
         if(isModified()){
@@ -162,11 +161,8 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         
         klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
             
-            let merchant = ApplicationInformation.getMerchant()
-            
-            self.merchantService.getMerchant(merchant!.merchantId) {(response: Merchant) in
+            self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
                 
-                ApplicationInformation.setMerchant(response)
                 self.navigationController?.popViewControllerAnimated(true)
             }
         }

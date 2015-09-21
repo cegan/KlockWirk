@@ -126,15 +126,11 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-    
-
-    
     func getKlockWirkersOnSchedule(scheduleId: Int, onCompletion: (response: NSArray) -> ()) {
         
         let parameters = ["id":scheduleId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersByScheduleId, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-        
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
@@ -149,14 +145,11 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-    
-    
     func deleteSchedule(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
         
         let parameters = ["id":scheduleId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodDelete, parameters: parameters)
-        
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
@@ -170,8 +163,5 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
-    
-    
 
-    
 }

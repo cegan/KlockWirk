@@ -160,6 +160,8 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 
                 schedule.klockWirkers.append(kw)
             }
+            
+            kw.isSelected = false
         }
         
         return schedule

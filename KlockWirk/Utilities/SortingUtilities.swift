@@ -22,5 +22,4 @@ class SortingUtilities{
         
         return compare.firstName.compare(to.firstName) == NSComparisonResult.OrderedAscending
     }
-
 }

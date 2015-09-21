@@ -10,7 +10,6 @@ import UIKit
 
 class SchedulesTableViewController: UITableViewController {
     
-    var addSchedule             = AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)
     var merchant                = Merchant()
     var klockWirker             = KlockWirker()
     var schedules:[Schedule]    = []
@@ -68,7 +67,7 @@ class SchedulesTableViewController: UITableViewController {
     
     func addNewSchedule(){
         
-        self.presentViewController(UINavigationController(rootViewController:addSchedule), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
     }
     
     func setupViewProperties(){

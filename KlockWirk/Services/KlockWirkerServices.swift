@@ -117,7 +117,6 @@ class KlockWirkerServices : BaseKlockWirkService{
             
             if(!scheduleIds.isEmpty){
                 
-                
                 scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
                     
                     for obj: AnyObject in response {
@@ -140,18 +139,10 @@ class KlockWirkerServices : BaseKlockWirkService{
             }
             
             
-//            scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
-//            
-//                for obj: AnyObject in response {
-//                    
-//                   klockWirker.schedules.addObject(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
-//                }
-//                
-//                dispatch_async(dispatch_get_main_queue(), {
-//                
-//                    onCompletion(response: klockWirker)
-//                })
-//            }
+            
+            ApplicationInformation.setKlockWirker(klockWirker)
+            
+
         })
         
         task.resume()
@@ -176,7 +167,7 @@ class KlockWirkerServices : BaseKlockWirkService{
         task.resume()
     }
     
-    func addNewKlockWirker(klockWirkerToAdd:KlockWirker, onCompletion: (response: NSDictionary) -> ()){
+    func addNewKlockWirker(klockWirkerToAdd:KlockWirker, onCompletion: (response: KlockWirker) -> ()){
         
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
@@ -205,17 +196,21 @@ class KlockWirkerServices : BaseKlockWirkService{
                 if(httpResponse.statusCode == 200){
                     
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let klockWirker = JSONUtilities.parseKlockWirker(result)
+                    
+                    
+                    ApplicationInformation.appendKlockWirkerToMerchant(klockWirker)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         
-                        onCompletion(response: result)
+                        onCompletion(response: klockWirker)
                     })
                 }
                 else{
                     
-                    let result:NSDictionary = ["statusCode":httpResponse.statusCode] as Dictionary<String, Int>
+                    //let result:NSDictionary = ["statusCode":httpResponse.statusCode] as Dictionary<String, Int>
                     
-                    onCompletion(response: result)
+                    onCompletion(response: KlockWirker())
                 }
             }
         })

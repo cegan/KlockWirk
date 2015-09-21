@@ -282,8 +282,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             if(isKlockWirker == true){
                 
                 self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
-                
-                    ApplicationInformation.setKlockWirker(response)
+            
                     self.loadKlockWirkerTabBarController()
                 }
             }
@@ -291,8 +290,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 
                 self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
                     
-                    ApplicationInformation.setMerchant(response)
-
                     self.loadMerchantTabBarController()
                 }
             }

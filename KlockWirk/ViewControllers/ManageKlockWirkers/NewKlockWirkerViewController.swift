@@ -95,11 +95,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
     
-        klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
-            
-            self.merchant.klockWirkers.append(JSONUtilities.parseKlockWirker(response))
-            
-            ApplicationInformation.setMerchant(self.merchant)
+        klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: KlockWirker) in
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }

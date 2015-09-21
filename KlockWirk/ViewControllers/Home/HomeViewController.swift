@@ -13,11 +13,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var scheduleSummayTableView: UITableView!
     
     
-    let scheduleService = SchedulService()
-    var scheduleSummaryFields = NSMutableArray()
-    var schedule = Schedule()
-    var merchant = Merchant()
-    var pieChart:Chart!
+    let scheduleService         = SchedulService()
+    var scheduleSummaryFields   = NSMutableArray()
+    var schedule                = Schedule()
+    var merchant                = Merchant()
+    var pieChart:Chart          = Chart()
     
     
     
@@ -26,40 +26,79 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        merchant = ApplicationInformation.getMerchant()!
-        
-        if(merchant.schedules.count > 0){
-            
-            schedule = merchant.schedules[0]
-        }
-        
-        scheduleSummaryFields = getScheduleSummaryFields()
-        
-        loadData()  
+
+        loadKlockWirkersOnSchedule()
         
         setupViewProperties()
         setupTableViewProperties()
         setupTableViewDelegates()
         setupNavigationBar()
-        setupChart()
-        
+    
     }
 
     override func viewWillDisappear(animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.navigationItem.title = ""
+        setupNavigationTitle("")
+        
+      
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationItem.title = "Home"
+        setupNavigationTitle("Home")
+        refreshHomeSchedule()
+    }
+    
+    
+    func setupNavigationTitle(title: String){
+        
+        self.navigationItem.title = title
     }
     
     
     
-    func loadData(){
+    
+    
+    
+    
+    func displayNoSchedulesHeader(){
+        
+        let merchantNameLabel = UILabel(frame: CGRectMake(15, 5, 200, 20))
+        merchantNameLabel.text = "No Current Schedules"
+        merchantNameLabel.textColor = UIColor(red: 150.0/255.0, green: 150.0/255.0, blue: 150.0/255.0, alpha: 1.0)
+        merchantNameLabel.font = UIFont (name: "HelveticaNeue", size: 15)
+        
+        let dummyViewHeight = 45.0
+        let dummyView = UIView(frame: CGRect(x: 0, y: 100, width: 320, height: dummyViewHeight))
+        dummyView.backgroundColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1.0)
+        
+        dummyView.addSubview(merchantNameLabel)
+        
+        
+        self.view.addSubview(dummyView)
+        
+    }
+    
+    func refreshHomeSchedule(){
+        
+        merchant = ApplicationInformation.getMerchant()!
+        
+        if(merchant.schedules.count > 0){
+            
+            schedule                = merchant.schedules[0]
+            scheduleSummaryFields   = getScheduleSummaryFields()
+            scheduleSummayTableView.reloadData()
+            scheduleSummayTableView.hidden = false
+            setupChart()
+        }
+        else{
+            
+            clearUI()
+        }
+    }
+    
+    func loadKlockWirkersOnSchedule(){
         
         scheduleService.getKlockWirkersOnSchedule(schedule.scheduleId) { (response:NSArray) in
             
@@ -67,15 +106,38 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
+    
+    
 
     
     //MARK: Setup Methods
+    
+    func clearUI(){
+        
+        setPieChartHidden(true)
+        setSummaryTableHidden(true)
+    }
+    
+    
+    
+    
+    func setPieChartHidden(hidden: Bool){
+        
+        pieChart.view.hidden = hidden
+    }
+    
+    func setSummaryTableHidden(hidden: Bool){
+        
+        scheduleSummayTableView.hidden = hidden
+    }
+    
+    
     
     func setupChart(){
         
         pieChart = Chart()
         pieChart.view.frame = CGRectMake(0, 10, view.frame.width, 300)
-    
         view.addSubview(pieChart.view)
     }
     
@@ -207,8 +269,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
     }
-    
-
 }
 
 

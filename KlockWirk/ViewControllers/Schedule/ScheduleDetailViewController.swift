@@ -88,8 +88,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         if(!ApplicationInformation.isReadOnly()){
             
-            let deleteSchedule = UIBarButtonItem(image: UIImage(named: "more.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("moreOptions"))
-            
+            let deleteSchedule = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteScheduleConfirmation")
             self.navigationItem.rightBarButtonItem = deleteSchedule
         }
     }
@@ -161,9 +160,9 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         return merchant.klockWirkers
     }
     
-    func moreOptions(){
+    func deleteScheduleConfirmation(){
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Delete Schedule Confirmation", preferredStyle: .ActionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete Schedule", style: .Default, handler: {
             

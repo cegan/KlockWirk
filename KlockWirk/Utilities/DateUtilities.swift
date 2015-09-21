@@ -25,17 +25,8 @@ class DateUtilities{
     class func dateValueOfString(date: String) -> NSDate{
         
         let dateFormatter = NSDateFormatter()
-        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        
-        let d = dateFormatter.dateFromString(date);
-        
-        
-        let test = stringValueOfShiftDate(d!)
-        
-        
-        return d!
-        
+        return dateFormatter.dateFromString(date)!;
     }
 }

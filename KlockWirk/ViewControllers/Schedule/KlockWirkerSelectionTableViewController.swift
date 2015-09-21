@@ -73,12 +73,13 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
    
     
     
+    
+    
     //MARK: Events
     
     func doneButtonTapped(){
         
         self.navigationController?.popViewControllerAnimated(true)
-        
     }
     
     
@@ -100,7 +101,7 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("KlockWirkerCell", forIndexPath: indexPath) as! KlockWirkerSelectionTableViewCell
-        let kw = klockWirkers[indexPath.row] as! KlockWirker
+        let kw = klockWirkers[indexPath.row] 
         
         if(kw.isSelected == true){
             
@@ -120,7 +121,7 @@ class KlockWirkerSelectionTableViewController: UITableViewController {
         
         if(!isReadOnly){
             
-            let kw = klockWirkers[indexPath.row] as! KlockWirker
+            let kw = klockWirkers[indexPath.row] 
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! KlockWirkerSelectionTableViewCell
             
             

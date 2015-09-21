@@ -352,7 +352,6 @@
 			isa = PBXGroup;
 			children = (
 				4DE743A71BADEE5A0093FA1C /* DatePicker */,
-				4DE754981BA77EA500D3FE29 /* ScheduleSummary */,
 				4D2C55411BA4A8770007AFD5 /* Chart */,
 			);
 			path = Common;
@@ -595,13 +594,6 @@
 				4DE743A81BADEE5A0093FA1C /* DatePicker.swift */,
 			);
 			path = DatePicker;
-			sourceTree = "<group>";
-		};
-		4DE754981BA77EA500D3FE29 /* ScheduleSummary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ScheduleSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -17,6 +17,15 @@ class ApplicationInformation{
         NSUserDefaults.standardUserDefaults().setObject(baseUrl, forKey: "RevelBaseAPI")
     }
     
+    class func appendKlockWirkerToMerchant(klockWirker: KlockWirker){
+        
+        let merchant = getMerchant()
+        merchant!.klockWirkers.append(klockWirker)
+        
+        
+        setMerchant(merchant!)
+    }
+    
     class func setKlockWirkers(klockWirkers:[KlockWirker]){
         
         let myData = NSKeyedArchiver.archivedDataWithRootObject(klockWirkers)
@@ -55,22 +64,7 @@ class ApplicationInformation{
     }
     
     
-    class func replaceKlockWirker(kw: KlockWirker, index: Int){
-        
-        let merchant = getMerchant()
-        merchant!.klockWirkers[index] = kw
     
-        setMerchant(merchant!)
-    }
-    
-    
-    class func removeKlockWirker(kw: KlockWirker, index: Int){
-        
-        let merchant = getMerchant()
-        merchant!.klockWirkers.removeAtIndex(index)
-        
-        setMerchant(merchant!)
-    }
     
     
     
@@ -140,6 +134,22 @@ class ApplicationInformation{
 
     
     
+    
+    class func replaceKlockWirker(kw: KlockWirker, index: Int){
+        
+        let merchant = getMerchant()
+        merchant!.klockWirkers[index] = kw
+        
+        setMerchant(merchant!)
+    }
+    
+    class func removeKlockWirker(kw: KlockWirker, index: Int){
+        
+        let merchant = getMerchant()
+        merchant!.klockWirkers.removeAtIndex(index)
+        
+        setMerchant(merchant!)
+    }
     
     class func isReadOnly() -> Bool{
         

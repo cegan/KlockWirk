@@ -20,9 +20,10 @@ class MerchantServices: BaseKlockWirkService{
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            let jsonResult  = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            let merchant    = JSONUtilities.parseMerchant(jsonResult)
             
-            let merchant = JSONUtilities.parseMerchant(jsonResult)
+            ApplicationInformation.setMerchant(merchant)
             
             dispatch_async(dispatch_get_main_queue(), {
                 
