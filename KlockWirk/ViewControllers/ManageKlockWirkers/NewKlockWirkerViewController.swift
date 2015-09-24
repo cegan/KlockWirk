@@ -26,7 +26,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         setupTableViewDelegates()
         setupTableViewProperties()
         
-        merchant = ApplicationInformation.getMerchant()!
+        merchant = MerchantManager.sharedInstance.merchant
         klockWirkerRegistrationFields = getKlockWirkerRegistrationFields()
     }
     

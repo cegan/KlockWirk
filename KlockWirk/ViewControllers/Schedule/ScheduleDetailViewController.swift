@@ -139,7 +139,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         if(isMerhant){
             
-            merchant = ApplicationInformation.getMerchant()!
+            merchant = MerchantManager.sharedInstance.merchant
             
             for kws in merchant.klockWirkers {
                 
@@ -190,7 +190,6 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
             
             self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
                 
-                ApplicationInformation.setMerchant(response)
                 self.navigationController?.popViewControllerAnimated(true)
             }
         }
@@ -198,10 +197,10 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     func loadSheeduledKlockWirkers(){
         
-        scheduleService.getKlockWirkersOnSchedule(selectedSchedule.scheduleId) { (response:NSArray) in
-            
-            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
-        }
+//        scheduleService.getKlockWirkersOnSchedule(selectedSchedule) { (response:NSArray) in
+//            
+//            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
+//        }
         
         tv.reloadData()
     }
@@ -240,10 +239,11 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
         switch(indexPath.row){
+
             
             case 5:
                 
-                self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: getSelectedKlockWirkers(),readOnly: ApplicationInformation.isReadOnly()), animated: true)
+                self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: selectedSchedule.klockWirkers,readOnly: true), animated: true)
 
             default:
                 return

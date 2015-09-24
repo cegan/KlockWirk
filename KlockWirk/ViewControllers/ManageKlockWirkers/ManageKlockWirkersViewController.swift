@@ -17,7 +17,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     func refreshKlockWirkers(){
         
-        klockWirkers = (ApplicationInformation.getMerchant()?.klockWirkers)!
+        klockWirkers = MerchantManager.sharedInstance.merchant.klockWirkers
         
         self.tableView.reloadData()
     }
@@ -59,6 +59,7 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     func setupTableViewHeader(){
         
+    
         let merchantNameLabel = UILabel(frame: CGRectMake(15, 5, 200, 20))
         merchantNameLabel.text = "Gate 25"
         merchantNameLabel.textColor = UIColor(red: 150.0/255.0, green: 150.0/255.0, blue: 150.0/255.0, alpha: 1.0)
@@ -83,7 +84,6 @@ class ManageKlockWirkersViewController: UITableViewController {
         self.tableView.tableHeaderView = dummyView
         self.tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         
-        
     }
    
     
@@ -95,7 +95,6 @@ class ManageKlockWirkersViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        refreshKlockWirkers()
         setupViewProperties()
         setupTableViewHeader()
         setupTableViewProperties()
@@ -114,6 +113,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         
         self.navigationItem.title = "KlockWirkers"
         refreshKlockWirkers()
+        setupTableViewHeader()
     }
     
     

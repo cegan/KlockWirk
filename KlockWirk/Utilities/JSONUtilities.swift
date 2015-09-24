@@ -66,26 +66,6 @@ class JSONUtilities{
         merchant.phone = (m.objectForKey("Phone") as? String)!
         merchant.email = (m.objectForKey("Email") as? String)!
         
-        
-        let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
-        
-        for obj: AnyObject in merchantSchedules {
-            
-            let schedule = Schedule()
-            
-            schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
-            schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
-            schedule.line                   = (obj.objectForKey("Line") as? Double)!
-            schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
-            schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
-            schedule.endDateTime            =  DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
-    
-            merchant.schedules.append(schedule)
-        }
-        
-        merchant.schedules = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
-        
-        
 
         let klockWirkers = (m.objectForKey("KlockWirkers") as? NSArray)!
         
@@ -103,7 +83,56 @@ class JSONUtilities{
         }
         
         
-        merchant.klockWirkers = merchant.klockWirkers.sort(SortingUtilities.sortKlockWirkersAscending)
+        
+        let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
+        
+        for obj: AnyObject in merchantSchedules {
+            
+            let schedule = Schedule()
+            
+            //let kwSchedules                 = (obj.objectForKey("KlockWirkerSchedules") as? NSArray)
+            schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
+            schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
+            schedule.line                   = (obj.objectForKey("Line") as? Double)!
+            schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
+            schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
+            schedule.endDateTime            = DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
+            
+            
+            if let kwSchedules = (obj.objectForKey("KlockWirkerSchedules") as? NSArray){
+                
+                for kws: AnyObject in kwSchedules {
+                    
+                    let klockWirkerId   = (kws.objectForKey("KlockWirkerId") as? Int)!
+                    let scheduleId      = (kws.objectForKey("ScheduleId") as? Int)!
+                    
+                    if(scheduleId == schedule.scheduleId){
+                        
+                        for t: KlockWirker in merchant.klockWirkers{
+                            
+                            if(t.klockWirkerId == klockWirkerId){
+                                
+                                schedule.klockWirkers.append(t)
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+    
+            merchant.schedules.append(schedule)
+        }
+        
+        merchant.schedules      = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+        merchant.klockWirkers   = merchant.klockWirkers.sort(SortingUtilities.sortKlockWirkersAscending)
         
        
         return merchant

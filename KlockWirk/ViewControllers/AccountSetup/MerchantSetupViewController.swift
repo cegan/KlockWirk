@@ -125,10 +125,8 @@ class MerchantSetupViewController: UITableViewController {
         endEditing()
         displayActivityindicator()
         
-        merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: NSDictionary) in
+        merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: Merchant) in
             
-            ApplicationInformation.setMerchant(JSONUtilities.parseMerchant(response))
-            ApplicationInformation.setKlockWirkers([KlockWirker]())
             self.loadMerchantTabBarController()
         }
     }

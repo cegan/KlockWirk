@@ -22,11 +22,8 @@ class SchedulesTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        loadData()
-        
         setupNavigationBar()
         setupTableViewProperties()
-        setupTableViewHeader()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -39,11 +36,11 @@ class SchedulesTableViewController: UITableViewController {
         
         self.navigationItem.title = "Schedules"
         loadData()
+        refreshTableViewHeader()
     }
     
     
-    
-    
+
     //MARK: Setup Methods
     
     func setupTableViewProperties(){
@@ -83,20 +80,20 @@ class SchedulesTableViewController: UITableViewController {
         
         if(ApplicationInformation.isKlockWirker()){
             
-            klockWirker = ApplicationInformation.getKlockWirker()!
+            klockWirker = KlockWirkerManager.sharedInstance.klockWirker
             schedules = klockWirker.schedules
         }
         else if(ApplicationInformation.isMerchant()){
             
-            merchant = ApplicationInformation.getMerchant()!
-            schedules = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+            merchant    = MerchantManager.sharedInstance.merchant
+            schedules   = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
         }
         
         tableView.reloadData()
     }
     
     
-    func setupTableViewHeader(){
+    func refreshTableViewHeader(){
         
         let merchantNameLabel = UILabel(frame: CGRectMake(15, 5, 200, 20))
         merchantNameLabel.text = "Gate 25"

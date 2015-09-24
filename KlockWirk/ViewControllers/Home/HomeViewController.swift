@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func refreshHomeSchedule(){
         
-        merchant = ApplicationInformation.getMerchant()!
+        merchant = MerchantManager.sharedInstance.merchant
         
         if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
             
@@ -103,10 +103,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func loadKlockWirkersOnSchedule(){
         
-        scheduleService.getKlockWirkersOnSchedule(currentSchedule.scheduleId) { (response:NSArray) in
-            
-            self.currentSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
-        }
+//        scheduleService.getKlockWirkersOnSchedule(currentSchedule) { (response:NSArray) in
+//            
+//            self.currentSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
+//        }
     }
     
     

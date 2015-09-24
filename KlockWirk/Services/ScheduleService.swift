@@ -21,7 +21,7 @@ class SchedulService: BaseKlockWirkService{
         return DateInFormat
     }
     
-    func addSchedule(schedule: Schedule, merchantId: Int, onCompletion: (response: NSDictionary) -> ()){
+    func addSchedule(schedule: Schedule, merchantId: Int, onCompletion: (response: Schedule) -> ()){
         
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
@@ -52,18 +52,18 @@ class SchedulService: BaseKlockWirkService{
                 if(httpResponse.statusCode == 200){
                     
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                    
-                    let mId = (result.objectForKey("MerchantId") as? Int)!
+                   
+                    let mId         = (result.objectForKey("MerchantId") as? Int)!
                     let scheduleId = (result.objectForKey("ScheduleId") as? Int)!
                     
                     for kw in schedule.klockWirkers {
                         
-                        self.addKlockWirkersToSchedule(kw as! KlockWirker, merchantScheduleId: scheduleId, merchantId: mId)
+                        self.addKlockWirkersToSchedule(kw, merchantScheduleId: scheduleId, merchantId: mId)
                     }
-                
+                    
                     dispatch_async(dispatch_get_main_queue(), {
                         
-                        onCompletion(response: result)
+                        onCompletion(response: schedule)
                     })
                 }
             }
@@ -71,7 +71,7 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
-    
+
     func addKlockWirkersToSchedule(klockWirker: KlockWirker, merchantScheduleId: Int, merchantId: Int){
     
         let session = NSURLSession.sharedSession()
@@ -79,7 +79,7 @@ class SchedulService: BaseKlockWirkService{
         
         let params = [
             "KlockWirkerId":String(klockWirker.klockWirkerId),
-            "MerchantSchedluleId":String(merchantScheduleId),
+            "ScheduleId":String(merchantScheduleId),
             "MerchantId":String(merchantId)] as Dictionary<String, String>
         
         
@@ -99,7 +99,7 @@ class SchedulService: BaseKlockWirkService{
                 
                 if(httpResponse.statusCode == 200){
                     
-                   // let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                 }
             }
         })
@@ -126,15 +126,20 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-    func getKlockWirkersOnSchedule(scheduleId: Int, onCompletion: (response: NSArray) -> ()) {
+    func getKlockWirkersOnSchedule(schedule: Schedule, onCompletion: (response: NSArray) -> ()) {
         
-        let parameters = ["id":scheduleId]
+        let parameters = ["id":schedule.scheduleId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersByScheduleId, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            
+            let klockWirkers = JSONUtilities.parseKlockWirkers(jsonResult) as! [KlockWirker]
+            
+            schedule.klockWirkers = klockWirkers
+            
             
             dispatch_async(dispatch_get_main_queue(), {
                 
@@ -153,7 +158,10 @@ class SchedulService: BaseKlockWirkService{
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary   
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            
+            
             
             dispatch_async(dispatch_get_main_queue(), {
                 

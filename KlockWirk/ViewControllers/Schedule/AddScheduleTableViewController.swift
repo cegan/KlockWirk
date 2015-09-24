@@ -34,7 +34,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         super.viewDidLoad()
         
-        merchant = ApplicationInformation.getMerchant()!
+        //merchant = ApplicationInformation.getMerchant()!
+        
+        merchant = MerchantManager.sharedInstance.merchant
         scheduleFields = getScheduleFields()
         
         setupTableViewProperties()
@@ -104,16 +106,10 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func addButtonTapped(){
         
-        let schedule = getCompletedSchedule()
-        
-        scheduleService.addSchedule(schedule, merchantId: ApplicationInformation.getMerchantId()) { (response: NSDictionary) in
+        scheduleService.addSchedule(getCompletedSchedule(), merchantId: ApplicationInformation.getMerchantId()) { (response: Schedule) in
             
-            let schedule = JSONUtilities.parseMerchantSchedule(response)
-            
-            self.merchant.schedules.append(schedule)
-            
-            ApplicationInformation.setMerchant(self.merchant)
-        
+            MerchantManager.sharedInstance.merchant.schedules.append(response)
+
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -161,7 +157,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 schedule.klockWirkers.append(kw)
             }
             
-            kw.isSelected = false
+            //kw.isSelected = false
         }
         
         return schedule
@@ -170,7 +166,6 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     func cancelTableViewEditing(shouldCancel: Bool){
         
         self.tableView.endEditing(shouldCancel)
-    
     }
     
     

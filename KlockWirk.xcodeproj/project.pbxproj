@@ -68,6 +68,7 @@
 		4D79E6471B7F6A7D00A1F25D /* JSONUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */; };
 		4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */; };
 		4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */; };
+		4D9482541BB22A7D0034242F /* KlockWirkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
 		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
 		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
@@ -103,6 +104,7 @@
 		4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEA19241BAF14610091B44D /* TestTableViewCell.xib */; };
 		4DEA192C1BAF864E0091B44D /* SortingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */; };
 		4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192D1BB091BF0091B44D /* DateCompare.swift */; };
+		4DEA19361BB0C21A0091B44D /* MerchantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA19351BB0C21A0091B44D /* MerchantManager.swift */; };
 		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -198,6 +200,7 @@
 		4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtilities.swift; sourceTree = "<group>"; };
 		4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageKlockWirkersViewController.swift; sourceTree = "<group>"; };
 		4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageKlockWirkersViewController.xib; sourceTree = "<group>"; };
+		4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerManager.swift; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -244,6 +247,7 @@
 		4DEA19241BAF14610091B44D /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingUtilities.swift; sourceTree = "<group>"; };
 		4DEA192D1BB091BF0091B44D /* DateCompare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompare.swift; sourceTree = "<group>"; };
+		4DEA19351BB0C21A0091B44D /* MerchantManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantManager.swift; sourceTree = "<group>"; };
 		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -574,6 +578,8 @@
 				4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */,
 				4DEA192B1BAF864E0091B44D /* SortingUtilities.swift */,
 				4DEA192D1BB091BF0091B44D /* DateCompare.swift */,
+				4DEA19351BB0C21A0091B44D /* MerchantManager.swift */,
+				4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 			files = (
 				4D2C54C21BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m in Sources */,
 				4DE7549B1BA77F4A00D3FE29 /* ScheduleTableViewCell.swift in Sources */,
+				4D9482541BB22A7D0034242F /* KlockWirkerManager.swift in Sources */,
 				4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */,
 				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
 				4D2C54C61BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m in Sources */,
@@ -762,6 +769,7 @@
 				4D2C54CD1BA3C1210007AFD5 /* RSDFDatePickerView.m in Sources */,
 				4D49A73A1B51430D001FCF54 /* KlockWirkerServices.swift in Sources */,
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
+				4DEA19361BB0C21A0091B44D /* MerchantManager.swift in Sources */,
 				4D2C54A01BA3ABC20007AFD5 /* ScheduleService.swift in Sources */,
 				4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */,
 				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,

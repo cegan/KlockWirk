@@ -19,13 +19,11 @@ class MerchantServices: BaseKlockWirkService{
         let request = getUrlRequestForEndpoint(ServiceEndpoints.MerchantsEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
+        
             let jsonResult  = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             let merchant    = JSONUtilities.parseMerchant(jsonResult)
             
-            ApplicationInformation.setMerchant(merchant)
-            
-
+            MerchantManager.sharedInstance.merchant = merchant
             
             dispatch_async(dispatch_get_main_queue(), {
                 
@@ -36,7 +34,7 @@ class MerchantServices: BaseKlockWirkService{
         task.resume()
     }
     
-    func registerMerchant(merchant: Merchant, onCompletion: (response: NSDictionary) -> ()){
+    func registerMerchant(merchant: Merchant, onCompletion: (response: Merchant) -> ()){
         
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.MerchantsEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
@@ -73,10 +71,14 @@ class MerchantServices: BaseKlockWirkService{
                 if(httpResponse.statusCode == 200){
                     
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let merchant = JSONUtilities.parseMerchant(result)
                     
+                    MerchantManager.sharedInstance.merchant = merchant
+                    
+              
                     dispatch_async(dispatch_get_main_queue(), {
                         
-                        onCompletion(response: result)
+                        onCompletion(response: merchant)
                     })
                 }
             }

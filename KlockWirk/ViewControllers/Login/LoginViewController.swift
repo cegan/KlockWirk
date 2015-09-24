@@ -134,12 +134,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     
     //MARK: Utility Methods
-    
-    func storeKlockWirkers(klockWirkers: [KlockWirker]){
         
-        ApplicationInformation.setKlockWirkers(JSONUtilities.parseKlockWirkers(klockWirkers) as! [KlockWirker])
-    }
-    
     func loadMerchantTabBarController(){
         
         let tbc = MerchantTabBarController()
@@ -259,9 +254,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     @IBAction func login(sender: AnyObject) {
         
-        
-        ApplicationInformation.setIsKlockWirker(false)
-        ApplicationInformation.setIsMerchant(false)
+        ApplicationInformation.clearSharedData()
         
         
         loginButton.animate(100000, completion: { () -> () in
@@ -281,12 +274,16 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             
             if(isKlockWirker == true){
                 
+                ApplicationInformation.setIsKlockWirker(true)
+                
                 self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
             
                     self.loadKlockWirkerTabBarController()
                 }
             }
             if(isMerchant == true){
+                
+                ApplicationInformation.setIsMerchant(true)
                 
                 self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
                     

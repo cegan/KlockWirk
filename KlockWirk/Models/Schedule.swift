@@ -13,6 +13,10 @@ class Schedule: NSObject, NSCoding{
     
     var scheduleId: Int       = 0
     var merchantId: Int       = 0
+    
+    var klockWirkerId = 7
+    
+    
     var KlockWirkerPercentage: Double       = 0
     var line: Double                       = 0
     var isCurrentSchedule: Bool            = false
@@ -21,11 +25,14 @@ class Schedule: NSObject, NSCoding{
     var endDateTime: NSDate             = NSDate()
     var klockWirkers:[KlockWirker] = []
    
+   
     
     override init() {}
     
     
     required init?(coder aDecoder: NSCoder) {
+        
+        self.klockWirkerId = (aDecoder.decodeObjectForKey("klockWirkerId") as? Int)!
         
         self.scheduleId = (aDecoder.decodeObjectForKey("scheduleId") as? Int)!
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
@@ -41,6 +48,7 @@ class Schedule: NSObject, NSCoding{
     
     func encodeWithCoder(aCoder: NSCoder) {
         
+        aCoder.encodeObject(klockWirkerId, forKey: "klockWirkerId")
         aCoder.encodeObject(scheduleId, forKey: "scheduleId")
         aCoder.encodeObject(merchantId, forKey: "merchantId")
         aCoder.encodeObject(KlockWirkerPercentage, forKey: "percent")

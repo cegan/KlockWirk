@@ -30,8 +30,21 @@ class TestTableViewCell: UITableViewCell {
     
     func bindCellDetails(schedule: Schedule){
         
-        goalLabel.text = NumberFormatter.formatDoubleToCurrency(schedule.line)
+        goalLabel.text  = NumberFormatter.formatDoubleToCurrency(schedule.line)
+        usersLabel.text = getKlockWirkersList(schedule.klockWirkers)
+    }
+    
+    
+    func getKlockWirkersList(klockWirkers:[KlockWirker]) -> String{
         
+        var klockWirkersString = ""
+        
+        for kw: KlockWirker in klockWirkers{
+            
+            klockWirkersString = klockWirkersString + kw.firstName + ", "
+        }
+        
+        return klockWirkersString
     }
     
 }

@@ -104,10 +104,9 @@ class KlockWirkerServices : BaseKlockWirkService{
             
             var array:Array<String> = []
            
-            
             for element: AnyObject in schedules {
                 
-                let merchantScheduleId = (element.objectForKey("MerchantSchedluleId") as? Int)!
+                let merchantScheduleId = (element.objectForKey("ScheduleId") as? Int)!
                 
                 array.append(String(merchantScheduleId))
             }
@@ -138,11 +137,7 @@ class KlockWirkerServices : BaseKlockWirkService{
                 })
             }
             
-            
-            
-            ApplicationInformation.setKlockWirker(klockWirker)
-            
-
+            KlockWirkerManager.sharedInstance.klockWirker = klockWirker
         })
         
         task.resume()
@@ -195,11 +190,10 @@ class KlockWirkerServices : BaseKlockWirkService{
                 
                 if(httpResponse.statusCode == 200){
                     
-                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let result      = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     let klockWirker = JSONUtilities.parseKlockWirker(result)
                     
-                    
-                    ApplicationInformation.appendKlockWirkerToMerchant(klockWirker)
+                    MerchantManager.sharedInstance.merchant.klockWirkers.append(klockWirker)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         
@@ -207,8 +201,6 @@ class KlockWirkerServices : BaseKlockWirkService{
                     })
                 }
                 else{
-                    
-                    //let result:NSDictionary = ["statusCode":httpResponse.statusCode] as Dictionary<String, Int>
                     
                     onCompletion(response: KlockWirker())
                 }
