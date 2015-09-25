@@ -28,7 +28,6 @@ class JSONUtilities{
             klockWirker.password = (element.objectForKey("Password") as? String)!
             
             klockWirkers.append(klockWirker)
-        
         }
         
         return klockWirkers
@@ -83,14 +82,12 @@ class JSONUtilities{
         }
         
         
-        
         let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
         
         for obj: AnyObject in merchantSchedules {
             
             let schedule = Schedule()
             
-            //let kwSchedules                 = (obj.objectForKey("KlockWirkerSchedules") as? NSArray)
             schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
             schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
             schedule.line                   = (obj.objectForKey("Line") as? Double)!
@@ -117,17 +114,8 @@ class JSONUtilities{
                         }
                     }
                 }
-                
-                
             }
-            
-            
-            
-            
-            
-            
-            
-    
+        
             merchant.schedules.append(schedule)
         }
         

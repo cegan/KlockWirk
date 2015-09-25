@@ -127,6 +127,8 @@ class MerchantSetupViewController: UITableViewController {
         
         merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: Merchant) in
             
+            ApplicationInformation.setIsMerchant(true)
+            
             self.loadMerchantTabBarController()
         }
     }
