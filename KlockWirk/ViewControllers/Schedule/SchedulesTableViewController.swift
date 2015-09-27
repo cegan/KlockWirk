@@ -90,7 +90,10 @@ class SchedulesTableViewController: UITableViewController {
         else if(ApplicationInformation.isMerchant()){
             
             merchant    = MerchantManager.sharedInstance.merchant
-            schedules   = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+            schedules   = merchant.schedules
+            
+            
+           // schedules   = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
         }
         
         tableView.reloadData()

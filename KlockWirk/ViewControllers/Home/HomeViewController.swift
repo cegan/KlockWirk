@@ -27,8 +27,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         super.viewDidLoad()
         
-        loadKlockWirkersOnSchedule()
-        
         setupChart()
         setupViewProperties()
         setupTableViewProperties()
@@ -85,33 +83,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         merchant = MerchantManager.sharedInstance.merchant
         
-        if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
+        if(merchant.schedules.count > 0){
             
-            currentSchedule         = schedule
-            scheduleSummaryFields   = getScheduleSummaryFields()
-            scheduleSummayTableView.reloadData()
-            scheduleSummayTableView.hidden = false
-            setPieChartHidden(false)
+            if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
+                
+                currentSchedule         = schedule
+                scheduleSummaryFields   = getScheduleSummaryFields()
+                scheduleSummayTableView.reloadData()
+                scheduleSummayTableView.hidden = false
+                setPieChartHidden(false)
+                
+            }
+            else{
+                
+                clearUI()
+                //displayNoSchedulesHeader()
+            }
             
-        }
-        else{
-            
-            clearUI()
-            //displayNoSchedulesHeader()
         }
     }
     
-    func loadKlockWirkersOnSchedule(){
-        
-//        scheduleService.getKlockWirkersOnSchedule(currentSchedule) { (response:NSArray) in
-//            
-//            self.currentSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
-//        }
-    }
-    
-    
-    
-    
+
 
     
     //MARK: Setup Methods
