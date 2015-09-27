@@ -14,7 +14,8 @@ class Merchant: NSObject, NSCoding{
     
     
     var merchantId: Int = 0
-    var posSystemId: Int = 0
+    
+    var posSystemId: POSSystem = .None
     var posSystemBaseApiUrl: String = ""
     var posSystemApiKey: String = ""
     var posSystem: String = ""
@@ -39,7 +40,7 @@ class Merchant: NSObject, NSCoding{
     required init?(coder aDecoder: NSCoder) {
         
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
-        self.posSystemId = (aDecoder.decodeObjectForKey("posSystemId") as? Int!)!
+        self.posSystemId = (aDecoder.decodeObjectForKey("posSystemId") as? POSSystem!)!
         self.posSystemBaseApiUrl = (aDecoder.decodeObjectForKey("posSystemBaseApiUrl") as? String!)!
         self.posSystemApiKey = (aDecoder.decodeObjectForKey("posSystemApiKey") as? String)!
         self.posSystem = (aDecoder.decodeObjectForKey("posSystem") as? String)!
@@ -61,7 +62,7 @@ class Merchant: NSObject, NSCoding{
     func encodeWithCoder(aCoder: NSCoder) {
         
         aCoder.encodeObject(merchantId, forKey: "merchantId")
-        aCoder.encodeObject(posSystemId, forKey: "posSystemId")
+        //aCoder.encodeObject(posSystemId, forKey: "posSystemId")
         aCoder.encodeObject(posSystemBaseApiUrl, forKey: "posSystemBaseApiUrl")
         aCoder.encodeObject(posSystemApiKey, forKey: "posSystemApiKey")
         aCoder.encodeObject(posSystem, forKey: "posSystem")

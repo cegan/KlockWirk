@@ -17,17 +17,19 @@ public class AccountSetupField{
     var tag: Int?
     var fieldType: InputFieldTypes = .String
     var isSelected: Bool = false
+    var isRequired: Bool = false
     
     
     init(){
         
     }
     
-    init(lbl: String, val: String, type:InputFieldTypes, tag: Int){
+    init(lbl: String, val: String, type:InputFieldTypes, required: Bool, tag: Int){
         
         self.defaluValue = lbl
         self.value = val
         self.fieldType = type
+        self.isRequired = required
         self.tag = tag
     }
 }

@@ -131,10 +131,10 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         
         let klockWirkerFields = NSMutableArray()
         
-        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, type:.String, tag: 1))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, type:.String, tag: 2))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, type:.String, tag: 3))
-        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, type:.String, tag: 4))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "First Name", val: klockWirkerDetail.firstName, type:.String, required:true, tag: 1))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Last Name", val: klockWirkerDetail.lastName, type:.String, required:true, tag: 2))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Email", val: klockWirkerDetail.emailAddress, type:.String, required:true, tag: 3))
+        klockWirkerFields.addObject(AccountSetupField(lbl: "Phone", val: klockWirkerDetail.phoneNumber, type:.String, required:true, tag: 4))
        
         return klockWirkerFields
     }

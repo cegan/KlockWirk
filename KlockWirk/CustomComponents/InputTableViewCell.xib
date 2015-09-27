@@ -16,12 +16,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3m-we-ytP">
-                        <rect key="frame" x="15" y="11" width="92" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="bFU-3P-ERf"/>
-                            <constraint firstAttribute="width" constant="92" id="k28-Kv-3VJ"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="18" y="11" width="92" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,12 +33,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="Uos-WU-Ui0" secondAttribute="trailing" constant="7" id="0g6-OQ-qD3"/>
+                    <constraint firstItem="Uos-WU-Ui0" firstAttribute="leading" secondItem="s3m-we-ytP" secondAttribute="trailing" constant="5" id="1uO-jk-2J4"/>
+                    <constraint firstItem="s3m-we-ytP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="9PN-cc-Kla"/>
                     <constraint firstItem="Uos-WU-Ui0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="OGQ-uA-apw"/>
-                    <constraint firstItem="Uos-WU-Ui0" firstAttribute="leading" secondItem="s3m-we-ytP" secondAttribute="trailing" constant="8" id="pBh-u7-kXm"/>
+                    <constraint firstItem="s3m-we-ytP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZPw-18-tqj"/>
                     <constraint firstItem="s3m-we-ytP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="pEa-Mg-zRt"/>
-                    <constraint firstItem="s3m-we-ytP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tdl-gB-fgk"/>
+                    <constraint firstItem="s3m-we-ytP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="tfo-9I-VyG"/>
                     <constraint firstItem="Uos-WU-Ui0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="107" id="yM6-Mn-R5s"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="pEa-Mg-zRt"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cellInput" destination="Uos-WU-Ui0" id="YDf-0u-BIa"/>

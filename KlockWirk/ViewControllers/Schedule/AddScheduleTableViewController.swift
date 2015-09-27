@@ -128,10 +128,10 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let scheduleFields = NSMutableArray()
         
-        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 1))
+        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 4))
         
         return scheduleFields
     }

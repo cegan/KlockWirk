@@ -38,10 +38,10 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "First Name", val: "", type:.String, tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Last Name", val: "", type:.String, tag: 2))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.Email, tag: 3))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.Phone, tag: 4))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "First Name", val: "", type:.String, required:true, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Last Name", val: "", type:.String, required:true, tag: 2))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.Email, required:true, tag: 3))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.Phone, required:true, tag: 4))
         
         return klockWirkerRegistrationFields
     }

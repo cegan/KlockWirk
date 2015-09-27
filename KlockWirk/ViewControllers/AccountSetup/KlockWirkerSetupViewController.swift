@@ -88,8 +88,8 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 2))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, required:true, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, required:true, tag: 2))
         
         return klockWirkerRegistrationFields
     }
@@ -99,8 +99,8 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         
         let klockWirkerRegistrationFields = NSMutableArray()
         
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, required:true, tag: 1))
+        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, required:true, tag: 1))
        
         return klockWirkerRegistrationFields
     }

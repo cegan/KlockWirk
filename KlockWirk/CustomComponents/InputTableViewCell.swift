@@ -27,6 +27,8 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
     }
     
+
+    
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
@@ -65,7 +67,6 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    
     func setupCellProperties(tag: Int){
         
         if(accountSetupField.fieldType == .Password){
@@ -74,11 +75,11 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
         
         
-        cellInput.textAlignment = .Right
-        cellInput.borderStyle = .None
-        cellInput.delegate = self
+        selectionStyle              = .None
+        cellInput.textAlignment     = .Right
+        cellInput.borderStyle       = .None
+        cellInput.delegate          = self
     }
-    
     
     func bindCellDetail(detail: AccountSetupField){
         

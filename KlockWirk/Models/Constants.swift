@@ -21,6 +21,24 @@ enum InputFieldTypes {
     
 }
 
+
+
+enum POSSystem: Int {
+    
+    case None       = 0
+    case Revel      = 1
+    case Clover     = 2
+    case Micros     = 3
+    case Shopkeep   = 4
+    case LightSpeed = 5
+    case Square     = 6
+    case Aloha      = 7
+    case Squirrel   = 8
+    case Breadcrumb = 9
+}
+
+
+
 struct NotificationConstants {
     
     static let RegisterKlockWirkerCompeleted  = "RegisterKlockWirkerCompeleted"

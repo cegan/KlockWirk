@@ -55,7 +55,7 @@ class JSONUtilities{
         let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
        
         merchant.merchantId = (m.objectForKey("MerchantId") as? Int)!
-        merchant.posSystemId = (m.objectForKey("PosSystemId") as? Int)!
+       // merchant.posSystemId = (m.objectForKey("PosSystemId") as? Int)!
         merchant.posSystemBaseApiUrl = (m.objectForKey("PosSystemBaseApiUrl") as? String)!
         merchant.posSystemApiKey = (m.objectForKey("PosSystemApiKey") as? String)!
         merchant.posSystem = (m.objectForKey("PosSystem") as? String)!

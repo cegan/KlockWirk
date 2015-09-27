@@ -12,16 +12,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d9-VC-h6B">
-                        <rect key="frame" x="13" y="11" width="236" height="21"/>
+                        <rect key="frame" x="16" y="11" width="236" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="IOH-Ns-VlX"/>
-                            <constraint firstAttribute="width" constant="236" id="MeM-RX-R3T"/>
+                            <constraint firstAttribute="height" constant="21" id="0RX-hL-G5F"/>
+                            <constraint firstAttribute="width" constant="236" id="OtI-JI-vDJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,19 +34,18 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="0d9-VC-h6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="BAL-99-F5C"/>
                     <constraint firstAttribute="trailingMargin" secondItem="OLQ-B3-OP4" secondAttribute="trailing" constant="7" id="BCK-qk-l7T"/>
                     <constraint firstItem="OLQ-B3-OP4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="C1o-H3-9T6"/>
-                    <constraint firstItem="0d9-VC-h6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Vi9-lh-cjZ"/>
-                    <constraint firstItem="OLQ-B3-OP4" firstAttribute="top" secondItem="0d9-VC-h6B" secondAttribute="top" id="m9n-er-Oub"/>
-                    <constraint firstItem="OLQ-B3-OP4" firstAttribute="leading" secondItem="0d9-VC-h6B" secondAttribute="trailing" constant="36" id="oKW-hc-A6b"/>
-                    <constraint firstItem="OLQ-B3-OP4" firstAttribute="leading" secondItem="0d9-VC-h6B" secondAttribute="trailing" constant="36" id="uEz-yP-8kP"/>
+                    <constraint firstItem="OLQ-B3-OP4" firstAttribute="leading" secondItem="0d9-VC-h6B" secondAttribute="trailing" constant="33" id="ZRW-lo-FHh"/>
+                    <constraint firstItem="0d9-VC-h6B" firstAttribute="top" secondItem="OLQ-B3-OP4" secondAttribute="top" id="ily-IM-PTG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cellLabel" destination="0d9-VC-h6B" id="qCT-Pw-amN"/>
                 <outlet property="selectedImageView" destination="OLQ-B3-OP4" id="m0c-vU-Prt"/>
             </connections>
-            <point key="canvasLocation" x="-310" y="147"/>
+            <point key="canvasLocation" x="-501" y="110"/>
         </tableViewCell>
     </objects>
     <resources>

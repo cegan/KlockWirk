@@ -41,17 +41,15 @@ class SchedulesTableViewController: UITableViewController {
     
     
     
-    
 
     //MARK: Setup Methods
     
     func setupTableViewProperties(){
     
+        
+        
         tableView.tableFooterView = UIView(frame: CGRectZero)
-       // tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "scheduleCell");
-        
         tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
-        
     }
     
     func setupNavigationBar(){
@@ -91,12 +89,18 @@ class SchedulesTableViewController: UITableViewController {
             
             merchant    = MerchantManager.sharedInstance.merchant
             schedules   = merchant.schedules
-            
-            
-           // schedules   = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
         }
         
         tableView.reloadData()
+        
+        if(schedules.count <= 0){
+            
+            tableView.tableHeaderView = getNoSchedulesHeader()
+        }
+        else{
+            
+            tableView.tableHeaderView = nil
+        }
     }
     
     func refreshTableViewHeader(){
@@ -127,10 +131,31 @@ class SchedulesTableViewController: UITableViewController {
         
         
     }
+    
+    func getNoSchedulesHeader() -> UILabel{
+        
+        let label = UILabel(frame: CGRectMake(0, 60, 300, 90))
+        
+        label.text = "You Currently Have No Schedules Created"
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont (name: "HelveticaNeue", size: 15)
+        label.numberOfLines = 2
+        //  label.sizeToFit()
+        
+        
+        return label
+    }
+
 
     
 
     //MARK: TableView Delegates
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 0
+    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         

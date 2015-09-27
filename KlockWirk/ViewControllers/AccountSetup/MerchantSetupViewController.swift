@@ -137,9 +137,8 @@ class MerchantSetupViewController: UITableViewController {
         let manager = merchantSetupItems.items[0][8]
         let password = merchantSetupItems.items[2][0]
         let confirmPassword = merchantSetupItems.items[2][1]
+        let posSystem = getSelectedPOSSystem()
         
-       
-
         returnMerchant.firstName = firstName.value!
         returnMerchant.lastName = lastName.value!
         returnMerchant.address = address.value!
@@ -149,6 +148,7 @@ class MerchantSetupViewController: UITableViewController {
         returnMerchant.phone = phone.value!
         returnMerchant.email = email.value!
         returnMerchant.manager = manager.value!
+        returnMerchant.posSystemId = posSystem
         returnMerchant.password = password.value!
         returnMerchant.confirmPassword = confirmPassword.value!
         
@@ -160,15 +160,15 @@ class MerchantSetupViewController: UITableViewController {
         
         var merchantFields:[AccountSetupField] = []
         
-        merchantFields.append(AccountSetupField(lbl: "First Name", val: "",type:.String, tag: 1))
-        merchantFields.append(AccountSetupField(lbl: "Last Name", val: "",type:.String, tag: 2))
-        merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, tag: 3))
-        merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, tag: 4))
-        merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, tag: 5))
-        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, tag: 6))
-        merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 7))
-        merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 8))
-        merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, tag: 9))
+        merchantFields.append(AccountSetupField(lbl: "First Name", val: "",type:.String, required:true, tag: 1))
+        merchantFields.append(AccountSetupField(lbl: "Last Name", val: "",type:.String, required:true, tag: 2))
+        merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, required:true, tag: 3))
+        merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, required:true, tag: 4))
+        merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, required:true, tag: 5))
+        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, required:true, tag: 6))
+        merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.String, required:true, tag: 7))
+        merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.String, required:true, tag: 8))
+        merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, required:true, tag: 9))
        
         return merchantFields
     }
@@ -177,15 +177,15 @@ class MerchantSetupViewController: UITableViewController {
         
         var POSFields:[AccountSetupField] = []
         
-        POSFields.append(AccountSetupField(lbl: "Revel", val: "",type:.String, tag: 1))
-        POSFields.append(AccountSetupField(lbl: "Clover", val: "",type:.String, tag: 2))
-        POSFields.append(AccountSetupField(lbl: "Micros", val: "", type:.String, tag: 3))
-        POSFields.append(AccountSetupField(lbl: "Square", val: "", type:.String, tag: 4))
-        POSFields.append(AccountSetupField(lbl: "Shopkeep", val: "", type:.String, tag: 5))
-        POSFields.append(AccountSetupField(lbl: "LightSpeed", val: "", type:.String, tag: 6))
-        POSFields.append(AccountSetupField(lbl: "Aloha", val: "", type:.String, tag: 7))
-        POSFields.append(AccountSetupField(lbl: "Squirrel", val: "", type:.String, tag: 8))
-        POSFields.append(AccountSetupField(lbl: "Breadcrumb", val: "", type:.String, tag: 9))
+        POSFields.append(AccountSetupField(lbl: "Revel", val: "",type:.String, required:false, tag: 1))
+        POSFields.append(AccountSetupField(lbl: "Clover", val: "",type:.String, required:false, tag: 2))
+        POSFields.append(AccountSetupField(lbl: "Micros", val: "", type:.String, required:false, tag: 3))
+        POSFields.append(AccountSetupField(lbl: "Square", val: "", type:.String, required:false, tag: 4))
+        POSFields.append(AccountSetupField(lbl: "Shopkeep", val: "", type:.String, required:false, tag: 5))
+        POSFields.append(AccountSetupField(lbl: "LightSpeed", val: "", type:.String, required:false, tag: 6))
+        POSFields.append(AccountSetupField(lbl: "Aloha", val: "", type:.String, required:false, tag: 7))
+        POSFields.append(AccountSetupField(lbl: "Squirrel", val: "", type:.String, required:false, tag: 8))
+        POSFields.append(AccountSetupField(lbl: "Breadcrumb", val: "", type:.String, required:false, tag: 9))
         
        
         return POSFields
@@ -195,8 +195,8 @@ class MerchantSetupViewController: UITableViewController {
         
         var passwordFields:[AccountSetupField] = []
         
-        passwordFields.append(AccountSetupField(lbl: "Password", val: "",type:.Password, tag: 1))
-        passwordFields.append(AccountSetupField(lbl: "Confirm Password", val: "",type:.Password, tag: 2))
+        passwordFields.append(AccountSetupField(lbl: "Password", val: "",type:.Password, required:true, tag: 1))
+        passwordFields.append(AccountSetupField(lbl: "Confirm Password", val: "",type:.Password, required:true, tag: 2))
        
         return passwordFields
     }
@@ -314,8 +314,7 @@ class MerchantSetupViewController: UITableViewController {
         switch(indexPath.section){
             
             case 1:
-                clearPosSystems(indexPath)
-            
+                setSelectedPOSSystem(indexPath)
             
             default:
                 return
@@ -323,25 +322,39 @@ class MerchantSetupViewController: UITableViewController {
     }
     
     
-    func clearPosSystems(selectedIndexPath: NSIndexPath){
+    func getSelectedPOSSystem() -> POSSystem{
         
-        let cell            = tableView.cellForRowAtIndexPath(selectedIndexPath) as! SelectionTableViewCell
+        let allPOSSystems = merchantSetupItems.items[1]
+        
+        for posItem in allPOSSystems{
+            
+            if(posItem.isSelected){
+                
+                if let posSystem = POSSystem(rawValue: Int(posItem.value!)!) {
+
+                    return posSystem
+                }
+            }
+        }
+        
+        return .None
+    }
+    
+    
+    func setSelectedPOSSystem(selectedIndexPath: NSIndexPath){
+        
         let selectedItem    = merchantSetupItems.items[selectedIndexPath.section][selectedIndexPath.row]
         let allItems        = merchantSetupItems.items[selectedIndexPath.section]
-        
-        
+    
         for posItem in allItems{
             
             posItem.isSelected = false;
         }
+
         
-        
+        selectedItem.value = String(selectedIndexPath.row + 1)
         selectedItem.isSelected = true;
-        
     
         tableView.reloadData()
-        
     }
-   
-    
 }

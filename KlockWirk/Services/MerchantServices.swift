@@ -49,6 +49,7 @@ class MerchantServices: BaseKlockWirkService{
             "Email":merchant.email,
             "Manager":merchant.manager,
             "PosSystem":merchant.posSystem,
+            "PosSystemId":String(merchant.posSystemId.rawValue),
             "PosSystemBaseApiUrl":merchant.posSystemBaseApiUrl,
             "PosSystemApiKey":merchant.posSystemApiKey,
             "POS":merchant.posSystem,
