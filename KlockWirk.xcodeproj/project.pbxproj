@@ -69,6 +69,8 @@
 		4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */; };
 		4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */; };
 		4D9482541BB22A7D0034242F /* KlockWirkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */; };
+		4DB8E60B1BB82C8300ED088F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8E6091BB82C8300ED088F /* SelectionTableViewCell.swift */; };
+		4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
 		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
 		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
@@ -201,6 +203,8 @@
 		4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageKlockWirkersViewController.swift; sourceTree = "<group>"; };
 		4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageKlockWirkersViewController.xib; sourceTree = "<group>"; };
 		4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerManager.swift; sourceTree = "<group>"; };
+		4DB8E6091BB82C8300ED088F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
+		4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 				4DE743AB1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib */,
 				4DEA19231BAF14610091B44D /* TestTableViewCell.swift */,
 				4DEA19241BAF14610091B44D /* TestTableViewCell.xib */,
+				4DB8E6091BB82C8300ED088F /* SelectionTableViewCell.swift */,
+				4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -692,6 +698,7 @@
 				4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */,
 				4DE743AD1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib in Resources */,
 				4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */,
+				4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */,
 				4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */,
 				4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */,
 				4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */,
@@ -730,6 +737,7 @@
 				4D2C54C21BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m in Sources */,
 				4DE7549B1BA77F4A00D3FE29 /* ScheduleTableViewCell.swift in Sources */,
 				4D9482541BB22A7D0034242F /* KlockWirkerManager.swift in Sources */,
+				4DB8E60B1BB82C8300ED088F /* SelectionTableViewCell.swift in Sources */,
 				4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */,
 				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
 				4D2C54C61BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m in Sources */,

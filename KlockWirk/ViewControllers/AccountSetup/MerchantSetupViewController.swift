@@ -8,23 +8,77 @@
 
 import UIKit
 
+
+class MerchantSetupItem: NSObject{
+    
+    var sections:[String] = []
+    var items:[[AccountSetupField]] = []
+    
+    func addSection(section: String, item:[AccountSetupField]){
+        
+        sections    = sections + [section]
+        items       = items + [item]
+    }
+}
+
+
+
+class MerchantSetupItems: MerchantSetupItem {
+    
+    override init() {
+        
+        super.init()
+    }
+}
+
+
+
+
+
 class MerchantSetupViewController: UITableViewController {
     
-    
-    var merchantSetupFields = NSMutableArray()
-    let merchantService    = MerchantServices()
+    var merchantSetupItems  = MerchantSetupItems()
+    let merchantService     = MerchantServices()
     let klockWirkService    = KlockWirkerServices()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        merchantSetupItems = getMerchantSetupItems()
+        
         setupViewProperties()
-    
         setupTableViewProperties()
         setupNavigationButtons()
+
+    }
+    
+    
+    
+    
+    func doesMerchantPasswordsMatch() -> Bool{
         
-        merchantSetupFields = self.getMerchantSetupFields()
+        let m = getCompletedMerchantRegistration()
+        
+        if(m.password != m.confirmPassword){
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    
+    func getMerchantSetupItems() -> MerchantSetupItems{
+        
+        let merchantSetupItems = MerchantSetupItems()
+        
+        merchantSetupItems.addSection("Merchant Information", item: getMerchantGeneralInformationFields())
+        merchantSetupItems.addSection("Point Of Sale System", item: getPointOfSaleSystemFields())
+        merchantSetupItems.addSection("Password", item: getPasswordFields())
+        
+        
+        return merchantSetupItems
     }
 
     func displayActivityindicator(){
@@ -50,8 +104,8 @@ class MerchantSetupViewController: UITableViewController {
 
     func setupTableViewProperties(){
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.registerNib(UINib(nibName: "EnrollmentViewCell", bundle: nil), forCellReuseIdentifier: "enrollmentTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "SelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectionTableViewCell")
     }
     
     func setupViewProperties(){
@@ -72,18 +126,20 @@ class MerchantSetupViewController: UITableViewController {
         
         let returnMerchant = Merchant()
         
-        let firstName = merchantSetupFields.objectAtIndex(0) as! AccountSetupField
-        let lastName = merchantSetupFields.objectAtIndex(1) as! AccountSetupField
-        let address = merchantSetupFields.objectAtIndex(2) as! AccountSetupField
-        let city = merchantSetupFields.objectAtIndex(3) as! AccountSetupField
-        let state = merchantSetupFields.objectAtIndex(4) as! AccountSetupField
-        let zipCode = merchantSetupFields.objectAtIndex(5) as! AccountSetupField
-        let phone = merchantSetupFields.objectAtIndex(6) as! AccountSetupField
-        let email = merchantSetupFields.objectAtIndex(7) as! AccountSetupField
-        let manager = merchantSetupFields.objectAtIndex(8) as! AccountSetupField
-        let posSystem = merchantSetupFields.objectAtIndex(9) as! AccountSetupField
-        let password = merchantSetupFields.objectAtIndex(10) as! AccountSetupField
+        let firstName = merchantSetupItems.items[0][0]
+        let lastName = merchantSetupItems.items[0][1]
+        let address = merchantSetupItems.items[0][2]
+        let city = merchantSetupItems.items[0][3]
+        let state = merchantSetupItems.items[0][4]
+        let zipCode = merchantSetupItems.items[0][5]
+        let phone = merchantSetupItems.items[0][6]
+        let email = merchantSetupItems.items[0][7]
+        let manager = merchantSetupItems.items[0][8]
+        let password = merchantSetupItems.items[2][0]
+        let confirmPassword = merchantSetupItems.items[2][1]
         
+       
+
         returnMerchant.firstName = firstName.value!
         returnMerchant.lastName = lastName.value!
         returnMerchant.address = address.value!
@@ -93,44 +149,89 @@ class MerchantSetupViewController: UITableViewController {
         returnMerchant.phone = phone.value!
         returnMerchant.email = email.value!
         returnMerchant.manager = manager.value!
-        returnMerchant.posSystem = posSystem.value!
         returnMerchant.password = password.value!
+        returnMerchant.confirmPassword = confirmPassword.value!
         
         return returnMerchant
         
     }
     
-    func getMerchantSetupFields() -> NSMutableArray{
+    func getMerchantGeneralInformationFields() -> [AccountSetupField]{
         
-        let merchantFields = NSMutableArray()
+        var merchantFields:[AccountSetupField] = []
         
-        merchantFields.addObject(AccountSetupField(lbl: "First Name", val: "",type:.String, tag: 1))
-        merchantFields.addObject(AccountSetupField(lbl: "Last Name", val: "",type:.String, tag: 2))
-        merchantFields.addObject(AccountSetupField(lbl: "Address", val: "", type:.String, tag: 3))
-        merchantFields.addObject(AccountSetupField(lbl: "City", val: "", type:.String, tag: 4))
-        merchantFields.addObject(AccountSetupField(lbl: "State", val: "", type:.String, tag: 5))
-        merchantFields.addObject(AccountSetupField(lbl: "ZipCode", val: "", type:.String, tag: 6))
-        merchantFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 7))
-        merchantFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 8))
-        merchantFields.addObject(AccountSetupField(lbl: "Manager", val: "",type:.String, tag: 9))
-        merchantFields.addObject(AccountSetupField(lbl: "Pos System", val: "", type:.String, tag: 10))
-        merchantFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, tag: 11))
-        merchantFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, tag: 12))
-        
+        merchantFields.append(AccountSetupField(lbl: "First Name", val: "",type:.String, tag: 1))
+        merchantFields.append(AccountSetupField(lbl: "Last Name", val: "",type:.String, tag: 2))
+        merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, tag: 3))
+        merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, tag: 4))
+        merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, tag: 5))
+        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, tag: 6))
+        merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.String, tag: 7))
+        merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.String, tag: 8))
+        merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, tag: 9))
+       
         return merchantFields
+    }
+
+    func getPointOfSaleSystemFields() -> [AccountSetupField]{
+        
+        var POSFields:[AccountSetupField] = []
+        
+        POSFields.append(AccountSetupField(lbl: "Revel", val: "",type:.String, tag: 1))
+        POSFields.append(AccountSetupField(lbl: "Clover", val: "",type:.String, tag: 2))
+        POSFields.append(AccountSetupField(lbl: "Micros", val: "", type:.String, tag: 3))
+        POSFields.append(AccountSetupField(lbl: "Square", val: "", type:.String, tag: 4))
+        POSFields.append(AccountSetupField(lbl: "Shopkeep", val: "", type:.String, tag: 5))
+        POSFields.append(AccountSetupField(lbl: "LightSpeed", val: "", type:.String, tag: 6))
+        POSFields.append(AccountSetupField(lbl: "Aloha", val: "", type:.String, tag: 7))
+        POSFields.append(AccountSetupField(lbl: "Squirrel", val: "", type:.String, tag: 8))
+        POSFields.append(AccountSetupField(lbl: "Breadcrumb", val: "", type:.String, tag: 9))
+        
+       
+        return POSFields
+    }
+    
+    func getPasswordFields() -> [AccountSetupField]{
+        
+        var passwordFields:[AccountSetupField] = []
+        
+        passwordFields.append(AccountSetupField(lbl: "Password", val: "",type:.Password, tag: 1))
+        passwordFields.append(AccountSetupField(lbl: "Confirm Password", val: "",type:.Password, tag: 2))
+       
+        return passwordFields
     }
     
     func submitButtonTapped(){
         
         endEditing()
-        displayActivityindicator()
         
-        merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: Merchant) in
+        if(doesMerchantPasswordsMatch()){
             
-            ApplicationInformation.setIsMerchant(true)
+            displayActivityindicator()
             
-            self.loadMerchantTabBarController()
+            merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: Merchant) in
+                
+                ApplicationInformation.setIsMerchant(true)
+                
+                self.loadMerchantTabBarController()
+            }
         }
+        else{
+            
+            displayAlert("Password does not match")
+        }
+    }
+    
+    
+    
+    func displayAlert(message: String){
+        
+        let alertController = UIAlertController(title: "Setup", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func cancelButtonTapped(){
@@ -148,60 +249,97 @@ class MerchantSetupViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if(section == 0) {
-            
-            let view = UIView(frame: CGRectMake(20, 10, 330, 10))
-            let label = UILabel(frame: CGRectMake(20, 10, 330, 40))
-            
-            label.text = "Enter the below information to register as a new merchant"
-            label.textColor = UIColor.lightGrayColor()
-            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
-            label.numberOfLines = 2
-            
-            view.addSubview(label)
-            
-            return view
-        }
-        
-        return nil
+        return merchantSetupItems.sections.count
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        switch (section) {
-            
-        case 0:
-            return 80
-            
-        default:
-            return 50
-        }
+        return 30
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return merchantSetupItems.sections[section]
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return merchantSetupFields.count
+        return merchantSetupItems.items[section].count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+        var accountSetupField = AccountSetupField()
         
-        let accountField = merchantSetupFields.objectAtIndex(indexPath.row) as! AccountSetupField
-        let cell:EnrollmentViewCell = self.tableView.dequeueReusableCellWithIdentifier("enrollmentTableViewCell") as! EnrollmentViewCell
-        
-   
-        cell.bindCellDetail(accountField)
-        
-        return cell
-        
+        switch(indexPath.section){
+            
+            case 0:
+                accountSetupField = merchantSetupItems.items[indexPath.section][indexPath.row]
+                let cell:InputTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
+                cell.bindCellDetail(accountSetupField)
+                return cell
+            
+            case 1:
+                
+                accountSetupField = merchantSetupItems.items[indexPath.section][indexPath.row]
+                let cell:SelectionTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("SelectionTableViewCell") as! SelectionTableViewCell
+                cell.bindCellDetails(accountSetupField.defaluValue!)
+                
+                
+                if(accountSetupField.isSelected){
+                    
+                    cell.setIsImageViewHidden(false)
+                }
+                else{
+                    
+                    cell.setIsImageViewHidden(true)
+                }
+                
+            
+            return cell
+            
+            case 2:
+                accountSetupField = merchantSetupItems.items[indexPath.section][indexPath.row]
+                let cell:InputTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
+                cell.bindCellDetail(accountSetupField)
+                return cell
+            
+            default:
+                return UITableViewCell()
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        switch(indexPath.section){
+            
+            case 1:
+                clearPosSystems(indexPath)
+            
+            
+            default:
+                return
+        }
+    }
+    
+    
+    func clearPosSystems(selectedIndexPath: NSIndexPath){
+        
+        let cell            = tableView.cellForRowAtIndexPath(selectedIndexPath) as! SelectionTableViewCell
+        let selectedItem    = merchantSetupItems.items[selectedIndexPath.section][selectedIndexPath.row]
+        let allItems        = merchantSetupItems.items[selectedIndexPath.section]
+        
+        
+        for posItem in allItems{
+            
+            posItem.isSelected = false;
+        }
+        
+        
+        selectedItem.isSelected = true;
+        
+    
+        tableView.reloadData()
         
     }
    

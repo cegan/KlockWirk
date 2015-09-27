@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="enrollmentTextField" destination="DCe-kq-AP4" id="pAl-49-3sB"/>
             </connections>
-            <point key="canvasLocation" x="-591" y="123"/>
+            <point key="canvasLocation" x="-445" y="99"/>
         </tableViewCell>
     </objects>
 </document>

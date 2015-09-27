@@ -35,9 +35,11 @@ class SchedulesTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         
         self.navigationItem.title = "Schedules"
-        loadData()
-        refreshTableViewHeader()
+        refreshSchedules()
     }
+    
+    
+    
     
     
 
@@ -74,9 +76,11 @@ class SchedulesTableViewController: UITableViewController {
     
     
     
+    
+    
     //MARK: Utility Methods
     
-    func loadData(){
+    func refreshSchedules(){
         
         if(ApplicationInformation.isKlockWirker()){
             
@@ -91,7 +95,6 @@ class SchedulesTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
     
     func refreshTableViewHeader(){
         

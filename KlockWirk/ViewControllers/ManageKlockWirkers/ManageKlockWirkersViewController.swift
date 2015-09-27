@@ -96,7 +96,6 @@ class ManageKlockWirkersViewController: UITableViewController {
         super.viewDidLoad()
         
         setupViewProperties()
-        setupTableViewHeader()
         setupTableViewProperties()
         setupTableViewDelegates()
         setupNavigationBar()
@@ -113,7 +112,6 @@ class ManageKlockWirkersViewController: UITableViewController {
         
         self.navigationItem.title = "KlockWirkers"
         refreshKlockWirkers()
-        setupTableViewHeader()
     }
     
     

@@ -16,6 +16,7 @@ public class AccountSetupField{
     var value: String?
     var tag: Int?
     var fieldType: InputFieldTypes = .String
+    var isSelected: Bool = false
     
     
     init(){

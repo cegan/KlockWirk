@@ -28,6 +28,7 @@ class Merchant: NSObject, NSCoding{
     var phone: String = ""
     var email: String = ""
     var password: String = ""
+    var confirmPassword: String = ""
     var schedules:[Schedule] = []
     var klockWirkers:[KlockWirker] = []
     

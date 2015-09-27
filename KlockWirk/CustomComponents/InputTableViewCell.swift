@@ -68,8 +68,13 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func setupCellProperties(tag: Int){
         
+        if(accountSetupField.fieldType == .Password){
+            
+            cellInput.secureTextEntry = true
+        }
+        
+        
         cellInput.textAlignment = .Right
-        cellInput.keyboardType = UIKeyboardType.NumberPad
         cellInput.borderStyle = .None
         cellInput.delegate = self
     }
