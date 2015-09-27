@@ -56,6 +56,9 @@ class SchedulService: BaseKlockWirkService{
                     let mId         = (result.objectForKey("MerchantId") as? Int)!
                     let scheduleId = (result.objectForKey("ScheduleId") as? Int)!
                     
+                    schedule.scheduleId = scheduleId
+                    schedule.merchantId = mId
+                    
                     for kw in schedule.klockWirkers {
                         
                         self.addKlockWirkersToSchedule(kw, merchantScheduleId: scheduleId, merchantId: mId)
@@ -159,9 +162,6 @@ class SchedulService: BaseKlockWirkService{
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-            
-            
-            
             
             dispatch_async(dispatch_get_main_queue(), {
                 
