@@ -58,7 +58,6 @@ class Merchant: NSObject, NSCoding{
         self.klockWirkers = (aDecoder.decodeObjectForKey("klockWirkers") as? NSArray)! as! [KlockWirker]
     }
     
-    
     func encodeWithCoder(aCoder: NSCoder) {
         
         aCoder.encodeObject(merchantId, forKey: "merchantId")
@@ -78,5 +77,13 @@ class Merchant: NSObject, NSCoding{
         aCoder.encodeObject(password, forKey: "password")
         aCoder.encodeObject(schedules, forKey: "schedules")
         aCoder.encodeObject(klockWirkers, forKey: "klockWirkers")
+    }
+    
+    func resetSelectedKlockWirkers(){
+    
+        for kw in klockWirkers{
+            
+            kw.isSelected = false
+        }
     }
 }

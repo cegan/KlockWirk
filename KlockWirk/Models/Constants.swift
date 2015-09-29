@@ -10,34 +10,6 @@ import Foundation
 
 
 
-enum InputFieldTypes {
-    
-    case Currency
-    case Percent
-    case String
-    case Email
-    case Phone
-    case Password
-    
-}
-
-
-
-enum POSSystem: Int {
-    
-    case None       = 0
-    case Revel      = 1
-    case Clover     = 2
-    case Micros     = 3
-    case Shopkeep   = 4
-    case LightSpeed = 5
-    case Square     = 6
-    case Aloha      = 7
-    case Squirrel   = 8
-    case Breadcrumb = 9
-}
-
-
 
 struct NotificationConstants {
     
@@ -46,17 +18,8 @@ struct NotificationConstants {
 }
 
 
-struct Keys{
-    
-    static let KlockWirkersKey             = "KlockWirkersKey"
-    static let KlockWirkerKey              = "KlockWirkerKey"
-    static let LoginDataKey                = "LoginDataKey"
-}
-
-
 struct ServiceEndpoints {
     
-    static let OrderEndpoint                = "/resources/OrderHistory/?format=json"
     static let KlockWirkersEndpoint         = "klockwirkers/"
     static let KlockWirkerEndpoint          = "klockwirker/"
     static let MerchantsEndpoint            = "merchant/"
@@ -65,6 +28,7 @@ struct ServiceEndpoints {
     static let ScheduleEndpoint             = "Schedules/"
     static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
     static let KlockWirkersByScheduleId     = "klockwirkers/GetKlockWirkersForScheduleId/"
+    static let TotalSalesForShift           = "posSales/GetTotalSalesForShift/"
 }
 
 
@@ -80,5 +44,4 @@ struct HTTPConstants {
     static let HTTPMethodGet     = "GET"
     static let HTTPMethodDelete  = "DELETE"
     static let HTTPMethodPut     = "PUT"
-    static let Authorization     = "API-AUTHENTICATION"
 }

@@ -15,9 +15,22 @@ class ManageKlockWirkersViewController: UITableViewController {
     var klockWirkers:[KlockWirker] = []
     
     
+    
+    
+    //MARK: Utility Methods
+    
     func refreshKlockWirkers(){
         
         klockWirkers = MerchantManager.sharedInstance.merchant.klockWirkers
+        
+        if(klockWirkers.count <= 0){
+            
+            self.tableView.tableHeaderView = getNoKlockWirkersHeader()
+        }
+        else{
+            
+            self.tableView.tableHeaderView = nil
+        }
         
         self.tableView.reloadData()
     }
@@ -27,7 +40,22 @@ class ManageKlockWirkersViewController: UITableViewController {
         self.presentViewController(UINavigationController(rootViewController: NewKlockWirkerViewController(nibName: "NewKlockWirkerViewController", bundle: nil)), animated: true, completion: nil)
     }
     
+    func getNoKlockWirkersHeader() -> UILabel{
+        
+        let label = UILabel(frame: CGRectMake(0, 60, 300, 90))
+        
+        label.text = "You Currently Have No KlockWirkers Created"
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont (name: "HelveticaNeue", size: 15)
+        label.numberOfLines = 2
+        
+        return label
+    }
+    
 
+    
+    
     
     //MARK: Setup
     
@@ -113,6 +141,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         self.navigationItem.title = "KlockWirkers"
         refreshKlockWirkers()
     }
+    
     
     
     

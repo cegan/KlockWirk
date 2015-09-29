@@ -108,6 +108,7 @@
 		4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA192D1BB091BF0091B44D /* DateCompare.swift */; };
 		4DEA19361BB0C21A0091B44D /* MerchantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA19351BB0C21A0091B44D /* MerchantManager.swift */; };
 		4DED61061BA9044400E09A12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED61051BA9044400E09A12 /* NumberFormatter.swift */; };
+		4DFE4DF81BB9844C00E1EA6E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE4DF71BB9844C00E1EA6E /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,7 @@
 		4DEA192D1BB091BF0091B44D /* DateCompare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompare.swift; sourceTree = "<group>"; };
 		4DEA19351BB0C21A0091B44D /* MerchantManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantManager.swift; sourceTree = "<group>"; };
 		4DED61051BA9044400E09A12 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		4DFE4DF71BB9844C00E1EA6E /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +595,7 @@
 		4DDA8D3C1B5150F00056800C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4DFE4DF71BB9844C00E1EA6E /* Enums.swift */,
 				4DDA8D3D1B5150FE0056800C /* Constants.swift */,
 				4D79E63D1B7EC65800A1F25D /* Merchant.swift */,
 				4D2C549D1BA111190007AFD5 /* Schedule.swift */,
@@ -780,6 +783,7 @@
 				4DEA19361BB0C21A0091B44D /* MerchantManager.swift in Sources */,
 				4D2C54A01BA3ABC20007AFD5 /* ScheduleService.swift in Sources */,
 				4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */,
+				4DFE4DF81BB9844C00E1EA6E /* Enums.swift in Sources */,
 				4DDA8D351B5147F10056800C /* AFXMLRequestOperation.m in Sources */,
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
 				4D2C54C81BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m in Sources */,

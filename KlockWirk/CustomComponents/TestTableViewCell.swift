@@ -11,6 +11,8 @@ import UIKit
 class TestTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var scheduleEndValue: UILabel!
+    @IBOutlet weak var scheduleStartValue: UILabel!
     @IBOutlet weak var scheduleTimeLeftLabel: UILabel!
     @IBOutlet weak var usersLabel: UILabel!
     @IBOutlet weak var usersImageView: UIImageView!
@@ -32,6 +34,9 @@ class TestTableViewCell: UITableViewCell {
         
         goalLabel.text  = NumberFormatter.formatDoubleToCurrency(schedule.line)
         usersLabel.text = getKlockWirkersList(schedule.klockWirkers)
+        scheduleStartValue.text = DateUtilities.stringValueOfShiftDate(schedule.startDateTime)
+        scheduleEndValue.text = DateUtilities.stringValueOfShiftDate(schedule.endDateTime)
+        
     }
     
     

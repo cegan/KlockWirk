@@ -128,32 +128,32 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if(section == 0) {
-            
-            let view = UIView()
-            let label = UILabel()
-            
-            label.text = "Enter the below information to setup a new KlockWirker"
-            label.textColor = UIColor.lightGrayColor()
-            
-            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
-            
-            
-            label.numberOfLines = 2
-            label.frame = CGRectMake(20, 10, 330, 30)
-            
-            view.addSubview(label)
-            
-            return view
-        }
+//        if(section == 0) {
+//            
+//            let view = UIView()
+//            let label = UILabel()
+//            
+//            label.text = "Enter the below information to setup a new KlockWirker"
+//            label.textColor = UIColor.lightGrayColor()
+//            
+//            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
+//            
+//            
+//            label.numberOfLines = 2
+//            label.frame = CGRectMake(20, 10, 330, 30)
+//            
+//            view.addSubview(label)
+//            
+//            return view
+//        }
        
         return nil
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 50
-    }
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        
+//        return 50
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     

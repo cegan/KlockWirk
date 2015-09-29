@@ -34,9 +34,8 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         super.viewDidLoad()
         
-        //merchant = ApplicationInformation.getMerchant()!
-        
         merchant = MerchantManager.sharedInstance.merchant
+        merchant.resetSelectedKlockWirkers()
         scheduleFields = getScheduleFields()
         
         setupTableViewProperties()
@@ -63,6 +62,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         self.tableView.endEditing(true)
     }
     
+   
     
     
     
@@ -72,13 +72,13 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     func didSelectShiftStartDate(date: NSDate){
         
         dateWasSelected = true
-        shiftStartDate = date
+        shiftStartDate = DateUtilities.getFormatedDateWithoutSeconds(date)
     }
     
     func didSelectShiftEndDate(date: NSDate){
         
         dateWasSelected = true
-        shiftEndDate = date
+        shiftEndDate = DateUtilities.getFormatedDateWithoutSeconds(date)
     }
     
     

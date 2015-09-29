@@ -20,7 +20,6 @@ class LoginService: BaseKlockWirkService{
         let request = getUrlRequestForEndpoint(ServiceEndpoints.LoginEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: params)
         
         
-        
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             if let httpResponse = response as? NSHTTPURLResponse {

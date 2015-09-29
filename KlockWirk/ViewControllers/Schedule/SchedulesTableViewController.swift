@@ -45,8 +45,6 @@ class SchedulesTableViewController: UITableViewController {
     //MARK: Setup Methods
     
     func setupTableViewProperties(){
-    
-        
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")

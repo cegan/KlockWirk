@@ -30,6 +30,18 @@ class DateUtilities{
         return dateFormatter.dateFromString(date)!;
     }
     
+    class func getFormatedDateWithoutSeconds(date: NSDate) -> NSDate{
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        
+        let stringDate = dateFormatter.stringFromDate(date)
+        let finalDate = dateFormatter.dateFromString(stringDate)
+        
+        return finalDate!;
+    }
     
     class func getCurrentSchedule(schedules: [Schedule]) -> Schedule?{
     
@@ -47,7 +59,6 @@ class DateUtilities{
 
         return nil
     }
-    
     
     class func isBetweenMyTwoDates(shiftStartDate: NSDate, shiftEndDate:NSDate, today: NSDate) -> Bool {
         
