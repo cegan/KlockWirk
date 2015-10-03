@@ -93,6 +93,7 @@ class JSONUtilities{
             schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
             schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
             schedule.line                   = (obj.objectForKey("Line") as? Double)!
+            schedule.achieved               = (obj.objectForKey("Achieved") as? Double)!
             schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
             schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
             schedule.endDateTime            = DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
@@ -121,7 +122,7 @@ class JSONUtilities{
             merchant.schedules.append(schedule)
         }
         
-        merchant.schedules      = merchant.schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+        merchant.schedules      = merchant.schedules.sort(SortingUtilities.sortSchedulesByEndDate)
         merchant.klockWirkers   = merchant.klockWirkers.sort(SortingUtilities.sortKlockWirkersAscending)
         
        
@@ -137,6 +138,7 @@ class JSONUtilities{
         schedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
         schedule.endDateTime = DateUtilities.dateValueOfString((s.objectForKey("ShiftEndDateTime") as? String)!)
         schedule.line = (s.objectForKey("Line") as? Double)!
+        schedule.achieved = (s.objectForKey("Achieved") as? Double)!
         schedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
       
         

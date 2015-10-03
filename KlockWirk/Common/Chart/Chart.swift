@@ -28,8 +28,8 @@ class Chart: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChartDat
         pieChart = MDRotatingPieChart(frame: CGRectMake(0, 0, view.frame.width, view.frame.width))
         
         slicesData = [
-            Data(myValue: 100, myColor: UIColor(red:0.798012, green: 0.171076, blue: 0.321758, alpha: 1), myLabel:"Goal"),
-            Data(myValue: 5, myColor: UIColor(red: 0.23, green: 0.6, blue: 0.85, alpha: 1), myLabel:"")]
+            Data(myValue: 50000, myColor: UIColor(red:0.798012, green: 0.171076, blue: 0.321758, alpha: 1), myLabel:"$50,000"),
+            Data(myValue: 500, myColor: UIColor(red: 0.23, green: 0.6, blue: 0.85, alpha: 1), myLabel:"$500.00")]
         
         pieChart.delegate = self
         pieChart.datasource = self
@@ -38,7 +38,14 @@ class Chart: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChartDat
         
         
         var properties = Properties()
-        properties.displayValueTypeInSlices = .Percent
+        
+        
+        properties.bigRadius = 100
+        properties.smallRadius = 50
+        
+        
+      //  properties.displayValueTypeInSlices = .Percent
+        properties.displayValueTypeInSlices = .Label
         properties.expand = 15
         
         pieChart.properties = properties

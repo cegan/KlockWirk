@@ -17,6 +17,11 @@ class SortingUtilities{
         return compare.startDateTime.compare(to.startDateTime) == NSComparisonResult.OrderedAscending
     }
     
+    class func sortSchedulesByEndDate(compare:Schedule, to:Schedule) -> Bool {
+        
+        return compare.startDateTime.compare(to.endDateTime) == NSComparisonResult.OrderedAscending
+    }
+    
     
     class func sortKlockWirkersAscending(compare:KlockWirker, to:KlockWirker) -> Bool {
         

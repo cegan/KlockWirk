@@ -108,7 +108,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     func setupViewProperties(){
         
-        self.navigationItem.title = "Add KlockWirker"
+        self.navigationItem.title = "New KlockWirker"
     }
     
     

@@ -42,15 +42,15 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1" customClass="TKTransitionSubmitButton" customModule="KlockWirk" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
                     <rect key="frame" x="142" y="280" width="317" height="40"/>
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="esE-hf-UjS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Sign In">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
@@ -61,8 +61,9 @@
                         <action selector="login:" destination="-1" eventType="touchUpInside" id="YKI-q0-Ncy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3" customClass="TKTransitionSubmitButton" customModule="KlockWirk" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
                     <rect key="frame" x="142" y="418" width="317" height="40"/>
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="flq-Nb-pNl"/>
                     </constraints>
@@ -74,8 +75,15 @@
                         <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zF0-LY-KZX">
+                    <rect key="frame" x="202" y="31" width="197" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="197" id="9co-XN-rUS"/>
+                        <constraint firstAttribute="height" constant="70" id="bDG-Lg-DVh"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="Lbl-rf-nvs"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="ELB-Vv-LIT" secondAttribute="leading" id="SAB-Rx-QjG"/>
@@ -83,13 +91,18 @@
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Zxh-au-pVm"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="top" secondItem="faR-vW-8Fo" secondAttribute="bottom" constant="28" id="a3h-d7-bau"/>
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="trailing" secondItem="fGU-Jf-om1" secondAttribute="trailing" id="bV5-VL-AyQ"/>
+                <constraint firstItem="ELB-Vv-LIT" firstAttribute="top" secondItem="zF0-LY-KZX" secondAttribute="bottom" constant="77" id="bkp-az-96q"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="top" secondItem="ELB-Vv-LIT" secondAttribute="bottom" constant="14" id="cyQ-gA-JQD"/>
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="leading" secondItem="fGU-Jf-om1" secondAttribute="leading" id="d2z-TF-66B"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ehl-jy-cbo"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="leading" secondItem="faR-vW-8Fo" secondAttribute="leading" id="fD7-ka-qWr"/>
+                <constraint firstItem="zF0-LY-KZX" firstAttribute="centerX" secondItem="ELB-Vv-LIT" secondAttribute="centerX" id="gCP-Nc-xU6"/>
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="98" id="w1N-4b-0J9"/>
             </constraints>
-            <point key="canvasLocation" x="-2356" y="-222"/>
+            <point key="canvasLocation" x="-2244" y="-379"/>
         </view>
     </objects>
+    <resources>
+        <image name="KlockWirkLogo" width="1800" height="600"/>
+    </resources>
 </document>

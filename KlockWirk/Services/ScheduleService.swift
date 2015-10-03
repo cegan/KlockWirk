@@ -33,6 +33,7 @@ class SchedulService: BaseKlockWirkService{
             "ShiftStartDateTime":FormatDate(schedule.startDateTime),
             "ShiftEndDateTime":FormatDate(schedule.endDateTime),
             "Line":schedule.line,
+            "Achieved":500.00,
             "KlockWirkerPercentage":schedule.KlockWirkerPercentage] as Dictionary<String, NSObject>
         
         do {
@@ -119,30 +120,6 @@ class SchedulService: BaseKlockWirkService{
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                onCompletion(response: jsonResult)
-            })
-        })
-        
-        task.resume()
-    }
-    
-    func getKlockWirkersOnSchedule(schedule: Schedule, onCompletion: (response: NSArray) -> ()) {
-        
-        let parameters = ["id":schedule.scheduleId]
-        let session = NSURLSession.sharedSession()
-        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersByScheduleId, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-            
-            let klockWirkers = JSONUtilities.parseKlockWirkers(jsonResult) as! [KlockWirker]
-            
-            schedule.klockWirkers = klockWirkers
-            
             
             dispatch_async(dispatch_get_main_queue(), {
                 

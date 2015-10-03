@@ -52,9 +52,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func loginFailed(){
         
-        
-        loginButton.returnToOriginalState()
-        
         let alertController = UIAlertController(title: "Login", message:
             "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
@@ -100,6 +97,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         loginButton.setTitle("Sign in", forState: .Normal)
         loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+        
+        loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 22)
+       
         
         
 //        activityIndicator.hidden = true
@@ -257,11 +257,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         ApplicationInformation.clearSharedData()
         
         
-        loginButton.animate(100000, completion: { () -> () in
-            
-        })
-        
-        
+               
         self.view.endEditing(true)
        
         

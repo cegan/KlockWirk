@@ -26,13 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUserInterfaceDefaults()
         
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        //self.window?.rootViewController = self.loginControllerNavigationController
-        
-        self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        
-        
-        self.window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        window?.makeKeyAndVisible()
         
         return true
     }
@@ -68,11 +64,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func setUserInterfaceDefaults(){
-      
+        
+        
+        
+        for family: String in UIFont.familyNames()
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNamesForFamilyName(family)
+            {
+                print("== \(names)")
+            }
+        }
+        
+        
+
+        if let font = UIFont(name: "Gotham-Medium", size: 16) {
+            
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font,
+                NSForegroundColorAttributeName : UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)]
+        }
+        
+        
+        //UINavigationBar Attributes
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().tintColor = UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)]
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0)], forState: UIControlState.Normal)
+       // UINavigationBar.appearance().tintColor = UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+       
+        UINavigationBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0)
+        
+        
+        
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)], forState: UIControlState.Normal)
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0)], forState: UIControlState.Selected)
+        
+        
         UINavigationBar.appearance().translucent = true
     }
 

@@ -123,7 +123,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         let scheduleSummarFieldsFields = NSMutableArray()
         
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.line), tag: 1))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: "0.00", tag: 2))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.achieved), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 3))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 4))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 5))
@@ -250,11 +250,4 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    
-    
-
-
-    
-    
-
 }

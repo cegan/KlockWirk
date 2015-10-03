@@ -12,25 +12,6 @@ import Foundation
 
 class KlockWirkerServices : BaseKlockWirkService{
     
-    func getAllKlockWirkers(merchantId: Int, onCompletion: (response: NSArray) -> ()) {
-        
-        let parameters = ["merchantId":merchantId]
-        let session = NSURLSession.sharedSession()
-        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                onCompletion(response: jsonResult)
-            })
-        })
-        
-        task.resume()
-    }
-    
     func deleteKlockWirker(klockWirkerId: NSNumber, onCompletion: (response: NSDictionary) -> ()) {
         
         let parameters = ["id":klockWirkerId]
@@ -49,8 +30,6 @@ class KlockWirkerServices : BaseKlockWirkService{
         
         task.resume()
     }
-    
-    
     
     func updateKlockWirker(klockWirker: KlockWirker, onCompletion: (response: NSDictionary) -> ()) {
         
@@ -87,7 +66,6 @@ class KlockWirkerServices : BaseKlockWirkService{
         
         task.resume()
     }
-    
     
     func getKlockWirker(klockWirkerId: Int, onCompletion: (response: KlockWirker) -> ()) {
         
