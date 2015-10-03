@@ -53,7 +53,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationItem.title = "Add Schedule"
+        self.navigationItem.title = "New Schedule"
         self.tableView.reloadData()
     }
     

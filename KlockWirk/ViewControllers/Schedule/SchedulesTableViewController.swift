@@ -54,7 +54,7 @@ class SchedulesTableViewController: UITableViewController {
         
         if(!ApplicationInformation.isReadOnly()){
             
-            let addNewSchedule = UIBarButtonItem(image: UIImage(named: "addUser.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewSchedule"))
+            let addNewSchedule = UIBarButtonItem(image: UIImage(named: "addschedule.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewSchedule"))
             
             self.navigationItem.rightBarButtonItem = addNewSchedule
         }

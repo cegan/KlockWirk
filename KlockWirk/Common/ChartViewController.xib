@@ -27,7 +27,7 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achieved $12,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHE-th-tTl">
-                    <rect key="frame" x="226" y="452" width="149" height="17"/>
+                    <rect key="frame" x="226" y="432" width="149" height="17"/>
                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                 <constraint firstItem="YGD-zb-WGa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JY8-DD-UVa"/>
                 <constraint firstItem="buY-qW-aoP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="LK7-JC-4j5"/>
                 <constraint firstAttribute="bottom" secondItem="buY-qW-aoP" secondAttribute="bottom" constant="242" id="Laf-xU-hEk"/>
-                <constraint firstItem="UHE-th-tTl" firstAttribute="top" secondItem="YGD-zb-WGa" secondAttribute="bottom" constant="50" id="MyA-p4-Ff3"/>
+                <constraint firstItem="UHE-th-tTl" firstAttribute="top" secondItem="YGD-zb-WGa" secondAttribute="bottom" constant="30" id="MyA-p4-Ff3"/>
                 <constraint firstItem="YGD-zb-WGa" firstAttribute="top" secondItem="buY-qW-aoP" secondAttribute="bottom" constant="28" id="NGX-8Y-r01"/>
                 <constraint firstItem="buY-qW-aoP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RfT-0D-Ys9"/>
                 <constraint firstItem="UHE-th-tTl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T9v-JC-dYz"/>
@@ -59,7 +59,7 @@
                     <exclude reference="T9v-JC-dYz"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-35" y="76"/>
+            <point key="canvasLocation" x="-138" y="-8"/>
         </view>
     </objects>
 </document>

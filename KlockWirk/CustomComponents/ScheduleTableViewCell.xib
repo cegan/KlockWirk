@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <mutableArray key="Gotham-Medium.ttf">
+            <string>Gotham-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -20,8 +20,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L54-IR-7ef">
-                        <rect key="frame" x="16" y="11" width="167" height="21"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <rect key="frame" x="16" y="12" width="167" height="21"/>
+                        <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -30,7 +30,7 @@
             <connections>
                 <outlet property="cellLabel" destination="L54-IR-7ef" id="3Ve-pP-Rby"/>
             </connections>
-            <point key="canvasLocation" x="280" y="124"/>
+            <point key="canvasLocation" x="-26" y="76"/>
         </tableViewCell>
     </objects>
 </document>
