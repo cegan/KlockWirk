@@ -6,9 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
+        <mutableArray key="Gotham-Light.otf">
+            <string>Gotham-Light</string>
+        </mutableArray>
+        <mutableArray key="Gotham-Medium.ttf">
+            <string>Gotham-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -18,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-hM-muL">
@@ -27,7 +29,7 @@
                             <constraint firstAttribute="width" constant="195" id="G56-dw-7Va"/>
                             <constraint firstAttribute="height" constant="21" id="Nw6-VV-Vhf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,7 +39,7 @@
                             <constraint firstAttribute="height" constant="21" id="BpF-SO-KiA"/>
                             <constraint firstAttribute="width" constant="125" id="QmV-3W-RGE"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,6 +47,7 @@
                 <constraints>
                     <constraint firstItem="XXO-X4-EzQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="6Ka-2h-j2C"/>
                     <constraint firstItem="XXO-X4-EzQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="A29-NB-S0t"/>
+                    <constraint firstItem="hQR-hM-muL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IqF-Oe-i4w"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hQR-hM-muL" secondAttribute="trailing" constant="5" id="LjN-MC-rZJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="XXO-X4-EzQ" secondAttribute="trailing" constant="171" id="Mk8-gE-CVK"/>
                     <constraint firstItem="hQR-hM-muL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="104" id="Yra-7d-9z1"/>
@@ -56,7 +59,7 @@
                 <outlet property="cellLabel" destination="XXO-X4-EzQ" id="1AV-UR-zI1"/>
                 <outlet property="cellValue" destination="hQR-hM-muL" id="XeE-OF-gCc"/>
             </connections>
-            <point key="canvasLocation" x="-3302" y="-180"/>
+            <point key="canvasLocation" x="-3521" y="-196"/>
         </tableViewCell>
     </objects>
 </document>

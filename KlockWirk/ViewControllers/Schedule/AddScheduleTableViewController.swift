@@ -130,8 +130,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 1))
         scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 5))
         
         return scheduleFields
     }
@@ -142,11 +143,13 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let percent     = scheduleFields.objectAtIndex(0) as! AccountSetupField
         let line        = scheduleFields.objectAtIndex(1) as! AccountSetupField
+        let achieved    = scheduleFields.objectAtIndex(2) as! AccountSetupField
         let startDate   = shiftStartDate
         let endDate     = shiftEndDate
         
         schedule.KlockWirkerPercentage  = Double(percent.value!)!
         schedule.line                   = Double(line.value!)!
+        schedule.achieved               = Double(achieved.value!)!
         schedule.startDateTime          = startDate
         schedule.endDateTime            = endDate
         
@@ -156,8 +159,6 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 
                 schedule.klockWirkers.append(kw)
             }
-            
-            //kw.isSelected = false
         }
         
         return schedule
@@ -177,7 +178,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         if(dateWasSelected){
             
-            if(indexPath.row == 2){
+            if(indexPath.row == 3){
                 
                 return 125
             }
@@ -212,8 +213,13 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
             case 1:
                 cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
                 (cell as! InputTableViewCell).bindCellDetail(accountField)
-                           
+            
+            
             case 2:
+                cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
+                (cell as! InputTableViewCell).bindCellDetail(accountField)
+            
+            case 3:
                 
                 if(dateWasSelected){
                     
@@ -229,12 +235,12 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
                 
 
-            case 3:
+            case 4:
                 cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
                 (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
-            case 4:
+            case 5:
                 cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
                 (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -260,11 +266,15 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         case 1:
             cancelTableViewEditing(true)
             
+            
         case 2:
+            cancelTableViewEditing(true)
+            
+        case 3:
             cancelTableViewEditing(false)
             self.navigationController?.pushViewController(datePicker, animated: true)
             
-        case 3:
+        case 4:
             cancelTableViewEditing(false)
             self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: merchant.klockWirkers, readOnly: ApplicationInformation.isReadOnly()), animated: true)
             

@@ -74,7 +74,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
             cellInput.secureTextEntry = true
         }
         
-        
+        cellInput.font              = UIFont (name: "Gotham-Light", size: 14)!
         selectionStyle              = .None
         cellInput.textAlignment     = .Right
         cellInput.borderStyle       = .None

@@ -161,13 +161,13 @@ class ManageKlockWirkersViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath)
-        let kw = self.klockWirkers[indexPath.row] as! KlockWirker
+        let kw = self.klockWirkers[indexPath.row] 
         
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.textLabel?.text = kw.firstName + " " + kw.lastName
         cell.textLabel?.textColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0)
-        cell.textLabel?.font = UIFont (name: "HelveticaNeue", size: 16)
+        cell.textLabel?.font = UIFont (name: "Gotham-Medium", size: 14)
 
 
         

@@ -48,6 +48,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         
         super.viewDidLoad()
         
+        refreshHomeView()
         setupPieChart()
         setupNavigationBar()
     }
@@ -62,6 +63,8 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         refreshHomeView()
+        setupPieChart()
+        
         self.navigationItem.title = "Home"
     }
     
@@ -117,19 +120,14 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         colors.append(UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0))
         colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
         
+
+        let line = ChartDataEntry(value: currentSchedule.line, xIndex: 0)
+        let achieved = ChartDataEntry(value: currentSchedule.achieved, xIndex: 1)
         
-        
-//        let val1 = ChartDataEntry(value: scheduleToDisplay.line, xIndex: 0)
-//        let val2 = ChartDataEntry(value: 2000.00, xIndex: 1)
-        
-        
-        
-        let val1 = ChartDataEntry(value: 500.00, xIndex: 0)
-        let val2 = ChartDataEntry(value: 2000.00, xIndex: 1)
     
         
-        yVals.append(val1)
-        yVals.append(val2)
+        yVals.append(line)
+        yVals.append(achieved)
         
         xVals.append("Goal")
         xVals.append("Achieved")
@@ -178,7 +176,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                 
                 if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
                     
-                    pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
+                    pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
                     
                     goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
@@ -196,7 +194,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                 
                 if let schedule = DateUtilities.getCurrentSchedule(klockWirker.schedules){
                     
-                    pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
+                    pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
                     
                     goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
