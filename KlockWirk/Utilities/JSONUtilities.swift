@@ -35,14 +35,24 @@ class JSONUtilities{
     
     class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
         
-        let klockWirker = KlockWirker()
-            
+        let klockWirker         = KlockWirker()
+        let merchant            = (kw.objectForKey("Merchant") as? NSDictionary)!
+        let merchantSchedules   = (merchant.objectForKey("MerchantSchedules") as? NSArray)!
+       
+        
+        klockWirker.merchantId = (kw.objectForKey("MerchantId") as? Int)!
         klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
         klockWirker.firstName = (kw.objectForKey("FirstName") as? String)!
         klockWirker.lastName = (kw.objectForKey("LastName") as? String)!
         klockWirker.emailAddress = (kw.objectForKey("Email") as? String)!
         klockWirker.phoneNumber = (kw.objectForKey("Phone") as? String)!
         klockWirker.password = (kw.objectForKey("Password") as? String)!
+        
+
+        for ms: AnyObject in merchantSchedules{
+            
+            klockWirker.schedules.append(parseMerchantSchedule(ms as! NSDictionary))
+        }
         
         return klockWirker
     }
@@ -55,7 +65,6 @@ class JSONUtilities{
         let merchantSchedules = (m.objectForKey("MerchantSchedules") as? NSArray)!
        
         merchant.merchantId = (m.objectForKey("MerchantId") as? Int)!
-       // merchant.posSystemId = (m.objectForKey("PosSystemId") as? Int)!
         merchant.posSystemBaseApiUrl = (m.objectForKey("PosSystemBaseApiUrl") as? String)!
         merchant.posSystemApiKey = (m.objectForKey("PosSystemApiKey") as? String)!
         merchant.posSystem = (m.objectForKey("PosSystem") as? String)!
@@ -69,7 +78,6 @@ class JSONUtilities{
         merchant.email = (m.objectForKey("Email") as? String)!
         
 
-    
         for element: AnyObject in klockWirkers {
             
             let klockWirker = KlockWirker()
@@ -143,5 +151,29 @@ class JSONUtilities{
       
         
         return schedule
+    }
+    
+    
+    class func parseMerchantSchedules(schedulesToParse: NSArray) -> [Schedule]{
+        
+        var schedules:[Schedule] = []
+        
+        for s: AnyObject in schedulesToParse {
+            
+            let newSchedule = Schedule()
+            
+            newSchedule.scheduleId = (s.objectForKey("ScheduleId") as? Int)!
+            newSchedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
+            newSchedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
+            newSchedule.endDateTime = DateUtilities.dateValueOfString((s.objectForKey("ShiftEndDateTime") as? String)!)
+            newSchedule.line = (s.objectForKey("Line") as? Double)!
+            newSchedule.achieved = (s.objectForKey("Achieved") as? Double)!
+            newSchedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
+            
+            schedules.append(newSchedule)
+
+        }
+        
+        return schedules
     }
 }

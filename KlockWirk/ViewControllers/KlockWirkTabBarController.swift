@@ -12,8 +12,8 @@ import Foundation
 class KlockWirkTabBarController : UITabBarController{
     
     
-    let NoActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
-    let homeViewController                  = ActiveScheduleViewController(schedule: Schedule())
+    let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
+    let activeScheduleViewController        = ActiveScheduleViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
@@ -22,14 +22,37 @@ class KlockWirkTabBarController : UITabBarController{
         
         super.init(nibName: nil, bundle: nil);
         
-        homeViewController.tabBarItem           = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
-        scheduleViewController.tabBarItem       = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
-        settingsViewController.tabBarItem       = UITabBarItem(title: "Settings", image: UIImage(named:"settings_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
+        noActiveScheduleViewController.tabBarItem   = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
+        noActiveScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
-        self.viewControllers = [
-            UINavigationController(rootViewController: homeViewController),
-             UINavigationController(rootViewController: scheduleViewController),
-            UINavigationController(rootViewController: settingsViewController)]
+   
+        activeScheduleViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
+        activeScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        
+        scheduleViewController.tabBarItem           = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
+        scheduleViewController.tabBarItem.selectedImage = UIImage(named:"calendar_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        
+    
+        settingsViewController.tabBarItem           = UITabBarItem(title: "Settings", image: UIImage(named:"settings_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 4)
+        settingsViewController.tabBarItem.selectedImage = UIImage(named:"settings_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        
+
+        if(shouldShowActiveSchedule()){
+            
+            self.viewControllers =
+                [UINavigationController(rootViewController: activeScheduleViewController),
+                    UINavigationController(rootViewController: scheduleViewController),
+                    UINavigationController(rootViewController: settingsViewController)]
+            
+        }
+        else{
+            
+            self.viewControllers =
+                [UINavigationController(rootViewController: noActiveScheduleViewController),
+                    UINavigationController(rootViewController: scheduleViewController),
+                    UINavigationController(rootViewController: settingsViewController)]
+            
+        }
         
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
@@ -37,5 +60,21 @@ class KlockWirkTabBarController : UITabBarController{
     required init?(coder aDecoder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
+    }
+    
+
+    func shouldShowActiveSchedule() -> Bool{
+    
+        let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+        
+        if(klockWirker.schedules.count > 0){
+            
+            if let schedule = DateUtilities.getCurrentSchedule(klockWirker.schedules){
+                
+                return true
+            }
+        }
+        
+        return false
     }
 }

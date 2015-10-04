@@ -13,8 +13,8 @@ import Foundation
 class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
     
 
-    let NoActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
-    let homeViewController                  = ActiveScheduleViewController(schedule: Schedule())
+    let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
+    let activeScheduleViewController        = ActiveScheduleViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let manageKlockWirkersViewController    = ManageKlockWirkersViewController(nibName: "ManageKlockWirkersViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
@@ -26,14 +26,14 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         
         self.delegate = self
         
-        NoActiveScheduleViewController.tabBarItem      = UITabBarItem(title: "Home",
+        noActiveScheduleViewController.tabBarItem      = UITabBarItem(title: "Home",
             image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
-        NoActiveScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        noActiveScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
         
-        homeViewController.tabBarItem      = UITabBarItem(title: "Home",
+        activeScheduleViewController.tabBarItem      = UITabBarItem(title: "Home",
             image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
-        homeViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        activeScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
         
         scheduleViewController.tabBarItem      = UITabBarItem(title: "Schedules",
@@ -55,7 +55,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         if(shouldShowActiveSchedule()){
             
             self.viewControllers =
-                [UINavigationController(rootViewController: homeViewController),
+                [UINavigationController(rootViewController: activeScheduleViewController),
                     UINavigationController(rootViewController: scheduleViewController),
                     UINavigationController(rootViewController: manageKlockWirkersViewController),
                     UINavigationController(rootViewController: settingsViewController)]
@@ -64,7 +64,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         else{
             
             self.viewControllers =
-                [UINavigationController(rootViewController: NoActiveScheduleViewController),
+                [UINavigationController(rootViewController: noActiveScheduleViewController),
                     UINavigationController(rootViewController: scheduleViewController),
                     UINavigationController(rootViewController: manageKlockWirkersViewController),
                     UINavigationController(rootViewController: settingsViewController)]
@@ -101,7 +101,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         if(shouldShowActiveSchedule()){
             
             self.viewControllers =
-                [UINavigationController(rootViewController: homeViewController),
+                [UINavigationController(rootViewController: activeScheduleViewController),
                     UINavigationController(rootViewController: scheduleViewController),
                     UINavigationController(rootViewController: manageKlockWirkersViewController),
                     UINavigationController(rootViewController: settingsViewController)]
@@ -111,7 +111,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         else{
             
             self.viewControllers =
-                [UINavigationController(rootViewController: NoActiveScheduleViewController),
+                [UINavigationController(rootViewController: noActiveScheduleViewController),
                     UINavigationController(rootViewController: scheduleViewController),
                     UINavigationController(rootViewController: manageKlockWirkersViewController),
                     UINavigationController(rootViewController: settingsViewController)]

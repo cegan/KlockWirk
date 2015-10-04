@@ -75,47 +75,15 @@ class KlockWirkerServices : BaseKlockWirkService{
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-            let scheduleService     = SchedulService()
-            let jsonResult          = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-            let klockWirker         = JSONUtilities.parseKlockWirker(jsonResult)
-            let schedules           = (jsonResult.objectForKey("KlockWirkerSchedules") as? NSArray)!
-            
-            var array:Array<String> = []
-           
-            for element: AnyObject in schedules {
-                
-                let merchantScheduleId = (element.objectForKey("ScheduleId") as? Int)!
-                
-                array.append(String(merchantScheduleId))
-            }
-            
-            let scheduleIds = ",".join(array)
-            
-            
-            if(!scheduleIds.isEmpty){
-                
-                scheduleService.getMerchantScheduleByIds(scheduleIds) {(response: NSArray) in
-                    
-                    for obj: AnyObject in response {
-                        
-                        klockWirker.schedules.append(JSONUtilities.parseMerchantSchedule(obj as! NSDictionary))
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        
-                        onCompletion(response: klockWirker)
-                    })
-                }
-            }
-            else{
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    
-                    onCompletion(response: klockWirker)
-                })
-            }
+            let jsonResult  = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            let klockWirker = JSONUtilities.parseKlockWirker((jsonResult.objectForKey("KlockWirker") as? NSDictionary)!)
             
             KlockWirkerManager.sharedInstance.klockWirker = klockWirker
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: klockWirker)
+            })
         })
         
         task.resume()

@@ -14,6 +14,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var viewScheduleDetails: UIButton!
 
     var merchant          = Merchant()
+    var klockWirker       = KlockWirker()
     var scheduleToDisplay = Schedule()
     var currentSchedule   = Schedule()
     
@@ -167,19 +168,33 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
 
     func refreshHomeView(){
         
-        merchant = MerchantManager.sharedInstance.merchant
-        
-        if(merchant.schedules.count > 0){
+        if(ApplicationInformation.isMerchant()){
             
-            if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
+            merchant = MerchantManager.sharedInstance.merchant
+            
+            if(merchant.schedules.count > 0){
                 
-                pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
-                currentSchedule = schedule
+                if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
+                    
+                    pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
+                    currentSchedule = schedule
+                }
             }
-            else{
+            
+        }
+        else{
+            
+            klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+            
+            if(klockWirker.schedules.count > 0){
                 
-                
+                if let schedule = DateUtilities.getCurrentSchedule(klockWirker.schedules){
+                    
+                    pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
+                    currentSchedule = schedule
+                }
             }
+            
         }
     }
 }
