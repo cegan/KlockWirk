@@ -65,19 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUserInterfaceDefaults(){
         
-        
-        
-        for family: String in UIFont.familyNames()
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNamesForFamilyName(family)
-            {
-                print("== \(names)")
-            }
-        }
-        
-        
-
         if let font = UIFont(name: "Gotham-Medium", size: 16) {
             
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font,
@@ -87,8 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //UINavigationBar Attributes
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
-       // UINavigationBar.appearance().tintColor = UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0)
-       
         UINavigationBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0)
         
         

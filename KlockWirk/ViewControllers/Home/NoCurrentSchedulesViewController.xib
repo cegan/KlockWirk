@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Gotham-Light.otf">
+            <string>Gotham-Light</string>
+        </mutableArray>
+        <mutableArray key="Gotham-Medium.ttf">
+            <string>Gotham-Medium</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoCurrentSchedulesViewController" customModule="KlockWirk" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You currently have no active schedules. Your next schedule will begin on" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dN-Tp-62i">
+                    <rect key="frame" x="34" y="111" width="533" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="ewe-3O-KRI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                    <color key="textColor" red="0.42745098039215684" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10/3/2015 at 4:00 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-ad-Jf2">
+                    <rect key="frame" x="8" y="200" width="584" height="21"/>
+                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="16"/>
+                    <color key="textColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="3dN-Tp-62i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="4ZT-Fq-NWP"/>
+                <constraint firstAttribute="bottom" secondItem="z6X-ad-Jf2" secondAttribute="bottom" constant="379" id="BES-7o-vFv"/>
+                <constraint firstItem="z6X-ad-Jf2" firstAttribute="top" secondItem="3dN-Tp-62i" secondAttribute="bottom" constant="14" id="Stl-D1-LB1"/>
+                <constraint firstItem="3dN-Tp-62i" firstAttribute="centerX" secondItem="z6X-ad-Jf2" secondAttribute="centerX" id="tFx-dd-XPc"/>
+                <constraint firstItem="3dN-Tp-62i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u67-px-5sJ"/>
+                <constraint firstItem="3dN-Tp-62i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="111" id="zfH-IG-QvJ"/>
+            </constraints>
+            <point key="canvasLocation" x="386" y="340"/>
+        </view>
+    </objects>
+</document>

@@ -11,25 +11,20 @@ import Foundation
 
 class KlockWirkTabBarController : UITabBarController{
     
-    let homeViewController          = HomeViewController(nibName: "HomeViewController", bundle: nil)
-    let scheduleViewController      = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
-    let settingsViewController      = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+    
+    let NoActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
+    let homeViewController                  = ActiveScheduleViewController(schedule: Schedule())
+    let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
+    let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
     init(){
         
         super.init(nibName: nil, bundle: nil);
         
-        homeViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
-        
-        
-        
-        
-        
-        
-        
-        scheduleViewController.tabBarItem      = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
-        settingsViewController.tabBarItem     = UITabBarItem(title: "Settings", image: UIImage(named:"settings_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
+        homeViewController.tabBarItem           = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
+        scheduleViewController.tabBarItem       = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
+        settingsViewController.tabBarItem       = UITabBarItem(title: "Settings", image: UIImage(named:"settings_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
         
         self.viewControllers = [
             UINavigationController(rootViewController: homeViewController),
