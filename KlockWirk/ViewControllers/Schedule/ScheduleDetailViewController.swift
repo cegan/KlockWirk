@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var tv: UITableView!
     
     let scheduleService = SchedulService()
@@ -17,10 +18,7 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
  
     var selectedSchedule = Schedule()
     var scheduleSummaryFields = NSMutableArray()
-    var pieChart:Chart!
-    
-    
-    
+       
     init(schedule: Schedule){
         
         super.init(nibName: "ScheduleDetailViewController", bundle: nil);
@@ -51,9 +49,8 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
         setupTableViewProperties()
         setupNavigationBar()
         setupTableViewDelegates()
-        setupChart()
         
-        
+        setupPieChart()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -74,16 +71,95 @@ class ScheduleDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     
     
-    //MARK: Setup Methods
     
-    func setupChart(){
+    
+    
+    
+    
+    
+    
+    func setupPieChart(){
         
-        pieChart = Chart()
-        pieChart.view.frame = CGRectMake(0, 20, view.frame.width, 300)
+        pieChart.delegate = self
+        pieChart.usePercentValuesEnabled = true;
+        pieChart.holeTransparent = true;
+        pieChart.centerTextFont = UIFont (name: "HelveticaNeue", size: 15)!
+        pieChart.holeRadiusPercent = 0.58;
+        pieChart.transparentCircleRadiusPercent = 0.61;
+        pieChart.descriptionText = "";
+        pieChart.drawCenterTextEnabled = true;
+        pieChart.drawHoleEnabled = true;
+        pieChart.rotationAngle = 0.0;
+        pieChart.rotationEnabled = true;
+        pieChart.centerText = "";
+        pieChart.drawSliceTextEnabled = false
         
-        view.addSubview(pieChart.view)
+        let legend = pieChart.legend
+        legend.position = ChartLegend.ChartLegendPosition.PiechartCenter
+        
+        legend.xEntrySpace = 7.0;
+        legend.yEntrySpace = 50.0;
+        legend.yOffset = 50.0;
+        
+        setupChartData()
+        
     }
     
+    func setupChartData(){
+        
+        
+        var yVals:[ChartDataEntry] = []
+        var xVals:[String] = []
+        var colors:[UIColor] = []
+        
+        colors.append(UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0))
+        colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
+        
+        
+        let line = ChartDataEntry(value: 20000.00, xIndex: 0)
+        let achieved = ChartDataEntry(value: 2000.00, xIndex: 1)
+        
+        
+        
+        yVals.append(line)
+        yVals.append(achieved)
+        
+        xVals.append("Goal")
+        xVals.append("Achieved")
+        
+        let dataSet = PieChartDataSet(yVals: yVals, label: "")
+        dataSet.colors = colors
+        
+        
+        
+        let pFormatter = NSNumberFormatter()
+        pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        
+        
+        let data = PieChartData(xVals: xVals, dataSet: dataSet)
+        data.setValueFormatter(pFormatter)
+        data.setValueFont(UIFont (name: "HelveticaNeue-Light", size: 12)!)
+        data.setValueTextColor(UIColor.whiteColor())
+        
+        pieChart.data = data
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: Setup Methods
+    
+
     func setupNavigationBar(){
         
         if(!ApplicationInformation.isReadOnly()){

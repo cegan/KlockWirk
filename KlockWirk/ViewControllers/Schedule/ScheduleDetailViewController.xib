@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleDetailViewController" customModule="KlockWirk" customModuleProvider="target">
             <connections>
+                <outlet property="pieChart" destination="Upm-IR-Qe0" id="7JD-9A-OjE"/>
                 <outlet property="tv" destination="g7u-GK-CWm" id="8Ge-3a-Iq2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,21 +17,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-GK-CWm">
-                    <rect key="frame" x="0.0" y="227" width="600" height="373"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-GK-CWm">
+                    <rect key="frame" x="0.0" y="386" width="600" height="214"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="373" id="qie-Vy-WAg"/>
-                    </constraints>
                 </tableView>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-IR-Qe0" customClass="PieChartView" customModule="KlockWirk" customModuleProvider="target">
+                    <rect key="frame" x="68" y="38" width="464" height="321"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="g7u-GK-CWm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JT7-N1-k9t"/>
-                <constraint firstAttribute="bottom" secondItem="g7u-GK-CWm" secondAttribute="bottom" id="JZZ-qb-mxq"/>
-                <constraint firstAttribute="trailing" secondItem="g7u-GK-CWm" secondAttribute="trailing" id="wJ2-RF-VTd"/>
+                <constraint firstItem="Upm-IR-Qe0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dGV-WW-NRt"/>
+                <constraint firstAttribute="trailing" secondItem="Upm-IR-Qe0" secondAttribute="trailing" constant="68" id="ktR-nT-1OC"/>
+                <constraint firstItem="Upm-IR-Qe0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="lks-EP-Jc0"/>
             </constraints>
-            <point key="canvasLocation" x="-167" y="137"/>
+            <point key="canvasLocation" x="-454" y="117"/>
         </view>
     </objects>
 </document>
