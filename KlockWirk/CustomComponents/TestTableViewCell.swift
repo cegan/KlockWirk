@@ -33,10 +33,9 @@ class TestTableViewCell: UITableViewCell {
     func bindCellDetails(schedule: Schedule){
         
         goalLabel.text  = NumberFormatter.formatDoubleToCurrency(schedule.line)
-        usersLabel.text = getKlockWirkersList(schedule.klockWirkers)
+        usersLabel.text = String(schedule.klockWirkers.count) + " KlockWirkers"
         scheduleStartValue.text = DateUtilities.stringValueOfShiftDate(schedule.startDateTime)
         scheduleEndValue.text = DateUtilities.stringValueOfShiftDate(schedule.endDateTime)
-        
     }
     
     

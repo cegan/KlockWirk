@@ -13,6 +13,8 @@ class NoCurrentSchedulesViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Home"
 
     }
 }
