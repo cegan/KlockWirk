@@ -61,6 +61,7 @@
 		4D3FE2E21BC0636D00DB892E /* NoCurrentSchedulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FE2E01BC0636D00DB892E /* NoCurrentSchedulesViewController.xib */; };
 		4D3FE2E51BC09B3500DB892E /* ActiveScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FE2E31BC09B3500DB892E /* ActiveScheduleViewController.swift */; };
 		4D3FE2E61BC09B3500DB892E /* ActiveScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FE2E41BC09B3500DB892E /* ActiveScheduleViewController.xib */; };
+		4D3FE2E81BC1652C00DB892E /* StringUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FE2E71BC1652C00DB892E /* StringUtilities.swift */; };
 		4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7181B513B6A001FCF54 /* AppDelegate.swift */; };
 		4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71C1B513B6A001FCF54 /* Main.storyboard */; };
 		4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A71F1B513B6A001FCF54 /* Images.xcassets */; };
@@ -293,6 +294,7 @@
 		4D3FE2E01BC0636D00DB892E /* NoCurrentSchedulesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCurrentSchedulesViewController.xib; sourceTree = "<group>"; };
 		4D3FE2E31BC09B3500DB892E /* ActiveScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveScheduleViewController.swift; sourceTree = "<group>"; };
 		4D3FE2E41BC09B3500DB892E /* ActiveScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActiveScheduleViewController.xib; sourceTree = "<group>"; };
+		4D3FE2E71BC1652C00DB892E /* StringUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilities.swift; sourceTree = "<group>"; };
 		4D49A7131B513B6A001FCF54 /* KlockWirk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlockWirk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D49A7171B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D49A7181B513B6A001FCF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -798,6 +800,7 @@
 				4DEA192D1BB091BF0091B44D /* DateCompare.swift */,
 				4DEA19351BB0C21A0091B44D /* MerchantManager.swift */,
 				4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */,
+				4D3FE2E71BC1652C00DB892E /* StringUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1207,6 +1210,7 @@
 				4DFE4E691BBB6D4800E1EA6E /* ChartComponentBase.swift in Sources */,
 				4DFE4E8C1BBB6D4800E1EA6E /* ChartXAxisValueFormatter.swift in Sources */,
 				4DFE4E631BBB6D4800E1EA6E /* LineChartView.swift in Sources */,
+				4D3FE2E81BC1652C00DB892E /* StringUtilities.swift in Sources */,
 				4DFE4E7E1BBB6D4800E1EA6E /* LineChartData.swift in Sources */,
 				4DFE4E8D1BBB6D4800E1EA6E /* BarChartHighlighter.swift in Sources */,
 				4DFE4E6B1BBB6D4800E1EA6E /* ChartLimitLine.swift in Sources */,

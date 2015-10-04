@@ -11,8 +11,14 @@ import UIKit
 class NoCurrentSchedulesViewController: UIViewController {
 
     
+    @IBOutlet weak var addScheduleButton: UIButton!
     @IBOutlet weak var klockWirkerMessageLabel: UILabel!
     @IBOutlet weak var nextShitStartLabel: UILabel!
+    
+    var nextSchedule = Schedule()
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -22,14 +28,40 @@ class NoCurrentSchedulesViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    
+    
+    func setupShiftStartGestureRecognizer(){
         
-        tst()
+        nextShitStartLabel.userInteractionEnabled = true
+        nextShitStartLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("displayScheduleDetail:")))
     }
     
     
+    func displayScheduleDetail(gestureRecognizer: UITapGestureRecognizer){
+        
+        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
+    }
     
-    func tst(){
+    
+    @IBAction func addScheduleTouched(sender: AnyObject) {
+        
+        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
+ 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
+        refreshHomeView()
+        setupShiftStartGestureRecognizer()
+    }
+    
+    
+  
+    
+    
+    func refreshHomeView(){
+        
+        addScheduleButton.hidden = true
         
         if(ApplicationInformation.isKlockWirker()){
             
@@ -37,10 +69,10 @@ class NoCurrentSchedulesViewController: UIViewController {
             
             if(klockWirker.schedules.count > 0){
                 
-                let s = DateUtilities.getNextSchedule(klockWirker.schedules)
+                nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules)!
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
-                nextShitStartLabel.text = DateUtilities.stringValueOfShiftDate(s!.startDateTime)
+                nextShitStartLabel.attributedText = StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime)
                 nextShitStartLabel.hidden = false
             }
             else{
@@ -55,15 +87,17 @@ class NoCurrentSchedulesViewController: UIViewController {
             
             if(merchant.schedules.count > 0){
                 
-                let m = DateUtilities.getNextSchedule(merchant.schedules)
+                nextSchedule = DateUtilities.getNextSchedule(merchant.schedules)!
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
-                nextShitStartLabel.text = DateUtilities.stringValueOfShiftDate(m!.startDateTime)
+                nextShitStartLabel.attributedText = StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime)
+                
                 nextShitStartLabel.hidden = false
             }
             else{
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules"
+                addScheduleButton.hidden = false
                 nextShitStartLabel.hidden = true
             }
         }

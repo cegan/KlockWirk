@@ -15,6 +15,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
     
     let scheduleService = SchedulService()
     let merchantService = MerchantServices()
+    var isModal         = false
  
     var selectedSchedule = Schedule()
     var scheduleSummaryFields = NSMutableArray()
@@ -24,6 +25,15 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         super.init(nibName: "ScheduleDetailViewController", bundle: nil);
         
         selectedSchedule = schedule
+    }
+    
+    
+    init(schedule: Schedule, initAsModal: Bool){
+        
+        super.init(nibName: "ScheduleDetailViewController", bundle: nil);
+        
+        selectedSchedule = schedule
+        isModal = initAsModal
     }
     
     
@@ -83,7 +93,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         pieChart.delegate = self
         pieChart.usePercentValuesEnabled = true;
         pieChart.holeTransparent = true;
-        pieChart.centerTextFont = UIFont (name: "HelveticaNeue", size: 15)!
+        pieChart.centerTextFont = UIFont (name: "Gotham-Light", size: 15)!
         pieChart.holeRadiusPercent = 0.58;
         pieChart.transparentCircleRadiusPercent = 0.61;
         pieChart.descriptionText = "";
@@ -116,8 +126,8 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
         
         
-        let line = ChartDataEntry(value: 20000.00, xIndex: 0)
-        let achieved = ChartDataEntry(value: 2000.00, xIndex: 1)
+        let line = ChartDataEntry(value: selectedSchedule.line, xIndex: 0)
+        let achieved = ChartDataEntry(value: selectedSchedule.achieved, xIndex: 1)
         
         
         
@@ -141,7 +151,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         
         let data = PieChartData(xVals: xVals, dataSet: dataSet)
         data.setValueFormatter(pFormatter)
-        data.setValueFont(UIFont (name: "HelveticaNeue-Light", size: 12)!)
+        data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
         data.setValueTextColor(UIColor.whiteColor())
         
         pieChart.data = data
@@ -152,7 +162,10 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
     
     
     
-    
+    func dismissScheduleDetail(){
+
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     
@@ -162,10 +175,17 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
 
     func setupNavigationBar(){
         
-        if(!ApplicationInformation.isReadOnly()){
+        if(isModal){
             
-            let deleteSchedule = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteScheduleConfirmation")
-            self.navigationItem.rightBarButtonItem = deleteSchedule
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "dismissScheduleDetail")
+        }
+        else{
+            
+            if(!ApplicationInformation.isReadOnly()){
+                
+                let deleteSchedule = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteScheduleConfirmation")
+                self.navigationItem.rightBarButtonItem = deleteSchedule
+            }
         }
     }
     

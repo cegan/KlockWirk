@@ -17,20 +17,31 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-GK-CWm">
-                    <rect key="frame" x="0.0" y="386" width="600" height="214"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-GK-CWm">
+                    <rect key="frame" x="0.0" y="329" width="600" height="271"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="0.0" y="409" width="600" height="391"/>
+                    </variation>
                 </tableView>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-IR-Qe0" customClass="PieChartView" customModule="KlockWirk" customModuleProvider="target">
-                    <rect key="frame" x="68" y="38" width="464" height="321"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-IR-Qe0" customClass="PieChartView" customModule="KlockWirk" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="56" width="600" height="265"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="265" id="Via-ft-Vdy"/>
+                        <constraint firstAttribute="width" constant="600" id="asC-uJ-3PP"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Upm-IR-Qe0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dGV-WW-NRt"/>
-                <constraint firstAttribute="trailing" secondItem="Upm-IR-Qe0" secondAttribute="trailing" constant="68" id="ktR-nT-1OC"/>
-                <constraint firstItem="Upm-IR-Qe0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="lks-EP-Jc0"/>
+                <constraint firstItem="g7u-GK-CWm" firstAttribute="leading" secondItem="Upm-IR-Qe0" secondAttribute="leading" id="7LG-PL-yeE"/>
+                <constraint firstAttribute="bottom" secondItem="g7u-GK-CWm" secondAttribute="bottom" id="Bp3-1I-Za5"/>
+                <constraint firstAttribute="trailing" secondItem="Upm-IR-Qe0" secondAttribute="trailing" id="HEn-XI-m7X"/>
+                <constraint firstItem="g7u-GK-CWm" firstAttribute="top" secondItem="Upm-IR-Qe0" secondAttribute="bottom" constant="8" id="LYe-v6-hJk"/>
+                <constraint firstItem="Upm-IR-Qe0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fbM-I5-RZ0"/>
+                <constraint firstItem="g7u-GK-CWm" firstAttribute="trailing" secondItem="Upm-IR-Qe0" secondAttribute="trailing" id="glv-Of-2lQ"/>
+                <constraint firstItem="Upm-IR-Qe0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="56" id="t1J-hf-3m0"/>
             </constraints>
             <point key="canvasLocation" x="-454" y="117"/>
         </view>

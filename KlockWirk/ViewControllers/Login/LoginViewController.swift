@@ -94,23 +94,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func setupLoginButton(){
         
-        
         loginButton.setTitle("Sign in", forState: .Normal)
-        loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-        
-        loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 22)
+        loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 14)
        
-        
-        
-//        activityIndicator.hidden = true
-//        activityIndicator.color = UIColor.whiteColor()
-//        activityIndicator.frame = CGRectMake(125, 12, 15, 15)
-        
-       // loginButton.backgroundColor = UIColor(red: 30.0/255, green: 171.0/255, blue: 242.0/255, alpha: 1.0)
-       // loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-      //  loginButton.layer.cornerRadius = 5
-        
-       // loginButton.addSubview(activityIndicator)
+        activityIndicator.hidden = true
+        activityIndicator.color = UIColor.whiteColor()
+        activityIndicator.frame = CGRectMake(290, 12, 15, 15)
+
+        loginButton.addSubview(activityIndicator)
     }
     
     func setupViewProperties(){
@@ -256,7 +247,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         ApplicationInformation.clearSharedData()
         
-        
+        startActivityIndicator()
                
         self.view.endEditing(true)
        

@@ -88,7 +88,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         pieChart.delegate = self
         pieChart.usePercentValuesEnabled = true;
         pieChart.holeTransparent = true;
-        pieChart.centerTextFont = UIFont (name: "HelveticaNeue", size: 15)!
+        pieChart.centerTextFont = UIFont (name: "Gotham-Light", size: 15)!
         pieChart.holeRadiusPercent = 0.58;
         pieChart.transparentCircleRadiusPercent = 0.61;
         pieChart.descriptionText = "";
@@ -146,7 +146,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
 
         let data = PieChartData(xVals: xVals, dataSet: dataSet)
         data.setValueFormatter(pFormatter)
-        data.setValueFont(UIFont (name: "HelveticaNeue-Light", size: 12)!)
+        data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
         data.setValueTextColor(UIColor.whiteColor())
         
         pieChart.data = data

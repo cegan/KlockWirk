@@ -75,7 +75,7 @@
                         <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zF0-LY-KZX">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo_white" translatesAutoresizingMaskIntoConstraints="NO" id="zF0-LY-KZX">
                     <rect key="frame" x="202" y="31" width="197" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="197" id="9co-XN-rUS"/>
@@ -83,7 +83,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="Lbl-rf-nvs"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="ELB-Vv-LIT" secondAttribute="leading" id="SAB-Rx-QjG"/>
@@ -99,10 +99,10 @@
                 <constraint firstItem="zF0-LY-KZX" firstAttribute="centerX" secondItem="ELB-Vv-LIT" secondAttribute="centerX" id="gCP-Nc-xU6"/>
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="98" id="w1N-4b-0J9"/>
             </constraints>
-            <point key="canvasLocation" x="-2360" y="-454"/>
+            <point key="canvasLocation" x="-2349" y="-657"/>
         </view>
     </objects>
     <resources>
-        <image name="KlockWirkLogo" width="1800" height="600"/>
+        <image name="KlockWirkLogo_white" width="1800" height="600"/>
     </resources>
 </document>
