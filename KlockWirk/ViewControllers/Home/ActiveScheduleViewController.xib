@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActiveScheduleViewController" customModule="KlockWirk" customModuleProvider="target">
             <connections>
+                <outlet property="achievedLabel" destination="UHE-th-tTl" id="qUs-Q5-3Mw"/>
+                <outlet property="goalLabel" destination="YGD-zb-WGa" id="VAg-wi-bMo"/>
                 <outlet property="pieChart" destination="buY-qW-aoP" id="qn4-Bn-CZv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewScheduleDetails" destination="hy8-X3-Ugc" id="SFC-0n-IKE"/>

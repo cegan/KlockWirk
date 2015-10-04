@@ -10,6 +10,8 @@ import UIKit
 
 class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
+    @IBOutlet weak var achievedLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var viewScheduleDetails: UIButton!
 
@@ -178,6 +180,10 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     
                     pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
+                    
+                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
+                    achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
+                    
                 }
             }
             
@@ -192,6 +198,9 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     
                     pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
+                    
+                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
+                    achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
                 }
             }
             

@@ -60,11 +60,23 @@ class DateUtilities{
         return nil
     }
     
+    
+    class func getNextSchedule(schedules: [Schedule]) -> Schedule?{
+        
+        let sortedSchedules = schedules.sort(SortingUtilities.sortSchedulesByStartDate)
+        
+        if(sortedSchedules.count > 0){
+            
+            return sortedSchedules.first
+        }
+            
+        return nil
+    }
+    
+    
+    
     class func isBetweenMyTwoDates(shiftStartDate: NSDate, shiftEndDate:NSDate, today: NSDate) -> Bool {
-        
-        let dateMaker = NSDateFormatter()
-        dateMaker.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        
+    
         if shiftStartDate.compare(today) == .OrderedAscending && shiftEndDate.compare(today) == .OrderedDescending {
             
             return true

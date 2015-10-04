@@ -99,7 +99,7 @@
                 <constraint firstItem="zF0-LY-KZX" firstAttribute="centerX" secondItem="ELB-Vv-LIT" secondAttribute="centerX" id="gCP-Nc-xU6"/>
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="98" id="w1N-4b-0J9"/>
             </constraints>
-            <point key="canvasLocation" x="-2244" y="-379"/>
+            <point key="canvasLocation" x="-2360" y="-454"/>
         </view>
     </objects>
     <resources>
