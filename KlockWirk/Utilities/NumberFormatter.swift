@@ -28,13 +28,13 @@ class NumberFormatter{
     
     class func formatDoubleToPercent(value: Double) -> String{
         
-        let formatter = NSNumberFormatter()
+        let pFormatter                      = NSNumberFormatter()
+        pFormatter.numberStyle              = NSNumberFormatterStyle.PercentStyle
+        pFormatter.maximumFractionDigits    = 1
+        pFormatter.multiplier               = 1
+        pFormatter.percentSymbol            = " %"
         
-        formatter.numberStyle = NSNumberFormatterStyle.PercentStyle
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 1
-        
-        return formatter.stringFromNumber(value)!
+        return pFormatter.stringFromNumber(value)!
     }
     
     class func formatCurrencyToDouble(value: String) -> Double{

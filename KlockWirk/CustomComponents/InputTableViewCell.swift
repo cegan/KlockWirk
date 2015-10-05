@@ -64,6 +64,10 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 textField.text = NumberFormatter.formatDoubleToCurrency(Double(textField.text!)!)
             }
+            else if(accountSetupField.fieldType == .Percent){
+                
+                textField.text = NumberFormatter.formatDoubleToPercent(Double(textField.text!)!)
+            }
         }
     }
     
@@ -73,6 +77,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
             
             cellInput.secureTextEntry = true
         }
+        
         
         cellInput.font              = UIFont (name: "Gotham-Light", size: 14)!
         selectionStyle              = .None

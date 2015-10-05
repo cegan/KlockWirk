@@ -128,9 +128,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let scheduleFields = NSMutableArray()
         
-        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 1))
+        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 3))
         scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 4))
         scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 5))
         
@@ -139,11 +139,21 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func getCompletedSchedule() -> Schedule{
         
+        
+        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 1))
+        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 4))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 5))
+        
+        
+        
         let schedule = Schedule()
         
-        let percent     = scheduleFields.objectAtIndex(0) as! AccountSetupField
-        let line        = scheduleFields.objectAtIndex(1) as! AccountSetupField
-        let achieved    = scheduleFields.objectAtIndex(2) as! AccountSetupField
+        let line        = scheduleFields.objectAtIndex(0) as! AccountSetupField
+        let achieved    = scheduleFields.objectAtIndex(1) as! AccountSetupField
+        let percent     = scheduleFields.objectAtIndex(2) as! AccountSetupField
+        
         let startDate   = shiftStartDate
         let endDate     = shiftEndDate
         
