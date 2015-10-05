@@ -1432,7 +1432,8 @@
 		4D49A7331B513B6A001FCF54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
@@ -1446,7 +1447,8 @@
 		4D49A7341B513B6A001FCF54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
