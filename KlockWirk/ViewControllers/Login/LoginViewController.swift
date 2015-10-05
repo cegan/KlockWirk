@@ -52,6 +52,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func loginFailed(){
         
+        loginButton.setTitle("Sign In", forState: UIControlState.Normal)
+        
+        
         let alertController = UIAlertController(title: "Login", message:
             "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
@@ -92,15 +95,23 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     //MARK: Setup Methods
     
+    func setupInputFields(){
+        
+        emaiAddress.borderStyle = UITextBorderStyle.None
+        emaiAddress.layer.cornerRadius = 3.0;
+        
+        password.borderStyle = UITextBorderStyle.None
+        password.layer.cornerRadius = 3.0;
+    }
+    
     func setupLoginButton(){
         
         loginButton.setTitle("Sign in", forState: .Normal)
         loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 14)
-       
+        
         activityIndicator.hidden = true
         activityIndicator.color = UIColor.whiteColor()
-        activityIndicator.frame = CGRectMake(290, 12, 15, 15)
-
+        activityIndicator.frame = loginButton.titleLabel!.frame
         loginButton.addSubview(activityIndicator)
     }
     
@@ -121,6 +132,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         emaiAddress.delegate = self
         password.delegate = self
     }
+    
+    
     
     
     
@@ -152,6 +165,11 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         activityIndicator.stopAnimating()
     }
     
+    func endEditing(){
+        
+        self.view.endEditing(true)
+    }
+    
 
     
     
@@ -163,6 +181,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         registerNotification()
         setupViewProperties()
+        setupInputFields()
         setupLoginButton()
         setupNavigationButtons()
         setupDelegates()
@@ -173,36 +192,23 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         self.view.endEditing(true)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        if(textField.tag == 0){
-            
-        }
-        else{
-            
-            textField.text = ""
-            password.secureTextEntry = true
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        
-    
-        
-    }
-    
+
     
     
     
     // MARK: UIViewControllerTransitioningDelegate
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return TKFadeInAnimator(transitionDuration: 1.0, startingAlpha: 0.6)
+        return TKFadeInAnimator(transitionDuration: 0.5, startingAlpha: 0.6)
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
         return nil
     }
+    
+    
+    
     
     
     //MARK: Actions
@@ -247,11 +253,13 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         ApplicationInformation.clearSharedData()
         
+
+        loginButton.setTitle("", forState: UIControlState.Normal)
+        
+        endEditing()
         startActivityIndicator()
                
-        self.view.endEditing(true)
-       
-        
+  
         loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
             
             let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
