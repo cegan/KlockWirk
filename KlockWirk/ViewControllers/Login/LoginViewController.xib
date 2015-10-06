@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Gotham-LightItalic.otf">
-            <string>Gotham-LightItalic</string>
-            <string>Gotham-LightItalic</string>
+        <mutableArray key="Gotham-Medium.ttf">
+            <string>Gotham-Medium</string>
+            <string>Gotham-Medium</string>
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
@@ -37,17 +37,18 @@
                         <constraint firstAttribute="width" constant="317" id="Vxh-li-lvK"/>
                     </constraints>
                     <color key="textColor" red="0.42745098039215684" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Gotham-LightItalic" family="Gotham" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faR-vW-8Fo">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faR-vW-8Fo">
                     <rect key="frame" x="142" y="222" width="317" height="35"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="317" id="JBg-PG-Jca"/>
                         <constraint firstAttribute="height" constant="35" id="p5U-7z-fRU"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Gotham-LightItalic" family="Gotham" pointSize="14"/>
+                    <color key="textColor" red="0.42745098039215684" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
@@ -72,27 +73,27 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
                     <rect key="frame" x="258" y="439" width="85" height="35"/>
-                    <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="85" id="LMs-Ek-nlH"/>
                         <constraint firstAttribute="height" constant="35" id="ZDZ-85-gaA"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <state key="normal" title="Register">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="KlockWirkLogo_white" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
                     <rect key="frame" x="186" y="28" width="229" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="DK3-pU-kE9"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.92941176470588238" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UwO-KI-Vbu" secondAttribute="trailing" constant="20" symbolic="YES" id="A8i-ja-K1x"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="top" secondItem="ELB-Vv-LIT" secondAttribute="bottom" constant="9" id="ECn-8C-5ZD"/>
@@ -108,10 +109,10 @@
                 <constraint firstAttribute="trailing" secondItem="ZBe-dW-Rc3" secondAttribute="trailing" constant="20" symbolic="YES" id="vKg-8F-Bt2"/>
                 <constraint firstItem="UwO-KI-Vbu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="yGu-Ns-hkK"/>
             </constraints>
-            <point key="canvasLocation" x="-3313" y="-793"/>
+            <point key="canvasLocation" x="-3532" y="-765"/>
         </view>
     </objects>
     <resources>
-        <image name="KlockWirkLogo_white" width="1800" height="600"/>
+        <image name="KlockWirkLogo" width="1800" height="600"/>
     </resources>
 </document>

@@ -98,11 +98,13 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     func setupInputFields(){
         
         emaiAddress.autocorrectionType = .No
-        emaiAddress.borderStyle = UITextBorderStyle.None
+        emaiAddress.layer.borderWidth = 1.0
+        emaiAddress.layer.borderColor = UIColor.lightGrayColor().CGColor
         emaiAddress.layer.cornerRadius = 3.0;
         
         password.autocorrectionType = .No
-        password.borderStyle = UITextBorderStyle.None
+        password.layer.borderWidth = 1.0
+        password.layer.borderColor = UIColor.lightGrayColor().CGColor
         password.layer.cornerRadius = 3.0;
     }
     
@@ -110,6 +112,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         loginButton.setTitle("Sign in", forState: .Normal)
         loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 14)
+        loginButton.layer.cornerRadius = 3
         
         activityIndicator.hidden = true
         activityIndicator.color = UIColor.whiteColor()
