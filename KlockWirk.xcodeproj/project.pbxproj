@@ -80,8 +80,8 @@
 		4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */; };
 		4DBBDCF01BC440970079035A /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCEE1BC440970079035A /* ChartTableViewCell.swift */; };
 		4DBBDCF11BC440970079035A /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCEF1BC440970079035A /* ChartTableViewCell.xib */; };
-		4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController2.swift */; };
-		4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController2.xib */; };
+		4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController.swift */; };
+		4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController.xib */; };
 		4DBBDCF91BC4809D0079035A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF71BC4809D0079035A /* ForgotPasswordViewController.swift */; };
 		4DBBDCFA1BC4809D0079035A /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF81BC4809D0079035A /* ForgotPasswordViewController.xib */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
@@ -102,8 +102,6 @@
 		4DE743AF1BAE631D0093FA1C /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */; };
 		4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */; };
 		4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */; };
-		4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */; };
-		4DE754911BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE7548F1BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib */; };
 		4DE754941BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */; };
 		4DE754951BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE754931BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib */; };
 		4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */; };
@@ -323,8 +321,8 @@
 		4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4DBBDCEE1BC440970079035A /* ChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		4DBBDCEF1BC440970079035A /* ChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
-		4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController2.swift; sourceTree = "<group>"; };
-		4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController2.xib; sourceTree = "<group>"; };
+		4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController.xib; sourceTree = "<group>"; };
 		4DBBDCF71BC4809D0079035A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4DBBDCF81BC4809D0079035A /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
@@ -356,8 +354,6 @@
 		4DE743AE1BAE631D0093FA1C /* DateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesTableViewController.swift; sourceTree = "<group>"; };
 		4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulesTableViewController.xib; sourceTree = "<group>"; };
-		4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
-		4DE7548F1BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController.xib; sourceTree = "<group>"; };
 		4DE754921BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		4DE754931BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryField.swift; sourceTree = "<group>"; };
@@ -645,14 +641,12 @@
 				4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */,
 				4DE7548A1BA5AA8800D3FE29 /* SchedulesTableViewController.swift */,
 				4DE7548B1BA5AA8800D3FE29 /* SchedulesTableViewController.xib */,
-				4DE7548E1BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift */,
-				4DE7548F1BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib */,
 				4DE754A31BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.swift */,
 				4DE754A41BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib */,
 				4D3FE2DB1BC05C2D00DB892E /* ScheduleDetailTableViewController2.swift */,
 				4D3FE2DC1BC05C2D00DB892E /* ScheduleDetailTableViewController2.xib */,
-				4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController2.swift */,
-				4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController2.xib */,
+				4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController.swift */,
+				4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController.xib */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -1132,7 +1126,7 @@
 				4D49A71E1B513B6A001FCF54 /* Main.storyboard in Resources */,
 				4DE7549C1BA77F4A00D3FE29 /* ScheduleTableViewCell.xib in Resources */,
 				4DFE4ECB1BBF9D5C00E1EA6E /* Gotham-Light.otf in Resources */,
-				4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController2.xib in Resources */,
+				4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController.xib in Resources */,
 				4D2C54531B880EE40007AFD5 /* KlockWirkerDetailViewController.xib in Resources */,
 				4D2C549C1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib in Resources */,
 				4DFE4EC91BBF9D5C00E1EA6E /* Gotham-Book.otf in Resources */,
@@ -1143,7 +1137,6 @@
 				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
 				4DFE4ECD1BBF9D5C00E1EA6E /* Gotham-Medium.otf in Resources */,
 				4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */,
-				4DE754911BA5ACDB00D3FE29 /* ScheduleDetailViewController.xib in Resources */,
 				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
 				4D2C54771B952BD20007AFD5 /* EnrollmentViewCell.xib in Resources */,
 				4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */,
@@ -1225,7 +1218,7 @@
 				4DFE4E9F1BBB6D4800E1EA6E /* ChartYAxisRendererHorizontalBarChart.swift in Sources */,
 				4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */,
 				4D2C545B1B8A03130007AFD5 /* MBProgressHUD.m in Sources */,
-				4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController2.swift in Sources */,
+				4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController.swift in Sources */,
 				4DFE4E6F1BBB6D4800E1EA6E /* BarChartData.swift in Sources */,
 				4DFE4E831BBB6D4800E1EA6E /* PieChartDataSet.swift in Sources */,
 				4D2C54CB1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m in Sources */,
@@ -1303,7 +1296,6 @@
 				4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */,
 				4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */,
 				4DFE4E9C1BBB6D4800E1EA6E /* ChartXAxisRendererHorizontalBarChart.swift in Sources */,
-				4DE754901BA5ACDB00D3FE29 /* ScheduleDetailViewController.swift in Sources */,
 				4DFE4E7D1BBB6D4800E1EA6E /* CombinedChartData.swift in Sources */,
 				4DFE4E7F1BBB6D4800E1EA6E /* LineChartDataSet.swift in Sources */,
 				4DFE4E6E1BBB6D4800E1EA6E /* ChartYAxis.swift in Sources */,

@@ -188,7 +188,7 @@ class SchedulesTableViewController: UITableViewController {
     
         let schedule = schedules[indexPath.row] 
         
-        self.navigationController?.pushViewController(ScheduleDetailViewController2(schedule: schedule), animated: true)
+        self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
     }
     
 }
