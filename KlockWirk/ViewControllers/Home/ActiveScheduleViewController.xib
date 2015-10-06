@@ -42,8 +42,8 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy8-X3-Ugc">
-                    <rect key="frame" x="258" y="474" width="84" height="30"/>
-                    <state key="normal" title="View Details">
+                    <rect key="frame" x="224" y="474" width="152" height="30"/>
+                    <state key="normal" title="View Schedule Details">
                         <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>

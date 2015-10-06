@@ -136,8 +136,8 @@ class SchedulesTableViewController: UITableViewController {
         
         label.text = "You Currently Have No Schedules Created"
         label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.lightGrayColor()
-        label.font = UIFont (name: "HelveticaNeue", size: 15)
+        label.textColor = UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)
+        label.font = UIFont (name: "Gotham-Light", size: 15)
         label.numberOfLines = 2
         //  label.sizeToFit()
         
@@ -188,7 +188,7 @@ class SchedulesTableViewController: UITableViewController {
     
         let schedule = schedules[indexPath.row] 
         
-        self.navigationController?.pushViewController(ScheduleDetailViewController(schedule: schedule), animated: true)
+        self.navigationController?.pushViewController(ScheduleDetailViewController2(schedule: schedule), animated: true)
     }
     
 }

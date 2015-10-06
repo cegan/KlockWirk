@@ -60,7 +60,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         setupNavigationBar()
         setupTableViewDelegates()
         
-        tv.separatorColor = UIColor.redColor()
+        //tv.separatorColor = UIColor.redColor()
         
       
         
@@ -202,6 +202,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
     func setupTableViewProperties(){
         
         tv.tableFooterView = UIView(frame: CGRectZero)
+        tv.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
     }
     
     

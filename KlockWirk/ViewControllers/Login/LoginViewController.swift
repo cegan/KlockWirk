@@ -52,14 +52,10 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func loginFailed(){
         
+        shakeTextField(emaiAddress)
+        shakeTextField(password)
+        
         loginButton.setTitle("Sign In", forState: UIControlState.Normal)
-        
-        
-        let alertController = UIAlertController(title: "Login", message:
-            "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
         
         stopActivityIndicator()
     }
@@ -175,6 +171,19 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         self.view.endEditing(true)
     }
     
+    func shakeTextField(textField: UITextField){
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(textField.center.x - 10, textField.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(textField.center.x + 10, textField.center.y))
+        textField.layer.addAnimation(animation, forKey: "position")
+    }
+
+    
+    
 
     
     
@@ -257,8 +266,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func login(sender: AnyObject) {
         
         ApplicationInformation.clearSharedData()
-        
-
+   
         loginButton.setTitle("", forState: UIControlState.Normal)
         
         endEditing()

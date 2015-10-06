@@ -8,9 +8,10 @@
         <mutableArray key="Gotham-Light.otf">
             <string>Gotham-Light</string>
             <string>Gotham-Light</string>
+            <string>Gotham-Light</string>
+            <string>Gotham-Light</string>
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
@@ -52,7 +53,7 @@
                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
-                    <rect key="frame" x="142" y="306" width="317" height="40"/>
+                    <rect key="frame" x="142" y="289" width="317" height="40"/>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="317" id="Sf4-YA-jok"/>
@@ -78,7 +79,7 @@
                         <constraint firstAttribute="width" constant="85" id="LMs-Ek-nlH"/>
                         <constraint firstAttribute="height" constant="35" id="ZDZ-85-gaA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
                     <state key="normal" title="Register">
                         <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -92,10 +93,18 @@
                         <constraint firstAttribute="height" constant="80" id="DK3-pU-kE9"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbS-bw-q3q">
+                    <rect key="frame" x="237" y="368" width="127" height="30"/>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                    <state key="normal" title="Forgot Password">
+                        <color key="titleColor" red="0.92941176469999998" green="0.2666666667" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UwO-KI-Vbu" secondAttribute="trailing" constant="20" symbolic="YES" id="A8i-ja-K1x"/>
+                <constraint firstItem="cbS-bw-q3q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Du5-w0-oap"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="top" secondItem="ELB-Vv-LIT" secondAttribute="bottom" constant="9" id="ECn-8C-5ZD"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="top" secondItem="UwO-KI-Vbu" secondAttribute="bottom" constant="70" id="SZk-aT-oTW"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="URI-Yt-qy2"/>
@@ -104,6 +113,8 @@
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="Wbc-gH-3Bt"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="gpN-YJ-iri"/>
                 <constraint firstAttribute="trailing" secondItem="ELB-Vv-LIT" secondAttribute="trailing" constant="20" symbolic="YES" id="hdE-Qe-mSx"/>
+                <constraint firstAttribute="trailing" secondItem="cbS-bw-q3q" secondAttribute="trailing" constant="20" symbolic="YES" id="iZF-9G-5PA"/>
+                <constraint firstItem="cbS-bw-q3q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="naP-pV-Jms"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="nd0-Mc-x7J"/>
                 <constraint firstAttribute="trailing" secondItem="fGU-Jf-om1" secondAttribute="trailing" constant="20" symbolic="YES" id="ocZ-a7-mkz"/>
                 <constraint firstAttribute="trailing" secondItem="ZBe-dW-Rc3" secondAttribute="trailing" constant="20" symbolic="YES" id="vKg-8F-Bt2"/>
