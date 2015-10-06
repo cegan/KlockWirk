@@ -81,12 +81,12 @@ class SchedulesTableViewController: UITableViewController {
         if(ApplicationInformation.isKlockWirker()){
             
             klockWirker = KlockWirkerManager.sharedInstance.klockWirker
-            schedules = klockWirker.schedules
+            schedules = klockWirker.schedules.sort(SortingUtilities.sortSchedulesByEndDate)
         }
         else if(ApplicationInformation.isMerchant()){
-            
+        
             merchant    = MerchantManager.sharedInstance.merchant
-            schedules   = merchant.schedules
+            schedules   = merchant.schedules.sort(SortingUtilities.sortSchedulesByEndDate)
         }
         
         tableView.reloadData()

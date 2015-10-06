@@ -135,6 +135,9 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         
         let dataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.colors = colors
+        
+        
+        
 
         
         

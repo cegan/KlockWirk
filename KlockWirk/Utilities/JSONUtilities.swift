@@ -151,8 +151,6 @@ class JSONUtilities{
         
         let schedule = Schedule()
         
-        let klockWirkerSchedules   = (s.objectForKey("KlockWirkerSchedules") as? NSArray)!
-        
         schedule.scheduleId = (s.objectForKey("ScheduleId") as? Int)!
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
         schedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
@@ -164,7 +162,6 @@ class JSONUtilities{
         
         return schedule
     }
-    
     
     class func parseMerchantSchedules(schedulesToParse: NSArray) -> [Schedule]{
         
