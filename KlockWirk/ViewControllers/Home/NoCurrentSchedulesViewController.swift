@@ -11,12 +11,11 @@ import UIKit
 class NoCurrentSchedulesViewController: UIViewController {
 
     
+    @IBOutlet weak var nextShiftStartButton: UIButton!
     @IBOutlet weak var addScheduleButton: UIButton!
     @IBOutlet weak var klockWirkerMessageLabel: UILabel!
-    @IBOutlet weak var nextShitStartLabel: UILabel!
     
     var nextSchedule = Schedule()
-    
     
     
     
@@ -25,43 +24,24 @@ class NoCurrentSchedulesViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Home"
-    }
-    
-    
-    
-    
-    func setupShiftStartGestureRecognizer(){
         
-        nextShitStartLabel.userInteractionEnabled = true
-        nextShitStartLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("displayScheduleDetail:")))
-    }
-    
-    
-    func displayScheduleDetail(gestureRecognizer: UITapGestureRecognizer){
-        
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func addScheduleTouched(sender: AnyObject) {
-        
-        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
- 
+        addScheduleButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
-
+        
         refreshHomeView()
-        setupShiftStartGestureRecognizer()
     }
-    
-    
-  
-    
-    
+
+
+    func displayScheduleDetail(){
+        
+        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
+    }
+
     func refreshHomeView(){
         
-        addScheduleButton.hidden = true
+        nextShiftStartButton.hidden = true
         
         if(ApplicationInformation.isKlockWirker()){
             
@@ -72,13 +52,13 @@ class NoCurrentSchedulesViewController: UIViewController {
                 nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules)!
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
-                nextShitStartLabel.attributedText = StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime)
-                nextShitStartLabel.hidden = false
+                nextShiftStartButton.setAttributedTitle(StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime), forState: .Normal)
+                nextShiftStartButton.hidden = false
             }
             else{
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules"
-                nextShitStartLabel.hidden = true
+                nextShiftStartButton.hidden = true
             }
         }
         else{
@@ -90,16 +70,27 @@ class NoCurrentSchedulesViewController: UIViewController {
                 nextSchedule = DateUtilities.getNextSchedule(merchant.schedules)!
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
-                nextShitStartLabel.attributedText = StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime)
-                
-                nextShitStartLabel.hidden = false
+                nextShiftStartButton.setAttributedTitle(StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime), forState: .Normal)
+                nextShiftStartButton.hidden = false
             }
             else{
                 
                 klockWirkerMessageLabel.text = "You currently have no active schedules"
                 addScheduleButton.hidden = false
-                nextShitStartLabel.hidden = true
+                nextShiftStartButton.hidden = true
             }
         }
     }
+    
+    
+    @IBAction func addScheduleTouched(sender: AnyObject) {
+        
+        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
+    }
+    
+    @IBAction func onNextScheduleButtonTouched(sender: AnyObject) {
+        
+        displayScheduleDetail()
+    }
+
 }

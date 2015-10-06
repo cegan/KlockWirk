@@ -60,6 +60,10 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         setupNavigationBar()
         setupTableViewDelegates()
         
+        tv.separatorColor = UIColor.redColor()
+        
+      
+        
         setupPieChart()
     }
     

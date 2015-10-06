@@ -88,7 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //UINavigation attributes
-        UINavigationBar.appearance().translucent = true
+        
+        
+  
+        
+
     }
 
 

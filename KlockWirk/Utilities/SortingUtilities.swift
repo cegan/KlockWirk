@@ -19,7 +19,7 @@ class SortingUtilities{
     
     class func sortSchedulesByEndDate(compare:Schedule, to:Schedule) -> Bool {
         
-        return compare.endDateTime.compare(to.endDateTime) == NSComparisonResult.OrderedAscending
+        return compare.endDateTime.compare(to.endDateTime) == NSComparisonResult.OrderedDescending
     }
     
     
