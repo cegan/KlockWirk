@@ -139,15 +139,6 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func getCompletedSchedule() -> Schedule{
         
-        
-        scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 4))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 5))
-        
-        
-        
         let schedule = Schedule()
         
         let line        = scheduleFields.objectAtIndex(0) as! AccountSetupField

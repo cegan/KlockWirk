@@ -61,12 +61,12 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         if(textField.text != ""){
             
             if(accountSetupField.fieldType == .Currency){
-                
-                textField.text = NumberFormatter.formatDoubleToCurrency(Double(textField.text!)!)
+            
+                textField.text = NumberFormatter.formatDoubleToCurrency(textField.text!)
             }
             else if(accountSetupField.fieldType == .Percent){
                 
-                textField.text = NumberFormatter.formatDoubleToPercent(Double(textField.text!)!)
+                textField.text = NumberFormatter.formatDoubleToPercent(textField.text!)
             }
         }
     }

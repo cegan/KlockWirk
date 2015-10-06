@@ -126,12 +126,13 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
         
         
-        let line = ChartDataEntry(value: selectedSchedule.line, xIndex: 0)
-        let achieved = ChartDataEntry(value: selectedSchedule.achieved, xIndex: 1)
         
+        let percentAchieved = (selectedSchedule.achieved/selectedSchedule.line * 100)
+        let goal = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
+        let achieved = ChartDataEntry(value: percentAchieved, xIndex: 1)
         
-        
-        yVals.append(line)
+
+        yVals.append(goal)
         yVals.append(achieved)
         
         xVals.append("Goal")
@@ -273,7 +274,6 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
             (alert: UIAlertAction!) -> Void in
         })
         
-        
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)
         
@@ -285,7 +285,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         scheduleService.deleteSchedule(selectedSchedule.scheduleId) { (response:NSDictionary) in
             
             self.merchantService.getMerchant(ApplicationInformation.getMerchantId()) {(response: Merchant) in
-                
+            
                 self.navigationController?.popViewControllerAnimated(true)
             }
         }

@@ -49,7 +49,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         refreshHomeView()
-        setupPieChart()
+        //setupPieChart()
         setupNavigationBar()
     }
     
@@ -120,17 +120,18 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         colors.append(UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0))
         colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
         
-
-        let line = ChartDataEntry(value: currentSchedule.line, xIndex: 0)
-        let achieved = ChartDataEntry(value: currentSchedule.achieved, xIndex: 1)
         
-    
+        let percentAchieved = (currentSchedule.achieved/currentSchedule.line * 100)
+        let goal = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
+        let achieved = ChartDataEntry(value: percentAchieved, xIndex: 1)
         
-        yVals.append(line)
+        yVals.append(goal)
         yVals.append(achieved)
         
         xVals.append("Goal")
         xVals.append("Achieved")
+        
+    
         
         let dataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.colors = colors
@@ -163,7 +164,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
     func refreshSchedule(){
         
-        pieChart.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutCirc)
+        pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
     }
 
     func refreshHomeView(){
@@ -176,7 +177,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                 
                 if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
                     
-                    pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
+                    pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
                     currentSchedule = schedule
                     
                     goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)

@@ -39,7 +39,6 @@ class JSONUtilities{
         let merchant            = (kw.objectForKey("Merchant") as? NSDictionary)!
         let merchantSchedules   = (merchant.objectForKey("MerchantSchedules") as? NSArray)!
        
-        
         klockWirker.merchantId = (kw.objectForKey("MerchantId") as? Int)!
         klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
         klockWirker.firstName = (kw.objectForKey("FirstName") as? String)!
@@ -51,7 +50,18 @@ class JSONUtilities{
 
         for ms: AnyObject in merchantSchedules{
             
-            klockWirker.schedules.append(parseMerchantSchedule(ms as! NSDictionary))
+            if let klockWirkerSchedules = (ms.objectForKey("KlockWirkerSchedules") as? NSArray){
+                
+                for x: AnyObject in klockWirkerSchedules{
+                    
+                    let kwId = (x.objectForKey("KlockWirkerId") as? Int)!
+                    
+                    if(kwId == klockWirker.klockWirkerId){
+                        
+                        klockWirker.schedules.append(parseMerchantSchedule(ms as! NSDictionary))
+                    }
+                }
+            }
         }
         
         return klockWirker
@@ -140,6 +150,8 @@ class JSONUtilities{
     class func parseMerchantSchedule(s: NSDictionary) -> Schedule{
         
         let schedule = Schedule()
+        
+        let klockWirkerSchedules   = (s.objectForKey("KlockWirkerSchedules") as? NSArray)!
         
         schedule.scheduleId = (s.objectForKey("ScheduleId") as? Int)!
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
