@@ -12,7 +12,7 @@ import Foundation
 
 class JSONUtilities{
     
-    class func parseKlockWirkers(kws: NSArray) -> NSArray{
+    class func parseKlockWirkers(kws: NSArray) -> [KlockWirker]{
         
         var klockWirkers:[KlockWirker] = []
         

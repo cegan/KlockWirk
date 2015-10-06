@@ -54,7 +54,7 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         
         scheduleSummaryFields = getScheduleSummaryFields()
         
-        loadSheeduledKlockWirkers()
+        loadKlockWirkersOnSchedule()
         setupViewProperties()
         setupTableViewProperties()
         setupNavigationBar()
@@ -73,20 +73,13 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
     override func viewWillAppear(animated: Bool) {
         
         self.navigationItem.title = "Schedule Detail"
-        loadSheeduledKlockWirkers()
+        
     }
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     func setupPieChart(){
         
@@ -291,12 +284,12 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
         }
     }
     
-    func loadSheeduledKlockWirkers(){
+    func loadKlockWirkersOnSchedule(){
         
-//        scheduleService.getKlockWirkersOnSchedule(selectedSchedule) { (response:NSArray) in
-//            
-//            self.selectedSchedule.klockWirkers = JSONUtilities.parseKlockWirkers(response) as! [KlockWirker]
-//        }
+        scheduleService.getKlockWirkersOnSchedule(selectedSchedule) { (response:[KlockWirker]) in
+            
+            self.selectedSchedule.klockWirkers = response
+        }
         
         tv.reloadData()
     }
@@ -336,7 +329,6 @@ class ScheduleDetailViewController: UIViewController,ChartViewDelegate, UITableV
     
         switch(indexPath.row){
 
-            
             case 5:
                 
                 self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: selectedSchedule.klockWirkers,readOnly: true), animated: true)

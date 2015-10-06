@@ -97,9 +97,11 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func setupInputFields(){
         
+        emaiAddress.autocorrectionType = .No
         emaiAddress.borderStyle = UITextBorderStyle.None
         emaiAddress.layer.cornerRadius = 3.0;
         
+        password.autocorrectionType = .No
         password.borderStyle = UITextBorderStyle.None
         password.layer.cornerRadius = 3.0;
     }

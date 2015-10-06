@@ -130,6 +130,36 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
+    
+    
+    
+    func getKlockWirkersOnSchedule(schedule: Schedule, onCompletion: (response: [KlockWirker]) -> ()) {
+        
+        let parameters = ["id":schedule.scheduleId]
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkersByScheduleId, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            
+            let kws   = (jsonResult.objectForKey("KlockWirkers") as? NSArray)!
+            
+            JSONUtilities.parseKlockWirkers(kws)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                onCompletion(response: JSONUtilities.parseKlockWirkers(kws))
+            })
+        })
+        
+        task.resume()
+    }
+    
+    
+    
+    
     func deleteSchedule(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
         
         let parameters = ["id":scheduleId]
