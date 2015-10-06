@@ -36,7 +36,7 @@ class NoCurrentSchedulesViewController: UIViewController {
 
     func displayScheduleDetail(){
         
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController2(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
     }
 
     func refreshHomeView(){

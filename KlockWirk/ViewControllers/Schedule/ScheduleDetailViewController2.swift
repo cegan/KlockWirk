@@ -21,6 +21,7 @@ class ScheduleDetailViewController2: UITableViewController {
     var selectedSchedule = Schedule()
     var scheduleSummaryFields = NSMutableArray()
     
+    //let refreshControl = UIRefreshControl()
     
     
     
@@ -62,6 +63,7 @@ class ScheduleDetailViewController2: UITableViewController {
         
         loadKlockWirkersOnSchedule()
         setupViewProperties()
+        setupTableViewRefresh()
         setupTableViewProperties()
         setupNavigationBar()
     }
@@ -112,6 +114,14 @@ class ScheduleDetailViewController2: UITableViewController {
         tableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
         tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
         tableView.registerNib(UINib(nibName: "ChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ChartTableViewCell")
+    }
+    
+    func setupTableViewRefresh(){
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "")
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
     
     
@@ -212,6 +222,11 @@ class ScheduleDetailViewController2: UITableViewController {
     func dismissScheduleDetail(){
         
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func refresh(sender:AnyObject){
+        
+        self.refreshControl?.endRefreshing()
     }
     
     

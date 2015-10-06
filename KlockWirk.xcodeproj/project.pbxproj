@@ -82,6 +82,8 @@
 		4DBBDCF11BC440970079035A /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCEF1BC440970079035A /* ChartTableViewCell.xib */; };
 		4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController2.swift */; };
 		4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController2.xib */; };
+		4DBBDCF91BC4809D0079035A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF71BC4809D0079035A /* ForgotPasswordViewController.swift */; };
+		4DBBDCFA1BC4809D0079035A /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF81BC4809D0079035A /* ForgotPasswordViewController.xib */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
 		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
 		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
@@ -323,6 +325,8 @@
 		4DBBDCEF1BC440970079035A /* ChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		4DBBDCF21BC4453F0079035A /* ScheduleDetailViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController2.swift; sourceTree = "<group>"; };
 		4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController2.xib; sourceTree = "<group>"; };
+		4DBBDCF71BC4809D0079035A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4DBBDCF81BC4809D0079035A /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -623,6 +627,7 @@
 			children = (
 				4D2C54691B8A907B0007AFD5 /* MerchantTabBarController.swift */,
 				4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */,
+				4DBBDCF61BC4806C0079035A /* ForgotPassword */,
 				4D2C54881B9E5B830007AFD5 /* Home */,
 				4D2C54601B8A7A7A0007AFD5 /* Settings */,
 				4D79E64A1B8008DC00A1F25D /* ManageKlockWirkers */,
@@ -760,6 +765,15 @@
 				4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */,
 			);
 			path = ManageKlockWirkers;
+			sourceTree = "<group>";
+		};
+		4DBBDCF61BC4806C0079035A /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4DBBDCF71BC4809D0079035A /* ForgotPasswordViewController.swift */,
+				4DBBDCF81BC4809D0079035A /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		4DDA8D191B5147F10056800C /* Frameworks */ = {
@@ -1123,6 +1137,7 @@
 				4D2C549C1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib in Resources */,
 				4DFE4EC91BBF9D5C00E1EA6E /* Gotham-Book.otf in Resources */,
 				4DE754A21BA7870D00D3FE29 /* InputTableViewCell.xib in Resources */,
+				4DBBDCFA1BC4809D0079035A /* ForgotPasswordViewController.xib in Resources */,
 				4DE754A61BA7A9B100D3FE29 /* KlockWirkerSelectionTableViewController.xib in Resources */,
 				4D3FE2E61BC09B3500DB892E /* ActiveScheduleViewController.xib in Resources */,
 				4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */,
@@ -1297,6 +1312,7 @@
 				4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */,
 				4DFE4E711BBB6D4800E1EA6E /* BarChartDataSet.swift in Sources */,
 				4DFE4E801BBB6D4800E1EA6E /* LineRadarChartDataSet.swift in Sources */,
+				4DBBDCF91BC4809D0079035A /* ForgotPasswordViewController.swift in Sources */,
 				4DE754A11BA7870D00D3FE29 /* InputTableViewCell.swift in Sources */,
 				4DFE4EA41BBB6D4800E1EA6E /* LineScatterCandleRadarChartRenderer.swift in Sources */,
 				4DFE4E5E1BBB6D4800E1EA6E /* BubbleChartView.swift in Sources */,

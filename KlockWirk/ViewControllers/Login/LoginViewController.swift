@@ -19,21 +19,15 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     let activityIndicator = UIActivityIndicatorView()
     
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var registerButton: TKTransitionSubmitButton!
     @IBOutlet weak var loginButton: TKTransitionSubmitButton!
     @IBOutlet weak var emaiAddress: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
-    
-    
-    
-    func onTapButton(button: TKTransitionSubmitButton) {
-        
-        button.animate(100000, completion: { () -> () in
 
-        })
-    }
+    
+    
 
 
     //MARK: Notifications
@@ -181,6 +175,16 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         animation.toValue = NSValue(CGPoint: CGPointMake(textField.center.x + 10, textField.center.y))
         textField.layer.addAnimation(animation, forKey: "position")
     }
+    
+    func areLoginFieldsValid() -> Bool{
+        
+        if(emaiAddress.text == "" || password.text == ""){
+            
+            return false
+        }
+        
+        return true
+    }
 
     
     
@@ -266,73 +270,57 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func login(sender: AnyObject) {
         
         ApplicationInformation.clearSharedData()
-   
-        loginButton.setTitle("", forState: UIControlState.Normal)
-        
         endEditing()
-        startActivityIndicator()
-               
-  
-        loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
+        
+        if(areLoginFieldsValid()){
             
-            let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
-            let isMerchant      = response.objectForKey("isMerchant") as? Bool
-            let merchantId      = response.objectForKey("MerchantId") as? Int
-            let klockWirkerId   = response.objectForKey("KlockWirkerId") as? Int
+            startActivityIndicator()
+            loginButton.setTitle("", forState: UIControlState.Normal)
             
-            if(isKlockWirker == true){
+            loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
                 
-                ApplicationInformation.setIsKlockWirker(true)
+                let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
+                let isMerchant      = response.objectForKey("isMerchant") as? Bool
+                let merchantId      = response.objectForKey("MerchantId") as? Int
+                let klockWirkerId   = response.objectForKey("KlockWirkerId") as? Int
                 
-                self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
-            
-                    self.loadKlockWirkerTabBarController()
+                if(isKlockWirker == true){
+                    
+                    ApplicationInformation.setIsKlockWirker(true)
+                    
+                    self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
+                        
+                        self.loadKlockWirkerTabBarController()
+                    }
+                }
+                if(isMerchant == true){
+                    
+                    ApplicationInformation.setIsMerchant(true)
+                    
+                    self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
+                        
+                        self.loadMerchantTabBarController()
+                    }
                 }
             }
-            if(isMerchant == true){
+        }
+        else{
+            
+            if(emaiAddress.text == ""){
                 
-                ApplicationInformation.setIsMerchant(true)
+                shakeTextField(emaiAddress)
+            }
+            if(password.text == ""){
                 
-                self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
-                    
-                    self.loadMerchantTabBarController()
-                }
+                shakeTextField(password)
             }
         }
     }
     
-    func registerButtonTapped(){
+    @IBAction func forgotPasswordTouched(sender: AnyObject) {
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
-        
-        
-        let klockWirkerAction = UIAlertAction(title: "KlockWirker", style: .Default, handler: {
-            
-            (alert: UIAlertAction!) -> Void in
-            
-            self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController(nibName: "KlockWirkerSetupViewController2", bundle: nil)), animated: true, completion: nil)
-            
-        })
-        let merchantAction = UIAlertAction(title: "Merchant", style: .Default, handler: {
-            
-            (alert: UIAlertAction!) -> Void in
-            
-            self.presentViewController(UINavigationController(rootViewController: MerchantSetupViewController(nibName: "MerchantSetupViewController", bundle: nil)), animated: true, completion: nil)
-            
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            
-            (alert: UIAlertAction!) -> Void in
-        })
-        
-        
-        optionMenu.addAction(klockWirkerAction)
-        optionMenu.addAction(merchantAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        self.presentViewController( UINavigationController(rootViewController: ForgotPasswordViewController()), animated: true, completion: nil)
     }
-
+    
 
 }
