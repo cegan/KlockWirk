@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     
 
     @IBAction func logoutTouched(sender: AnyObject) {
-        
+    
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
     }

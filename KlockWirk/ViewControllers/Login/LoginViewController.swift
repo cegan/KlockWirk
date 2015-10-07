@@ -10,8 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate  {
     
-    var btn: TKTransitionSubmitButton!
-    
+ 
     let loginService        = LoginService()
     let klockWirkService    = KlockWirkerServices()
     let merchantService     = MerchantServices()
@@ -54,32 +53,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         stopActivityIndicator()
     }
 
-    func installSplashImage(){
-        
-       
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-       
-      
-        let imageView = UIImageView(frame: appDelegate.window!.frame)
-        
-     
-        imageView.image = UIImage(named: "bartenders")
-       // self.window!.addSubview(imageView)
-        
-        
-       
-        
-        self.view.addSubview(imageView)
-        
-        self.view.bringSubviewToFront(emaiAddress)
-        self.view.bringSubviewToFront(password)
-        self.view.bringSubviewToFront(loginButton)
-        self.view.bringSubviewToFront(registerButton)
-        
-        
-        
-        
-    }
+    
     
     
     
@@ -262,9 +236,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
-        
-        
-        
+  
     }
     
     @IBAction func login(sender: AnyObject) {

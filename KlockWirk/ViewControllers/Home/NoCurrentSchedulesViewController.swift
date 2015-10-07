@@ -22,10 +22,7 @@ class NoCurrentSchedulesViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         self.navigationItem.title = "Home"
-        
-        addScheduleButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +39,7 @@ class NoCurrentSchedulesViewController: UIViewController {
     func refreshHomeView(){
         
         nextShiftStartButton.hidden = true
+        addScheduleButton.hidden = true
         
         if(ApplicationInformation.isKlockWirker()){
             
@@ -65,20 +63,19 @@ class NoCurrentSchedulesViewController: UIViewController {
             
             let merchant = MerchantManager.sharedInstance.merchant
             
-            if(merchant.schedules.count > 0){
-                
-                nextSchedule = DateUtilities.getNextSchedule(merchant.schedules)!
-                
+            if let nextSchedule = DateUtilities.getNextSchedule(merchant.schedules){
+                    
                 klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
                 nextShiftStartButton.setAttributedTitle(StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime), forState: .Normal)
                 nextShiftStartButton.hidden = false
             }
             else{
-                
+                    
                 klockWirkerMessageLabel.text = "You currently have no active schedules"
                 addScheduleButton.hidden = false
                 nextShiftStartButton.hidden = true
             }
+            
         }
     }
     

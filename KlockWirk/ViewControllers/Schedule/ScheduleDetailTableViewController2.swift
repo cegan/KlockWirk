@@ -100,7 +100,7 @@ class ScheduleDetailTableViewController2: UITableViewController {
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(scheduleToDisplay.KlockWirkerPercentage), tag: 3))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(scheduleToDisplay.startDateTime), tag: 4))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(scheduleToDisplay.endDateTime), tag: 5))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers On Schedule", val: "", tag: 6))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 6))
         
         return scheduleSummarFieldsFields
     }
@@ -128,7 +128,7 @@ class ScheduleDetailTableViewController2: UITableViewController {
         
         cell.bindCellDetails(scheduleSummaryField)
         
-        if(indexPath.row == 5){
+        if(scheduleSummaryField.tag == 6){
             
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }

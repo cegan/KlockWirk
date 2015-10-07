@@ -68,7 +68,6 @@ class MerchantSetupViewController: UITableViewController {
         return true
     }
     
-    
     func getMerchantSetupItems() -> MerchantSetupItems{
         
         let merchantSetupItems = MerchantSetupItems()
@@ -86,7 +85,6 @@ class MerchantSetupViewController: UITableViewController {
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
     }
-    
     
     func endEditing(){
         
@@ -221,8 +219,6 @@ class MerchantSetupViewController: UITableViewController {
             displayAlert("Password does not match")
         }
     }
-    
-    
     
     func displayAlert(message: String){
         
