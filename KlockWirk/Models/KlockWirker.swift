@@ -20,7 +20,7 @@ class KlockWirker: NSObject, NSCoding{
     var password: String = ""
     var confirmPassword: String = ""
     var isSelected: Bool = false
-    var schedules:[Schedule] = []
+    var schedules = [Schedule]()
     
     
     override init() {}

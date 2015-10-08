@@ -30,8 +30,8 @@ class Merchant: NSObject, NSCoding{
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
-    var schedules:[Schedule] = []
-    var klockWirkers:[KlockWirker] = []
+    var schedules = [Schedule] ()
+    var klockWirkers = [KlockWirker]()
     
     
     override init() {}
@@ -61,7 +61,6 @@ class Merchant: NSObject, NSCoding{
     func encodeWithCoder(aCoder: NSCoder) {
         
         aCoder.encodeObject(merchantId, forKey: "merchantId")
-        //aCoder.encodeObject(posSystemId, forKey: "posSystemId")
         aCoder.encodeObject(posSystemBaseApiUrl, forKey: "posSystemBaseApiUrl")
         aCoder.encodeObject(posSystemApiKey, forKey: "posSystemApiKey")
         aCoder.encodeObject(posSystem, forKey: "posSystem")

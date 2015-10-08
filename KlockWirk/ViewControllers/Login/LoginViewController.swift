@@ -16,8 +16,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     let merchantService     = MerchantServices()
     let scheduleService     = SchedulService()
     
-    let activityIndicator = UIActivityIndicatorView()
-    
+  
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var registerButton: TKTransitionSubmitButton!
     @IBOutlet weak var loginButton: TKTransitionSubmitButton!
@@ -47,9 +47,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         shakeTextField(emaiAddress)
         shakeTextField(password)
-        
-        loginButton.setTitle("Sign In", forState: UIControlState.Normal)
-        
         stopActivityIndicator()
     }
 
@@ -60,16 +57,20 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     //MARK: Setup Methods
     
     func setupInputFields(){
-        
+    
         emaiAddress.autocorrectionType = .No
         emaiAddress.layer.borderWidth = 1.0
         emaiAddress.layer.borderColor = UIColor.lightGrayColor().CGColor
         emaiAddress.layer.cornerRadius = 3.0;
+        emaiAddress.leftView           = UIView(frame: CGRectMake(0, 0, 5, 20))
+        emaiAddress.leftViewMode        = UITextFieldViewMode.Always;
         
         password.autocorrectionType = .No
         password.layer.borderWidth = 1.0
         password.layer.borderColor = UIColor.lightGrayColor().CGColor
         password.layer.cornerRadius = 3.0;
+        password.leftView           = UIView(frame: CGRectMake(0, 0, 5, 20))
+        password.leftViewMode        = UITextFieldViewMode.Always;
     }
     
     func setupLoginButton(){
@@ -77,11 +78,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         loginButton.setTitle("Sign in", forState: .Normal)
         loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 14)
         loginButton.layer.cornerRadius = 3
-        
         activityIndicator.hidden = true
-        activityIndicator.color = UIColor.whiteColor()
-        activityIndicator.frame = loginButton.titleLabel!.frame
-        loginButton.addSubview(activityIndicator)
     }
     
     func setupViewProperties(){
@@ -247,7 +244,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         if(areLoginFieldsValid()){
             
             startActivityIndicator()
-            loginButton.setTitle("", forState: UIControlState.Normal)
             
             loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
                 

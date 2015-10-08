@@ -60,7 +60,6 @@ class DateUtilities{
         return nil
     }
     
-    
     class func getNextSchedule(schedules: [Schedule]) -> Schedule?{
         
         let sortedSchedules = schedules.sort(SortingUtilities.sortSchedulesByStartDate)
@@ -76,8 +75,6 @@ class DateUtilities{
         return nil
     }
     
-    
-    
     class func isBetweenMyTwoDates(shiftStartDate: NSDate, shiftEndDate:NSDate, today: NSDate) -> Bool {
     
         if shiftStartDate.compare(today) == .OrderedAscending && shiftEndDate.compare(today) == .OrderedDescending {
@@ -88,7 +85,6 @@ class DateUtilities{
         return false
     }
     
-    
     class func isDatePast(shiftStartDate: NSDate, today: NSDate) -> Bool {
         
         if shiftStartDate.compare(today) == .OrderedAscending && shiftStartDate.compare(today) == .OrderedDescending {
@@ -98,6 +94,5 @@ class DateUtilities{
         
         return false
     }
-    
     
 }
