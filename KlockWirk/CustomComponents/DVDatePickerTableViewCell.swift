@@ -51,63 +51,17 @@ class DVDatePickerTableViewCell: UITableViewCell {
     var timeStyle = NSDateFormatterStyle.ShortStyle, dateStyle = NSDateFormatterStyle.MediumStyle
     
     var leftLabel = UILabel(), rightLabel = UILabel()
-    var rightLabelTextColor = UIColor(hue: 0.639, saturation: 0.041, brightness: 0.576, alpha: 1.0) //Color of normal detail label.
+    var rightLabelTextColor = UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)
     
     var seperator = DVColorLockView()
     
     var datePickerContainer = UIView()
     var datePicker: UIDatePicker = UIDatePicker()
-    
-    
-    
     var expanded = false
     var unexpandedHeight = CGFloat(44)
     
-    
-    func getTheFuckingDate() -> String{
-    
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone(name: NSTimeZone.localTimeZone().name)
-        dateFormatter.dateStyle = dateStyle
-        dateFormatter.timeStyle = timeStyle
-        
-        let y = dateFormatter.stringFromDate(date)
-        let x = dateFormatter.dateFromString(y)
-        
-        return y
-        
-    }
-    
-    
-    func test(){
-        
-        
-        var myDateString = "Mon, 06 Sep 2009 16:45:00 -0900"
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone(name: NSTimeZone.localTimeZone().name)
-        let locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        
-        dateFormatter.locale = locale
-        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
-        
-        
-        let x = dateFormatter.dateFromString(myDateString)
-        
-        
-        
-//        NSString *myDateString = @"Mon, 06 Sep 2009 16:45:00 -0900";
-//        
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-//        [dateFormatter setLocale:locale];
-//        [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
-//        
-//        NSDate *myDate = [dateFormatter dateFromString:myDateString];
-//        NSLog(@"%@", myDate);
-//        // => 2009-09-07 01:45:00 +0000
-    }
-    
+
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

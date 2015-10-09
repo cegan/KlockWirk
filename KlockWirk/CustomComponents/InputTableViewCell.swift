@@ -27,32 +27,31 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
     }
     
-
     
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        if(accountSetupField.fieldType == .Currency){
+        
+        switch(accountSetupField.fieldType){
             
-            textField.keyboardType = UIKeyboardType.DecimalPad
-        }
-        if(accountSetupField.fieldType == .Percent){
+            case .Currency, .Percent:
+                textField.keyboardType = UIKeyboardType.DecimalPad
             
-            textField.keyboardType = UIKeyboardType.DecimalPad
-        }
-        if(accountSetupField.fieldType == .String){
+            case .String:
+                textField.keyboardType = UIKeyboardType.Alphabet
             
-            textField.keyboardType = UIKeyboardType.Alphabet
-        }
-        if(accountSetupField.fieldType == .Email){
+            case .Email:
+                textField.keyboardType = UIKeyboardType.EmailAddress
             
-            textField.keyboardType = UIKeyboardType.EmailAddress
-        }
-        if(accountSetupField.fieldType == .Phone){
+            case .Phone:
+                textField.keyboardType = UIKeyboardType.PhonePad
             
-            textField.keyboardType = UIKeyboardType.PhonePad
+            default:
+                textField.keyboardType = UIKeyboardType.Alphabet
         }
     }
+    
+    
     
     func textFieldDidEndEditing(textField: UITextField) {
         
@@ -77,7 +76,6 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
             
             cellInput.secureTextEntry = true
         }
-        
         
         cellInput.font              = UIFont (name: "Gotham-Light", size: 14)!
         selectionStyle              = .None

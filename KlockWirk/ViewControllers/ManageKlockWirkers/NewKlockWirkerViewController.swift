@@ -150,11 +150,6 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         return nil
     }
     
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        
-//        return 50
-//    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let accountField = klockWirkerRegistrationFields.objectAtIndex(indexPath.row) as! AccountSetupField

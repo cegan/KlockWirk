@@ -106,11 +106,14 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     func addButtonTapped(){
         
-        scheduleService.addSchedule(getCompletedSchedule(), merchantId: ApplicationInformation.getMerchantId()) { (response: Schedule) in
+        if(validateSchedule()){
             
-            MerchantManager.sharedInstance.merchant.schedules.append(response)
-
-            self.dismissViewControllerAnimated(true, completion: nil)
+            scheduleService.addSchedule(getCompletedSchedule(), merchantId: ApplicationInformation.getMerchantId()) { (response: Schedule) in
+                
+                MerchantManager.sharedInstance.merchant.schedules.append(response)
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
     }
     
@@ -148,9 +151,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         let startDate   = shiftStartDate
         let endDate     = shiftEndDate
         
-        schedule.KlockWirkerPercentage  = Double(percent.value!)!
-        schedule.line                   = Double(line.value!)!
-        schedule.achieved               = Double(achieved.value!)!
+        schedule.KlockWirkerPercentage  = NumberFormatter.getSafeDoubleFromCurrencyString(percent.value!)
+        schedule.line                   = NumberFormatter.getSafeDoubleFromCurrencyString(line.value!)
+        schedule.achieved               = NumberFormatter.getSafeDoubleFromCurrencyString(achieved.value!)
         schedule.startDateTime          = startDate
         schedule.endDateTime            = endDate
         
@@ -168,6 +171,18 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     func cancelTableViewEditing(shouldCancel: Bool){
         
         self.tableView.endEditing(shouldCancel)
+    }
+    
+    func validateSchedule() -> Bool{
+        
+        let schedule = getCompletedSchedule()
+        
+        if(schedule.line <= 0 || schedule.achieved <= 0 || schedule.KlockWirkerPercentage <= 0){
+            
+            return false
+        }
+        
+        return true
     }
     
     

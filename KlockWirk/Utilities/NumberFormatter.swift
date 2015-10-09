@@ -48,7 +48,35 @@ class NumberFormatter{
             returnValue = formatter.stringFromNumber(Double(value)!)!
         }
         
+        return returnValue
+    }
+    
+    
+    
+    class func getSafeDoubleFromCurrencyString(value: String) -> Double{
         
+        let formatter = NSNumberFormatter()
+        
+        formatter.numberStyle           = NSNumberFormatterStyle.CurrencyStyle
+        formatter.locale                = NSLocale(localeIdentifier: "en_US")
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        
+        var returnValue = 0.00
+        
+        
+        if let result = formatter.numberFromString(value)?.doubleValue{
+            
+            returnValue = result
+        }
+        else{
+            
+            if let result = Double(value){
+                
+                returnValue = result
+            }
+        }
+    
         return returnValue
     }
     

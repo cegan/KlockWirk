@@ -89,6 +89,8 @@ class DatePicker: UITableViewController {
                 let t = cell as! DVDatePickerTableViewCell
                 
                 t.leftLabel.text = "Shift Start"
+                t.leftLabel.font = UIFont(name: "Gotham-Medium", size: 14)
+                t.leftLabel.textColor = UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)
                 
                 return t
             }
@@ -101,6 +103,8 @@ class DatePicker: UITableViewController {
                 let t = cell as! DVDatePickerTableViewCell
                 
                 t.leftLabel.text = "Shift End"
+                t.leftLabel.font = UIFont(name: "Gotham-Medium", size: 14)
+                t.leftLabel.textColor = UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)
                 
                 return t
             }
