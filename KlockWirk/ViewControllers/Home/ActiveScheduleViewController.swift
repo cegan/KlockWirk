@@ -166,8 +166,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     func refreshSchedule(){
         
         NotificationUtilities.postNotification(NotificationConstants.UserDidRefreshSchedule)
-        
-        //pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
     }
 
     func refreshHomeView(){

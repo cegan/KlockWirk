@@ -13,7 +13,7 @@ class NoCurrentSchedulesViewController: UIViewController {
     
     @IBOutlet weak var nextShiftStartButton: UIButton!
     @IBOutlet weak var addScheduleButton: UIButton!
-    @IBOutlet weak var klockWirkerMessageLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var nextSchedule = Schedule()
     
@@ -37,29 +37,33 @@ class NoCurrentSchedulesViewController: UIViewController {
     
     func displayScheduleDetail(){
         
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
+        let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+        
+        if let nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules){
+            
+            self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
+        }
     }
 
     func refreshHomeView(){
         
         nextShiftStartButton.hidden = true
-        addScheduleButton.hidden = true
+        addScheduleButton.hidden    = true
         
         if(ApplicationInformation.isKlockWirker()){
             
             let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
             
-            if(klockWirker.schedules.count > 0){
+            
+            if let nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules){
                 
-                nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules)!
-                
-                klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
+                messageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
                 nextShiftStartButton.setAttributedTitle(StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime), forState: .Normal)
                 nextShiftStartButton.hidden = false
             }
             else{
                 
-                klockWirkerMessageLabel.text = "You currently have no active schedules"
+                messageLabel.text = "You currently have no active schedules"
                 nextShiftStartButton.hidden = true
             }
         }
@@ -69,13 +73,13 @@ class NoCurrentSchedulesViewController: UIViewController {
             
             if let nextSchedule = DateUtilities.getNextSchedule(merchant.schedules){
                     
-                klockWirkerMessageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
+                messageLabel.text = "You currently have no active schedules. Your next schedule will begin on"
                 nextShiftStartButton.setAttributedTitle(StringUtilities.getPrettyShiftStartDate(nextSchedule.startDateTime), forState: .Normal)
                 nextShiftStartButton.hidden = false
             }
             else{
                     
-                klockWirkerMessageLabel.text = "You currently have no active schedules"
+                messageLabel.text = "You currently have no active schedules"
                 addScheduleButton.hidden = false
                 nextShiftStartButton.hidden = true
             }

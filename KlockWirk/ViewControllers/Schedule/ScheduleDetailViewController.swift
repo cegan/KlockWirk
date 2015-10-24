@@ -35,8 +35,8 @@ class ScheduleDetailViewController: UITableViewController {
         
         super.init(nibName: "ScheduleDetailViewController", bundle: nil);
         
-        selectedSchedule = schedule
-        isModal = initAsModal
+        selectedSchedule    = schedule
+        isModal             = initAsModal
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -299,12 +299,4 @@ class ScheduleDetailViewController: UITableViewController {
             return
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

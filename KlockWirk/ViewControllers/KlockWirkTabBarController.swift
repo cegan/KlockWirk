@@ -9,7 +9,7 @@
 import Foundation
 
 
-class KlockWirkTabBarController : UITabBarController{
+class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
     
     
     let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
@@ -21,6 +21,8 @@ class KlockWirkTabBarController : UITabBarController{
     init(){
         
         super.init(nibName: nil, bundle: nil);
+        
+        registerNotification()
         
         noActiveScheduleViewController.tabBarItem   = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
         noActiveScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
@@ -62,19 +64,83 @@ class KlockWirkTabBarController : UITabBarController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        refreshTabBar()
+    }
+    
+    
+    
+    //MARK: Register Notification
+    
+    func registerNotification(){
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "userDidAddNewSchedule",
+            name:NotificationConstants.UserDidAddNewSchedule,
+            object: nil
+        )
+        
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "userDidRefreshSchedule",
+            name:NotificationConstants.UserDidRefreshSchedule,
+            object: nil
+        )
+    }
+    
+    
+    
+    
+    //MARK: Notification Handlers
+    
+    func userDidRefreshSchedule(){
+        
+        refreshTabBar()
+    }
 
+    
+    
+    //MARK: Utility Methods
+    
     func shouldShowActiveSchedule() -> Bool{
     
         let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
         
         if(klockWirker.schedules.count > 0){
             
-            if let schedule = DateUtilities.getCurrentSchedule(klockWirker.schedules){
+            if let _ = DateUtilities.getCurrentSchedule(klockWirker.schedules){
                 
                 return true
             }
         }
         
         return false
+    }
+    
+    func refreshTabBar(){
+        
+        if(shouldShowActiveSchedule()){
+            
+            self.viewControllers =
+                [UINavigationController(rootViewController: activeScheduleViewController),
+                    UINavigationController(rootViewController: scheduleViewController),
+                    UINavigationController(rootViewController: settingsViewController)]
+            
+        }
+        else{
+            
+            self.viewControllers =
+                [UINavigationController(rootViewController: noActiveScheduleViewController),
+                    UINavigationController(rootViewController: scheduleViewController),
+                    UINavigationController(rootViewController: settingsViewController)]
+            
+        }
     }
 }
