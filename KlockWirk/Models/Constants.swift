@@ -13,8 +13,10 @@ import Foundation
 
 struct NotificationConstants {
     
-    static let RegisterKlockWirkerCompeleted  = "RegisterKlockWirkerCompeleted"
-    static let LoginFailed  = "LoginFailed"
+    static let RegisterKlockWirkerCompeleted    = "RegisterKlockWirkerCompeleted"
+    static let UserDidAddNewSchedule            = "UserDidAddNewSchedule"
+    static let UserDidRefreshSchedule           = "UserDidRefreshSchedule"
+    static let LoginFailed                      = "LoginFailed"
 }
 
 

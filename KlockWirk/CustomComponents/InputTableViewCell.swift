@@ -67,7 +67,10 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 textField.text = NumberFormatter.formatDoubleToPercent(textField.text!)
             }
+            
+            accountSetupField.value = textField.text
         }
+        
     }
     
     func setupCellProperties(tag: Int){

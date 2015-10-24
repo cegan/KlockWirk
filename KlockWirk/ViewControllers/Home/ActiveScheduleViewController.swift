@@ -49,7 +49,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         refreshHomeView()
-        //setupPieChart()
         setupNavigationBar()
     }
     
@@ -161,13 +160,14 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         
          let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshSchedule"))
         
-
         self.navigationItem.rightBarButtonItem = refresh
     }
     
     func refreshSchedule(){
         
-        pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
+        NotificationUtilities.postNotification(NotificationConstants.UserDidRefreshSchedule)
+        
+        //pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
     }
 
     func refreshHomeView(){

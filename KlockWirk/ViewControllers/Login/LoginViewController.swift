@@ -14,9 +14,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     let loginService        = LoginService()
     let klockWirkService    = KlockWirkerServices()
     let merchantService     = MerchantServices()
-    let scheduleService     = SchedulService()
-    
   
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var registerButton: TKTransitionSubmitButton!
@@ -75,8 +74,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func setupLoginButton(){
         
-        loginButton.setTitle("Sign in", forState: .Normal)
-        loginButton.titleLabel?.font = UIFont(name: "Gotham-Medium", size: 14)
         loginButton.layer.cornerRadius = 3
         activityIndicator.hidden = true
     }
@@ -87,10 +84,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     }
     
     func setupNavigationButtons(){
-        
-        let register = UIBarButtonItem(title: "Register", style: UIBarButtonItemStyle.Plain, target: self, action: "registerButtonTapped")
-        
-        self.navigationItem.rightBarButtonItem = register
+    
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: UIBarButtonItemStyle.Plain, target: self, action: "registerButtonTapped")
     }
     
     func setupDelegates(){
@@ -203,7 +198,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     //MARK: Actions
     
     @IBAction func register(sender: AnyObject) {
-        
         
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         

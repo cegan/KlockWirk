@@ -20,9 +20,51 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
+    //MARK: Register Notification
+    
+    func registerNotification(){
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "userDidAddNewSchedule",
+            name:NotificationConstants.UserDidAddNewSchedule,
+            object: nil
+        )
+        
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "userDidRefreshSchedule",
+            name:NotificationConstants.UserDidRefreshSchedule,
+            object: nil
+        )
+    }
+    
+    
+    
+    //MARK: Notification Handlers
+    
+    func userDidAddNewSchedule(){
+        
+        refreshTabBar()
+    }
+    
+    func userDidRefreshSchedule(){
+        
+        refreshTabBar()
+    }
+    
+    
+    
+    //MARK: Initializers
+    
     init(){
         
         super.init(nibName: nil, bundle: nil);
+        
+        registerNotification()
         
         self.delegate = self
         
@@ -75,28 +117,21 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
-    
-    func shouldShowActiveSchedule() -> Bool{
-        
-        let merchant = MerchantManager.sharedInstance.merchant
-        
-        if(merchant.schedules.count > 0){
-            
-            if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
-                
-                return true
-            }
-        }
-        
-        return false
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    
+    
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        refreshTabBar()
+    }
+    
+    func refreshTabBar(){
         
         if(shouldShowActiveSchedule()){
             
@@ -117,5 +152,20 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
                     UINavigationController(rootViewController: settingsViewController)]
             
         }
+    }
+    
+    func shouldShowActiveSchedule() -> Bool{
+        
+        let merchant = MerchantManager.sharedInstance.merchant
+        
+        if(merchant.schedules.count > 0){
+            
+            if let _ = DateUtilities.getCurrentSchedule(merchant.schedules){
+                
+                return true
+            }
+        }
+        
+        return false
     }
 }

@@ -130,9 +130,6 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
-    
-    
-    
     func getKlockWirkersOnSchedule(schedule: Schedule, onCompletion: (response: [KlockWirker]) -> ()) {
         
         let parameters = ["id":schedule.scheduleId]
@@ -156,9 +153,6 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
-    
-    
-    
     
     func deleteSchedule(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
         

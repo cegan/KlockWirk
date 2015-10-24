@@ -12,15 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
-    var loginControllerNavigationController: UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle: nil))
-    
-    
-    
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        NumberFormatter.formatDoubleToCurrency(200000)
         
         loadApplicationSettings()
         setUserInterfaceDefaults()
@@ -33,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-
     func applicationWillResignActive(application: UIApplication) {
        
     }
@@ -61,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ApplicationInformation.setKlockWirkBaseUrl((NSBundle.mainBundle().infoDictionary?["KlockWirkBaseAPI"] as? String)!)
     }
-    
     
     func setUserInterfaceDefaults(){
         

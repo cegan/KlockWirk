@@ -23,8 +23,6 @@
 		4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54821B9C03000007AFD5 /* PosSalesService.swift */; };
 		4D2C54861B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */; };
 		4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */; };
-		4D2C548B1B9E5B950007AFD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54891B9E5B950007AFD5 /* HomeViewController.swift */; };
-		4D2C548C1B9E5B950007AFD5 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C548A1B9E5B950007AFD5 /* HomeViewController.xib */; };
 		4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */; };
 		4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */; };
 		4D2C549B1B9FBD0B0007AFD5 /* MerchantSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */; };
@@ -245,8 +243,6 @@
 		4D2C54821B9C03000007AFD5 /* PosSalesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosSalesService.swift; sourceTree = "<group>"; };
 		4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSetupViewController.swift; sourceTree = "<group>"; };
 		4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSetupViewController.xib; sourceTree = "<group>"; };
-		4D2C54891B9E5B950007AFD5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4D2C548A1B9E5B950007AFD5 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
 		4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
 		4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantSetupViewController.swift; sourceTree = "<group>"; };
@@ -536,8 +532,6 @@
 			children = (
 				4D3FE2E31BC09B3500DB892E /* ActiveScheduleViewController.swift */,
 				4D3FE2E41BC09B3500DB892E /* ActiveScheduleViewController.xib */,
-				4D2C54891B9E5B950007AFD5 /* HomeViewController.swift */,
-				4D2C548A1B9E5B950007AFD5 /* HomeViewController.xib */,
 				4D3FE2DF1BC0636D00DB892E /* NoCurrentSchedulesViewController.swift */,
 				4D3FE2E01BC0636D00DB892E /* NoCurrentSchedulesViewController.xib */,
 			);
@@ -1146,7 +1140,6 @@
 				4DE754951BA5CCB600D3FE29 /* ScheduleSummaryTableViewCell.xib in Resources */,
 				4DBBDCF11BC440970079035A /* ChartTableViewCell.xib in Resources */,
 				4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */,
-				4D2C548C1B9E5B950007AFD5 /* HomeViewController.xib in Resources */,
 				4D3FE2DE1BC05C2D00DB892E /* ScheduleDetailTableViewController2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1321,7 +1314,6 @@
 				4DFE4EA71BBB6D4800E1EA6E /* ScatterChartRenderer.swift in Sources */,
 				4DFE4E781BBB6D4800E1EA6E /* CandleChartDataEntry.swift in Sources */,
 				4D3FE2E51BC09B3500DB892E /* ActiveScheduleViewController.swift in Sources */,
-				4D2C548B1B9E5B950007AFD5 /* HomeViewController.swift in Sources */,
 				4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */,
 				4DFE4E971BBB6D4800E1EA6E /* ChartDataRendererBase.swift in Sources */,
 				4DE743AF1BAE631D0093FA1C /* DateUtilities.swift in Sources */,
@@ -1458,7 +1450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1473,7 +1465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey Egan (MFFRX45CX4)";
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

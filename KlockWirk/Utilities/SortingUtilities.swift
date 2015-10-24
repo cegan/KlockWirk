@@ -22,7 +22,6 @@ class SortingUtilities{
         return compare.endDateTime.compare(to.endDateTime) == NSComparisonResult.OrderedDescending
     }
     
-    
     class func sortKlockWirkersAscending(compare:KlockWirker, to:KlockWirker) -> Bool {
         
         return compare.firstName.compare(to.firstName) == NSComparisonResult.OrderedAscending

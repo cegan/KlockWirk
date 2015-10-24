@@ -112,6 +112,8 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 
                 MerchantManager.sharedInstance.merchant.schedules.append(response)
                 
+                NotificationUtilities.postNotification(NotificationConstants.UserDidAddNewSchedule)
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
@@ -151,7 +153,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         let startDate   = shiftStartDate
         let endDate     = shiftEndDate
         
-        schedule.KlockWirkerPercentage  = NumberFormatter.getSafeDoubleFromCurrencyString(percent.value!)
+        schedule.KlockWirkerPercentage  = NumberFormatter.getSafeDoubleFromPercentString(percent.value!)
         schedule.line                   = NumberFormatter.getSafeDoubleFromCurrencyString(line.value!)
         schedule.achieved               = NumberFormatter.getSafeDoubleFromCurrencyString(achieved.value!)
         schedule.startDateTime          = startDate

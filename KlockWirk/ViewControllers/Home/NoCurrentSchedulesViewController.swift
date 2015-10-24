@@ -31,6 +31,10 @@ class NoCurrentSchedulesViewController: UIViewController {
     }
 
 
+    
+    
+    
+    
     func displayScheduleDetail(){
         
         self.presentViewController(UINavigationController(rootViewController:ScheduleDetailViewController(schedule: nextSchedule, initAsModal: true)), animated: true, completion: nil)
@@ -75,9 +79,10 @@ class NoCurrentSchedulesViewController: UIViewController {
                 addScheduleButton.hidden = false
                 nextShiftStartButton.hidden = true
             }
-            
         }
     }
+    
+    
     
     
     @IBAction func addScheduleTouched(sender: AnyObject) {

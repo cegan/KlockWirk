@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Gotham-Light.otf">
@@ -11,8 +11,8 @@
             <string>Gotham-Light</string>
             <string>Gotham-Light</string>
         </mutableArray>
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
+        <mutableArray key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -34,6 +34,7 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ELB-Vv-LIT">
                     <rect key="frame" x="142" y="178" width="317" height="35"/>
+                    <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="317" id="Jc8-DD-uYs"/>
@@ -45,6 +46,7 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faR-vW-8Fo">
                     <rect key="frame" x="142" y="222" width="317" height="35"/>
+                    <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="SlL-bl-b0o"/>
@@ -55,11 +57,12 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
                     <rect key="frame" x="142" y="289" width="317" height="40"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="iBD-8H-Wmj"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                     <state key="normal" title="Sign In">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -74,6 +77,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
                     <rect key="frame" x="258" y="439" width="85" height="35"/>
+                    <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="85" id="2p3-Px-JIw"/>
@@ -89,12 +93,14 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
                     <rect key="frame" x="186" y="28" width="229" height="80"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="229" id="G6i-0q-bV3"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbS-bw-q3q">
                     <rect key="frame" x="237" y="368" width="127" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="127" id="WVT-GH-2jF"/>
                         <constraint firstAttribute="height" constant="30" id="ea5-b8-HJS"/>
@@ -109,8 +115,10 @@
                 </button>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-qN-TcL">
                     <rect key="frame" x="424" y="298" width="20" height="20"/>
+                    <animations/>
                 </activityIndicatorView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="top" secondItem="faR-vW-8Fo" secondAttribute="bottom" constant="32" id="3NY-ty-poc"/>
