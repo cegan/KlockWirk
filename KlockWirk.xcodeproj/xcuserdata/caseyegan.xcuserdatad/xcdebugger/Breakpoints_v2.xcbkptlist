@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/Schedule/ScheduleDetailViewController.swift"
-            timestampString = "467389094.561472"
+            filePath = "KlockWirk/Services/ScheduleService.swift"
+            timestampString = "467904849.788803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "init(schedule:initAsModal:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "addSchedule(_:merchantId:onCompletion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/Schedule/ScheduleDetailViewController.swift"
-            timestampString = "467389116.147436"
+            filePath = "KlockWirk/Services/ScheduleService.swift"
+            timestampString = "467904849.788803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "getScheduleSummaryFields()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "addKlockWirkersToSchedule(_:merchantScheduleId:merchantId:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/Services/NotificationService.swift"
+            timestampString = "467902100.524628"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "sendKlockWirkerScheduleUpdate(_:scheduleId:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/Services/NotificationService.swift"
+            timestampString = "467826048.299447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "sendKlockWirkerScheduleUpdate(_:scheduleId:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

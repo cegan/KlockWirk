@@ -103,7 +103,7 @@ class SchedulService: BaseKlockWirkService{
                 
                 if(httpResponse.statusCode == 200){
                     
-                    let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+        
                 }
             }
         })
