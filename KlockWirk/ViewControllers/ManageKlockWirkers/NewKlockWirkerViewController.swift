@@ -34,6 +34,49 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     //MARK: Utility Methods
     
+    func displayValidationError(validationError: String){
+        
+        let alert = UIAlertController(title: "Validation", message: validationError, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        alert.addAction(okAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func validateKlockwirkerRegistration() -> Bool{
+        
+        let kw = getCompletedKlockWirkerRegistration()
+        
+        if(kw.firstName == "" || kw.lastName == "" || kw.phoneNumber == "" || kw.emailAddress == ""){
+            
+            if(kw.firstName == ""){
+                
+                displayValidationError("First Name is required")
+            }
+            else if(kw.lastName == ""){
+                
+                displayValidationError("Last Name is required")
+            }
+            else if(kw.emailAddress == ""){
+                
+                displayValidationError("Email is required")
+            }
+            else if(kw.phoneNumber == ""){
+                
+                displayValidationError("Phone is required")
+            }
+            
+            return false
+        }
+        
+        return true
+    }
+    
     func getKlockWirkerRegistrationFields() -> NSMutableArray{
         
         let klockWirkerRegistrationFields = NSMutableArray()
@@ -92,12 +135,15 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         
         newKlockWirkerTableView.endEditing(true)
         
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.Indeterminate
-    
-        klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: KlockWirker) in
+        if(validateKlockwirkerRegistration()){
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            
+            klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: KlockWirker) in
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
     }
     
@@ -110,6 +156,10 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         
         self.navigationItem.title = "New KlockWirker"
     }
+    
+    
+    
+    
     
     
     
