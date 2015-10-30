@@ -127,6 +127,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     
     
     
+    
+    
+    
     //MARK: Utility Methods
     
     func getScheduleFields() -> NSMutableArray{
@@ -179,12 +182,39 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let schedule = getCompletedSchedule()
         
-        if(schedule.line <= 0 || schedule.achieved <= 0 || schedule.KlockWirkerPercentage <= 0){
+        if(schedule.line <= 0 || schedule.KlockWirkerPercentage <= 0 || schedule.klockWirkers.count == 0){
+            
+            if(schedule.line <= 0){
+                
+                displayValidationError("Enter the goal for this schedule")
+            }
+            else if(schedule.KlockWirkerPercentage <= 0){
+                
+                displayValidationError("Enter percentage shared for this schedule")
+            }
+            else if(schedule.klockWirkers.count == 0){
+                
+                displayValidationError("You must select at least 1 KlockWirker for this schedule")
+            }
             
             return false
         }
         
         return true
+    }
+    
+    func displayValidationError(validationError: String){
+        
+        let alert = UIAlertController(title: "Validation", message: validationError, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        alert.addAction(okAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
