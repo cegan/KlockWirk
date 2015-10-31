@@ -2,20 +2,25 @@
 //  NewKlockWirkerViewController2.swift
 //  KlockWirk
 //
-//  Created by Casey Egan on 9/8/15.
+//  Created by Casey Egan on 10/31/15.
 //  Copyright © 2015 KlockWirk. All rights reserved.
 //
 
 import UIKit
 
-class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate   {
-
+class NewKlockWirkerViewController: UITableViewController {
+    
+    
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+        }()
+    
     
     var merchant = Merchant()
     let klockWirkService = KlockWirkerServices()
     var klockWirkerRegistrationFields = NSMutableArray()
-    
-    @IBOutlet weak var newKlockWirkerTableView: UITableView!
+
     
     override func viewDidLoad() {
         
@@ -25,6 +30,7 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         setupNavigationButtons()
         setupTableViewDelegates()
         setupTableViewProperties()
+        setupActivityIndicator()
         
         merchant = MerchantManager.sharedInstance.merchant
         klockWirkerRegistrationFields = getKlockWirkerRegistrationFields()
@@ -112,14 +118,14 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     func setupTableViewProperties(){
         
-        newKlockWirkerTableView.tableFooterView = UIView(frame: CGRectZero)
-        newKlockWirkerTableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
     func setupTableViewDelegates(){
         
-        newKlockWirkerTableView.delegate = self
-        newKlockWirkerTableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setupNavigationButtons(){
@@ -130,15 +136,14 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         self.navigationItem.leftBarButtonItem = cancel
         self.navigationItem.rightBarButtonItem = submit
     }
-
+    
     func addButtonTapped(){
         
-        newKlockWirkerTableView.endEditing(true)
+        tableView.endEditing(true)
         
         if(validateKlockwirkerRegistration()){
             
-            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            activityIndicator.startAnimating()
             
             klockWirkService.addNewKlockWirker(getCompletedKlockWirkerRegistration()) { (response: KlockWirker) in
                 
@@ -157,6 +162,13 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
         self.navigationItem.title = "New KlockWirker"
     }
     
+    func setupActivityIndicator () {
+        
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
+    }
+    
     
     
     
@@ -166,53 +178,30 @@ class NewKlockWirkerViewController: UIViewController, UITableViewDataSource, UIT
     
     //MARK: TableView Delegates
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return klockWirkerRegistrationFields.count
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-//        if(section == 0) {
-//            
-//            let view = UIView()
-//            let label = UILabel()
-//            
-//            label.text = "Enter the below information to setup a new KlockWirker"
-//            label.textColor = UIColor.lightGrayColor()
-//            
-//            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
-//            
-//            
-//            label.numberOfLines = 2
-//            label.frame = CGRectMake(20, 10, 330, 30)
-//            
-//            view.addSubview(label)
-//            
-//            return view
-//        }
-       
-        return nil
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    
         let accountField = klockWirkerRegistrationFields.objectAtIndex(indexPath.row) as! AccountSetupField
-        let cell:InputTableViewCell = newKlockWirkerTableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
-       
+        let cell:InputTableViewCell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
+        
         cell.bindCellDetail(accountField)
         
         return cell
-  
+        
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
     }
+    
 }

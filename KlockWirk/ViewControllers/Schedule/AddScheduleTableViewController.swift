@@ -13,6 +13,11 @@ import UIKit
 
 class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSelectedDelegate, ShiftEndDateWasSelectedDelegate{
     
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+        }()
+    
 
     var dateWasSelected     = false
     var shiftStartDate      = NSDate()
@@ -40,6 +45,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         setupTableViewProperties()
         setupNavigationButtons()
+        addActivityIndicator()
         
         datePicker.shiftStartDateSelectedDelegate = self
         datePicker.shiftEndDateSelectedDelegate = self
@@ -62,10 +68,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         self.tableView.endEditing(true)
     }
     
-   
     
     
-    
+
     
     //MARK: Date Picker Delegates
     
@@ -107,6 +112,8 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
     func addButtonTapped(){
         
         if(validateSchedule()){
+            
+            activityIndicator.startAnimating()
             
             scheduleService.addSchedule(getCompletedSchedule(), merchantId: ApplicationInformation.getMerchantId()) { (response: Schedule) in
                 
@@ -215,6 +222,13 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         alert.addAction(okAction)
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func addActivityIndicator () {
+        
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
     }
     
     

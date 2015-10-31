@@ -23,8 +23,6 @@
 		4D2C54831B9C03000007AFD5 /* PosSalesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54821B9C03000007AFD5 /* PosSalesService.swift */; };
 		4D2C54861B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */; };
 		4D2C54871B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */; };
-		4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */; };
-		4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */; };
 		4D2C549B1B9FBD0B0007AFD5 /* MerchantSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */; };
 		4D2C549C1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C549A1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib */; };
 		4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C549D1BA111190007AFD5 /* Schedule.swift */; };
@@ -73,6 +71,9 @@
 		4D79E6471B7F6A7D00A1F25D /* JSONUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */; };
 		4D79E64D1B8008F900A1F25D /* ManageKlockWirkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */; };
 		4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */; };
+		4D924DF81BE51584002A4AF9 /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D924DF61BE51584002A4AF9 /* NewKlockWirkerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4D924DF91BE51584002A4AF9 /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D924DF71BE51584002A4AF9 /* NewKlockWirkerViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		4D924DFC1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D924DFB1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift */; settings = {ASSET_TAGS = (); }; };
 		4D9482541BB22A7D0034242F /* KlockWirkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */; };
 		4DB8E60B1BB82C8300ED088F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8E6091BB82C8300ED088F /* SelectionTableViewCell.swift */; };
 		4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */; };
@@ -243,8 +244,6 @@
 		4D2C54821B9C03000007AFD5 /* PosSalesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosSalesService.swift; sourceTree = "<group>"; };
 		4D2C54841B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSetupViewController.swift; sourceTree = "<group>"; };
 		4D2C54851B9DF0DB0007AFD5 /* KlockWirkerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerSetupViewController.xib; sourceTree = "<group>"; };
-		4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
-		4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
 		4D2C54991B9FBD0B0007AFD5 /* MerchantSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantSetupViewController.swift; sourceTree = "<group>"; };
 		4D2C549A1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantSetupViewController.xib; sourceTree = "<group>"; };
 		4D2C549D1BA111190007AFD5 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -312,6 +311,9 @@
 		4D79E6461B7F6A7D00A1F25D /* JSONUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtilities.swift; sourceTree = "<group>"; };
 		4D79E64B1B8008F900A1F25D /* ManageKlockWirkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageKlockWirkersViewController.swift; sourceTree = "<group>"; };
 		4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageKlockWirkersViewController.xib; sourceTree = "<group>"; };
+		4D924DF61BE51584002A4AF9 /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
+		4D924DF71BE51584002A4AF9 /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
+		4D924DFB1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerManager.swift; sourceTree = "<group>"; };
 		4DB8E6091BB82C8300ED088F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8E60A1BB82C8300ED088F /* SelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionTableViewCell.xib; sourceTree = "<group>"; };
@@ -749,10 +751,18 @@
 				4D79E64C1B8008F900A1F25D /* ManageKlockWirkersViewController.xib */,
 				4D2C54501B880EE40007AFD5 /* KlockWirkerDetailViewController.swift */,
 				4D2C54511B880EE40007AFD5 /* KlockWirkerDetailViewController.xib */,
-				4D2C54951B9FB0510007AFD5 /* NewKlockWirkerViewController.swift */,
-				4D2C54961B9FB0510007AFD5 /* NewKlockWirkerViewController.xib */,
+				4D924DF61BE51584002A4AF9 /* NewKlockWirkerViewController.swift */,
+				4D924DF71BE51584002A4AF9 /* NewKlockWirkerViewController.xib */,
 			);
 			path = ManageKlockWirkers;
+			sourceTree = "<group>";
+		};
+		4D924DFA1BE51E31002A4AF9 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				4D924DFB1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift */,
+			);
+			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 		4DBBDCF61BC4806C0079035A /* ForgotPassword */ = {
@@ -767,6 +777,7 @@
 		4DDA8D191B5147F10056800C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D924DFA1BE51E31002A4AF9 /* ActivityIndicator */,
 				4D2C553E1BA4809D0007AFD5 /* MDRotatingPieChart */,
 				4D2C54DA1BA441960007AFD5 /* TKSubmitTransition */,
 				4D2C54A31BA3C1210007AFD5 /* RSDayFlow */,
@@ -1113,6 +1124,7 @@
 				4DFE4EC71BBF9D5C00E1EA6E /* Gotham-Bold.otf in Resources */,
 				4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */,
 				4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */,
+				4D924DF91BE51584002A4AF9 /* NewKlockWirkerViewController.xib in Resources */,
 				4DEA19261BAF14610091B44D /* TestTableViewCell.xib in Resources */,
 				4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */,
 				4D3FE2E21BC0636D00DB892E /* NoCurrentSchedulesViewController.xib in Resources */,
@@ -1133,7 +1145,6 @@
 				4DE754AA1BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.xib in Resources */,
 				4D49A7201B513B6A001FCF54 /* Images.xcassets in Resources */,
 				4D2C54771B952BD20007AFD5 /* EnrollmentViewCell.xib in Resources */,
-				4D2C54981B9FB0510007AFD5 /* NewKlockWirkerViewController.xib in Resources */,
 				4DFE4ECE1BBF9D5C00E1EA6E /* Gotham-Medium.ttf in Resources */,
 				4DFE4ECF1BBF9D5C00E1EA6E /* Gotham-MediumItalic.otf in Resources */,
 				4DFE4ECC1BBF9D5C00E1EA6E /* Gotham-LightItalic.otf in Resources */,
@@ -1251,6 +1262,7 @@
 				4DFE4E681BBB6D4800E1EA6E /* ChartAxisBase.swift in Sources */,
 				4DFE4E9A1BBB6D4800E1EA6E /* ChartXAxisRenderer.swift in Sources */,
 				4D49A73A1B51430D001FCF54 /* KlockWirkerServices.swift in Sources */,
+				4D924DF81BE51584002A4AF9 /* NewKlockWirkerViewController.swift in Sources */,
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,
 				4D3FE2DD1BC05C2D00DB892E /* ScheduleDetailTableViewController2.swift in Sources */,
 				4DFE4E791BBB6D4800E1EA6E /* CandleChartDataSet.swift in Sources */,
@@ -1285,9 +1297,9 @@
 				4DFE4EA01BBB6D4800E1EA6E /* ChartYAxisRendererRadarChart.swift in Sources */,
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
 				4D2C54521B880EE40007AFD5 /* KlockWirkerDetailViewController.swift in Sources */,
+				4D924DFC1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift in Sources */,
 				4DDA8D321B5147F10056800C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4DEA192E1BB091BF0091B44D /* DateCompare.swift in Sources */,
-				4D2C54971B9FB0510007AFD5 /* NewKlockWirkerViewController.swift in Sources */,
 				4DFE4E9C1BBB6D4800E1EA6E /* ChartXAxisRendererHorizontalBarChart.swift in Sources */,
 				4DFE4E7D1BBB6D4800E1EA6E /* CombinedChartData.swift in Sources */,
 				4DFE4E7F1BBB6D4800E1EA6E /* LineChartDataSet.swift in Sources */,

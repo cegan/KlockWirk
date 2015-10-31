@@ -11,12 +11,21 @@ import UIKit
 class ScheduleDetailViewController: UITableViewController {
     
     
+    
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+        }()
+    
     let scheduleService = SchedulService()
     let merchantService = MerchantServices()
     var isModal         = false
     
     var selectedSchedule = Schedule()
     var scheduleSummaryFields = NSMutableArray()
+    
+    
+    
     
    
     
@@ -61,6 +70,7 @@ class ScheduleDetailViewController: UITableViewController {
         setupTableViewRefresh()
         setupTableViewProperties()
         setupNavigationBar()
+        setupActivityIndicator()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -119,6 +129,13 @@ class ScheduleDetailViewController: UITableViewController {
         self.tableView.addSubview(refreshControl!)
     }
     
+    func setupActivityIndicator () {
+        
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
+    }
+    
     
     
     
@@ -172,7 +189,7 @@ class ScheduleDetailViewController: UITableViewController {
     
     func deleteScheduleConfirmation(){
         
-        let optionMenu = UIAlertController(title: nil, message: "Delete Schedule Confirmation", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Confirmation", preferredStyle: .ActionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete Schedule", style: .Default, handler: {
             
@@ -194,6 +211,8 @@ class ScheduleDetailViewController: UITableViewController {
     }
     
     func deleteSchedule(){
+        
+        activityIndicator.startAnimating()
         
         scheduleService.deleteSchedule(selectedSchedule.scheduleId) { (response:NSDictionary) in
             
@@ -223,6 +242,8 @@ class ScheduleDetailViewController: UITableViewController {
         
         self.refreshControl?.endRefreshing()
     }
+    
+    
     
     
     
