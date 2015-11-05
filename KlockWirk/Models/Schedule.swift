@@ -11,20 +11,17 @@ import Foundation
 
 class Schedule: NSObject, NSCoding{
     
-    var scheduleId: Int       = 0
-    var merchantId: Int       = 0
-    
-    var klockWirkerId = 7
-    
-    
-    var KlockWirkerPercentage: Double      = 0
-    var line: Double                       = 0
-    var achieved: Double                   = 0
-    var isCurrentSchedule: Bool            = false
-    var dateCreated: NSDate             = NSDate()
-    var startDateTime: NSDate           = NSDate()
-    var endDateTime: NSDate             = NSDate()
-    var klockWirkers                    = [KlockWirker]()
+    var scheduleId: Int                     = 0
+    var merchantId: Int                     = 0
+    var klockWirkerId                       = 0
+    var KlockWirkerPercentage: Double       = 0
+    var goal: Double                        = 0
+    var achieved: Double                    = 0
+    var isCurrentSchedule: Bool             = false
+    var dateCreated: NSDate                 = NSDate()
+    var startDateTime: NSDate               = NSDate()
+    var endDateTime: NSDate                 = NSDate()
+    var klockWirkers                        = [KlockWirker]()
    
     
     override init() {}
@@ -37,7 +34,7 @@ class Schedule: NSObject, NSCoding{
         self.scheduleId = (aDecoder.decodeObjectForKey("scheduleId") as? Int)!
         self.merchantId = (aDecoder.decodeObjectForKey("merchantId") as? Int)!
         self.KlockWirkerPercentage = (aDecoder.decodeObjectForKey("percent") as? Double)!
-        self.line = (aDecoder.decodeObjectForKey("line") as? Double)!
+        self.goal = (aDecoder.decodeObjectForKey("line") as? Double)!
         self.achieved = (aDecoder.decodeObjectForKey("achieved") as? Double)!
         self.isCurrentSchedule = (aDecoder.decodeObjectForKey("isCurrentSchedule") as? Bool)!
         self.dateCreated = (aDecoder.decodeObjectForKey("dateCreated") as? NSDate)!
@@ -53,12 +50,39 @@ class Schedule: NSObject, NSCoding{
         aCoder.encodeObject(scheduleId, forKey: "scheduleId")
         aCoder.encodeObject(merchantId, forKey: "merchantId")
         aCoder.encodeObject(KlockWirkerPercentage, forKey: "percent")
-        aCoder.encodeObject(line, forKey: "line")
+        aCoder.encodeObject(goal, forKey: "line")
         aCoder.encodeObject(achieved, forKey: "achieved")
         aCoder.encodeObject(isCurrentSchedule, forKey: "isCurrentSchedule")
         aCoder.encodeObject(dateCreated, forKey: "dateCreated")
         aCoder.encodeObject(startDateTime, forKey: "startDateTime")
         aCoder.encodeObject(endDateTime, forKey: "endDateTime")
         aCoder.encodeObject(klockWirkers, forKey: "klockWirkers")
+    }
+    
+    
+    func hasGoalBeenReached() -> Bool{
+        
+        if(achieved >= goal){
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func profitsShared() -> Double{
+        
+        var profitsShared = 0.0
+        
+        if(hasGoalBeenReached()){
+            
+            profitsShared = (achieved - goal) * KlockWirkerPercentage/100
+        }
+        else{
+            
+            profitsShared = 0
+        }
+
+        return profitsShared
     }
 }

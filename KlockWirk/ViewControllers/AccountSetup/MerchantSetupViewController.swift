@@ -11,7 +11,7 @@ import UIKit
 
 class MerchantSetupItem: NSObject{
     
-    var sections:[String] = []
+    var sections:[String]           = []
     var items:[[AccountSetupField]] = []
     
     func addSection(section: String, item:[AccountSetupField]){
@@ -37,6 +37,11 @@ class MerchantSetupItems: MerchantSetupItem {
 
 class MerchantSetupViewController: UITableViewController {
     
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+        }()
+    
     var merchantSetupItems  = MerchantSetupItems()
     let merchantService     = MerchantServices()
     let klockWirkService    = KlockWirkerServices()
@@ -50,41 +55,10 @@ class MerchantSetupViewController: UITableViewController {
         setupViewProperties()
         setupTableViewProperties()
         setupNavigationButtons()
+        setupActivityIndicator()
+    }
+    
 
-    }
-    
-    
-    
-    
-    func doesMerchantPasswordsMatch() -> Bool{
-        
-        let m = getCompletedMerchantRegistration()
-        
-        if(m.password != m.confirmPassword){
-            
-            return false
-        }
-        
-        return true
-    }
-    
-    func getMerchantSetupItems() -> MerchantSetupItems{
-        
-        let merchantSetupItems = MerchantSetupItems()
-        
-        merchantSetupItems.addSection("Merchant Information", item: getMerchantGeneralInformationFields())
-        merchantSetupItems.addSection("Point Of Sale System", item: getPointOfSaleSystemFields())
-        merchantSetupItems.addSection("Password", item: getPasswordFields())
-        
-        
-        return merchantSetupItems
-    }
-
-    func displayActivityindicator(){
-        
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.Indeterminate
-    }
     
     func endEditing(){
         
@@ -99,6 +73,10 @@ class MerchantSetupViewController: UITableViewController {
         
         appDelegate.window!.rootViewController = tabBarController
     }
+    
+    
+    
+    //MARK: Setup Methods
 
     func setupTableViewProperties(){
         
@@ -119,6 +97,17 @@ class MerchantSetupViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = cancel
         self.navigationItem.rightBarButtonItem = submit
     }
+    
+    func setupActivityIndicator () {
+        
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
+    }
+    
+    
+    
+    //MARK: Utility Methods
     
     func getCompletedMerchantRegistration() -> Merchant{
         
@@ -199,13 +188,85 @@ class MerchantSetupViewController: UITableViewController {
         return passwordFields
     }
     
+    func displayAlert(message: String){
+        
+        let alertController = UIAlertController(title: "Setup", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func getSelectedPOSSystem() -> POSSystem{
+        
+        let allPOSSystems = merchantSetupItems.items[1]
+        
+        for posItem in allPOSSystems{
+            
+            if(posItem.isSelected){
+                
+                if let posSystem = POSSystem(rawValue: Int(posItem.value!)!) {
+                    
+                    return posSystem
+                }
+            }
+        }
+        
+        return .None
+    }
+    
+    func setSelectedPOSSystem(selectedIndexPath: NSIndexPath){
+        
+        let selectedItem    = merchantSetupItems.items[selectedIndexPath.section][selectedIndexPath.row]
+        let allItems        = merchantSetupItems.items[selectedIndexPath.section]
+        
+        for posItem in allItems{
+            
+            posItem.isSelected = false;
+        }
+        selectedItem.value = String(selectedIndexPath.row + 1)
+        selectedItem.isSelected = true;
+        
+        tableView.reloadData()
+    }
+    
+    func doesMerchantPasswordsMatch() -> Bool{
+        
+        let m = getCompletedMerchantRegistration()
+        
+        if(m.password != m.confirmPassword){
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    func getMerchantSetupItems() -> MerchantSetupItems{
+        
+        let merchantSetupItems = MerchantSetupItems()
+        
+        merchantSetupItems.addSection("Merchant Information", item: getMerchantGeneralInformationFields())
+        merchantSetupItems.addSection("Point Of Sale System", item: getPointOfSaleSystemFields())
+        merchantSetupItems.addSection("Password", item: getPasswordFields())
+        
+        
+        return merchantSetupItems
+    }
+    
+    
+    
+    
+    //MARK: Event Handlers
+    
     func submitButtonTapped(){
         
         endEditing()
         
         if(doesMerchantPasswordsMatch()){
             
-            displayActivityindicator()
+            activityIndicator.startAnimating()
             
             merchantService.registerMerchant(getCompletedMerchantRegistration()) { (response: Merchant) in
                 
@@ -220,16 +281,6 @@ class MerchantSetupViewController: UITableViewController {
         }
     }
     
-    func displayAlert(message: String){
-        
-        let alertController = UIAlertController(title: "Setup", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
-    }
-    
     func cancelButtonTapped(){
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -237,8 +288,7 @@ class MerchantSetupViewController: UITableViewController {
     }
     
     
-    
-    
+
     
     
     //MARK: TableView Delegates
@@ -316,41 +366,5 @@ class MerchantSetupViewController: UITableViewController {
                 return
         }
     }
-    
-    
-    func getSelectedPOSSystem() -> POSSystem{
-        
-        let allPOSSystems = merchantSetupItems.items[1]
-        
-        for posItem in allPOSSystems{
-            
-            if(posItem.isSelected){
-                
-                if let posSystem = POSSystem(rawValue: Int(posItem.value!)!) {
 
-                    return posSystem
-                }
-            }
-        }
-        
-        return .None
-    }
-    
-    
-    func setSelectedPOSSystem(selectedIndexPath: NSIndexPath){
-        
-        let selectedItem    = merchantSetupItems.items[selectedIndexPath.section][selectedIndexPath.row]
-        let allItems        = merchantSetupItems.items[selectedIndexPath.section]
-    
-        for posItem in allItems{
-            
-            posItem.isSelected = false;
-        }
-
-        
-        selectedItem.value = String(selectedIndexPath.row + 1)
-        selectedItem.isSelected = true;
-    
-        tableView.reloadData()
-    }
 }

@@ -13,7 +13,7 @@ public class ScheduleSummaryField{
     
     var label: String?
     var value: String?
-    var tag: Int?
+    var tag: Int = 0
     
     
     init(){

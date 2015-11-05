@@ -157,7 +157,7 @@ class SchedulesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 152
+        return 100
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

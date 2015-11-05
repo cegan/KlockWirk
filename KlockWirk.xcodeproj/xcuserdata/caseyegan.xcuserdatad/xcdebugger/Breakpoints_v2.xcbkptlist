@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/Schedule/AddScheduleTableViewController.swift"
-            timestampString = "468022537.237079"
+            filePath = "KlockWirk/CustomComponents/ChartTableViewCell.swift"
+            timestampString = "468377365.845158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "validateSchedule()"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "setupChartData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/ViewControllers/ManageKlockWirkers/NewKlockWirkerViewController.swift"
-            timestampString = "468022805.868384"
+            filePath = "KlockWirk/CustomComponents/ChartTableViewCell.swift"
+            timestampString = "468378693.311086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "addButtonTapped()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "setupChartData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/CustomComponents/ChartTableViewCell.swift"
+            timestampString = "468378693.311086"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "setupChartData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/CustomComponents/TestTableViewCell.swift"
+            timestampString = "468380337.103898"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "bindCellDetails(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

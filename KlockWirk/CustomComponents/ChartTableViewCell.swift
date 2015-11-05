@@ -35,19 +35,19 @@ class ChartTableViewCell: UITableViewCell,ChartViewDelegate {
     
     func setupPieChart(){
         
-        pieChartView.delegate = self
-        pieChartView.usePercentValuesEnabled = true;
-        pieChartView.holeTransparent = true;
-        pieChartView.centerTextFont = UIFont (name: "Gotham-Light", size: 15)!
-        pieChartView.holeRadiusPercent = 0.58;
+        pieChartView.delegate                       = self
+        pieChartView.centerTextFont                 = UIFont (name: "Gotham-Light", size: 15)!
+        pieChartView.holeRadiusPercent              = 0.58;
         pieChartView.transparentCircleRadiusPercent = 0.61;
-        pieChartView.descriptionText = "";
-        pieChartView.drawCenterTextEnabled = true;
-        pieChartView.drawHoleEnabled = true;
-        pieChartView.rotationAngle = 0.0;
-        pieChartView.rotationEnabled = true;
-        pieChartView.centerText = "";
-        pieChartView.drawSliceTextEnabled = false
+        pieChartView.rotationEnabled                = true;
+        pieChartView.drawCenterTextEnabled          = true;
+        pieChartView.usePercentValuesEnabled        = true;
+        pieChartView.holeTransparent                = true;
+        pieChartView.drawHoleEnabled                = true;
+        pieChartView.drawSliceTextEnabled           = false
+        pieChartView.rotationAngle                  = 0.0;
+        pieChartView.centerText                     = "";
+        pieChartView.descriptionText                = "";
         
         let legend = pieChartView.legend
         legend.position = ChartLegend.ChartLegendPosition.PiechartCenter
@@ -63,51 +63,67 @@ class ChartTableViewCell: UITableViewCell,ChartViewDelegate {
     func setupChartData(){
         
         
-        var yVals:[ChartDataEntry] = []
-        var xVals:[String] = []
-        var colors:[UIColor] = []
-        
-        colors.append(UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0))
-        colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
+        var yVals:[ChartDataEntry]  = []
+        var xVals:[String]          = []
+        var colors:[UIColor]        = []
         
         
-        let percentAchieved = (selectedSchedule.achieved/selectedSchedule.line * 100)
-        let goal = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
-        let achieved = ChartDataEntry(value: percentAchieved, xIndex: 1)
-        
-    
-        
-        yVals.append(goal)
-        yVals.append(achieved)
-        
-        xVals.append("Goal")
-        xVals.append("Achieved")
-        
-        
-        
-        let dataSet = PieChartDataSet(yVals: yVals, label: "")
-        dataSet.colors = colors
-        
+      
+        if(selectedSchedule.hasGoalBeenReached()){
+            
+            colors.append(KlockWirkColors.Orange)
+            
+            let achieved = ChartDataEntry(value: 100, xIndex: 1)
+            
+            yVals.append(achieved)
+ 
+            let dataSet = PieChartDataSet(yVals: yVals, label: "Goal Reached!")
+            dataSet.colors = colors
 
-        
-        let pFormatter = NSNumberFormatter()
-        pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        
-        
-        let data = PieChartData(xVals: xVals, dataSet: dataSet)
-        data.setValueFormatter(pFormatter)
-        data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
-        data.setValueTextColor(UIColor.whiteColor())
-        
-        pieChartView.data = data
-        
+            let data = PieChartData(xVals: xVals, dataSet: dataSet)
+            data.setValueFont(UIFont (name: "Gotham-Medium", size: 0)!)
+            data.setValueTextColor(UIColor.whiteColor())
+            
+            pieChartView.data = data
+        }
+        else{
+            
+            colors.append(KlockWirkColors.Orange)
+            colors.append(KlockWirkColors.DarkGrey)
+            
+            let percentAchieved = (selectedSchedule.achieved/selectedSchedule.goal * 100)
+            let goal = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
+            let achieved = ChartDataEntry(value: percentAchieved, xIndex: 1)
+
+            yVals.append(goal)
+            yVals.append(achieved)
+            
+            xVals.append("Goal")
+            xVals.append("Achieved")
+
+            let dataSet = PieChartDataSet(yVals: yVals, label: "")
+            dataSet.colors = colors
+            
+            
+            
+            let pFormatter = NSNumberFormatter()
+            pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+            pFormatter.maximumFractionDigits = 1
+            pFormatter.multiplier = 1
+            pFormatter.percentSymbol = " %"
+            
+            
+            let data = PieChartData(xVals: xVals, dataSet: dataSet)
+            data.setValueFormatter(pFormatter)
+            data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
+            data.setValueTextColor(UIColor.whiteColor())
+            
+            pieChartView.data = data
+        }
     }
     
     
-    func bindScheduleDate(schedule: Schedule){
+    func bindScheduleData(schedule: Schedule){
     
         selectedSchedule = schedule
         

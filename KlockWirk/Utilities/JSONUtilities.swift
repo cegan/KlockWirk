@@ -110,7 +110,7 @@ class JSONUtilities{
             
             schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
             schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
-            schedule.line                   = (obj.objectForKey("Line") as? Double)!
+            schedule.goal                   = (obj.objectForKey("Line") as? Double)!
             schedule.achieved               = (obj.objectForKey("Achieved") as? Double)!
             schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
             schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
@@ -155,7 +155,7 @@ class JSONUtilities{
         schedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
         schedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
         schedule.endDateTime = DateUtilities.dateValueOfString((s.objectForKey("ShiftEndDateTime") as? String)!)
-        schedule.line = (s.objectForKey("Line") as? Double)!
+        schedule.goal = (s.objectForKey("Line") as? Double)!
         schedule.achieved = (s.objectForKey("Achieved") as? Double)!
         schedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
       
@@ -175,7 +175,7 @@ class JSONUtilities{
             newSchedule.merchantId = (s.objectForKey("MerchantId") as? Int)!
             newSchedule.startDateTime =  DateUtilities.dateValueOfString((s.objectForKey("ShiftStartDateTime") as? String)!)
             newSchedule.endDateTime = DateUtilities.dateValueOfString((s.objectForKey("ShiftEndDateTime") as? String)!)
-            newSchedule.line = (s.objectForKey("Line") as? Double)!
+            newSchedule.goal = (s.objectForKey("Line") as? Double)!
             newSchedule.achieved = (s.objectForKey("Achieved") as? Double)!
             newSchedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
             

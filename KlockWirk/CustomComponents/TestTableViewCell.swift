@@ -14,14 +14,16 @@ class TestTableViewCell: UITableViewCell {
     @IBOutlet weak var scheduleEndValue: UILabel!
     @IBOutlet weak var scheduleStartValue: UILabel!
     @IBOutlet weak var scheduleTimeLeftLabel: UILabel!
-    @IBOutlet weak var usersLabel: UILabel!
+    @IBOutlet weak var usersButton: UIButton!
     @IBOutlet weak var usersImageView: UIImageView!
-    @IBOutlet weak var goalLabel: UILabel!
+   
     
 
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-       
+        
+        usersButton.titleLabel?.textColor = KlockWirkColors.Orange
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,23 +34,16 @@ class TestTableViewCell: UITableViewCell {
     
     func bindCellDetails(schedule: Schedule){
         
-        goalLabel.text  = NumberFormatter.formatDoubleToCurrency(schedule.line)
-        usersLabel.text = String(schedule.klockWirkers.count) + " KlockWirkers"
-        scheduleStartValue.text = DateUtilities.stringValueOfShiftDate(schedule.startDateTime)
-        scheduleEndValue.text = DateUtilities.stringValueOfShiftDate(schedule.endDateTime)
-    }
-    
-    
-    func getKlockWirkersList(klockWirkers:[KlockWirker]) -> String{
+        if(schedule.klockWirkers.count > 1){
         
-        var klockWirkersString = ""
-        
-        for kw: KlockWirker in klockWirkers{
+            usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirkers", forState: .Normal)
+        }
+        else{
             
-            klockWirkersString = klockWirkersString + kw.firstName + ", "
+            usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirker", forState: .Normal)
         }
         
-        return klockWirkersString
+        scheduleStartValue.text = DateUtilities.stringValueOfShiftDate(schedule.startDateTime)
+        scheduleEndValue.text   = DateUtilities.stringValueOfShiftDate(schedule.endDateTime)
     }
-    
 }

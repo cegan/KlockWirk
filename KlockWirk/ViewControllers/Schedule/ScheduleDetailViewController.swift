@@ -149,12 +149,13 @@ class ScheduleDetailViewController: UITableViewController {
         let scheduleSummarFieldsFields = NSMutableArray()
         
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Chart", val: "", tag: 1))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.line), tag: 2))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.goal), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.achieved), tag: 3))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 4))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 5))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 6))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 7))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.profitsShared()), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 5))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 6))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 7))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 8))
         
         return scheduleSummarFieldsFields
     }
@@ -283,23 +284,22 @@ class ScheduleDetailViewController: UITableViewController {
         let scheduleSummaryField = scheduleSummaryFields.objectAtIndex(indexPath.row) as! ScheduleSummaryField
         var cell :UITableViewCell!
         
-        switch(indexPath.row){
+        switch(scheduleSummaryField.tag){
             
-        case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("ChartTableViewCell", forIndexPath: indexPath) as! ChartTableViewCell
-            (cell as! ChartTableViewCell).bindScheduleDate(selectedSchedule)
+            case 1:
+                cell = tableView.dequeueReusableCellWithIdentifier("ChartTableViewCell", forIndexPath: indexPath) as! ChartTableViewCell
+                (cell as! ChartTableViewCell).bindScheduleData(selectedSchedule)
             
-        case 1,2,3,4,5,6:
-            cell = tableView.dequeueReusableCellWithIdentifier("scheduleSummaryTableViewCell") as! ScheduleSummaryTableViewCell
-            (cell as! ScheduleSummaryTableViewCell).bindCellDetails(scheduleSummaryField)
+            case 2,3,4,5,6,7,8:
+                cell = tableView.dequeueReusableCellWithIdentifier("scheduleSummaryTableViewCell") as! ScheduleSummaryTableViewCell
+                (cell as! ScheduleSummaryTableViewCell).bindCellDetails(scheduleSummaryField)
             
-        default:
-            cell = tableView.dequeueReusableCellWithIdentifier("scheduleSummaryTableViewCell", forIndexPath: indexPath)
-            
+            default:
+                cell = tableView.dequeueReusableCellWithIdentifier("scheduleSummaryTableViewCell", forIndexPath: indexPath)
         }
         
         
-        if(indexPath.row == 6){
+        if(scheduleSummaryField.tag == 8){
             
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
@@ -312,7 +312,7 @@ class ScheduleDetailViewController: UITableViewController {
         
         switch(indexPath.row){
             
-        case 6:
+        case 7:
             
             self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: selectedSchedule.klockWirkers,readOnly: true), animated: true)
             

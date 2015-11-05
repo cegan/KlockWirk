@@ -164,7 +164,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         let endDate     = shiftEndDate
         
         schedule.KlockWirkerPercentage  = NumberFormatter.getSafeDoubleFromPercentString(percent.value!)
-        schedule.line                   = NumberFormatter.getSafeDoubleFromCurrencyString(line.value!)
+        schedule.goal                   = NumberFormatter.getSafeDoubleFromCurrencyString(line.value!)
         schedule.achieved               = NumberFormatter.getSafeDoubleFromCurrencyString(achieved.value!)
         schedule.startDateTime          = startDate
         schedule.endDateTime            = endDate
@@ -189,9 +189,9 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         let schedule = getCompletedSchedule()
         
-        if(schedule.line <= 0 || schedule.KlockWirkerPercentage <= 0 || schedule.klockWirkers.count == 0){
+        if(schedule.goal <= 0 || schedule.KlockWirkerPercentage <= 0 || schedule.klockWirkers.count == 0){
             
-            if(schedule.line <= 0){
+            if(schedule.goal <= 0){
                 
                 displayValidationError("Enter the goal for this schedule")
             }

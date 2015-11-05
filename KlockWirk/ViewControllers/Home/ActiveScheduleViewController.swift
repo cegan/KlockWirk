@@ -22,8 +22,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
     
     
-    
-    
     //MARK: View Initialization
     
     init(schedule: Schedule){
@@ -62,7 +60,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         refreshHomeView()
-        setupPieChart()
+        setupPieChartProperties()
         
         self.navigationItem.title = "Home"
     }
@@ -82,21 +80,21 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
     //MARK: PieChart Setup
     
-    func setupPieChart(){
+    func setupPieChartProperties(){
         
-        pieChart.delegate = self
-        pieChart.usePercentValuesEnabled = true;
-        pieChart.holeTransparent = true;
-        pieChart.centerTextFont = UIFont (name: "Gotham-Light", size: 15)!
-        pieChart.holeRadiusPercent = 0.58;
+        pieChart.delegate                       = self
+        pieChart.centerTextFont                 = UIFont (name: "Gotham-Light", size: 15)!
+        pieChart.holeRadiusPercent              = 0.58;
         pieChart.transparentCircleRadiusPercent = 0.61;
-        pieChart.descriptionText = "";
-        pieChart.drawCenterTextEnabled = true;
-        pieChart.drawHoleEnabled = true;
-        pieChart.rotationAngle = 0.0;
-        pieChart.rotationEnabled = true;
-        pieChart.centerText = "";
-        pieChart.drawSliceTextEnabled = false
+        pieChart.rotationAngle                  = 0.0;
+        pieChart.drawCenterTextEnabled          = true;
+        pieChart.drawHoleEnabled                = true;
+        pieChart.rotationEnabled                = true;
+        pieChart.usePercentValuesEnabled        = true;
+        pieChart.holeTransparent                = true;
+        pieChart.drawSliceTextEnabled           = false
+        pieChart.descriptionText                = "";
+        pieChart.centerText                     = "";
         
         let legend = pieChart.legend
         legend.position = ChartLegend.ChartLegendPosition.PiechartCenter
@@ -105,28 +103,26 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         legend.yEntrySpace = 50.0;
         legend.yOffset = 50.0;
         
-        setupChartData()
+        setupPieChartData()
    
     }
     
-    func setupChartData(){
+    func setupPieChartData(){
         
-        
-        var yVals:[ChartDataEntry] = []
-        var xVals:[String] = []
-        var colors:[UIColor] = []
+        var yVals:[ChartDataEntry]  = []
+        var xVals:[String]          = []
+        var colors:[UIColor]        = []
 
-        colors.append(UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0))
-        colors.append(UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0))
+        colors.append(KlockWirkColors.Orange)
+        colors.append(KlockWirkColors.DarkGrey)
         
         
-        let percentAchieved = (currentSchedule.achieved/currentSchedule.line * 100)
-        let goal = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
-        let achieved = ChartDataEntry(value: percentAchieved, xIndex: 1)
+        let percentAchieved = (currentSchedule.achieved/currentSchedule.goal * 100)
+        let goal            = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
+        let achieved        = ChartDataEntry(value: percentAchieved, xIndex: 1)
         
         yVals.append(goal)
         yVals.append(achieved)
-        
         xVals.append("Goal")
         xVals.append("Achieved")
         
@@ -135,11 +131,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
         let dataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.colors = colors
         
-        
-        
 
-        
-        
         let pFormatter = NSNumberFormatter()
         pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
         pFormatter.maximumFractionDigits = 1
@@ -181,12 +173,11 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
                     currentSchedule = schedule
                     
-                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
+                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
                     
                 }
             }
-            
         }
         else{
             
@@ -199,7 +190,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
                     
-                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.line)
+                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
                 }
             }

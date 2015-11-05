@@ -11,6 +11,12 @@ import UIKit
 class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
 
     
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+        }()
+    
+    
     @IBOutlet weak var klockWirkerDetailTableView: UITableView!
     
     let klockWirkerService = KlockWirkerServices()
@@ -49,6 +55,7 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
         setupTableViewProperties()
         setupNavigationBar()
         setupTableViewDelegates()
+        setupActivityIndicator()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -98,6 +105,13 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
             let deleteKlockWirker = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteButtonTapped")
             self.navigationItem.rightBarButtonItem = deleteKlockWirker
         }
+    }
+    
+    func setupActivityIndicator () {
+        
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
     }
     
     
@@ -157,6 +171,7 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     func deleteKlockWirker(){
         
+        activityIndicator.startAnimating()
         ApplicationInformation.removeKlockWirker(self.self.klockWirkerDetail, index: 0)
         
         klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
