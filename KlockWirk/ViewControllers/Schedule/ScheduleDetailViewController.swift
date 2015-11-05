@@ -119,6 +119,7 @@ class ScheduleDetailViewController: UITableViewController {
         tableView.registerNib(UINib(nibName: "ScheduleSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "scheduleSummaryTableViewCell")
         tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
         tableView.registerNib(UINib(nibName: "ChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ChartTableViewCell")
+        tableView.registerNib(UINib(nibName: "GoalReachedTableViewCell", bundle: nil), forCellReuseIdentifier: "GoalReachedTableViewCell")
     }
     
     func setupTableViewRefresh(){
@@ -148,7 +149,15 @@ class ScheduleDetailViewController: UITableViewController {
         
         let scheduleSummarFieldsFields = NSMutableArray()
         
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Chart", val: "", tag: 1))
+        if(selectedSchedule.hasGoalBeenReached()){
+            
+            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Chart", val: "", tag: 1))
+        }
+        else{
+            
+            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "GoalReached", val: "", tag: 1))
+        }
+        
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.goal), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.achieved), tag: 3))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.profitsShared()), tag: 4))
@@ -256,14 +265,17 @@ class ScheduleDetailViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        
+        if(indexPath.row == 0){
             
-            if(indexPath.row == 0){
+            if(selectedSchedule.hasGoalBeenReached()){
+                
+                return 115
+            }
+            else{
                 
                 return 240
             }
-            
-        
+        }
         
         return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
     }
@@ -280,16 +292,25 @@ class ScheduleDetailViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         let scheduleSummaryField = scheduleSummaryFields.objectAtIndex(indexPath.row) as! ScheduleSummaryField
         var cell :UITableViewCell!
         
         switch(scheduleSummaryField.tag){
             
             case 1:
-                cell = tableView.dequeueReusableCellWithIdentifier("ChartTableViewCell", forIndexPath: indexPath) as! ChartTableViewCell
-                (cell as! ChartTableViewCell).bindScheduleData(selectedSchedule)
-            
+                
+                if(selectedSchedule.hasGoalBeenReached()){
+                    
+                    cell = tableView.dequeueReusableCellWithIdentifier("GoalReachedTableViewCell", forIndexPath: indexPath) as! GoalReachedTableViewCell
+                    (cell as! GoalReachedTableViewCell).bindCellDetails(selectedSchedule)
+                }
+                else{
+                    
+                    cell = tableView.dequeueReusableCellWithIdentifier("ChartTableViewCell", forIndexPath: indexPath) as! ChartTableViewCell
+                    (cell as! ChartTableViewCell).bindScheduleData(selectedSchedule)
+                }
+                
+
             case 2,3,4,5,6,7,8:
                 cell = tableView.dequeueReusableCellWithIdentifier("scheduleSummaryTableViewCell") as! ScheduleSummaryTableViewCell
                 (cell as! ScheduleSummaryTableViewCell).bindCellDetails(scheduleSummaryField)
