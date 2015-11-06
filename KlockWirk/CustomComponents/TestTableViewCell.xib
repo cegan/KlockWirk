@@ -7,6 +7,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Gotham-Light.otf">
             <string>Gotham-Light</string>
+            <string>Gotham-Light</string>
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
@@ -52,17 +53,20 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12/12/2015 10:10 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVo-Je-tAW">
                         <rect key="frame" x="113" y="28" width="179" height="21"/>
                         <animations/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                         <color key="textColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lod-yC-jDE">
-                        <rect key="frame" x="44" y="61" width="268" height="30"/>
+                        <rect key="frame" x="44" y="61" width="98" height="30"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <state key="normal" title="3 KlockWirkers">
                             <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="klockWirkersButtonTouched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xFW-Bs-f6r"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>
@@ -75,7 +79,7 @@
                 <outlet property="usersButton" destination="Lod-yC-jDE" id="z2w-pg-4sq"/>
                 <outlet property="usersImageView" destination="TgT-gX-RHt" id="1lD-fV-j7K"/>
             </connections>
-            <point key="canvasLocation" x="-1449" y="-527"/>
+            <point key="canvasLocation" x="-1857" y="-574"/>
         </tableViewCell>
     </objects>
     <resources>

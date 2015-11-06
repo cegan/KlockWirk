@@ -60,6 +60,7 @@ class Schedule: NSObject, NSCoding{
     }
     
     
+    
     func hasGoalBeenReached() -> Bool{
         
         if(achieved >= goal){
@@ -70,7 +71,25 @@ class Schedule: NSObject, NSCoding{
         return false
     }
     
-    func profitsShared() -> Double{
+    func klockWirkerProfitsShared() -> Double{
+        
+        var profitsShared = 0.0
+        var total         = 0.0
+        
+        if(hasGoalBeenReached()){
+            
+            profitsShared = (achieved - goal) * KlockWirkerPercentage/100
+            total         = profitsShared / Double(klockWirkers.count)
+        }
+        else{
+            
+            total = 0
+        }
+
+        return total
+    }
+    
+    func merchantProfitsShared() -> Double{
         
         var profitsShared = 0.0
         
@@ -82,7 +101,8 @@ class Schedule: NSObject, NSCoding{
             
             profitsShared = 0
         }
-
+        
         return profitsShared
     }
+    
 }

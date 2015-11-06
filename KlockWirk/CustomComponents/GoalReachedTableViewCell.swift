@@ -26,7 +26,7 @@ class GoalReachedTableViewCell: UITableViewCell {
     
     func bindCellDetails(schedule: Schedule){
         
-        amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.profitsShared())
+        amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
     }
     
 }

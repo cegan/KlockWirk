@@ -16,6 +16,24 @@ class SchedulesTableViewController: UITableViewController {
     
     
     
+    
+    //MARK: Notifications
+    
+    func registerNotification(){
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(
+            self,
+            selector: "userDidSelectKlockWirkers:",
+            name:NotificationConstants.UserDidSelectKlockWirkers,
+            object: nil
+        )
+    }
+    
+    
+    
+    
     //MARK: View Delegates
     
     override func viewDidLoad() {
@@ -24,6 +42,16 @@ class SchedulesTableViewController: UITableViewController {
         
         setupNavigationBar()
         setupTableViewProperties()
+        registerNotification()
+    }
+    
+    
+    func userDidSelectKlockWirkers(notification: NSNotification){
+        
+        let userInfo:Dictionary<String,Schedule> = notification.userInfo as! Dictionary<String,Schedule>
+        let schedule = userInfo["ScheduleData"]
+
+        self.presentViewController(UINavigationController(rootViewController:ManageKlockWirkersViewController(klockWirkersToDisplay: (schedule?.klockWirkers)!, asReadonly: true)), animated: true, completion: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -173,11 +201,8 @@ class SchedulesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("TestTableViewCell", forIndexPath: indexPath) as! TestTableViewCell
-    
-        let schedule = self.schedules[indexPath.row] 
-        
-        
-        cell.bindCellDetails(schedule)
+
+        cell.bindCellDetails(self.schedules[indexPath.row])
         
     
         return cell

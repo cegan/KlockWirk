@@ -160,7 +160,7 @@ class ScheduleDetailViewController: UITableViewController {
         
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.goal), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.achieved), tag: 3))
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.profitsShared()), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.klockWirkerProfitsShared()), tag: 4))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 5))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 6))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 7))
@@ -257,10 +257,6 @@ class ScheduleDetailViewController: UITableViewController {
     
     
     
-    
-    
-    
-    
     //MARK: TableView Delegates
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -269,7 +265,7 @@ class ScheduleDetailViewController: UITableViewController {
             
             if(selectedSchedule.hasGoalBeenReached()){
                 
-                return 115
+                return 130
             }
             else{
                 

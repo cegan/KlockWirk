@@ -10,9 +10,27 @@ import UIKit
 
 class ManageKlockWirkersViewController: UITableViewController {
     
-    
+    var readOnly: Bool = false
     let merchantService = MerchantServices()
     var klockWirkers:[KlockWirker] = []
+    
+    
+    
+    //MARK: View Initialization
+    
+    init(klockWirkersToDisplay: [KlockWirker], asReadonly: Bool){
+        
+        super.init(nibName: "ManageKlockWirkersViewController", bundle: nil);
+        
+        klockWirkers = klockWirkersToDisplay
+        readOnly     = asReadonly
+        
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     
@@ -20,8 +38,6 @@ class ManageKlockWirkersViewController: UITableViewController {
     //MARK: Utility Methods
     
     func refreshKlockWirkers(){
-        
-        klockWirkers = MerchantManager.sharedInstance.merchant.klockWirkers
         
         if(klockWirkers.count <= 0){
             
@@ -33,11 +49,6 @@ class ManageKlockWirkersViewController: UITableViewController {
         }
         
         self.tableView.reloadData()
-    }
-
-    func addNewKlockWirker(){
-        
-        self.presentViewController(UINavigationController(rootViewController: NewKlockWirkerViewController(nibName: "NewKlockWirkerViewController", bundle: nil)), animated: true, completion: nil)
     }
     
     func getNoKlockWirkersHeader() -> UILabel{
@@ -59,12 +70,18 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     //MARK: Setup
     
-    
     func setupNavigationBar(){
         
-        let addKlockWirker = UIBarButtonItem(image: UIImage(named: "adduser_selected.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirker"))
-        
-        self.navigationItem.rightBarButtonItem = addKlockWirker
+        if(readOnly){
+            
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneButtonTapped")
+        }
+        else{
+            
+            let addKlockWirker = UIBarButtonItem(image: UIImage(named: "adduser_selected.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirkerTapped"))
+            
+            self.navigationItem.rightBarButtonItem = addKlockWirker
+        }
     }
     
     func setupTableViewDelegates(){
@@ -146,6 +163,21 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     
     
+    //MARK: Events
+    
+    func addNewKlockWirkerTapped(){
+        
+        self.presentViewController(UINavigationController(rootViewController: NewKlockWirkerViewController(nibName: "NewKlockWirkerViewController", bundle: nil)), animated: true, completion: nil)
+    }
+    
+    func doneButtonTapped(){
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    
     
     //MARK: TableView Delegates
     
@@ -164,20 +196,29 @@ class ManageKlockWirkersViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("klockWirkerCell", forIndexPath: indexPath)
         let kw = self.klockWirkers[indexPath.row] 
         
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
+        if(readOnly){
+            
+            cell.accessoryType = .None
+        }
+        else{
+            
+            cell.accessoryType = .DisclosureIndicator
+        }
+    
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.textLabel?.text = kw.firstName + " " + kw.lastName
         cell.textLabel?.textColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0)
         cell.textLabel?.font = UIFont (name: "Gotham-Medium", size: 14)
 
-
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] as! KlockWirker, index: indexPath.row), animated: true)
+        
+        if(!readOnly){
+            
+            self.navigationController?.pushViewController(KlockWirkerDetailViewController(klockWirker: self.klockWirkers[indexPath.row] , index: indexPath.row), animated: true)
+        }
     }
-    
 }

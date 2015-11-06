@@ -16,6 +16,7 @@ struct NotificationConstants {
     static let RegisterKlockWirkerCompeleted    = "RegisterKlockWirkerCompeleted"
     static let UserDidAddNewSchedule            = "UserDidAddNewSchedule"
     static let UserDidRefreshSchedule           = "UserDidRefreshSchedule"
+    static let UserDidSelectKlockWirkers        = "UserDidSelectKlockWirkers"
     static let LoginFailed                      = "LoginFailed"
 }
 
