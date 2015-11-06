@@ -26,7 +26,13 @@ class GoalReachedTableViewCell: UITableViewCell {
     
     func bindCellDetails(schedule: Schedule){
         
-        amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
+        if(ApplicationInformation.isMerchant()){
+            
+            amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.merchantProfitsShared())
+        }
+        else{
+            
+            amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
+        }
     }
-    
 }
