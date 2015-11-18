@@ -10,24 +10,15 @@ import UIKit
 
 class ScheduleDetailViewController: UITableViewController {
     
+    let activityIndicator   = UserinterfaceUtilities.ActivityIndicator()
+    let scheduleService     = SchedulService()
+    let merchantService     = MerchantServices()
+    var isModal             = false
     
+    var selectedSchedule        = Schedule()
+    var scheduleSummaryFields   = NSMutableArray()
     
-    lazy private var activityIndicator : CustomActivityIndicatorView = {
-        let image : UIImage = UIImage(named: "loading")!
-        return CustomActivityIndicatorView(image: image)
-        }()
-    
-    let scheduleService = SchedulService()
-    let merchantService = MerchantServices()
-    var isModal         = false
-    
-    var selectedSchedule = Schedule()
-    var scheduleSummaryFields = NSMutableArray()
-    
-    
-    
-    
-   
+ 
     
     
     //MARK: View Initializers
@@ -132,8 +123,7 @@ class ScheduleDetailViewController: UITableViewController {
     
     func setupActivityIndicator () {
         
-        self.activityIndicator.center       = view.center;
-        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.activityIndicator.center = view.center;
         self.view.addSubview(activityIndicator)
     }
     
@@ -146,6 +136,18 @@ class ScheduleDetailViewController: UITableViewController {
     //MARK: Utility Methods
     
     func getScheduleSummaryFields() -> NSMutableArray{
+        
+        if(ApplicationInformation.isMerchant()){
+            
+            return getMerchantSummaryFields()
+        }
+        else{
+            
+            return getKlockWirkerSummaryFields()
+        }
+    }
+    
+    func getMerchantSummaryFields() -> NSMutableArray{
         
         let scheduleSummarFieldsFields = NSMutableArray()
         
@@ -160,22 +162,31 @@ class ScheduleDetailViewController: UITableViewController {
         
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Goal", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.goal), tag: 2))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Achieved", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.achieved), tag: 3))
-        
-        
-        if(ApplicationInformation.isMerchant()){
-            
-            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.merchantProfitsShared()), tag: 4))
-        }
-        else{
-            
-            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.klockWirkerProfitsShared()), tag: 4))
-        }
-        
-
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.merchantProfitsShared()), tag: 4))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Percentage", val: NumberFormatter.formatDoubleToPercent(selectedSchedule.KlockWirkerPercentage), tag: 5))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 6))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 7))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "KlockWirkers", val: "", tag: 8))
+        
+        return scheduleSummarFieldsFields
+    }
+
+    func getKlockWirkerSummaryFields() -> NSMutableArray{
+        
+        let scheduleSummarFieldsFields = NSMutableArray()
+        
+        if(selectedSchedule.hasGoalBeenReached()){
+            
+            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Chart", val: "", tag: 1))
+        }
+        else{
+            
+            scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "GoalReached", val: "", tag: 1))
+        }
+        
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.klockWirkerProfitsShared()), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 6))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 7))
         
         return scheduleSummarFieldsFields
     }

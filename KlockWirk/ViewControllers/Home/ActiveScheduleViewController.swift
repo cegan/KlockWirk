@@ -17,7 +17,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
 
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
-    var scheduleToDisplay = Schedule()
     var currentSchedule   = Schedule()
     
     
@@ -27,8 +26,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     init(schedule: Schedule){
         
         super.init(nibName: "ActiveScheduleViewController", bundle: nil);
-        
-        scheduleToDisplay = schedule
     }
     
     required init(coder aDecoder: NSCoder) {

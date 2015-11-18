@@ -26,20 +26,6 @@
 		4D2C549C1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C549A1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib */; };
 		4D2C549E1BA111190007AFD5 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C549D1BA111190007AFD5 /* Schedule.swift */; };
 		4D2C54A01BA3ABC20007AFD5 /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C549F1BA3ABC20007AFD5 /* ScheduleService.swift */; };
-		4D2C54C11BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54A51BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.m */; };
-		4D2C54C21BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54A81BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m */; };
-		4D2C54C31BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54AA1BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m */; };
-		4D2C54C41BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54AC1BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m */; };
-		4D2C54C51BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54AE1BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.m */; };
-		4D2C54C61BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54B01BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m */; };
-		4D2C54C71BA3C1210007AFD5 /* RSDFCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54B21BA3C1210007AFD5 /* RSDFCustomDatePickerView.m */; };
-		4D2C54C81BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54B41BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m */; };
-		4D2C54C91BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54B61BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m */; };
-		4D2C54CA1BA3C1210007AFD5 /* RSDFDatePickerDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54B81BA3C1210007AFD5 /* RSDFDatePickerDayCell.m */; };
-		4D2C54CB1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54BA1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m */; };
-		4D2C54CC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54BC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m */; };
-		4D2C54CD1BA3C1210007AFD5 /* RSDFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54BE1BA3C1210007AFD5 /* RSDFDatePickerView.m */; };
-		4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54C01BA3C1210007AFD5 /* RSDFDatePickerViewController.m */; };
 		4D2C54D81BA3D51A0007AFD5 /* AddScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54D61BA3D51A0007AFD5 /* AddScheduleTableViewController.swift */; };
 		4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */; };
 		4D2C54E01BA441960007AFD5 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54DB1BA441960007AFD5 /* CGRectEx.swift */; };
@@ -47,8 +33,6 @@
 		4D2C54E21BA441960007AFD5 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54DD1BA441960007AFD5 /* NSTimerEx.swift */; };
 		4D2C54E31BA441960007AFD5 /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54DE1BA441960007AFD5 /* SpinerLayer.swift */; };
 		4D2C54E41BA441960007AFD5 /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C54DF1BA441960007AFD5 /* TransitionSubmitButton.swift */; };
-		4D2C55401BA4809D0007AFD5 /* MDRotatingPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C553F1BA4809D0007AFD5 /* MDRotatingPieChart.swift */; };
-		4D2C55431BA4A88A0007AFD5 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C55421BA4A88A0007AFD5 /* Chart.swift */; };
 		4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */; };
 		4D3FE2DD1BC05C2D00DB892E /* ScheduleDetailTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FE2DB1BC05C2D00DB892E /* ScheduleDetailTableViewController2.swift */; };
 		4D3FE2DE1BC05C2D00DB892E /* ScheduleDetailTableViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FE2DC1BC05C2D00DB892E /* ScheduleDetailTableViewController2.xib */; };
@@ -63,6 +47,7 @@
 		4D49A7231B513B6A001FCF54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D49A7211B513B6A001FCF54 /* LaunchScreen.xib */; };
 		4D49A72F1B513B6A001FCF54 /* KlockWirkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */; };
 		4D49A73A1B51430D001FCF54 /* KlockWirkerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D49A7391B51430D001FCF54 /* KlockWirkerServices.swift */; };
+		4D7762911BED973900FF2080 /* UserinterfaceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7762901BED973900FF2080 /* UserinterfaceUtilities.swift */; };
 		4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E62E1B782A4B00A1F25D /* LoginViewController.swift */; };
 		4D79E6311B782A4B00A1F25D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79E62F1B782A4B00A1F25D /* LoginViewController.xib */; };
 		4D79E63C1B7EC64900A1F25D /* KlockWirker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */; };
@@ -248,35 +233,6 @@
 		4D2C549A1B9FBD0B0007AFD5 /* MerchantSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantSetupViewController.xib; sourceTree = "<group>"; };
 		4D2C549D1BA111190007AFD5 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		4D2C549F1BA3ABC20007AFD5 /* ScheduleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
-		4D2C54A41BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+RSDFAdditions.h"; sourceTree = "<group>"; };
-		4D2C54A51BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+RSDFAdditions.m"; sourceTree = "<group>"; };
-		4D2C54A61BA3C1210007AFD5 /* RSDayFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDayFlow.h; sourceTree = "<group>"; };
-		4D2C54A71BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerCollectionView.h; sourceTree = "<group>"; };
-		4D2C54A81BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerCollectionView.m; sourceTree = "<group>"; };
-		4D2C54A91BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerCollectionViewLayout.h; sourceTree = "<group>"; };
-		4D2C54AA1BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerCollectionViewLayout.m; sourceTree = "<group>"; };
-		4D2C54AB1BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerDayCell.h; sourceTree = "<group>"; };
-		4D2C54AC1BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerDayCell.m; sourceTree = "<group>"; };
-		4D2C54AD1BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerDaysOfWeekView.h; sourceTree = "<group>"; };
-		4D2C54AE1BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerDaysOfWeekView.m; sourceTree = "<group>"; };
-		4D2C54AF1BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerMonthHeader.h; sourceTree = "<group>"; };
-		4D2C54B01BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerMonthHeader.m; sourceTree = "<group>"; };
-		4D2C54B11BA3C1210007AFD5 /* RSDFCustomDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFCustomDatePickerView.h; sourceTree = "<group>"; };
-		4D2C54B21BA3C1210007AFD5 /* RSDFCustomDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFCustomDatePickerView.m; sourceTree = "<group>"; };
-		4D2C54B31BA3C1210007AFD5 /* RSDFDatePickerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerCollectionView.h; sourceTree = "<group>"; };
-		4D2C54B41BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerCollectionView.m; sourceTree = "<group>"; };
-		4D2C54B51BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerCollectionViewLayout.h; sourceTree = "<group>"; };
-		4D2C54B61BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerCollectionViewLayout.m; sourceTree = "<group>"; };
-		4D2C54B71BA3C1210007AFD5 /* RSDFDatePickerDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerDayCell.h; sourceTree = "<group>"; };
-		4D2C54B81BA3C1210007AFD5 /* RSDFDatePickerDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerDayCell.m; sourceTree = "<group>"; };
-		4D2C54B91BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerDaysOfWeekView.h; sourceTree = "<group>"; };
-		4D2C54BA1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerDaysOfWeekView.m; sourceTree = "<group>"; };
-		4D2C54BB1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerMonthHeader.h; sourceTree = "<group>"; };
-		4D2C54BC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerMonthHeader.m; sourceTree = "<group>"; };
-		4D2C54BD1BA3C1210007AFD5 /* RSDFDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerView.h; sourceTree = "<group>"; };
-		4D2C54BE1BA3C1210007AFD5 /* RSDFDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerView.m; sourceTree = "<group>"; };
-		4D2C54BF1BA3C1210007AFD5 /* RSDFDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDFDatePickerViewController.h; sourceTree = "<group>"; };
-		4D2C54C01BA3C1210007AFD5 /* RSDFDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDFDatePickerViewController.m; sourceTree = "<group>"; };
 		4D2C54D61BA3D51A0007AFD5 /* AddScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4D2C54D71BA3D51A0007AFD5 /* AddScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddScheduleTableViewController.xib; sourceTree = "<group>"; };
 		4D2C54DB1BA441960007AFD5 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
@@ -284,8 +240,6 @@
 		4D2C54DD1BA441960007AFD5 /* NSTimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerEx.swift; sourceTree = "<group>"; };
 		4D2C54DE1BA441960007AFD5 /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
 		4D2C54DF1BA441960007AFD5 /* TransitionSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionSubmitButton.swift; sourceTree = "<group>"; };
-		4D2C553F1BA4809D0007AFD5 /* MDRotatingPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDRotatingPieChart.swift; sourceTree = "<group>"; };
-		4D2C55421BA4A88A0007AFD5 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		4D39E7C11B6EE0E800DC82DF /* KlockWirkTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkTabBarController.swift; sourceTree = "<group>"; };
 		4D3FE2DB1BC05C2D00DB892E /* ScheduleDetailTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailTableViewController2.swift; sourceTree = "<group>"; };
 		4D3FE2DC1BC05C2D00DB892E /* ScheduleDetailTableViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailTableViewController2.xib; sourceTree = "<group>"; };
@@ -304,6 +258,7 @@
 		4D49A72D1B513B6A001FCF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D49A72E1B513B6A001FCF54 /* KlockWirkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlockWirkTests.swift; sourceTree = "<group>"; };
 		4D49A7391B51430D001FCF54 /* KlockWirkerServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerServices.swift; sourceTree = "<group>"; };
+		4D7762901BED973900FF2080 /* UserinterfaceUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserinterfaceUtilities.swift; sourceTree = "<group>"; };
 		4D79E62E1B782A4B00A1F25D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D79E62F1B782A4B00A1F25D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		4D79E63B1B7EC64900A1F25D /* KlockWirker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirker.swift; sourceTree = "<group>"; };
@@ -536,48 +491,11 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		4D2C54A31BA3C1210007AFD5 /* RSDayFlow */ = {
-			isa = PBXGroup;
-			children = (
-				4D2C54A41BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.h */,
-				4D2C54A51BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.m */,
-				4D2C54A61BA3C1210007AFD5 /* RSDayFlow.h */,
-				4D2C54A71BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.h */,
-				4D2C54A81BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m */,
-				4D2C54A91BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.h */,
-				4D2C54AA1BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m */,
-				4D2C54AB1BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.h */,
-				4D2C54AC1BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m */,
-				4D2C54AD1BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.h */,
-				4D2C54AE1BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.m */,
-				4D2C54AF1BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.h */,
-				4D2C54B01BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m */,
-				4D2C54B11BA3C1210007AFD5 /* RSDFCustomDatePickerView.h */,
-				4D2C54B21BA3C1210007AFD5 /* RSDFCustomDatePickerView.m */,
-				4D2C54B31BA3C1210007AFD5 /* RSDFDatePickerCollectionView.h */,
-				4D2C54B41BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m */,
-				4D2C54B51BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.h */,
-				4D2C54B61BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m */,
-				4D2C54B71BA3C1210007AFD5 /* RSDFDatePickerDayCell.h */,
-				4D2C54B81BA3C1210007AFD5 /* RSDFDatePickerDayCell.m */,
-				4D2C54B91BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.h */,
-				4D2C54BA1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m */,
-				4D2C54BB1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.h */,
-				4D2C54BC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m */,
-				4D2C54BD1BA3C1210007AFD5 /* RSDFDatePickerView.h */,
-				4D2C54BE1BA3C1210007AFD5 /* RSDFDatePickerView.m */,
-				4D2C54BF1BA3C1210007AFD5 /* RSDFDatePickerViewController.h */,
-				4D2C54C01BA3C1210007AFD5 /* RSDFDatePickerViewController.m */,
-			);
-			path = RSDayFlow;
-			sourceTree = "<group>";
-		};
 		4D2C54CF1BA3C48C0007AFD5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				4DFE4DFA1BBB6D4800E1EA6E /* Chart2 */,
 				4DE743A71BADEE5A0093FA1C /* DatePicker */,
-				4D2C55411BA4A8770007AFD5 /* Chart */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -592,22 +510,6 @@
 				4D2C54DF1BA441960007AFD5 /* TransitionSubmitButton.swift */,
 			);
 			path = TKSubmitTransition;
-			sourceTree = "<group>";
-		};
-		4D2C553E1BA4809D0007AFD5 /* MDRotatingPieChart */ = {
-			isa = PBXGroup;
-			children = (
-				4D2C553F1BA4809D0007AFD5 /* MDRotatingPieChart.swift */,
-			);
-			path = MDRotatingPieChart;
-			sourceTree = "<group>";
-		};
-		4D2C55411BA4A8770007AFD5 /* Chart */ = {
-			isa = PBXGroup;
-			children = (
-				4D2C55421BA4A88A0007AFD5 /* Chart.swift */,
-			);
-			path = Chart;
 			sourceTree = "<group>";
 		};
 		4D39E7BA1B6EE06300DC82DF /* ViewControllers */ = {
@@ -774,9 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				4D924DFA1BE51E31002A4AF9 /* ActivityIndicator */,
-				4D2C553E1BA4809D0007AFD5 /* MDRotatingPieChart */,
 				4D2C54DA1BA441960007AFD5 /* TKSubmitTransition */,
-				4D2C54A31BA3C1210007AFD5 /* RSDayFlow */,
 				4DDA8D1A1B5147F10056800C /* AFNetworking */,
 			);
 			path = Frameworks;
@@ -821,6 +721,7 @@
 				4DEA19351BB0C21A0091B44D /* MerchantManager.swift */,
 				4D9482531BB22A7D0034242F /* KlockWirkerManager.swift */,
 				4D3FE2E71BC1652C00DB892E /* StringUtilities.swift */,
+				4D7762901BED973900FF2080 /* UserinterfaceUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1167,7 +1068,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFE4E641BBB6D4800E1EA6E /* PieChartView.swift in Sources */,
-				4D2C54C21BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionView.m in Sources */,
 				4DFE4E881BBB6D4800E1EA6E /* ChartDataApproximatorFilter.swift in Sources */,
 				4DFE4E621BBB6D4800E1EA6E /* HorizontalBarChartView.swift in Sources */,
 				4DE7549B1BA77F4A00D3FE29 /* ScheduleTableViewCell.swift in Sources */,
@@ -1177,7 +1077,6 @@
 				4D79E6301B782A4B00A1F25D /* LoginViewController.swift in Sources */,
 				4DFE4E841BBB6D4800E1EA6E /* RadarChartData.swift in Sources */,
 				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
-				4D2C54C61BA3C1210007AFD5 /* RSDFCustomDatePickerMonthHeader.m in Sources */,
 				4DFE4E5F1BBB6D4800E1EA6E /* CandleStickChartView.swift in Sources */,
 				4D2C54E31BA441960007AFD5 /* SpinerLayer.swift in Sources */,
 				4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */,
@@ -1189,13 +1088,10 @@
 				4DFE4E901BBB6D4800E1EA6E /* ChartRange.swift in Sources */,
 				4DFE4E5B1BBB6D4800E1EA6E /* ChartAnimator.swift in Sources */,
 				4DFE4E661BBB6D4800E1EA6E /* RadarChartView.swift in Sources */,
-				4D2C54CC1BA3C1210007AFD5 /* RSDFDatePickerMonthHeader.m in Sources */,
 				4D2C54631B8A7A8F0007AFD5 /* SettingsViewController.swift in Sources */,
-				4D2C54C41BA3C1210007AFD5 /* RSDFCustomDatePickerDayCell.m in Sources */,
 				4D79E6471B7F6A7D00A1F25D /* JSONUtilities.swift in Sources */,
 				4D2C54D81BA3D51A0007AFD5 /* AddScheduleTableViewController.swift in Sources */,
 				4DFE4E731BBB6D4800E1EA6E /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */,
-				4D2C54C51BA3C1210007AFD5 /* RSDFCustomDatePickerDaysOfWeekView.m in Sources */,
 				4DFE4E6C1BBB6D4800E1EA6E /* ChartMarker.swift in Sources */,
 				4D2C544F1B87F59F0007AFD5 /* NotificationUtilities.swift in Sources */,
 				4DFE4E981BBB6D4800E1EA6E /* ChartLegendRenderer.swift in Sources */,
@@ -1209,7 +1105,6 @@
 				4DFE4E8E1BBB6D4800E1EA6E /* ChartHighlight.swift in Sources */,
 				4DFE4E6D1BBB6D4800E1EA6E /* ChartXAxis.swift in Sources */,
 				4DE754A91BA8952200D3FE29 /* KlockWirkerSelectionTableViewCell.swift in Sources */,
-				4D2C54C31BA3C1210007AFD5 /* RSDFCustomDatePickerCollectionViewLayout.m in Sources */,
 				4DFE4EAF1BBB6D4800E1EA6E /* UIGraphics+Extensions.swift in Sources */,
 				4DFE4EAA1BBB6D4800E1EA6E /* ChartSelectionDetail.swift in Sources */,
 				4DFE4E8F1BBB6D4800E1EA6E /* ChartHighlighter.swift in Sources */,
@@ -1221,7 +1116,6 @@
 				4DBBDCF41BC4453F0079035A /* ScheduleDetailViewController.swift in Sources */,
 				4DFE4E6F1BBB6D4800E1EA6E /* BarChartData.swift in Sources */,
 				4DFE4E831BBB6D4800E1EA6E /* PieChartDataSet.swift in Sources */,
-				4D2C54CB1BA3C1210007AFD5 /* RSDFDatePickerDaysOfWeekView.m in Sources */,
 				4DFE4EAB1BBB6D4800E1EA6E /* ChartTransformer.swift in Sources */,
 				4DFE4E6A1BBB6D4800E1EA6E /* ChartLegend.swift in Sources */,
 				4DFE4EA21BBB6D4800E1EA6E /* HorizontalBarChartRenderer.swift in Sources */,
@@ -1239,10 +1133,8 @@
 				4DFE4E6B1BBB6D4800E1EA6E /* ChartLimitLine.swift in Sources */,
 				4D924DFE1BE647E5002A4AF9 /* Colors.swift in Sources */,
 				4DDA8D331B5147F10056800C /* AFPropertyListRequestOperation.m in Sources */,
-				4D2C54C91BA3C1210007AFD5 /* RSDFDatePickerCollectionViewLayout.m in Sources */,
 				4DFE4EAC1BBB6D4800E1EA6E /* ChartTransformerHorizontalBarChart.swift in Sources */,
 				4DFE4E671BBB6D4800E1EA6E /* ScatterChartView.swift in Sources */,
-				4D2C55431BA4A88A0007AFD5 /* Chart.swift in Sources */,
 				4DFE4E771BBB6D4800E1EA6E /* CandleChartData.swift in Sources */,
 				4DFE4E651BBB6D4800E1EA6E /* PieRadarChartViewBase.swift in Sources */,
 				4D2C54E21BA441960007AFD5 /* NSTimerEx.swift in Sources */,
@@ -1251,8 +1143,6 @@
 				4D79E63E1B7EC65800A1F25D /* Merchant.swift in Sources */,
 				4DFE4E701BBB6D4800E1EA6E /* BarChartDataEntry.swift in Sources */,
 				4DFE4E601BBB6D4800E1EA6E /* ChartViewBase.swift in Sources */,
-				4D2C54C11BA3C1210007AFD5 /* NSCalendar+RSDFAdditions.m in Sources */,
-				4D2C54CD1BA3C1210007AFD5 /* RSDFDatePickerView.m in Sources */,
 				4DFE4EA51BBB6D4800E1EA6E /* PieChartRenderer.swift in Sources */,
 				4DFE4E7B1BBB6D4800E1EA6E /* ChartDataEntry.swift in Sources */,
 				4DFE4E891BBB6D4800E1EA6E /* ChartDataBaseFilter.swift in Sources */,
@@ -1272,6 +1162,7 @@
 				4DFE4E961BBB6D4800E1EA6E /* ChartAxisRendererBase.swift in Sources */,
 				4DFE4EA31BBB6D4800E1EA6E /* LineChartRenderer.swift in Sources */,
 				4D2C547F1B97C8CE0007AFD5 /* BaseKlockWirkService.swift in Sources */,
+				4D7762911BED973900FF2080 /* UserinterfaceUtilities.swift in Sources */,
 				4DFE4DF81BB9844C00E1EA6E /* Enums.swift in Sources */,
 				4DFE4E921BBB6D4800E1EA6E /* HorizontalBarChartHighlighter.swift in Sources */,
 				4DFE4EA61BBB6D4800E1EA6E /* RadarChartRenderer.swift in Sources */,
@@ -1280,7 +1171,6 @@
 				4DDA8D311B5147F10056800C /* AFJSONRequestOperation.m in Sources */,
 				4DFE4E851BBB6D4800E1EA6E /* RadarChartDataSet.swift in Sources */,
 				4DFE4E5C1BBB6D4800E1EA6E /* BarChartView.swift in Sources */,
-				4D2C54C81BA3C1210007AFD5 /* RSDFDatePickerCollectionView.m in Sources */,
 				4DC3B3BC1BEAF50F00BCD0DB /* GoalReachedTableViewCell.swift in Sources */,
 				4D3FE2E11BC0636D00DB892E /* NoCurrentSchedulesViewController.swift in Sources */,
 				4DFE4E861BBB6D4800E1EA6E /* ScatterChartData.swift in Sources */,
@@ -1291,7 +1181,6 @@
 				4D39E7C21B6EE0E800DC82DF /* KlockWirkTabBarController.swift in Sources */,
 				4DFE4E7C1BBB6D4800E1EA6E /* ChartDataSet.swift in Sources */,
 				4DFE4E811BBB6D4800E1EA6E /* LineScatterCandleChartDataSet.swift in Sources */,
-				4D2C54C71BA3C1210007AFD5 /* RSDFCustomDatePickerView.m in Sources */,
 				4DFE4EA01BBB6D4800E1EA6E /* ChartYAxisRendererRadarChart.swift in Sources */,
 				4DDA8D361B5147F10056800C /* UIImageView+AFNetworking.m in Sources */,
 				4D2C54521B880EE40007AFD5 /* KlockWirkerDetailViewController.swift in Sources */,
@@ -1304,7 +1193,6 @@
 				4DFE4E6E1BBB6D4800E1EA6E /* ChartYAxis.swift in Sources */,
 				4D2C54E11BA441960007AFD5 /* FadeTransition.swift in Sources */,
 				4DFE4E991BBB6D4800E1EA6E /* ChartRendererBase.swift in Sources */,
-				4D2C54CE1BA3C1210007AFD5 /* RSDFDatePickerViewController.m in Sources */,
 				4DFE4E711BBB6D4800E1EA6E /* BarChartDataSet.swift in Sources */,
 				4DFE4E801BBB6D4800E1EA6E /* LineRadarChartDataSet.swift in Sources */,
 				4DBBDCF91BC4809D0079035A /* ForgotPasswordViewController.swift in Sources */,
@@ -1314,7 +1202,6 @@
 				4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */,
 				4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
-				4D2C54CA1BA3C1210007AFD5 /* RSDFDatePickerDayCell.m in Sources */,
 				4DE743A61BADEE180093FA1C /* DVDatePickerTableViewCell.swift in Sources */,
 				4DBBDCF01BC440970079035A /* ChartTableViewCell.swift in Sources */,
 				4DE743A91BADEE5A0093FA1C /* DatePicker.swift in Sources */,
@@ -1335,7 +1222,6 @@
 				4DFE4E911BBB6D4800E1EA6E /* CombinedHighlighter.swift in Sources */,
 				4DFE4E7A1BBB6D4800E1EA6E /* ChartData.swift in Sources */,
 				4DFE4E821BBB6D4800E1EA6E /* PieChartData.swift in Sources */,
-				4D2C55401BA4809D0007AFD5 /* MDRotatingPieChart.swift in Sources */,
 				4DFE4E951BBB6D4800E1EA6E /* CandleStickChartRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

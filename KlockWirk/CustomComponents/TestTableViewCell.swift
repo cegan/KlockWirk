@@ -23,7 +23,7 @@ class TestTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         
-        usersButton.titleLabel?.textColor = KlockWirkColors.Orange
+        setCellProperties()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,17 +32,35 @@ class TestTableViewCell: UITableViewCell {
     }
     
     
+    
+    func setCellProperties(){
+        
+        if(ApplicationInformation.isMerchant()){
+         
+            usersButton.titleLabel?.textColor = KlockWirkColors.Orange
+        }
+        else{
+            
+            usersImageView.hidden   = true
+            usersButton.hidden      = true
+        }
+    }
+    
+    
     func bindCellDetails(schedule: Schedule){
         
         self.schedule = schedule
         
-        if(schedule.klockWirkers.count > 1){
-        
-            usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirkers", forState: .Normal)
-        }
-        else{
+        if(ApplicationInformation.isMerchant()){
             
-            usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirker", forState: .Normal)
+            if(schedule.klockWirkers.count > 1){
+                
+                usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirkers", forState: .Normal)
+            }
+            else{
+                
+                usersButton.setTitle(String(schedule.klockWirkers.count) + " KlockWirker", forState: .Normal)
+            }
         }
         
         scheduleStartValue.text = DateUtilities.stringValueOfShiftDate(schedule.startDateTime)
