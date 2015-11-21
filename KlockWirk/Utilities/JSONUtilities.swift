@@ -185,4 +185,14 @@ class JSONUtilities{
         
         return schedules
     }
+    
+    
+    class func parsePosOrders(s: NSDictionary) -> Double{
+    
+        let totalSales = (s.objectForKey("TotalSales") as? Double)!
+        
+        return totalSales
+        
+
+    }
 }

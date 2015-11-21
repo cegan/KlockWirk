@@ -172,7 +172,6 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     
                     goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
-                    
                 }
             }
         }

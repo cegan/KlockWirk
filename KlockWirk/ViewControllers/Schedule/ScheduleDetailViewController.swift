@@ -11,6 +11,7 @@ import UIKit
 class ScheduleDetailViewController: UITableViewController {
     
     let activityIndicator   = UserinterfaceUtilities.ActivityIndicator()
+    let posSalesService     = PosSalesService()
     let scheduleService     = SchedulService()
     let merchantService     = MerchantServices()
     var isModal             = false
@@ -46,6 +47,11 @@ class ScheduleDetailViewController: UITableViewController {
     
     
     
+
+
+    
+    
+    
     
     
     //MARK: View Delegates
@@ -77,8 +83,7 @@ class ScheduleDetailViewController: UITableViewController {
         
     }
 
-    
-    
+ 
     
     
     //MARK: Setup Methods
@@ -272,7 +277,17 @@ class ScheduleDetailViewController: UITableViewController {
     
     func refresh(sender:AnyObject){
         
-        self.refreshControl?.endRefreshing()
+        self.refreshControl?.beginRefreshing()
+        
+        posSalesService.getTotalSalesForSchedule(selectedSchedule) { (response:NSDictionary) in
+            
+            self.selectedSchedule.achieved  = JSONUtilities.parsePosOrders(response)
+            self.scheduleSummaryFields      = self.getScheduleSummaryFields()
+            
+            self.tableView.reloadData()
+            
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     

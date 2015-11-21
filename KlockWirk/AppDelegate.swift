@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadApplicationSettings()
         setUserInterfaceDefaults()
         
-        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         window?.makeKeyAndVisible()

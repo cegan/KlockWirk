@@ -12,11 +12,13 @@ import Foundation
 
 class PosSalesService: BaseKlockWirkService{
     
-    
     func getTotalSalesForSchedule(schedule: Schedule, onCompletion: (response: NSDictionary) -> ()) {
+
+        let parameters = [
+            "merchantId":schedule.merchantId,
+            "scheduleId":schedule.scheduleId] as Dictionary<String, AnyObject>
         
         
-        let parameters = ["merchantId":schedule.merchantId]
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.TotalSalesForShift, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
         

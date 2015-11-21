@@ -31,7 +31,7 @@ struct ServiceEndpoints {
     static let ScheduleEndpoint             = "Schedules/"
     static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
     static let KlockWirkersByScheduleId     = "klockwirkers/GetKlockWirkersForScheduleId/"
-    static let TotalSalesForShift           = "posSales/GetTotalSalesForShift/"
+    static let TotalSalesForShift           = "PosSales/"
 }
 
 

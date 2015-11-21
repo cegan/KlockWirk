@@ -144,10 +144,10 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         let scheduleFields = NSMutableArray()
         
         scheduleFields.addObject(AccountSetupField(lbl: "Goal", val: "",type:.Currency, required:true, tag: 1))
-        scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 2))
-        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 3))
-        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 4))
-        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 5))
+       // scheduleFields.addObject(AccountSetupField(lbl: "Achieved", val: "",type:.Currency, required:true, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Percent", val: "", type:.Percent, required:true, tag: 2))
+        scheduleFields.addObject(AccountSetupField(lbl: "Shift", val: "",type:.String, required:true, tag: 3))
+        scheduleFields.addObject(AccountSetupField(lbl: "KlockWirkers", val: "", type:.String, required:true, tag: 4))
         
         return scheduleFields
     }
@@ -157,15 +157,13 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         let schedule = Schedule()
         
         let line        = scheduleFields.objectAtIndex(0) as! AccountSetupField
-        let achieved    = scheduleFields.objectAtIndex(1) as! AccountSetupField
-        let percent     = scheduleFields.objectAtIndex(2) as! AccountSetupField
+        let percent     = scheduleFields.objectAtIndex(1) as! AccountSetupField
         
         let startDate   = shiftStartDate
         let endDate     = shiftEndDate
         
         schedule.KlockWirkerPercentage  = NumberFormatter.getSafeDoubleFromPercentString(percent.value!)
         schedule.goal                   = NumberFormatter.getSafeDoubleFromCurrencyString(line.value!)
-        schedule.achieved               = NumberFormatter.getSafeDoubleFromCurrencyString(achieved.value!)
         schedule.startDateTime          = startDate
         schedule.endDateTime            = endDate
         
@@ -240,7 +238,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         if(dateWasSelected){
             
-            if(indexPath.row == 3){
+            if(indexPath.row == 2){
                 
                 return 125
             }
@@ -268,20 +266,11 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
        
         switch(indexPath.row){
             
-            case 0:
+            case 0,1:
                 cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
                 (cell as! InputTableViewCell).bindCellDetail(accountField)
-            
-            case 1:
-                cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
-                (cell as! InputTableViewCell).bindCellDetail(accountField)
-            
             
             case 2:
-                cell = tableView.dequeueReusableCellWithIdentifier("InputTableViewCell", forIndexPath: indexPath) as! InputTableViewCell
-                (cell as! InputTableViewCell).bindCellDetail(accountField)
-            
-            case 3:
                 
                 if(dateWasSelected){
                     
@@ -297,15 +286,11 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
                 
 
-            case 4:
+            case 3:
                 cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
                 (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            
-            case 5:
-                cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableViewCell
-                (cell as! ScheduleTableViewCell).bindCellDetail(accountField)
-                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    
             
             default:
                 cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath)
@@ -322,21 +307,14 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
         
         switch(indexPath.row){
             
-        case 0:
+        case 0,1:
             cancelTableViewEditing(true)
-            
-        case 1:
-            cancelTableViewEditing(true)
-            
-            
+     
         case 2:
-            cancelTableViewEditing(true)
-            
-        case 3:
             cancelTableViewEditing(false)
             self.navigationController?.pushViewController(datePicker, animated: true)
             
-        case 4:
+        case 3:
             cancelTableViewEditing(false)
             self.navigationController?.pushViewController(KlockWirkerSelectionTableViewController(kws: merchant.klockWirkers, readOnly: ApplicationInformation.isReadOnly()), animated: true)
             
