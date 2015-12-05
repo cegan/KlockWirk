@@ -71,6 +71,19 @@ class Schedule: NSObject, NSCoding{
         return false
     }
     
+    func getTimeReminingOnSchedule() -> String{
+        
+        let dayHourMinuteSecond: NSCalendarUnit = [.Hour,.Minute]
+        
+        let difference = NSCalendar.currentCalendar().components(
+            dayHourMinuteSecond,
+            fromDate: NSDate(),
+            toDate: endDateTime,
+            options: [])
+        
+        return String(difference.hour) + " Hours and " + String(difference.minute) + " Minutes Remaining"
+    }
+    
     func klockWirkerProfitsShared() -> Double{
         
         var profitsShared = 0.0
@@ -79,7 +92,15 @@ class Schedule: NSObject, NSCoding{
         if(hasGoalBeenReached()){
             
             profitsShared = (achieved - goal) * KlockWirkerPercentage/100
-            total         = profitsShared / Double(klockWirkers.count)
+            
+            if(klockWirkers.count > 0){
+             
+                total = profitsShared / Double(klockWirkers.count)
+            }
+            else{
+                
+                total = profitsShared
+            }
         }
         else{
             

@@ -14,7 +14,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
     
 
     let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
-    let activeScheduleViewController        = ActiveScheduleViewController(schedule: Schedule())
+    let activeScheduleViewController        = MerchantActiveScheduleViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let manageKlockWirkersViewController    = ManageKlockWirkersViewController(klockWirkersToDisplay: MerchantManager.sharedInstance.merchant.klockWirkers, asReadonly: false)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)

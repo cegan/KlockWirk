@@ -13,7 +13,7 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
     
     
     let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
-    let activeScheduleViewController        = ActiveScheduleViewController(schedule: Schedule())
+    let activeScheduleViewController        = KlockWirkerActiveScheduleViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     

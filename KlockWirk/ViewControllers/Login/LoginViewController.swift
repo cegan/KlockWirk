@@ -206,7 +206,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             
             (alert: UIAlertAction!) -> Void in
             
-            self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController(nibName: "KlockWirkerSetupViewController", bundle: nil)), animated: true, completion: nil)
+            self.presentViewController(UINavigationController(rootViewController: KlockWirkerSetupViewController2(nibName: "KlockWirkerSetupViewController2", bundle: nil)), animated: true, completion: nil)
             
         })
         let merchantAction = UIAlertAction(title: "Merchant", style: .Default, handler: {

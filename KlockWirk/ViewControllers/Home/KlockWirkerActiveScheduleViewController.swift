@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
+class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var achievedLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var timeRemainingOnSchedule: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var viewScheduleDetails: UIButton!
+    
+    
+    
 
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
@@ -25,7 +28,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
     init(schedule: Schedule){
         
-        super.init(nibName: "ActiveScheduleViewController", bundle: nil);
+        super.init(nibName: "KlockWirkerActiveScheduleViewController", bundle: nil);
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -159,23 +162,7 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
 
     func refreshHomeView(){
         
-        if(ApplicationInformation.isMerchant()){
-            
-            merchant = MerchantManager.sharedInstance.merchant
-            
-            if(merchant.schedules.count > 0){
-                
-                if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
-                    
-                    pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
-                    currentSchedule = schedule
-                    
-                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
-                    achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
-                }
-            }
-        }
-        else{
+        if(ApplicationInformation.isKlockWirker()){
             
             klockWirker = KlockWirkerManager.sharedInstance.klockWirker
             
@@ -186,11 +173,10 @@ class ActiveScheduleViewController: UIViewController, ChartViewDelegate {
                     pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
                     
-                    goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
+                    timeRemainingOnSchedule.text = String(currentSchedule.getTimeReminingOnSchedule())
                 }
             }
-            
         }
     }
 }

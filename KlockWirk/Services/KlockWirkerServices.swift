@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class KlockWirkerServices : BaseKlockWirkService{
+class KlockWirkerServices : BaseKlockWirkService {
     
     func deleteKlockWirker(klockWirkerId: NSNumber, onCompletion: (response: NSDictionary) -> ()) {
         
@@ -187,8 +187,6 @@ class KlockWirkerServices : BaseKlockWirkService{
                     dispatch_async(dispatch_get_main_queue(), {
                     
                         onCompletion(response: result)
-                        
-                        NotificationUtilities.postNotification(NotificationConstants.RegisterKlockWirkerCompeleted)
                     })
                 }
                 else{
