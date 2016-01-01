@@ -81,7 +81,15 @@ class Schedule: NSObject, NSCoding{
             toDate: endDateTime,
             options: [])
         
-        return String(difference.hour) + " Hours and " + String(difference.minute) + " Minutes Remaining"
+        
+        if(difference.hour > 1){
+            
+            return String(difference.hour) + " Hours and " + String(difference.minute) + " Minutes Remaining"
+        }
+        else{
+            
+            return String(difference.hour) + " Hour and " + String(difference.minute) + " Minutes Remaining"
+        }
     }
     
     func klockWirkerProfitsShared() -> Double{

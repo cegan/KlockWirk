@@ -28,6 +28,7 @@ struct ServiceEndpoints {
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
+    static let PasswordReset                = "PasswordReset/"
     static let ScheduleEndpoint             = "Schedules/"
     static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
     static let KlockWirkersByScheduleId     = "klockwirkers/GetKlockWirkersForScheduleId/"
@@ -37,6 +38,7 @@ struct ServiceEndpoints {
 
 struct HTTPStatusCodes {
     
+    static let HTTPOK       = 200
     static let HTTPNotFound = 404
 }
 

@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Models/Schedule.swift"
-            timestampString = "470968831.529549"
+            filePath = "KlockWirk/ViewControllers/Home/MerchantActiveScheduleViewController.swift"
+            timestampString = "473361630.919851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "getTimeReminingOnSchedule()"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "refreshCurrentSchedule()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -16,8 +16,6 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var viewScheduleDetails: UIButton!
     
-    
-    
 
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
@@ -47,7 +45,6 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
         
         super.viewDidLoad()
         
-        refreshHomeView()
         setupNavigationBar()
     }
     
@@ -60,10 +57,10 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
     
     override func viewWillAppear(animated: Bool) {
         
-        refreshHomeView()
-        setupPieChartProperties()
-        
         self.navigationItem.title = "Home"
+        
+        displayCurrentSchedule()
+        setupPieChartProperties()
     }
     
 
@@ -127,8 +124,7 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
         xVals.append("Goal")
         xVals.append("Achieved")
         
-    
-        
+
         let dataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.colors = colors
         
@@ -149,19 +145,43 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
 
     }
     
+    
     func setupNavigationBar(){
         
-         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshSchedule"))
+         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshCurrentSchedule"))
         
         self.navigationItem.rightBarButtonItem = refresh
     }
     
-    func refreshSchedule(){
-        
-        NotificationUtilities.postNotification(NotificationConstants.UserDidRefreshSchedule)
-    }
+    
 
-    func refreshHomeView(){
+    func refreshCurrentSchedule(){
+        
+        if(ApplicationInformation.isMerchant()){
+            
+            merchant = MerchantManager.sharedInstance.merchant
+            
+            if(merchant.schedules.count > 0){
+                
+                if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
+                    
+                    let posSalesService = PosSalesService()
+                    
+                    currentSchedule = schedule
+                
+                    posSalesService.getTotalSalesForSchedule(currentSchedule) { (response:NSDictionary) in
+                        
+                        self.achievedLabel.text             = "Achieved " + NumberFormatter.formatDoubleToCurrency(JSONUtilities.parsePosOrders(response))
+                        self.goalLabel.text                 = "Goal " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.goal)
+                        self.timeRemainingOnSchedule.text   = String(self.currentSchedule.getTimeReminingOnSchedule())
+                        self.pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
+                    }
+                }
+            }
+        }
+    }
+    
+    func displayCurrentSchedule(){
         
         if(ApplicationInformation.isMerchant()){
             

@@ -11,6 +11,7 @@ import UIKit
 class GoalReachedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var amountEarned: UILabel!
+    @IBOutlet weak var sharedLabel: UILabel!
     
     override func awakeFromNib() {
         
@@ -29,10 +30,12 @@ class GoalReachedTableViewCell: UITableViewCell {
         if(ApplicationInformation.isMerchant()){
             
             amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.merchantProfitsShared())
+            sharedLabel.text = "Profits Shared"
         }
         else{
             
             amountEarned.text = NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
+            sharedLabel.text = "You've Earned"
         }
     }
 }

@@ -172,7 +172,8 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     func deleteKlockWirker(){
         
         activityIndicator.startAnimating()
-        ApplicationInformation.removeKlockWirker(self.self.klockWirkerDetail, index: 0)
+        
+        ApplicationInformation.removeKlockWirker(self.klockWirkerDetail, index: 0)
         
         klockWirkerService.deleteKlockWirker(klockWirkerDetail.klockWirkerId) { (response:NSDictionary) in
             

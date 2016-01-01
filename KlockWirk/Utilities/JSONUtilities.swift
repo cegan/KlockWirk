@@ -35,9 +35,10 @@ class JSONUtilities{
     
     class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
         
-        let klockWirker         = KlockWirker()
-        let merchant            = (kw.objectForKey("Merchant") as? NSDictionary)!
-        let merchantSchedules   = (merchant.objectForKey("MerchantSchedules") as? NSArray)!
+        let klockWirker             = KlockWirker()
+        let merchant                = (kw.objectForKey("Merchant") as? NSDictionary)!
+        let merchantSchedules       = (merchant.objectForKey("MerchantSchedules") as? NSArray)!
+        //let klockWirkerSchedules    = (merchantSchedules.objectForKey("KlockWirkerSchedules") as? NSArray)!
        
         klockWirker.merchantId = (kw.objectForKey("MerchantId") as? Int)!
         klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
@@ -158,7 +159,7 @@ class JSONUtilities{
         schedule.goal = (s.objectForKey("Line") as? Double)!
         schedule.achieved = (s.objectForKey("Achieved") as? Double)!
         schedule.KlockWirkerPercentage = (s.objectForKey("KlockWirkerPercentage") as? Double)!
-      
+        schedule.klockWirkers = (s.objectForKey("KlockWirkerSchedules") as? NSArray)! as! [KlockWirker]
         
         return schedule
     }
@@ -185,7 +186,6 @@ class JSONUtilities{
         
         return schedules
     }
-    
     
     class func parsePosOrders(s: NSDictionary) -> Double{
     

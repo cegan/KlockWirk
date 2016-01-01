@@ -189,7 +189,7 @@ class ScheduleDetailViewController: UITableViewController {
             scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "GoalReached", val: "", tag: 1))
         }
         
-        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Shared", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.klockWirkerProfitsShared()), tag: 4))
+        scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Profits Earned", val: NumberFormatter.formatDoubleToCurrency(selectedSchedule.klockWirkerProfitsShared()), tag: 4))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift Start", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.startDateTime), tag: 6))
         scheduleSummarFieldsFields.addObject(ScheduleSummaryField(lbl: "Shift End", val: DateUtilities.stringValueOfShiftDate(selectedSchedule.endDateTime), tag: 7))
         

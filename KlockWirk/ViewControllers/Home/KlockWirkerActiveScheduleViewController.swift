@@ -10,7 +10,6 @@ import UIKit
 
 class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelegate {
     
-    @IBOutlet weak var achievedLabel: UILabel!
     @IBOutlet weak var timeRemainingOnSchedule: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var viewScheduleDetails: UIButton!
@@ -46,7 +45,6 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
         
         super.viewDidLoad()
         
-        refreshHomeView()
         setupNavigationBar()
     }
     
@@ -150,16 +148,12 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
     
     func setupNavigationBar(){
         
-         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshSchedule"))
+         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshHomeView"))
         
         self.navigationItem.rightBarButtonItem = refresh
     }
     
-    func refreshSchedule(){
-        
-        NotificationUtilities.postNotification(NotificationConstants.UserDidRefreshSchedule)
-    }
-
+    
     func refreshHomeView(){
         
         if(ApplicationInformation.isKlockWirker()){
@@ -173,7 +167,6 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
                     pieChart.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.EaseOutCirc)
                     currentSchedule = schedule
                     
-                    achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
                     timeRemainingOnSchedule.text = String(currentSchedule.getTimeReminingOnSchedule())
                 }
             }

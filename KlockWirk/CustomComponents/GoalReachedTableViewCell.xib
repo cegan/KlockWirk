@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -25,18 +25,18 @@
                         <color key="textColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You've Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2c-Zm-1Jr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2c-Zm-1Jr">
                         <rect key="frame" x="0.0" y="47" width="320" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$400.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-P2-kdT">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-P2-kdT">
                         <rect key="frame" x="0.0" y="76" width="320" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -45,21 +45,22 @@
                     <constraint firstItem="1jE-P2-kdT" firstAttribute="trailing" secondItem="e2c-Zm-1Jr" secondAttribute="trailing" id="D8O-3f-Gjl"/>
                     <constraint firstItem="e2c-Zm-1Jr" firstAttribute="leading" secondItem="gxm-Rb-9GN" secondAttribute="leading" id="GG1-H1-1Ae"/>
                     <constraint firstItem="e2c-Zm-1Jr" firstAttribute="trailing" secondItem="gxm-Rb-9GN" secondAttribute="trailing" id="JxE-QW-f4R"/>
-                    <constraint firstItem="e2c-Zm-1Jr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="P08-A0-iZg"/>
+                    <constraint firstItem="e2c-Zm-1Jr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-7.25" id="P08-A0-iZg"/>
                     <constraint firstItem="gxm-Rb-9GN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Vd7-Xd-vJs"/>
                     <constraint firstItem="gxm-Rb-9GN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Z68-Dy-TDf"/>
                     <constraint firstItem="1jE-P2-kdT" firstAttribute="leading" secondItem="e2c-Zm-1Jr" secondAttribute="leading" id="bze-0e-Nmm"/>
                     <constraint firstItem="e2c-Zm-1Jr" firstAttribute="top" secondItem="gxm-Rb-9GN" secondAttribute="bottom" constant="8" symbolic="YES" id="kFC-Wh-ZDH"/>
                     <constraint firstItem="1jE-P2-kdT" firstAttribute="top" secondItem="e2c-Zm-1Jr" secondAttribute="bottom" constant="8" symbolic="YES" id="nvV-Np-Qtv"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1jE-P2-kdT" secondAttribute="bottom" constant="9.5" id="wCp-AA-fqg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1jE-P2-kdT" secondAttribute="bottom" constant="24.5" id="wCp-AA-fqg"/>
                     <constraint firstAttribute="trailing" secondItem="gxm-Rb-9GN" secondAttribute="trailing" id="xsP-aT-U6c"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="amountEarned" destination="1jE-P2-kdT" id="FUa-Ds-Qrq"/>
+                <outlet property="sharedLabel" destination="e2c-Zm-1Jr" id="8Uw-gK-VyG"/>
             </connections>
-            <point key="canvasLocation" x="-101" y="208"/>
+            <point key="canvasLocation" x="48" y="183"/>
         </tableViewCell>
     </objects>
 </document>

@@ -53,12 +53,14 @@ class SchedulService: BaseKlockWirkService{
                 if(httpResponse.statusCode == 200){
                     
                     let result = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                   
+                    
                     let mId         = (result.objectForKey("MerchantId") as? Int)!
-                    let scheduleId = (result.objectForKey("ScheduleId") as? Int)!
+                    let scheduleId  = (result.objectForKey("ScheduleId") as? Int)!
+                    let achieved    = (result.objectForKey("Achieved") as? Double)!
                     
                     schedule.scheduleId = scheduleId
                     schedule.merchantId = mId
+                    schedule.achieved = achieved
                     
                     for kw in schedule.klockWirkers {
                         

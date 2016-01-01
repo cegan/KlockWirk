@@ -39,6 +39,8 @@ class ManageKlockWirkersViewController: UITableViewController {
     
     func refreshKlockWirkers(){
         
+        klockWirkers = MerchantManager.sharedInstance.merchant.klockWirkers
+        
         if(klockWirkers.count <= 0){
             
             self.tableView.tableHeaderView = getNoKlockWirkersHeader()

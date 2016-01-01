@@ -203,6 +203,55 @@ class KlockWirkerServices : BaseKlockWirkService {
         
         task.resume()
     }
+    
+    
+    
+    
+    func resetUserPassword(klockWirker: KlockWirker,onCompletion: (response: Int) -> ()){
+        
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.PasswordReset, httpMethod: HTTPConstants.HTTPMethodPost)
+        
+        let params = [
+            "Email":klockWirker.emailAddress,
+            "Phone":klockWirker.phoneNumber,
+            "Password":klockWirker.password] as Dictionary<String, String>
+        
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            
+        } catch {
+            
+            print(error)
+        }
+        
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                if(httpResponse.statusCode == 200){
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: HTTPStatusCodes.HTTPOK)
+                    })
+                }
+                else{
+                
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: HTTPStatusCodes.HTTPNotFound)
+                    })
+                }
+            }
+        })
+        
+        task.resume()
+    }
+    
+    
 }
 
 
