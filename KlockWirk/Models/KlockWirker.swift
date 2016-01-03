@@ -18,6 +18,7 @@ class KlockWirker: NSObject, NSCoding{
     var emailAddress: String = ""
     var phoneNumber: String = ""
     var password: String = ""
+    var deviceUUID: String = ""
     var confirmPassword: String = ""
     var isSelected: Bool = false
     var schedules = [Schedule]()
@@ -45,6 +46,7 @@ class KlockWirker: NSObject, NSCoding{
         self.phoneNumber = (aDecoder.decodeObjectForKey("phoneNumber") as? String)!
         self.password = (aDecoder.decodeObjectForKey("password") as? String)!
         self.confirmPassword = (aDecoder.decodeObjectForKey("confirmPassword") as? String)!
+        self.deviceUUID = (aDecoder.decodeObjectForKey("deviceUUID") as? String)!
         self.isSelected = (aDecoder.decodeObjectForKey("isSelected") as? Bool)!
         self.schedules = (aDecoder.decodeObjectForKey("schedules") as? NSArray)! as! [Schedule]
     }
@@ -58,6 +60,7 @@ class KlockWirker: NSObject, NSCoding{
         aCoder.encodeObject(emailAddress, forKey: "emailAddress")
         aCoder.encodeObject(phoneNumber, forKey: "phoneNumber")
         aCoder.encodeObject(password, forKey: "password")
+        aCoder.encodeObject(deviceUUID, forKey: "deviceUUID")
         aCoder.encodeObject(confirmPassword, forKey: "confirmPassword")
         aCoder.encodeObject(isSelected, forKey: "isSelected")
         aCoder.encodeObject(schedules, forKey: "schedules")

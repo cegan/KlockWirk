@@ -53,6 +53,7 @@ class MerchantServices: BaseKlockWirkService{
             "PosSystemBaseApiUrl":merchant.posSystemBaseApiUrl,
             "PosSystemApiKey":merchant.posSystemApiKey,
             "POS":merchant.posSystem,
+            "DeviceUUID":UIDevice.currentDevice().identifierForVendor!.UUIDString,
             "Password":merchant.password] as Dictionary<String, String>
         
         do {

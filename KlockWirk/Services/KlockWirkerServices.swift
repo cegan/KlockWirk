@@ -89,25 +89,6 @@ class KlockWirkerServices : BaseKlockWirkService {
         task.resume()
     }
     
-    func getKlockWirkerSchedules(klockWirkerId: Int, onCompletion: (response: NSArray) -> ()) {
-        
-        let parameters = ["klockWirkerId":klockWirkerId]
-        let session = NSURLSession.sharedSession()
-        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodGet, parameters: parameters)
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                onCompletion(response: jsonResult)
-            })
-        })
-        
-        task.resume()
-    }
-    
     func addNewKlockWirker(klockWirkerToAdd:KlockWirker, onCompletion: (response: KlockWirker) -> ()){
         
         let session = NSURLSession.sharedSession()
@@ -164,6 +145,7 @@ class KlockWirkerServices : BaseKlockWirkService {
         let params = [
             "Email":klockWirker.emailAddress,
             "Phone":klockWirker.phoneNumber,
+            "DeviceUUID":UIDevice.currentDevice().identifierForVendor!.UUIDString,
             "Password":klockWirker.password] as Dictionary<String, String>
         
         do {
@@ -215,6 +197,7 @@ class KlockWirkerServices : BaseKlockWirkService {
         let params = [
             "Email":klockWirker.emailAddress,
             "Phone":klockWirker.phoneNumber,
+            "DeviceUuid":UIDevice.currentDevice().identifierForVendor!.UUIDString,
             "Password":klockWirker.password] as Dictionary<String, String>
         
         do {
@@ -236,6 +219,13 @@ class KlockWirkerServices : BaseKlockWirkService {
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         onCompletion(response: HTTPStatusCodes.HTTPOK)
+                    })
+                }
+                else if(httpResponse.statusCode == 401){
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        onCompletion(response: HTTPStatusCodes.HTTPUnauthorized)
                     })
                 }
                 else{

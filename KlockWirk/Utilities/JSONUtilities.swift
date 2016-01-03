@@ -38,7 +38,7 @@ class JSONUtilities{
         let klockWirker             = KlockWirker()
         let merchant                = (kw.objectForKey("Merchant") as? NSDictionary)!
         let merchantSchedules       = (merchant.objectForKey("MerchantSchedules") as? NSArray)!
-        //let klockWirkerSchedules    = (merchantSchedules.objectForKey("KlockWirkerSchedules") as? NSArray)!
+       
        
         klockWirker.merchantId = (kw.objectForKey("MerchantId") as? Int)!
         klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
@@ -47,6 +47,12 @@ class JSONUtilities{
         klockWirker.emailAddress = (kw.objectForKey("Email") as? String)!
         klockWirker.phoneNumber = (kw.objectForKey("Phone") as? String)!
         klockWirker.password = (kw.objectForKey("Password") as? String)!
+       
+        
+        if let uuid = (kw.objectForKey("DeviceUUID") as? String){
+            
+            klockWirker.deviceUUID = uuid
+        }
         
 
         for ms: AnyObject in merchantSchedules{
@@ -59,7 +65,13 @@ class JSONUtilities{
                     
                     if(kwId == klockWirker.klockWirkerId){
                         
-                        klockWirker.schedules.append(parseMerchantSchedule(ms as! NSDictionary))
+                        if let isDeleted = (ms.objectForKey("IsDeleted") as? Bool){
+                            
+                            if(!isDeleted){
+                                
+                                klockWirker.schedules.append(parseMerchantSchedule(ms as! NSDictionary))
+                            }
+                        }
                     }
                 }
             }
@@ -87,6 +99,11 @@ class JSONUtilities{
         merchant.manager = (m.objectForKey("Manager") as? String)!
         merchant.phone = (m.objectForKey("Phone") as? String)!
         merchant.email = (m.objectForKey("Email") as? String)!
+  
+        if let uuid = (m.objectForKey("DeviceUUID") as? String){
+        
+            merchant.deviceUUID = uuid
+        }
         
 
         for element: AnyObject in klockWirkers {
@@ -103,42 +120,46 @@ class JSONUtilities{
         }
         
         
-        
-        
         for obj: AnyObject in merchantSchedules {
             
-            let schedule = Schedule()
-            
-            schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
-            schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
-            schedule.goal                   = (obj.objectForKey("Line") as? Double)!
-            schedule.achieved               = (obj.objectForKey("Achieved") as? Double)!
-            schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
-            schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
-            schedule.endDateTime            = DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
-            
-            
-            if let kwSchedules = (obj.objectForKey("KlockWirkerSchedules") as? NSArray){
+            if let isDeleted = (obj.objectForKey("IsDeleted") as? Bool){
                 
-                for kws: AnyObject in kwSchedules {
+                if(!isDeleted){
                     
-                    let klockWirkerId   = (kws.objectForKey("KlockWirkerId") as? Int)!
-                    let scheduleId      = (kws.objectForKey("ScheduleId") as? Int)!
+                    let schedule = Schedule()
                     
-                    if(scheduleId == schedule.scheduleId){
+                    schedule.scheduleId             = (obj.objectForKey("ScheduleId") as? Int)!
+                    schedule.merchantId             = (obj.objectForKey("MerchantId") as? Int)!
+                    schedule.goal                   = (obj.objectForKey("Line") as? Double)!
+                    schedule.achieved               = (obj.objectForKey("Achieved") as? Double)!
+                    schedule.KlockWirkerPercentage  = (obj.objectForKey("KlockWirkerPercentage") as? Double)!
+                    schedule.startDateTime          = DateUtilities.dateValueOfString((obj.objectForKey("ShiftStartDateTime") as? String)!)
+                    schedule.endDateTime            = DateUtilities.dateValueOfString((obj.objectForKey("ShiftEndDateTime") as? String)!)
+                    
+                    
+                    if let kwSchedules = (obj.objectForKey("KlockWirkerSchedules") as? NSArray){
                         
-                        for t: KlockWirker in merchant.klockWirkers{
+                        for kws: AnyObject in kwSchedules {
                             
-                            if(t.klockWirkerId == klockWirkerId){
+                            let klockWirkerId   = (kws.objectForKey("KlockWirkerId") as? Int)!
+                            let scheduleId      = (kws.objectForKey("ScheduleId") as? Int)!
+                            
+                            if(scheduleId == schedule.scheduleId){
                                 
-                                schedule.klockWirkers.append(t)
+                                for t: KlockWirker in merchant.klockWirkers{
+                                    
+                                    if(t.klockWirkerId == klockWirkerId){
+                                        
+                                        schedule.klockWirkers.append(t)
+                                    }
+                                }
                             }
                         }
                     }
+                    
+                    merchant.schedules.append(schedule)
                 }
             }
-        
-            merchant.schedules.append(schedule)
         }
         
         merchant.schedules      = merchant.schedules.sort(SortingUtilities.sortSchedulesByEndDate)

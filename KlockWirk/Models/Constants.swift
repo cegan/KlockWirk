@@ -40,6 +40,7 @@ struct HTTPStatusCodes {
     
     static let HTTPOK       = 200
     static let HTTPNotFound = 404
+    static let HTTPUnauthorized = 401
 }
 
 

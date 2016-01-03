@@ -184,6 +184,10 @@ class ForgotPasswordViewController: UITableViewController {
                     
                     self.displayAlert("User Not Found")
                 }
+                else if(response == HTTPStatusCodes.HTTPUnauthorized){
+                    
+                    self.displayAlert("Your device is not registered. Please email support@klockwirk.com to change your password.")
+                }
                 else{
                     
                     self.dismissViewControllerAnimated(true, completion: nil)

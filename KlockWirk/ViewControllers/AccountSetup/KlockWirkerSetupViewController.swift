@@ -142,18 +142,9 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
             
             klockWirkService.registerKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
                 
-//                let statusCode = (response.objectForKey("statusCode") as? Int)!
-//                
-//                if(statusCode == HTTPStatusCodes.HTTPNotFound){
-//                    
-//                    self.displayAlert("Not Found")
-//                }
-//                else{
-                
-                    let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+                let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
                     
-                    self.navigationController?.pushViewController(tabBarController, animated: false)
-             //   }
+                self.navigationController?.pushViewController(tabBarController, animated: false)
             }
         }
         else{
