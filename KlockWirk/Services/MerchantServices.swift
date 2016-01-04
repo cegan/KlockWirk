@@ -41,6 +41,7 @@ class MerchantServices: BaseKlockWirkService{
         
         let params = [
             "Name":merchant.firstName + " " + merchant.lastName,
+            "Company":merchant.company,
             "Address":merchant.address,
             "City":merchant.city,
             "State":merchant.state,

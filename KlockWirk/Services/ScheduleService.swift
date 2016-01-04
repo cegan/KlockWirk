@@ -12,15 +12,7 @@ import Foundation
 class SchedulService: BaseKlockWirkService{
     
     
-    func FormatDate(date:NSDate) -> String {
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let DateInFormat = dateFormatter.stringFromDate(date)
-        
-        return DateInFormat
-    }
-    
+
     func addSchedule(schedule: Schedule, merchantId: Int, onCompletion: (response: Schedule) -> ()){
         
         let session = NSURLSession.sharedSession()
@@ -29,9 +21,9 @@ class SchedulService: BaseKlockWirkService{
         
         let params = [
             "MerchantId":String(merchantId),
-            "DateCreated":FormatDate(schedule.dateCreated),
-            "ShiftStartDateTime":FormatDate(schedule.startDateTime),
-            "ShiftEndDateTime":FormatDate(schedule.endDateTime),
+            "DateCreated":DateUtilities.FormatDate(schedule.dateCreated),
+            "ShiftStartDateTime":DateUtilities.FormatDate(schedule.startDateTime),
+            "ShiftEndDateTime":DateUtilities.FormatDate(schedule.endDateTime),
             "Line":schedule.goal,
             "Achieved":schedule.achieved,
             "KlockWirkerPercentage":schedule.KlockWirkerPercentage] as Dictionary<String, NSObject>
@@ -62,11 +54,10 @@ class SchedulService: BaseKlockWirkService{
                     schedule.merchantId = mId
                     schedule.achieved = achieved
                     
-                    for kw in schedule.klockWirkers {
-                        
-                        self.addKlockWirkersToSchedule(kw, merchantScheduleId: scheduleId, merchantId: mId)
-                    }
+
+                    self.addKlockWirkersToSchedule(schedule.klockWirkers, scheduleId: scheduleId, merchantId: mId)
                     
+
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         onCompletion(response: schedule)
@@ -78,17 +69,19 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
 
-    func addKlockWirkersToSchedule(klockWirker: KlockWirker, merchantScheduleId: Int, merchantId: Int){
     
+    
+    func addKlockWirkersToSchedule(klockWirkers: [KlockWirker], scheduleId:NSNumber, merchantId:NSNumber){
+        
+        var params: Array<[String:AnyObject]> = []
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerSchedules, httpMethod: HTTPConstants.HTTPMethodPost)
         
-        let params = [
-            "KlockWirkerId":String(klockWirker.klockWirkerId),
-            "ScheduleId":String(merchantScheduleId),
-            "MerchantId":String(merchantId)] as Dictionary<String, String>
-        
-        
+        for kw in klockWirkers {
+
+            params.append(["merchantId":merchantId,"scheduleId":scheduleId,"klockWirkerId":kw.klockWirkerId])
+        }
+
         do {
             
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
@@ -98,14 +91,13 @@ class SchedulService: BaseKlockWirkService{
             print(error)
         }
         
-        
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             if let httpResponse = response as? NSHTTPURLResponse {
                 
                 if(httpResponse.statusCode == 200){
                     
-        
+                    
                 }
             }
         })

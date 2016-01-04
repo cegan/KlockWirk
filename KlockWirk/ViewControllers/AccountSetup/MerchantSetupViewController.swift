@@ -115,19 +115,21 @@ class MerchantSetupViewController: UITableViewController {
         
         let firstName = merchantSetupItems.items[0][0]
         let lastName = merchantSetupItems.items[0][1]
-        let address = merchantSetupItems.items[0][2]
-        let city = merchantSetupItems.items[0][3]
-        let state = merchantSetupItems.items[0][4]
-        let zipCode = merchantSetupItems.items[0][5]
-        let phone = merchantSetupItems.items[0][6]
-        let email = merchantSetupItems.items[0][7]
-        let manager = merchantSetupItems.items[0][8]
+        let company = merchantSetupItems.items[0][2]
+        let address = merchantSetupItems.items[0][3]
+        let city = merchantSetupItems.items[0][4]
+        let state = merchantSetupItems.items[0][5]
+        let zipCode = merchantSetupItems.items[0][6]
+        let phone = merchantSetupItems.items[0][7]
+        let email = merchantSetupItems.items[0][8]
+        let manager = merchantSetupItems.items[0][9]
         let password = merchantSetupItems.items[2][0]
         let confirmPassword = merchantSetupItems.items[2][1]
         let posSystem = getSelectedPOSSystem()
         
         returnMerchant.firstName = firstName.value!
         returnMerchant.lastName = lastName.value!
+        returnMerchant.company = company.value!
         returnMerchant.address = address.value!
         returnMerchant.city = city.value!
         returnMerchant.state = state.value!
@@ -149,13 +151,14 @@ class MerchantSetupViewController: UITableViewController {
         
         merchantFields.append(AccountSetupField(lbl: "First Name", val: "",type:.String, required:true, tag: 1))
         merchantFields.append(AccountSetupField(lbl: "Last Name", val: "",type:.String, required:true, tag: 2))
-        merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, required:true, tag: 3))
-        merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, required:true, tag: 4))
-        merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, required:true, tag: 5))
-        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, required:true, tag: 6))
-        merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.String, required:true, tag: 7))
-        merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.String, required:true, tag: 8))
-        merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, required:true, tag: 9))
+        merchantFields.append(AccountSetupField(lbl: "Company", val: "",type:.String, required:true, tag: 3))
+        merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, required:true, tag: 4))
+        merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, required:true, tag: 5))
+        merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, required:true, tag: 6))
+        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, required:true, tag: 7))
+        merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.String, required:true, tag: 8))
+        merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.String, required:true, tag: 9))
+        merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, required:true, tag: 10))
        
         return merchantFields
     }

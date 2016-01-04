@@ -74,6 +74,7 @@
 		4DBBDCF51BC4453F0079035A /* ScheduleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController.xib */; };
 		4DC3B3BC1BEAF50F00BCD0DB /* GoalReachedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC3B3BA1BEAF50F00BCD0DB /* GoalReachedTableViewCell.swift */; };
 		4DC3B3BD1BEAF50F00BCD0DB /* GoalReachedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC3B3BB1BEAF50F00BCD0DB /* GoalReachedTableViewCell.xib */; };
+		4DC685561C39CD3800725EBB /* KlockWirkerSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC685551C39CD3800725EBB /* KlockWirkerSchedule.swift */; };
 		4DDA8D2E1B5147F10056800C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */; };
 		4DDA8D2F1B5147F10056800C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D1E1B5147F10056800C /* AFHTTPRequestOperation.m */; };
 		4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA8D201B5147F10056800C /* AFImageRequestOperation.m */; };
@@ -291,6 +292,7 @@
 		4DBBDCF31BC4453F0079035A /* ScheduleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDetailViewController.xib; sourceTree = "<group>"; };
 		4DC3B3BA1BEAF50F00BCD0DB /* GoalReachedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalReachedTableViewCell.swift; sourceTree = "<group>"; };
 		4DC3B3BB1BEAF50F00BCD0DB /* GoalReachedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalReachedTableViewCell.xib; sourceTree = "<group>"; };
+		4DC685551C39CD3800725EBB /* KlockWirkerSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerSchedule.swift; sourceTree = "<group>"; };
 		4DDA8D181B5147760056800C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		4DDA8D1B1B5147F10056800C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4DDA8D1C1B5147F10056800C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 				4D2C547A1B9536A60007AFD5 /* AccountSetupField.swift */,
 				4DE754961BA5D2E500D3FE29 /* ScheduleSummaryField.swift */,
 				4D924DFD1BE647E5002A4AF9 /* Colors.swift */,
+				4DC685551C39CD3800725EBB /* KlockWirkerSchedule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1225,6 +1228,7 @@
 				4DE754971BA5D2E500D3FE29 /* ScheduleSummaryField.swift in Sources */,
 				4D49A7191B513B6A001FCF54 /* AppDelegate.swift in Sources */,
 				4DE743A61BADEE180093FA1C /* DVDatePickerTableViewCell.swift in Sources */,
+				4DC685561C39CD3800725EBB /* KlockWirkerSchedule.swift in Sources */,
 				4DBBDCF01BC440970079035A /* ChartTableViewCell.swift in Sources */,
 				4DE743A91BADEE5A0093FA1C /* DatePicker.swift in Sources */,
 				4DDA8D3E1B5150FE0056800C /* Constants.swift in Sources */,

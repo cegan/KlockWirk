@@ -95,4 +95,14 @@ class DateUtilities{
         return false
     }
     
+    
+    class func FormatDate(date:NSDate) -> String {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let DateInFormat = dateFormatter.stringFromDate(date)
+        
+        return DateInFormat
+    }
+    
 }

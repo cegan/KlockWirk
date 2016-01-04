@@ -21,6 +21,7 @@ class Merchant: NSObject, NSCoding{
     var posSystem: String = ""
     var firstName: String = ""
     var lastName: String = ""
+    var company: String = ""
     var address: String = ""
     var city: String = ""
     var state: String = ""
