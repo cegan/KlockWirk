@@ -80,7 +80,7 @@ class ManageKlockWirkersViewController: UITableViewController {
         }
         else{
             
-            let addKlockWirker = UIBarButtonItem(image: UIImage(named: "adduser_selected.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirkerTapped"))
+            let addKlockWirker = UIBarButtonItem(image: UIImage(named: "addschedule.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNewKlockWirkerTapped"))
             
             self.navigationItem.rightBarButtonItem = addKlockWirker
         }

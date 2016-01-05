@@ -186,7 +186,7 @@ class MerchantSetupViewController: UITableViewController {
         var passwordFields:[AccountSetupField] = []
         
         passwordFields.append(AccountSetupField(lbl: "Password", val: "",type:.Password, required:true, tag: 1))
-        passwordFields.append(AccountSetupField(lbl: "Confirm Password", val: "",type:.Password, required:true, tag: 2))
+        passwordFields.append(AccountSetupField(lbl: "Confirm", val: "",type:.Password, required:true, tag: 2))
        
         return passwordFields
     }

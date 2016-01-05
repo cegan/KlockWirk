@@ -1,38 +1,94 @@
 //
-//  KlockWirkerSetupViewController2ViewController.swift
+//  KlockWirkerSetupViewController2.swift
 //  KlockWirk
 //
-//  Created by Casey Egan on 9/7/15.
+//  Created by Casey Egan on 11/29/15.
 //  Copyright © 2015 KlockWirk. All rights reserved.
 //
 
 import UIKit
 
-class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
+class KlockWirkerSetupItem: NSObject{
+    
+    var sections:[String]           = []
+    var items:[[AccountSetupField]] = []
+    
+    func addSection(section: String, item:[AccountSetupField]){
+        
+        sections    = sections + [section]
+        items       = items + [item]
+    }
+}
+
+
+
+class KlockWirkerSetupItems: KlockWirkerSetupItem {
+    
+    override init() {
+        
+        super.init()
+    }
+}
+
+
+
+class KlockWirkerSetupViewController: UITableViewController {
+    
+    
+    lazy private var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "loading")!
+        return CustomActivityIndicatorView(image: image)
+    }()
+    
+    
     let klockWirkService = KlockWirkerServices()
-    
-    var klockWirkerRegistrationFields = NSMutableArray()
-    var klockWirkerLoginFields = NSMutableArray()
-    
-    @IBOutlet weak var klockWirkerSetupTableView: UITableView!
-    
+    var klockWirkerSetupItems  = KlockWirkerSetupItems()
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        klockWirkerRegistrationFields = getKlockWirkerRegistrationFields()
-        klockWirkerLoginFields = getKlockWirkerLoginFields()
+        klockWirkerSetupItems = getKlockWirkerSetupItems()
         
-        
-        registerNotification()
         setupViewProperties()
         setupNavigationButtons()
-        
-        setupTableViewDelegates()
         setupTableViewProperties()
+        setupActivityIndicator()
+    }
+    
+    
+    
+    func getKlockWirkerSetupItems() -> KlockWirkerSetupItems{
+        
+        let klockwirkerSetupItems = KlockWirkerSetupItems()
+        
+        klockwirkerSetupItems.addSection("KlockWirker Information", item: getKlockWirkerInformationFields())
+        klockwirkerSetupItems.addSection("Password", item: getPasswordFields())
+        
+        return klockwirkerSetupItems
+    }
+    
+    
+    func getKlockWirkerInformationFields() -> [AccountSetupField]{
+        
+        var fields:[AccountSetupField] = []
+        
+        fields.append(AccountSetupField(lbl: "Email", val: "",type:.String, required:true, tag: 1))
+        fields.append(AccountSetupField(lbl: "Phone", val: "",type:.String, required:true, tag: 2))
+       
+        return fields
+    }
+    
+    func getPasswordFields() -> [AccountSetupField]{
+        
+        var passwordFields:[AccountSetupField] = []
+        
+        passwordFields.append(AccountSetupField(lbl: "Password", val: "",type:.Password, required:true, tag: 1))
+        passwordFields.append(AccountSetupField(lbl: "Confirm", val: "",type:.Password, required:true, tag: 2))
+        
+        return passwordFields
     }
     
     
@@ -48,27 +104,6 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         return true
     }
     
-    
-    func registerNotification(){
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "registerKlockWirkerCompeleted",
-            name:NotificationConstants.RegisterKlockWirkerCompeleted,
-            object: nil
-        )
-    }
-    
-    func registerKlockWirkerCompeleted(){
-        
-        let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
-        
-        self.navigationController?.pushViewController(tabBarController, animated: false)
-    }
-    
-    
     func setupViewProperties(){
         
         self.title = "Registration"
@@ -83,68 +118,68 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
         self.navigationItem.rightBarButtonItem = submit
     }
     
-    
-    func getKlockWirkerRegistrationFields() -> NSMutableArray{
+    func setupActivityIndicator () {
         
-        let klockWirkerRegistrationFields = NSMutableArray()
-        
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Email", val: "", type:.String, required:true, tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Phone", val: "", type:.String, required:true, tag: 2))
-        
-        return klockWirkerRegistrationFields
+        self.activityIndicator.center       = view.center;
+        activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        self.view.addSubview(activityIndicator)
     }
     
     
-    func getKlockWirkerLoginFields() -> NSMutableArray{
-        
-        let klockWirkerRegistrationFields = NSMutableArray()
-        
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Password", val: "", type:.String, required:true, tag: 1))
-        klockWirkerRegistrationFields.addObject(AccountSetupField(lbl: "Confirm Password", val: "", type:.String, required:true, tag: 1))
-       
-        return klockWirkerRegistrationFields
-    }
-    
+
     
     func getCompletedKlockWirkerRegistration() -> KlockWirker{
         
         let klockWirker = KlockWirker()
         
-        let emailAddress = klockWirkerSetupTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! EnrollmentViewCell
-        let phone = klockWirkerSetupTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! EnrollmentViewCell
-        let password = klockWirkerSetupTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! EnrollmentViewCell
-        let confirmPassword = klockWirkerSetupTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)) as! EnrollmentViewCell
+        let emailAddress    = klockWirkerSetupItems.items[0][0]
+        let phone           = klockWirkerSetupItems.items[0][1]
+        let password        = klockWirkerSetupItems.items[1][0]
+        let confirmPassword = klockWirkerSetupItems.items[1][1]
         
-        klockWirker.emailAddress = emailAddress.enrollmentTextField.text!
-        klockWirker.phoneNumber = phone.enrollmentTextField.text!
-        klockWirker.password = password.enrollmentTextField.text!
-        klockWirker.confirmPassword = confirmPassword.enrollmentTextField.text!
+        klockWirker.emailAddress    = emailAddress.value!
+        klockWirker.phoneNumber     = phone.value!
+        klockWirker.password        = password.value!
+        klockWirker.confirmPassword = confirmPassword.value!
         
         return klockWirker
     }
     
-    
     func displayAlert(message: String){
         
-        let alertController = UIAlertController(title: "Setup", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "KlockWirker Registration", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-
+    
     
     
     func submitButtonTapped(){
         
         if(doesKlockWirkerPasswordsMatch()){
             
+            activityIndicator.startAnimating()
+            
             klockWirkService.registerKlockWirker(getCompletedKlockWirkerRegistration()) { (response: NSDictionary) in
                 
-                let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+                self.activityIndicator.stopAnimating()
+                
+                if let statusCode = response.objectForKey("statusCode"){
                     
-                self.navigationController?.pushViewController(tabBarController, animated: false)
+                    if(statusCode as! Int == HTTPStatusCodes.HTTPNotFound){
+                        
+                        self.displayAlert("User Not Found")
+                    }
+                }
+                else{
+                    
+                    let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
+                    
+                    self.navigationController?.pushViewController(tabBarController, animated: false)
+                }
             }
         }
         else{
@@ -152,10 +187,6 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
             displayAlert("Password mismatch")
         }
     }
-    
-    
-    
-    
     
     func cancelButtonTapped(){
         
@@ -166,117 +197,72 @@ class KlockWirkerSetupViewController: UIViewController, UITableViewDataSource, U
     
     func setupTableViewProperties(){
         
-        klockWirkerSetupTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.registerNib(UINib(nibName: "InputTableViewCell", bundle: nil), forCellReuseIdentifier: "InputTableViewCell")
     }
     
-    func setupTableViewDelegates(){
-        
-        klockWirkerSetupTableView.delegate = self
-        klockWirkerSetupTableView.dataSource = self
-        klockWirkerSetupTableView.registerNib(UINib(nibName: "EnrollmentViewCell", bundle: nil), forCellReuseIdentifier: "enrollmentTableViewCell")
-    }
+    
     
     
     
     
     //MARK: TableView Delegates
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 2
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(section == 0){
-            
-            return klockWirkerRegistrationFields.count
-        }
-        else{
-            
-            return klockWirkerLoginFields.count
-        }
+        return klockWirkerSetupItems.sections.count
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if(section == 0) {
-            
-            let view = UIView()
-            let label = UILabel()
-            
-            label.text = "Enter the email address and phone number you received in your registration email"
-            label.textColor = UIColor.lightGrayColor()
-        
-            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
-            
-            
-            label.numberOfLines = 3
-            label.frame = CGRectMake(20, 10, 330, 75)
-         
-            view.addSubview(label)
-       
-            return view
-        }
-        else if(section == 1){
-            
-            let view = UIView() // The width will be the same as the cell, and the height should be set in tableView:heightForRowAtIndexPath:
-            let label = UILabel()
-            label.text="Create you password"
-            label.textColor = UIColor.lightGrayColor()
-            label.font = UIFont (name: "HelveticaNeue-LightItalic", size: 14)
-            label.frame = CGRectMake(20, 10, 330, 50)
-         
-            view.addSubview(label)
-           
-            return view
-            
-        }
-        return nil
+        return 30
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        switch (section) {
-            
-            case 0:
-                return 75
-            
-        case 1:
-            return 50
-            
-        default:
-            return 50
-    
-        }
+        return klockWirkerSetupItems.sections[section]
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var accountField = AccountSetupField()
-        let cell:EnrollmentViewCell = klockWirkerSetupTableView.dequeueReusableCellWithIdentifier("enrollmentTableViewCell") as! EnrollmentViewCell
+        return klockWirkerSetupItems.items[section].count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        switch (indexPath.section) {
+        var accountSetupField = AccountSetupField()
+        
+        switch(indexPath.section){
             
         case 0:
-            accountField = klockWirkerRegistrationFields.objectAtIndex(indexPath.row) as! AccountSetupField
+            accountSetupField = klockWirkerSetupItems.items[indexPath.section][indexPath.row]
+            let cell:InputTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
+            cell.bindCellDetail(accountSetupField)
+            return cell
             
         case 1:
-            accountField = klockWirkerLoginFields.objectAtIndex(indexPath.row) as! AccountSetupField
+            
+            accountSetupField = klockWirkerSetupItems.items[indexPath.section][indexPath.row]
+            let cell:InputTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("InputTableViewCell") as! InputTableViewCell
+            cell.bindCellDetail(accountSetupField)
+            
+            return cell
+            
             
         default:
-            cell.textLabel?.text = "Other"
+            return UITableViewCell()
         }
-        
-        cell.bindCellDetail(accountField)
-        
-        return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-    }
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
