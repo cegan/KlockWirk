@@ -48,11 +48,6 @@ class ScheduleDetailViewController: UITableViewController {
     
     
 
-
-    
-    
-    
-    
     
     //MARK: View Delegates
     
@@ -80,7 +75,6 @@ class ScheduleDetailViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         
         self.navigationItem.title = "Schedule Detail"
-        
     }
 
  

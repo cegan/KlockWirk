@@ -67,8 +67,6 @@ class ChartTableViewCell: UITableViewCell,ChartViewDelegate {
         var xVals:[String]          = []
         var colors:[UIColor]        = []
         
-        
-      
         if(selectedSchedule.hasGoalBeenReached()){
             
             colors.append(KlockWirkColors.Orange)

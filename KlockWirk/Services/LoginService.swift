@@ -15,7 +15,11 @@ class LoginService: BaseKlockWirkService{
     
      func login(emailAddress: String, password:String, onCompletion: (response: NSDictionary) -> ()) {
        
-        let params = ["userName":emailAddress,"password":password, "deviceUuid":UIDevice.currentDevice().identifierForVendor!.UUIDString, "deviceToken":ApplicationInformation.getDeviceToken()]
+        let params = ["userName":emailAddress,
+            "password":password,
+            "deviceUuid":UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "deviceToken":ApplicationInformation.getDeviceToken()]
+        
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.LoginEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: params)
         

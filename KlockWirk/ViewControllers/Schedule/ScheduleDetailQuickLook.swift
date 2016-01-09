@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleDetailTableViewController2: UITableViewController {
+class ScheduleDetailQuickLook: UITableViewController {
     
     
     var scheduleSummaryFields = NSMutableArray()
@@ -19,7 +19,7 @@ class ScheduleDetailTableViewController2: UITableViewController {
     
     init(schedule: Schedule){
         
-        super.init(nibName: "ScheduleDetailTableViewController2", bundle: nil);
+        super.init(nibName: "ScheduleDetailQuickLook", bundle: nil);
         
         scheduleToDisplay       = schedule
         scheduleSummaryFields   = getScheduleSummaryFields()

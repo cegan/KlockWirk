@@ -9,12 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Common/Badge/SwiftBadge.swift"
-            timestampString = "474025138.273352"
+            filePath = "swift-badge/SwiftBadge.swift"
+            timestampString = "474025101.676984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "drawTextInRect(_:)"
             landmarkType = "5">
          </BreakpointContent>

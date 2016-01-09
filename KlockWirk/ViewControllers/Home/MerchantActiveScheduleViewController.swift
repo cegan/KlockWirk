@@ -70,7 +70,7 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
     
     @IBAction func viewScheduleDetailsTouched(sender: AnyObject) {
         
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailTableViewController2(schedule: currentSchedule)), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailQuickLook(schedule: currentSchedule)), animated: true, completion: nil)
     }
     
     
@@ -110,41 +110,76 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
         var yVals:[ChartDataEntry]  = []
         var xVals:[String]          = []
         var colors:[UIColor]        = []
-
-        colors.append(KlockWirkColors.Orange)
-        colors.append(KlockWirkColors.DarkGrey)
         
+        if(currentSchedule.hasGoalBeenReached()){
+            
+            
+            let legend = pieChart.legend
+            legend.position = ChartLegend.ChartLegendPosition.PiechartCenter
+            
+            legend.xEntrySpace = 0.0;
+            legend.yEntrySpace = 5.0;
+            legend.yOffset = 5.0;
+            legend.font = UIFont (name: "Gotham-Medium", size: 14)!
+            legend.textColor = KlockWirkColors.Orange
+            
+            colors.append(KlockWirkColors.DarkGrey)
+            
+            let achieved = ChartDataEntry(value: 100, xIndex: 1)
+            
+            yVals.append(achieved)
+            
+            let dataSet = PieChartDataSet(yVals: yVals, label: "Goal Reached")
+            dataSet.colors = colors
+            
+            let data = PieChartData(xVals: xVals, dataSet: dataSet)
+            data.setValueFont(UIFont (name: "Gotham-Medium", size: 0)!)
+            data.setValueTextColor(UIColor.whiteColor())
+            
+            pieChart.data = data
+            
+        }
+        else{
+            
+            
+            colors.append(KlockWirkColors.Orange)
+            colors.append(KlockWirkColors.DarkGrey)
+            
+            
+            let percentAchieved = (currentSchedule.achieved/currentSchedule.goal * 100)
+            let goal            = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
+            let achieved        = ChartDataEntry(value: percentAchieved, xIndex: 1)
+            
+            yVals.append(goal)
+            yVals.append(achieved)
+            xVals.append("Goal")
+            xVals.append("Achieved")
+            
+            
+            let dataSet = PieChartDataSet(yVals: yVals, label: "")
+            dataSet.colors = colors
+            
+            
+            let pFormatter = NSNumberFormatter()
+            pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+            pFormatter.maximumFractionDigits = 1
+            pFormatter.multiplier = 1
+            pFormatter.percentSymbol = " %"
+            
+            
+            let data = PieChartData(xVals: xVals, dataSet: dataSet)
+            data.setValueFormatter(pFormatter)
+            data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
+            data.setValueTextColor(UIColor.whiteColor())
+            
+            pieChart.data = data
+            
+            
+        }
         
-        let percentAchieved = (currentSchedule.achieved/currentSchedule.goal * 100)
-        let goal            = ChartDataEntry(value: 100 - percentAchieved, xIndex: 0)
-        let achieved        = ChartDataEntry(value: percentAchieved, xIndex: 1)
-        
-        yVals.append(goal)
-        yVals.append(achieved)
-        xVals.append("Goal")
-        xVals.append("Achieved")
-        
-
-        let dataSet = PieChartDataSet(yVals: yVals, label: "")
-        dataSet.colors = colors
-        
-
-        let pFormatter = NSNumberFormatter()
-        pFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        
-
-        let data = PieChartData(xVals: xVals, dataSet: dataSet)
-        data.setValueFormatter(pFormatter)
-        data.setValueFont(UIFont (name: "Gotham-Medium", size: 12)!)
-        data.setValueTextColor(UIColor.whiteColor())
-        
-        pieChart.data = data
+ 
 
     }
-    
     
     func setupNavigationBar(){
         

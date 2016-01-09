@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //UITextField attributes
-        UITextField.appearance().tintColor = UIColor(red: 235.0/255.0, green: 68.0/255.0, blue: 17.0/255.0, alpha: 1.0)
+        UITextField.appearance().tintColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 0.8)
         
        
         //UITabbar attributes

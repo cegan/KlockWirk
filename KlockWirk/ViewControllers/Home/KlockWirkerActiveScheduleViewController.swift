@@ -68,7 +68,7 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
     
     @IBAction func viewScheduleDetailsTouched(sender: AnyObject) {
         
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailTableViewController2(schedule: currentSchedule)), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailQuickLook(schedule: currentSchedule)), animated: true, completion: nil)
     }
     
     
