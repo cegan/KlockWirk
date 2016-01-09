@@ -10,6 +10,9 @@ import UIKit
 
 class SchedulesTableViewController: UITableViewController {
     
+    let merchantService     = MerchantServices()
+    let klockWirkerService  = KlockWirkerServices()
+    
     var merchant                = Merchant()
     var klockWirker             = KlockWirker()
     var schedules:[Schedule]    = []
@@ -42,6 +45,7 @@ class SchedulesTableViewController: UITableViewController {
         
         setupNavigationBar()
         setupTableViewProperties()
+        setupTableViewRefresh()
         registerNotification()
     }
     
@@ -76,6 +80,14 @@ class SchedulesTableViewController: UITableViewController {
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.registerNib(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "TestTableViewCell")
+    }
+    
+    func setupTableViewRefresh(){
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "")
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
     
     func setupNavigationBar(){
@@ -129,6 +141,32 @@ class SchedulesTableViewController: UITableViewController {
         }
     }
     
+    
+    
+    
+    func refresh(sender:AnyObject){
+        
+        self.refreshControl?.beginRefreshing()
+    
+        if(ApplicationInformation.isMerchant()){
+            
+            merchantService.getMerchant(merchant.merchantId) { (response:Merchant) in
+                
+                self.refreshSchedules()
+                self.refreshControl?.endRefreshing()
+            }
+        }
+        else{
+            
+            klockWirkerService.getKlockWirker(klockWirker.klockWirkerId.integerValue) { (response:KlockWirker) in
+                
+                self.refreshSchedules()
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
+    
     func refreshTableViewHeader(){
         
         let merchantNameLabel = UILabel(frame: CGRectMake(15, 5, 200, 20))
@@ -154,8 +192,6 @@ class SchedulesTableViewController: UITableViewController {
         
         self.tableView.tableHeaderView = dummyView
         self.tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-        
-        
     }
     
     func getNoSchedulesHeader() -> UILabel{
@@ -167,8 +203,6 @@ class SchedulesTableViewController: UITableViewController {
         label.textColor = UIColor(red: 109.0/255.0, green: 110.0/255.0, blue: 113.0/255.0, alpha: 1.0)
         label.font = UIFont (name: "Gotham-Light", size: 15)
         label.numberOfLines = 2
-        //  label.sizeToFit()
-        
         
         return label
     }
@@ -185,7 +219,14 @@ class SchedulesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 100
+        if(ApplicationInformation.isMerchant()){
+            
+            return 100
+        }
+        else{
+            
+            return 60;
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

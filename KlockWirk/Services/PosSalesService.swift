@@ -12,7 +12,7 @@ import Foundation
 
 class PosSalesService: BaseKlockWirkService{
     
-    func getTotalSalesForSchedule(schedule: Schedule, onCompletion: (response: NSDictionary) -> ()) {
+    func getTotalSalesForSchedule(schedule: Schedule, onCompletion: (response: Schedule) -> ()) {
 
         let parameters = [
             "merchantId":schedule.merchantId,
@@ -26,9 +26,11 @@ class PosSalesService: BaseKlockWirkService{
             
             let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             
+            schedule.achieved = JSONUtilities.parsePosOrders(jsonResult)
+            
             dispatch_async(dispatch_get_main_queue(), {
                 
-                onCompletion(response: jsonResult)
+                onCompletion(response: schedule)
             })
         })
         

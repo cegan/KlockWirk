@@ -22,11 +22,22 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBOutlet weak var loginButton: TKTransitionSubmitButton!
     @IBOutlet weak var emaiAddress: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var rememberMeButton: RadioButton!
     
-
     
     
-
+    init(){
+        
+        super.init(nibName: "LoginViewController", bundle: nil);
+        
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
 
     //MARK: Notifications
     
@@ -92,6 +103,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         emaiAddress.delegate = self
         password.delegate = self
+    }
+    
+    func setupRememberMeButton(){
+        
+        rememberMeButton.setImage(UIImage(named: "unchecked.png"), forState: .Normal)
+        rememberMeButton.setImage(UIImage(named: "checked.png"), forState: .Selected)
+        rememberMeButton.addTarget(self, action: "rememberMeTouched:", forControlEvents: UIControlEvents.ValueChanged)
+        rememberMeButton.selected = false
     }
     
     
@@ -162,11 +181,12 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
         registerNotification()
         setupViewProperties()
         setupInputFields()
         setupLoginButton()
+        setupRememberMeButton() 
         setupNavigationButtons()
         setupDelegates()
     }
@@ -196,6 +216,21 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     
     //MARK: Actions
+    
+    
+    func storeUserLogin(){
+        
+        if(rememberMeButton.selected){
+        
+            ApplicationInformation.storeUserLogin(emaiAddress.text!,
+                password: password.text!,
+                shouldAutoLogin: true,
+                isKlockWirker: ApplicationInformation.isKlockWirker(),
+                isMerchant: ApplicationInformation.isMerchant())
+        }
+    }
+    
+    
     
     @IBAction func register(sender: AnyObject) {
         
@@ -233,7 +268,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func login(sender: AnyObject) {
         
         ApplicationInformation.clearSharedData()
-        endEditing()
+        
+        self.view.endEditing(true)
         
         if(areLoginFieldsValid()){
             
@@ -249,7 +285,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 if(isKlockWirker == true){
                     
                     ApplicationInformation.setIsKlockWirker(true)
-                    
+                    ApplicationInformation.setKlockWirkerId(klockWirkerId!)
+                                        
                     self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
                         
                         self.loadKlockWirkerTabBarController()
@@ -258,12 +295,15 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 if(isMerchant == true){
                     
                     ApplicationInformation.setIsMerchant(true)
+                    ApplicationInformation.setMerchantId(merchantId!)
                     
                     self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
                         
                         self.loadMerchantTabBarController()
                     }
                 }
+                
+                self.storeUserLogin()
             }
         }
         else{
@@ -276,6 +316,18 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 
                 shakeTextField(password)
             }
+        }
+    }
+    
+    @IBAction func rememberMeTouched(sender: RadioButton) {
+        
+        if(sender.selected){
+            
+            sender.selected = false
+        }
+        else if(sender.selected == false){
+            
+            sender.selected = true
         }
     }
     

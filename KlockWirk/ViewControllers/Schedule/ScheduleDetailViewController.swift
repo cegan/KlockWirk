@@ -279,10 +279,11 @@ class ScheduleDetailViewController: UITableViewController {
         
         self.refreshControl?.beginRefreshing()
         
-        posSalesService.getTotalSalesForSchedule(selectedSchedule) { (response:NSDictionary) in
+        posSalesService.getTotalSalesForSchedule(selectedSchedule) { (response:Schedule) in
             
-            self.selectedSchedule.achieved  = JSONUtilities.parsePosOrders(response)
-            self.scheduleSummaryFields      = self.getScheduleSummaryFields()
+            self.selectedSchedule = response
+        
+            self.scheduleSummaryFields = self.getScheduleSummaryFields()
             
             self.tableView.reloadData()
             

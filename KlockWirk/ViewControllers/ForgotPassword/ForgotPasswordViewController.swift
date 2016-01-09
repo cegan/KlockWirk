@@ -172,6 +172,8 @@ class ForgotPasswordViewController: UITableViewController {
     
     func resetButtonTapped(){
         
+        self.tableView.endEditing(true)
+        
         if(doPasswordsMatch()){
             
             activityIndicator.startAnimating()

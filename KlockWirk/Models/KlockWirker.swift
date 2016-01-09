@@ -20,6 +20,7 @@ class KlockWirker: NSObject, NSCoding{
     var phoneNumber: String = ""
     var password: String = ""
     var deviceUUID: String = ""
+    var deviceToken: String = ""
     var confirmPassword: String = ""
     var isSelected: Bool = false
     var schedules = [Schedule]()

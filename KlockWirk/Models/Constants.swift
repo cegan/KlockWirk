@@ -28,6 +28,7 @@ struct ServiceEndpoints {
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
+    static let KlockWirkerPushNotification  = "SendKlockWirkerNotification/"
     static let PasswordReset                = "PasswordReset/"
     static let ScheduleEndpoint             = "Schedules/"
     static let KlockWirkerSchedules         = "KlockWirkerSchedules/"

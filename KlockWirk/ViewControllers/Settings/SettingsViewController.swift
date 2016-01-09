@@ -144,8 +144,10 @@ class SettingsViewController: UITableViewController {
     
     func logoutButtonPressed(){
         
+        ApplicationInformation.clearUserLogin()
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        appDelegate.window!.rootViewController = LoginViewController()
         
     }
 

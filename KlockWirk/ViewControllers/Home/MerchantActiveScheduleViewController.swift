@@ -154,8 +154,13 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
     }
     
     
+    
+    
+    
 
     func refreshCurrentSchedule(){
+        
+        userInteractionEnabled(false)
         
         if(ApplicationInformation.isMerchant()){
             
@@ -169,12 +174,18 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
                     
                     currentSchedule = schedule
                 
-                    posSalesService.getTotalSalesForSchedule(currentSchedule) { (response:NSDictionary) in
+                    posSalesService.getTotalSalesForSchedule(currentSchedule) { (response:Schedule) in
                         
-                        self.achievedLabel.text             = "Achieved " + NumberFormatter.formatDoubleToCurrency(JSONUtilities.parsePosOrders(response))
+                        self.currentSchedule = response
+                        
+                        self.achievedLabel.text             = "Achieved " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.achieved)
                         self.goalLabel.text                 = "Goal " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.goal)
                         self.timeRemainingOnSchedule.text   = String(self.currentSchedule.getTimeReminingOnSchedule())
+                        
+                        self.setupPieChartData()
                         self.pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
+                        
+                        self.userInteractionEnabled(true)
                     }
                 }
             }
@@ -200,5 +211,11 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
                 }
             }
         }
+    }
+    
+    func userInteractionEnabled(shouldDisable: Bool){
+        
+        self.navigationController?.navigationBar.userInteractionEnabled = shouldDisable
+        self.navigationController?.view.userInteractionEnabled = shouldDisable;
     }
 }

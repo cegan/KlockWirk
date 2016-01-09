@@ -75,8 +75,8 @@ class KlockWirkerSetupViewController: UITableViewController {
         
         var fields:[AccountSetupField] = []
         
-        fields.append(AccountSetupField(lbl: "Email", val: "",type:.String, required:true, tag: 1))
-        fields.append(AccountSetupField(lbl: "Phone", val: "",type:.String, required:true, tag: 2))
+        fields.append(AccountSetupField(lbl: "Email", val: "",type:.Email, required:true, tag: 1))
+        fields.append(AccountSetupField(lbl: "Phone", val: "",type:.Phone, required:true, tag: 2))
        
         return fields
     }
@@ -145,9 +145,9 @@ class KlockWirkerSetupViewController: UITableViewController {
         return klockWirker
     }
     
-    func displayAlert(message: String){
+    func displayAlert(message: String, title:String){
         
-        let alertController = UIAlertController(title: "KlockWirker Registration", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         
@@ -158,6 +158,8 @@ class KlockWirkerSetupViewController: UITableViewController {
     
     
     func submitButtonTapped(){
+        
+        tableView.endEditing(true)
         
         if(doesKlockWirkerPasswordsMatch()){
             
@@ -171,7 +173,7 @@ class KlockWirkerSetupViewController: UITableViewController {
                     
                     if(statusCode as! Int == HTTPStatusCodes.HTTPNotFound){
                         
-                        self.displayAlert("User Not Found")
+                        self.displayAlert("Please try again or email support at support@klockwirk.com", title: "User Not Found")
                     }
                 }
                 else{
@@ -184,7 +186,7 @@ class KlockWirkerSetupViewController: UITableViewController {
         }
         else{
             
-            displayAlert("Password mismatch")
+            displayAlert("Password mismatch", title: "KlockWirker Registration")
         }
     }
     

@@ -31,7 +31,6 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        
         switch(accountSetupField.fieldType){
             
             case .Currency, .Percent:

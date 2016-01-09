@@ -14,8 +14,6 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var viewScheduleDetails: UIButton!
     
-    
-    
 
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
@@ -148,7 +146,7 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
     
     func setupNavigationBar(){
         
-         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshHomeView"))
+         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshCurrentScheduleData"))
         
         self.navigationItem.rightBarButtonItem = refresh
     }
@@ -172,4 +170,47 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
             }
         }
     }
+    
+    
+    func refreshCurrentScheduleData(){
+        
+        userInteractionEnabled(false)
+        
+        if(ApplicationInformation.isKlockWirker()){
+            
+            klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+            
+            if(klockWirker.schedules.count > 0){
+                
+                if let schedule = DateUtilities.getCurrentSchedule(klockWirker.schedules){
+                    
+                    let posSalesService = PosSalesService()
+                    
+                    currentSchedule = schedule
+                    
+                    posSalesService.getTotalSalesForSchedule(currentSchedule) { (response:Schedule) in
+                        
+                        self.currentSchedule = response
+                        
+                        self.timeRemainingOnSchedule.text = String(self.currentSchedule.getTimeReminingOnSchedule())
+                        self.pieChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.EaseOutBack)
+                        
+                        self.setupPieChartData()
+                        
+                        self.userInteractionEnabled(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func userInteractionEnabled(shouldDisable: Bool){
+        
+        self.navigationController?.navigationBar.userInteractionEnabled = shouldDisable
+        self.navigationController?.view.userInteractionEnabled = shouldDisable;
+    }
+    
+    
+    
 }

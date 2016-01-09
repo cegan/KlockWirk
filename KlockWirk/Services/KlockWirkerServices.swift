@@ -146,6 +146,7 @@ class KlockWirkerServices : BaseKlockWirkService {
             "Email":klockWirker.emailAddress,
             "Phone":klockWirker.phoneNumber,
             "DeviceUUID":UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "DeviceToken":ApplicationInformation.getDeviceToken(),
             "Password":klockWirker.password] as Dictionary<String, String>
         
         do {
@@ -185,6 +186,10 @@ class KlockWirkerServices : BaseKlockWirkService {
         
         task.resume()
     }
+    
+    
+    
+    
     
     
     

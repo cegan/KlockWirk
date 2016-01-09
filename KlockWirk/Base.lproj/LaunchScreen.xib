@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sjP-X0-ClQ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sjP-X0-ClQ">
                     <rect key="frame" x="8" y="57" width="464" height="128"/>
                 </imageView>
             </subviews>
@@ -19,12 +19,12 @@
             <constraints>
                 <constraint firstItem="sjP-X0-ClQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="AEq-3A-iH5"/>
                 <constraint firstAttribute="bottom" secondItem="sjP-X0-ClQ" secondAttribute="bottom" constant="295" id="eER-pg-IhH"/>
-                <constraint firstAttribute="trailing" secondItem="sjP-X0-ClQ" secondAttribute="trailing" constant="20" symbolic="YES" id="fuu-yR-c5K"/>
-                <constraint firstItem="sjP-X0-ClQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="xjm-dR-0Tf"/>
+                <constraint firstAttribute="trailing" secondItem="sjP-X0-ClQ" secondAttribute="trailing" constant="8" id="fuu-yR-c5K"/>
+                <constraint firstItem="sjP-X0-ClQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="xjm-dR-0Tf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-384" y="175"/>
+            <point key="canvasLocation" x="-552" y="128"/>
         </view>
     </objects>
     <resources>

@@ -88,7 +88,14 @@ class Schedule: NSObject, NSCoding{
         }
         else{
             
-            return String(difference.hour) + " Hour and " + String(difference.minute) + " Minutes Remaining"
+            if(difference.hour == 0){
+                
+                return String(difference.minute) + " Minutes Remaining"
+            }
+            else{
+             
+                return String(difference.hour) + " Hour and " + String(difference.minute) + " Minutes Remaining"
+            }
         }
     }
     

@@ -34,6 +34,8 @@ class MerchantServices: BaseKlockWirkService{
         task.resume()
     }
     
+    
+
     func registerMerchant(merchant: Merchant, onCompletion: (response: Merchant) -> ()){
         
         let session = NSURLSession.sharedSession()
@@ -55,6 +57,7 @@ class MerchantServices: BaseKlockWirkService{
             "PosSystemApiKey":merchant.posSystemApiKey,
             "POS":merchant.posSystem,
             "DeviceUUID":UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "DeviceToken":ApplicationInformation.getDeviceToken(),
             "Password":merchant.password] as Dictionary<String, String>
         
         do {
@@ -78,7 +81,6 @@ class MerchantServices: BaseKlockWirkService{
                     
                     MerchantManager.sharedInstance.merchant = merchant
                     
-              
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         onCompletion(response: merchant)

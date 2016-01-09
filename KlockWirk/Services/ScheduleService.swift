@@ -56,6 +56,7 @@ class SchedulService: BaseKlockWirkService{
                     
 
                     self.addKlockWirkersToSchedule(schedule.klockWirkers, scheduleId: scheduleId, merchantId: mId)
+                    self.sendKlockWirkerPushNotifications(schedule.klockWirkers, scheduleId: scheduleId, merchantId: mId)
                     
 
                     dispatch_async(dispatch_get_main_queue(), {
@@ -69,6 +70,41 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
 
+    
+    func sendKlockWirkerPushNotifications(klockWirkers: [KlockWirker], scheduleId:NSNumber, merchantId:NSNumber){
+        
+        var params: Array<[String:AnyObject]> = []
+        let session = NSURLSession.sharedSession()
+        let request = getUrlRequestForEndpoint(ServiceEndpoints.KlockWirkerPushNotification, httpMethod: HTTPConstants.HTTPMethodPost)
+        
+        for kw in klockWirkers {
+            
+            params.append(["merchantId":merchantId,"scheduleId":scheduleId,"klockWirkerId":kw.klockWirkerId])
+        }
+        
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            
+        } catch {
+            
+            print(error)
+        }
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                if(httpResponse.statusCode == 200){
+                    
+                    
+                    
+                }
+            }
+        })
+        
+        task.resume()
+    }
     
     
     func addKlockWirkersToSchedule(klockWirkers: [KlockWirker], scheduleId:NSNumber, merchantId:NSNumber){
@@ -97,6 +133,7 @@ class SchedulService: BaseKlockWirkService{
                 
                 if(httpResponse.statusCode == 200){
                     
+     
                     
                 }
             }
@@ -105,6 +142,8 @@ class SchedulService: BaseKlockWirkService{
         task.resume()
     }
     
+    
+   
     
     func getKlockWirkersOnSchedule(schedule: Schedule, onCompletion: (response: [KlockWirker]) -> ()) {
         
@@ -129,6 +168,9 @@ class SchedulService: BaseKlockWirkService{
         
         task.resume()
     }
+    
+    
+     
     
     func deleteSchedule(scheduleId: Int, onCompletion: (response: NSDictionary) -> ()) {
         
