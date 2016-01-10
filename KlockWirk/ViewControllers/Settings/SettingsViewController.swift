@@ -146,6 +146,7 @@ class SettingsViewController: UITableViewController {
         
         ApplicationInformation.clearUserLogin()
         
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window!.rootViewController = LoginViewController()
         

@@ -22,7 +22,6 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
         
         super.init(nibName: nil, bundle: nil);
         
-        registerNotification()
         
         noActiveScheduleViewController.tabBarItem   = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
         noActiveScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
@@ -70,39 +69,6 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
     }
     
     
-    
-    //MARK: Register Notification
-    
-    func registerNotification(){
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "userDidAddNewSchedule",
-            name:NotificationConstants.UserDidAddNewSchedule,
-            object: nil
-        )
-        
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "userDidRefreshSchedule",
-            name:NotificationConstants.UserDidRefreshSchedule,
-            object: nil
-        )
-    }
-    
-    
-    
-    
-    //MARK: Notification Handlers
-    
-    func userDidRefreshSchedule(){
-        
-        refreshTabBar()
-    }
-
     
     
     //MARK: Utility Methods

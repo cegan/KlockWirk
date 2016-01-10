@@ -122,6 +122,7 @@ class AddScheduleTableViewController: UITableViewController, ShiftStartDateWasSe
                 NotificationUtilities.postNotification(NotificationConstants.UserDidAddNewSchedule)
                 
                 self.dismissViewControllerAnimated(true, completion: nil)
+                
             }
         }
     }

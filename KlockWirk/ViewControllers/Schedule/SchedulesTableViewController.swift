@@ -68,6 +68,9 @@ class SchedulesTableViewController: UITableViewController {
         
         self.navigationItem.title = "Schedules"
         refreshSchedules()
+        
+        
+        
     }
     
     
@@ -102,7 +105,10 @@ class SchedulesTableViewController: UITableViewController {
     
     func addNewSchedule(){
         
-        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: nil)
+        self.presentViewController(UINavigationController(rootViewController:AddScheduleTableViewController(nibName: "AddScheduleTableViewController", bundle: nil)), animated: true, completion: { () -> Void in
+            
+            
+        })
     }
     
     func setupViewProperties(){
@@ -141,9 +147,6 @@ class SchedulesTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
     func refresh(sender:AnyObject){
         
         self.refreshControl?.beginRefreshing()
@@ -165,7 +168,6 @@ class SchedulesTableViewController: UITableViewController {
             }
         }
     }
-    
     
     func refreshTableViewHeader(){
         

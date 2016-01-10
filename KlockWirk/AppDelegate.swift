@@ -40,7 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-       
+//        if let aps = userInfo["aps"] as? NSDictionary {
+//            if let alert = aps["alert"] as? NSDictionary {
+//                if let message = alert["message"] as? NSString {
+//                    //Do stuff
+//                }
+//            } else if let alert = aps["alert"] as? NSString {
+//                //Do stuff
+//            }
+//        }
     }
  
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -88,6 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 self.window?.rootViewController = MerchantTabBarController()
             }
+        }
+        else{
+            
+            self.window?.rootViewController = LoginViewController()
         }
     }
 

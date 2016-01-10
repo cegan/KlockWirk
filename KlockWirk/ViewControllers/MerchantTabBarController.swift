@@ -20,51 +20,13 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
     
-    //MARK: Register Notification
-    
-    func registerNotification(){
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "userDidAddNewSchedule",
-            name:NotificationConstants.UserDidAddNewSchedule,
-            object: nil
-        )
-        
-        
-        notificationCenter.addObserver(
-            self,
-            selector: "userDidRefreshSchedule",
-            name:NotificationConstants.UserDidRefreshSchedule,
-            object: nil
-        )
-    }
-    
-    
-    
-    //MARK: Notification Handlers
-    
-    func userDidAddNewSchedule(){
-        
-        refreshTabBar()
-    }
-    
-    func userDidRefreshSchedule(){
-        
-        refreshTabBar()
-    }
-    
-    
+
     
     //MARK: Initializers
     
     init(){
         
         super.init(nibName: nil, bundle: nil);
-        
-        registerNotification()
         
         self.delegate = self
         

@@ -15,7 +15,6 @@ struct NotificationConstants {
     
     static let RegisterKlockWirkerCompeleted    = "RegisterKlockWirkerCompeleted"
     static let UserDidAddNewSchedule            = "UserDidAddNewSchedule"
-    static let UserDidRefreshSchedule           = "UserDidRefreshSchedule"
     static let UserDidSelectKlockWirkers        = "UserDidSelectKlockWirkers"
     static let LoginFailed                      = "LoginFailed"
 }
@@ -28,10 +27,8 @@ struct ServiceEndpoints {
     static let MerchantsEndpoint            = "merchant/"
     static let LoginEndpoint                = "Login/"
     static let KlockWirkerRegistration      = "Registration/"
-    static let KlockWirkerPushNotification  = "SendKlockWirkerNotification/"
     static let PasswordReset                = "PasswordReset/"
     static let ScheduleEndpoint             = "Schedules/"
-    static let KlockWirkerSchedules         = "KlockWirkerSchedules/"
     static let KlockWirkersByScheduleId     = "klockwirkers/GetKlockWirkersForScheduleId/"
     static let TotalSalesForShift           = "PosSales/"
 }

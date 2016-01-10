@@ -115,7 +115,7 @@ class KlockWirkerServices : BaseKlockWirkService {
             
             if let httpResponse = response as? NSHTTPURLResponse {
                 
-                if(httpResponse.statusCode == 200){
+                if(httpResponse.statusCode == HTTPStatusCodes.HTTPOK){
                     
                     let result      = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     let klockWirker = JSONUtilities.parseKlockWirker(result)

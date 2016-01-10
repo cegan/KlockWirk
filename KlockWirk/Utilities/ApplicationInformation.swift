@@ -153,6 +153,7 @@ class ApplicationInformation{
         
         setUserName("")
         setPassword("")
+        setIsUserLoggedIn(false)
         setShouldAutoLogin(false)
     }
    
