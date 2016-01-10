@@ -244,6 +244,11 @@ class MerchantActiveScheduleViewController: UIViewController, ChartViewDelegate 
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
                     timeRemainingOnSchedule.text = String(currentSchedule.getTimeReminingOnSchedule())
                 }
+                else{
+                    
+                    
+                    
+                }
             }
         }
     }

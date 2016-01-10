@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = SplashScreenViewController()
         
+    
+        
         setupActivityIndicator()
         
         loadApplicationSettings()
@@ -62,6 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillResignActive(application: UIApplication) {
        
+        
+        
+        
+        
+        
+        
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -70,9 +78,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         
+        if(ApplicationInformation.isUserLoggedIn()){
+            
+            if(ApplicationInformation.isKlockWirker()){
+                
+                self.window?.rootViewController = KlockWirkTabBarController()
+            }
+            else{
+                
+                self.window?.rootViewController = MerchantTabBarController()
+            }
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+       
        
     }
 

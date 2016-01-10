@@ -180,6 +180,8 @@ class KlockWirkerSetupViewController: UITableViewController {
                     
                     let tabBarController:KlockWirkTabBarController = KlockWirkTabBarController()
                     
+                    ApplicationInformation.setIsKlockWirker(true)
+                    
                     self.navigationController?.pushViewController(tabBarController, animated: false)
                 }
             }

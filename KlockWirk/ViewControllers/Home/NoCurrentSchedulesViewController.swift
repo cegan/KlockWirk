@@ -31,10 +31,6 @@ class NoCurrentSchedulesViewController: UIViewController {
     }
 
 
-    
-    
-    
-    
     func displayScheduleDetail(){
         
         let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
@@ -52,8 +48,9 @@ class NoCurrentSchedulesViewController: UIViewController {
         
         if(ApplicationInformation.isKlockWirker()){
             
-            let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+            addScheduleButton.hidden = true
             
+            let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
             
             if let nextSchedule = DateUtilities.getNextSchedule(klockWirker.schedules){
                 

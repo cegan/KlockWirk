@@ -38,6 +38,11 @@ class ApplicationInformation{
         NSUserDefaults.standardUserDefaults().setObject(klockWirkerId, forKey: "klockWirkerId")
     }
     
+    class func setIsUserLoggedIn(isUserLoggedIn: Bool){
+        
+        NSUserDefaults.standardUserDefaults().setObject(isUserLoggedIn, forKey: "isUserLoggedIn")
+    }
+    
     class func setIsMerchant(isMerchant: Bool){
         
         NSUserDefaults.standardUserDefaults().setObject(isMerchant, forKey: "isMerchant")
@@ -182,6 +187,20 @@ class ApplicationInformation{
         MerchantManager.sharedInstance.merchant.klockWirkers.removeAtIndex(index)
     }
     
+    
+    
+    
+    class func isUserLoggedIn() -> Bool{
+        
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("isUserLoggedIn") as? Bool {
+            
+            return value
+            
+        }
+        
+        return false
+    }
+    
     class func isReadOnly() -> Bool{
         
         if let value = NSUserDefaults.standardUserDefaults().objectForKey("isMerchant") as? Bool {
@@ -191,7 +210,6 @@ class ApplicationInformation{
         }
         
         return false
-
     }
     
     class func isMerchant() -> Bool{

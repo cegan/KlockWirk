@@ -277,6 +277,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             
             loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
                 
+                ApplicationInformation.setIsUserLoggedIn(true)
+                
                 let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
                 let isMerchant      = response.objectForKey("isMerchant") as? Bool
                 let merchantId      = response.objectForKey("MerchantId") as? Int

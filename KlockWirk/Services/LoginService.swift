@@ -12,7 +12,6 @@ import Foundation
 
 class LoginService: BaseKlockWirkService{
     
-    
      func login(emailAddress: String, password:String, onCompletion: (response: NSDictionary) -> ()) {
        
         let params = ["userName":emailAddress,
@@ -30,7 +29,7 @@ class LoginService: BaseKlockWirkService{
                 
                 let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                 
-                if(httpResponse.statusCode == 200){
+                if(httpResponse.statusCode == HTTPStatusCodes.HTTPOK){
                  
                     dispatch_async(dispatch_get_main_queue(), {
                         
@@ -38,7 +37,7 @@ class LoginService: BaseKlockWirkService{
                     })
                 }
                 
-                if(httpResponse.statusCode == 401){
+                if(httpResponse.statusCode == HTTPStatusCodes.HTTPUnauthorized){
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         
