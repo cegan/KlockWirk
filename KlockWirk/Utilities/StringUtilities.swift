@@ -41,6 +41,36 @@ class StringUtilities{
         
     }
     
+    class func formatPhoneNumber(phoneNumber:String) -> String{
+        
+        if(isPhoneNumberValid(phoneNumber)){
+            
+            let phone = NSMutableString()
+            phone.setString(phoneNumber as String)
+            
+            
+            phone.insertString("(", atIndex: 0)
+            phone.insertString(")", atIndex: 4)
+            phone.insertString("-", atIndex: 5)
+            phone.insertString("-", atIndex: 9)
+            
+            return phone as String;
+  
+        }
+        
+        return phoneNumber;
+    }
+    
+    class func isPhoneNumberValid(phoneNumber:String) -> Bool{
+        
+        if(phoneNumber.characters.count == 13){
+            
+            return true
+        }
+        
+        return false
+        
+    }
     
     class func isValidEmail(emailAddress:String) -> Bool {
         
@@ -49,16 +79,5 @@ class StringUtilities{
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(emailAddress)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

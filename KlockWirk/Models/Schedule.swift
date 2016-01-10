@@ -22,6 +22,7 @@ class Schedule: NSObject, NSCoding{
     var startDateTime: NSDate               = NSDate()
     var endDateTime: NSDate                 = NSDate()
     var klockWirkers                        = [KlockWirker]()
+    var klockWirkerSchedules                = [KlockWirkerSchedule]()
    
     
     override init() {}

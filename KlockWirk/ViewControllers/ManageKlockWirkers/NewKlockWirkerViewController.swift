@@ -58,7 +58,7 @@ class NewKlockWirkerViewController: UITableViewController {
         
         let kw = getCompletedKlockWirkerRegistration()
         
-        if(kw.firstName == "" || kw.lastName == "" || kw.phoneNumber == "" || kw.emailAddress == "" || !StringUtilities.isValidEmail(kw.emailAddress)){
+        if(kw.firstName == "" || kw.lastName == "" || kw.phoneNumber == "" || kw.emailAddress == "" || !StringUtilities.isValidEmail(kw.emailAddress) || !StringUtilities.isPhoneNumberValid(kw.phoneNumber)){
             
             if(kw.firstName == ""){
                 
@@ -77,10 +77,13 @@ class NewKlockWirkerViewController: UITableViewController {
                 
                 displayValidationError("Invalid email address")
             }
-            
             else if(kw.phoneNumber == ""){
                 
                 displayValidationError("Phone is required")
+            }
+            else if(!StringUtilities.isPhoneNumberValid(kw.phoneNumber)){
+                
+                displayValidationError("Invalid phone number")
             }
             
             return false

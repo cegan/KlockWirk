@@ -11,8 +11,8 @@ import UIKit
 
 class SettingsItem: NSObject{
     
-    var sections:[String]           = []
-    var items:[[String]] = []
+    var sections:[String]   = []
+    var items:[[String]]    = []
     
     func addSection(section: String, item:[String]){
         

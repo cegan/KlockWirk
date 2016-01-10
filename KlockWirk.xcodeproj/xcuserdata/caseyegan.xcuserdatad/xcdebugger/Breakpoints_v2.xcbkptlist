@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KlockWirk/Common/Badge/SwiftBadge.swift"
-            timestampString = "474025138.273352"
+            filePath = "KlockWirk/CustomComponents/InputTableViewCell.swift"
+            timestampString = "474077816.093569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "drawTextInRect(_:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "textField(_:shouldChangeCharactersInRange:replacementString:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
