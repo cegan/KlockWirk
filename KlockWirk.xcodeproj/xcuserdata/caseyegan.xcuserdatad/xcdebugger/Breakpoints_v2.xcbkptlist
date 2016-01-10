@@ -19,5 +19,117 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/AppDelegate.swift"
+            timestampString = "474143526.260783"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "displayUserInterface()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/AppDelegate.swift"
+            timestampString = "474143528.128227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "displayUserInterface()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KlockWirk.AppDelegate.(displayUserInterface (KlockWirk.AppDelegate) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "KlockWirk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caseyegan/Documents/Development/KlockWirk/KlockWirk/AppDelegate.swift"
+                  timestampString = "474144150.460642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KlockWirk.AppDelegate.(displayUserInterface (KlockWirk.AppDelegate) -&gt; () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "KlockWirk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caseyegan/Documents/Development/KlockWirk/KlockWirk/AppDelegate.swift"
+                  timestampString = "474144150.460829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KlockWirk/AppDelegate.swift"
+            timestampString = "474143531.319847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "displayUserInterface()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KlockWirk.AppDelegate.(displayUserInterface (KlockWirk.AppDelegate) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "KlockWirk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caseyegan/Documents/Development/KlockWirk/KlockWirk/AppDelegate.swift"
+                  timestampString = "474144150.461822"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KlockWirk.AppDelegate.(displayUserInterface (KlockWirk.AppDelegate) -&gt; () -&gt; ()).(closure #1).(closure #2)"
+                  moduleName = "KlockWirk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caseyegan/Documents/Development/KlockWirk/KlockWirk/AppDelegate.swift"
+                  timestampString = "474144150.461953"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -12,18 +12,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sjP-X0-ClQ">
-                    <rect key="frame" x="8" y="57" width="584" height="248"/>
+                    <rect key="frame" x="0.0" y="100" width="584" height="182"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="182" id="YT7-JE-Ukq"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="sjP-X0-ClQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="AEq-3A-iH5"/>
-                <constraint firstAttribute="bottom" secondItem="sjP-X0-ClQ" secondAttribute="bottom" constant="295" id="eER-pg-IhH"/>
-                <constraint firstAttribute="trailing" secondItem="sjP-X0-ClQ" secondAttribute="trailing" constant="8" id="fuu-yR-c5K"/>
-                <constraint firstItem="sjP-X0-ClQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="xjm-dR-0Tf"/>
+                <constraint firstItem="sjP-X0-ClQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="AD9-vY-JTx"/>
+                <constraint firstItem="sjP-X0-ClQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GtR-k2-mRt"/>
+                <constraint firstAttribute="trailing" secondItem="sjP-X0-ClQ" secondAttribute="trailing" constant="16" id="i46-4H-Dwc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="-653" y="-59"/>
+            <point key="canvasLocation" x="-850" y="-11"/>
         </view>
     </objects>
     <resources>
