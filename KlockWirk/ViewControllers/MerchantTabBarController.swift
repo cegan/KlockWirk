@@ -15,6 +15,7 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
 
     let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
     let activeScheduleViewController        = MerchantActiveScheduleViewController(schedule: Schedule())
+    let activeScheduleAchievedViewController = MerchantActiveScheduleAchievedViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let manageKlockWirkersViewController    = ManageKlockWirkersViewController(klockWirkersToDisplay: MerchantManager.sharedInstance.merchant.klockWirkers, asReadonly: false)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
@@ -40,6 +41,10 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         activeScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
         
+        activeScheduleAchievedViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
+        activeScheduleAchievedViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        
+        
         scheduleViewController.tabBarItem      = UITabBarItem(title: "Schedules",
             image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
         scheduleViewController.tabBarItem.selectedImage = UIImage(named:"calendar_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
@@ -58,12 +63,25 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         
         if(shouldShowActiveSchedule()){
             
-            self.viewControllers =
-                [UINavigationController(rootViewController: activeScheduleViewController),
-                    UINavigationController(rootViewController: scheduleViewController),
-                    UINavigationController(rootViewController: manageKlockWirkersViewController),
-                    UINavigationController(rootViewController: settingsViewController)]
             
+            if(isActiveScheduleAchieved()){
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleAchievedViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: manageKlockWirkersViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+                
+            }
+            else{
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: manageKlockWirkersViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+                
+            }
         }
         else{
             
@@ -97,12 +115,23 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
         
         if(shouldShowActiveSchedule()){
             
-            self.viewControllers =
-                [UINavigationController(rootViewController: activeScheduleViewController),
-                    UINavigationController(rootViewController: scheduleViewController),
-                    UINavigationController(rootViewController: manageKlockWirkersViewController),
-                    UINavigationController(rootViewController: settingsViewController)]
-            
+            if(isActiveScheduleAchieved()){
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleAchievedViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: manageKlockWirkersViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+            }
+            else{
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: manageKlockWirkersViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+                
+            }
             
         }
         else{
@@ -125,6 +154,26 @@ class MerchantTabBarController :UITabBarController,UITabBarControllerDelegate{
             if let _ = DateUtilities.getCurrentSchedule(merchant.schedules){
                 
                 return true
+            }
+        }
+        
+        return false
+    }
+    
+    func isActiveScheduleAchieved() -> Bool{
+   
+        let merchant = MerchantManager.sharedInstance.merchant
+        
+        if(merchant.schedules.count > 0){
+            
+            if let s = DateUtilities.getCurrentSchedule(merchant.schedules){
+                
+                if(s.hasGoalBeenReached()){
+                    
+                    return true
+                }
+                
+                return false
             }
         }
         

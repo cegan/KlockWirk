@@ -14,6 +14,7 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
     
     let noActiveScheduleViewController      = NoCurrentSchedulesViewController(nibName: "NoCurrentSchedulesViewController", bundle: nil)
     let activeScheduleViewController        = KlockWirkerActiveScheduleViewController(schedule: Schedule())
+    let activeScheduleAchievedViewController        = KlockWirkerActiveScheduleAchievedViewController(schedule: Schedule())
     let scheduleViewController              = SchedulesTableViewController(nibName: "SchedulesTableViewController", bundle: nil)
     let settingsViewController              = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     
@@ -29,6 +30,9 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
         activeScheduleViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
         activeScheduleViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
+        activeScheduleAchievedViewController.tabBarItem     = UITabBarItem(title: "Home", image: UIImage(named:"home_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
+        activeScheduleAchievedViewController.tabBarItem.selectedImage = UIImage(named:"home_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        
         scheduleViewController.tabBarItem           = UITabBarItem(title: "Schedules", image: UIImage(named:"calendar_normal.png")?.imageWithRenderingMode(.AlwaysOriginal), tag: 3)
         scheduleViewController.tabBarItem.selectedImage = UIImage(named:"calendar_selected.png")?.imageWithRenderingMode(.AlwaysOriginal)
         
@@ -38,11 +42,22 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
 
         if(shouldShowActiveSchedule()){
             
-            self.viewControllers =
-                [UINavigationController(rootViewController: activeScheduleViewController),
-                    UINavigationController(rootViewController: scheduleViewController),
-                    UINavigationController(rootViewController: settingsViewController)]
-            
+            if(isActiveScheduleAchieved()){
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleAchievedViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+                
+            }
+            else{
+                
+                
+                self.viewControllers =
+                    [UINavigationController(rootViewController: activeScheduleViewController),
+                        UINavigationController(rootViewController: scheduleViewController),
+                        UINavigationController(rootViewController: settingsViewController)]
+            }
         }
         else{
             
@@ -82,6 +97,26 @@ class KlockWirkTabBarController : UITabBarController,UITabBarControllerDelegate{
             if let _ = DateUtilities.getCurrentSchedule(klockWirker.schedules){
                 
                 return true
+            }
+        }
+        
+        return false
+    }
+    
+    func isActiveScheduleAchieved() -> Bool{
+        
+        let klockWirker = KlockWirkerManager.sharedInstance.klockWirker
+        
+        if(klockWirker.schedules.count > 0){
+            
+            if let s = DateUtilities.getCurrentSchedule(klockWirker.schedules){
+                
+                if(s.hasGoalBeenReached()){
+                    
+                    return true
+                }
+                
+                return false
             }
         }
         

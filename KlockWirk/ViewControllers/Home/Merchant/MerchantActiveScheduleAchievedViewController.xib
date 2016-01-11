@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Gotham-Light.otf">
+            <string>Gotham-Light</string>
+            <string>Gotham-Light</string>
+            <string>Gotham-Light</string>
+        </mutableArray>
+        <mutableArray key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MerchantActiveScheduleAchievedViewController" customModule="KlockWirk" customModuleProvider="target">
+            <connections>
+                <outlet property="achievedLabel" destination="fWz-zZ-yZk" id="adn-UQ-VgS"/>
+                <outlet property="goalLabel" destination="5vX-KS-hlu" id="OtU-hX-h9V"/>
+                <outlet property="timeRemainingOnSchedule" destination="OcV-Tu-Max" id="vkb-dn-tQy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewScheduleDetails" destination="9AV-PC-wfX" id="Gc5-Gn-WYj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achieved $12,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWz-zZ-yZk">
+                    <rect key="frame" x="226" y="220" width="149" height="17"/>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal $60,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vX-KS-hlu">
+                    <rect key="frame" x="245" y="190" width="110" height="16"/>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AV-PC-wfX">
+                    <rect key="frame" x="224" y="321" width="152" height="30"/>
+                    <state key="normal" title="View Schedule Details">
+                        <color key="titleColor" red="0.92156862750000001" green="0.2666666667" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="viewScheduleDetailsTouched:" destination="-1" eventType="touchUpInside" id="R5U-Wx-WnH"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Hours 36 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcV-Tu-Max">
+                    <rect key="frame" x="8" y="248" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="584" id="cz6-Ph-XHh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Reached" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-FB-2yJ">
+                    <rect key="frame" x="195" y="96" width="211" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="211" id="1FB-g0-3D2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="23"/>
+                    <color key="textColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RSF-FB-2yJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="96" id="0MZ-nP-ZqR"/>
+                <constraint firstItem="5vX-KS-hlu" firstAttribute="centerX" secondItem="9AV-PC-wfX" secondAttribute="centerX" id="975-Rj-ZZf"/>
+                <constraint firstItem="OcV-Tu-Max" firstAttribute="centerX" secondItem="fWz-zZ-yZk" secondAttribute="centerX" id="B91-He-XOQ"/>
+                <constraint firstItem="RSF-FB-2yJ" firstAttribute="centerX" secondItem="5vX-KS-hlu" secondAttribute="centerX" id="Bzt-v7-0kZ"/>
+                <constraint firstItem="9AV-PC-wfX" firstAttribute="top" secondItem="fWz-zZ-yZk" secondAttribute="bottom" constant="84" id="VRb-Is-scw"/>
+                <constraint firstItem="9AV-PC-wfX" firstAttribute="top" secondItem="OcV-Tu-Max" secondAttribute="bottom" constant="52" id="WdM-Z6-bNF"/>
+                <constraint firstItem="5vX-KS-hlu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fDS-WJ-Prw"/>
+                <constraint firstItem="fWz-zZ-yZk" firstAttribute="top" secondItem="5vX-KS-hlu" secondAttribute="bottom" constant="14" id="htv-fA-daK"/>
+                <constraint firstItem="OcV-Tu-Max" firstAttribute="top" secondItem="fWz-zZ-yZk" secondAttribute="bottom" constant="11" id="iHB-Wf-06q"/>
+                <constraint firstItem="5vX-KS-hlu" firstAttribute="centerX" secondItem="fWz-zZ-yZk" secondAttribute="centerX" id="jbe-dp-zLd"/>
+                <constraint firstItem="5vX-KS-hlu" firstAttribute="top" secondItem="RSF-FB-2yJ" secondAttribute="bottom" constant="73" id="u5s-wR-7AR"/>
+                <constraint firstItem="5vX-KS-hlu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="190" id="x26-t1-Z6i"/>
+            </constraints>
+            <point key="canvasLocation" x="623" y="-78"/>
+        </view>
+    </objects>
+</document>
