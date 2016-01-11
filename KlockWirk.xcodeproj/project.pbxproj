@@ -54,12 +54,12 @@
 		4D8B725D1C431DF6009CDDB7 /* NoCurrentSchedulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B725B1C431DF6009CDDB7 /* NoCurrentSchedulesViewController.xib */; };
 		4D8B72651C431EA9009CDDB7 /* MerchantActiveScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B72611C431EA9009CDDB7 /* MerchantActiveScheduleViewController.swift */; };
 		4D8B72661C431EA9009CDDB7 /* MerchantActiveScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B72621C431EA9009CDDB7 /* MerchantActiveScheduleViewController.xib */; };
-		4D8B726C1C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B72681C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */; };
-		4D8B726D1C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B72691C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */; };
 		4D8B726E1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B726A1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.swift */; };
 		4D8B726F1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B726B1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.xib */; };
 		4D8B727A1C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B72781C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.swift */; };
 		4D8B727B1C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B72791C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.xib */; };
+		4D8B727E1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B727C1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */; };
+		4D8B727F1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B727D1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */; };
 		4D924DF81BE51584002A4AF9 /* NewKlockWirkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D924DF61BE51584002A4AF9 /* NewKlockWirkerViewController.swift */; };
 		4D924DF91BE51584002A4AF9 /* NewKlockWirkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D924DF71BE51584002A4AF9 /* NewKlockWirkerViewController.xib */; };
 		4D924DFC1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D924DFB1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift */; };
@@ -268,12 +268,12 @@
 		4D8B725B1C431DF6009CDDB7 /* NoCurrentSchedulesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCurrentSchedulesViewController.xib; sourceTree = "<group>"; };
 		4D8B72611C431EA9009CDDB7 /* MerchantActiveScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantActiveScheduleViewController.swift; sourceTree = "<group>"; };
 		4D8B72621C431EA9009CDDB7 /* MerchantActiveScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantActiveScheduleViewController.xib; sourceTree = "<group>"; };
-		4D8B72681C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerActiveScheduleAchievedViewController.swift; sourceTree = "<group>"; };
-		4D8B72691C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerActiveScheduleAchievedViewController.xib; sourceTree = "<group>"; };
 		4D8B726A1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerActiveScheduleViewController.swift; sourceTree = "<group>"; };
 		4D8B726B1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerActiveScheduleViewController.xib; sourceTree = "<group>"; };
 		4D8B72781C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantActiveScheduleAchievedViewController.swift; sourceTree = "<group>"; };
 		4D8B72791C432F32009CDDB7 /* MerchantActiveScheduleAchievedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantActiveScheduleAchievedViewController.xib; sourceTree = "<group>"; };
+		4D8B727C1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KlockWirkerActiveScheduleAchievedViewController.swift; sourceTree = "<group>"; };
+		4D8B727D1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KlockWirkerActiveScheduleAchievedViewController.xib; sourceTree = "<group>"; };
 		4D924DF61BE51584002A4AF9 /* NewKlockWirkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewKlockWirkerViewController.swift; sourceTree = "<group>"; };
 		4D924DF71BE51584002A4AF9 /* NewKlockWirkerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewKlockWirkerViewController.xib; sourceTree = "<group>"; };
 		4D924DFB1BE51E31002A4AF9 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -684,10 +684,10 @@
 		4D8B72671C432001009CDDB7 /* KlockWirker */ = {
 			isa = PBXGroup;
 			children = (
-				4D8B72681C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */,
-				4D8B72691C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */,
 				4D8B726A1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.swift */,
 				4D8B726B1C432001009CDDB7 /* KlockWirkerActiveScheduleViewController.xib */,
+				4D8B727C1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift */,
+				4D8B727D1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib */,
 			);
 			path = KlockWirker;
 			sourceTree = "<group>";
@@ -1056,7 +1056,6 @@
 				4DE743AD1BAE4F260093FA1C /* SelectedShiftTableViewCell.xib in Resources */,
 				4D79E64E1B8008F900A1F25D /* ManageKlockWirkersViewController.xib in Resources */,
 				4DFE4EC71BBF9D5C00E1EA6E /* Gotham-Bold.otf in Resources */,
-				4D8B726D1C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib in Resources */,
 				4DB8E60C1BB82C8300ED088F /* SelectionTableViewCell.xib in Resources */,
 				4DE7548D1BA5AA8800D3FE29 /* SchedulesTableViewController.xib in Resources */,
 				4D924DF91BE51584002A4AF9 /* NewKlockWirkerViewController.xib in Resources */,
@@ -1092,6 +1091,7 @@
 				4DBBDCF11BC440970079035A /* ChartTableViewCell.xib in Resources */,
 				4D8B725D1C431DF6009CDDB7 /* NoCurrentSchedulesViewController.xib in Resources */,
 				4DC07B981C40FE78002F8406 /* swift-badge.png in Resources */,
+				4D8B727F1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.xib in Resources */,
 				4D2C54D91BA3D51A0007AFD5 /* AddScheduleTableViewController.xib in Resources */,
 				4D53326C1C20EF3000C76776 /* SettingsTableViewCell.xib in Resources */,
 			);
@@ -1117,6 +1117,7 @@
 				4DDA8D301B5147F10056800C /* AFImageRequestOperation.m in Sources */,
 				4DC07B7C1C40EDDA002F8406 /* LineChartRenderer.swift in Sources */,
 				4D2C54E31BA441960007AFD5 /* SpinerLayer.swift in Sources */,
+				4D8B727E1C433791009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift in Sources */,
 				4DC07B4F1C40EDD9002F8406 /* BubbleChartDataSet.swift in Sources */,
 				4DE7548C1BA5AA8800D3FE29 /* SchedulesTableViewController.swift in Sources */,
 				4D2C54E41BA441960007AFD5 /* TransitionSubmitButton.swift in Sources */,
@@ -1172,7 +1173,6 @@
 				4DC07B821C40EDDA002F8406 /* ChartColorTemplates.swift in Sources */,
 				4D924DF81BE51584002A4AF9 /* NewKlockWirkerViewController.swift in Sources */,
 				4DC07B791C40EDDA002F8406 /* ChartYAxisRendererRadarChart.swift in Sources */,
-				4D8B726C1C432001009CDDB7 /* KlockWirkerActiveScheduleAchievedViewController.swift in Sources */,
 				4DC07B431C40EDD9002F8406 /* ChartLegend.swift in Sources */,
 				4DC07B471C40EDD9002F8406 /* ChartYAxis.swift in Sources */,
 				4DDA8D341B5147F10056800C /* AFURLConnectionOperation.m in Sources */,

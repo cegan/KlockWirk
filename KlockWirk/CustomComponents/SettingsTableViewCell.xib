@@ -16,14 +16,16 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWF-gE-XZq">
                         <rect key="frame" x="17" y="7" width="143" height="30"/>
-                        <state key="normal" title="Logout"/>
+                        <state key="normal" title="Logout">
+                            <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                     </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="settingButton" destination="MWF-gE-XZq" id="25E-52-xlr"/>
             </connections>
-            <point key="canvasLocation" x="-110" y="116"/>
+            <point key="canvasLocation" x="77" y="174"/>
         </tableViewCell>
     </objects>
 </document>

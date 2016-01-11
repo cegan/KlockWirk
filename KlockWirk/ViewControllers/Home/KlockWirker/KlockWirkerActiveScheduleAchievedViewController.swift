@@ -1,39 +1,36 @@
 //
-//  ChartViewController.swift
+//  KlockWirkerActiveScheduleAchievedViewController.swift
 //  KlockWirk
 //
-//  Created by Casey Egan on 9/29/15.
-//  Copyright © 2015 KlockWirk. All rights reserved.
+//  Created by Casey Egan on 1/10/16.
+//  Copyright © 2016 KlockWirk. All rights reserved.
 //
 
 import UIKit
 
-class KlockWirkerActiveScheduleAchievedViewController: UIViewController, ChartViewDelegate {
-    
-    @IBOutlet weak var timeRemainingOnSchedule: UILabel!
-    @IBOutlet weak var viewScheduleDetails: UIButton!
-    
+class KlockWirkerActiveScheduleAchievedViewController: UIViewController {
 
+    
+    @IBOutlet weak var klockWirkerEarnedAmountLlb: UILabel!
+    @IBOutlet weak var timeRemainingOnSchedule: UILabel!
+    
+    
+    
+    
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
     var currentSchedule   = Schedule()
     
     
-    
-    //MARK: View Initialization
-    
     init(schedule: Schedule){
         
-        super.init(nibName: "KlockWirkerActiveScheduleViewController", bundle: nil);
+        super.init(nibName: "KlockWirkerActiveScheduleAchievedViewController", bundle: nil);
     }
     
     required init(coder aDecoder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
     
     
     //MARK: View Delegates
@@ -55,32 +52,19 @@ class KlockWirkerActiveScheduleAchievedViewController: UIViewController, ChartVi
     override func viewWillAppear(animated: Bool) {
         
         refreshHomeView()
-        
+     
         self.navigationItem.title = "Home"
     }
     
+    
 
-    
-    
-    //MARK: Events
-    
-    @IBAction func viewScheduleDetailsTouched(sender: AnyObject) {
-        
-        self.presentViewController(UINavigationController(rootViewController:ScheduleDetailQuickLook(schedule: currentSchedule)), animated: true, completion: nil)
-    }
-    
-    
-    
-    
-   
-    
+       
     func setupNavigationBar(){
         
-         let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshCurrentScheduleData"))
+        let refresh = UIBarButtonItem(image: UIImage(named: "refresh_normal.png")!.imageWithRenderingMode(.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("refreshCurrentScheduleData"))
         
         self.navigationItem.rightBarButtonItem = refresh
     }
-    
     
     func refreshHomeView(){
         
@@ -94,12 +78,12 @@ class KlockWirkerActiveScheduleAchievedViewController: UIViewController, ChartVi
                     
                     currentSchedule = schedule
                     
+                    klockWirkerEarnedAmountLlb.text = "You've earned " + NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
                     timeRemainingOnSchedule.text = String(currentSchedule.getTimeReminingOnSchedule())
                 }
             }
         }
     }
-    
     
     func refreshCurrentScheduleData(){
         
@@ -120,9 +104,10 @@ class KlockWirkerActiveScheduleAchievedViewController: UIViewController, ChartVi
                     posSalesService.getTotalSalesForSchedule(currentSchedule) { (response:Schedule) in
                         
                         self.currentSchedule = response
-                        
+     
+                        self.klockWirkerEarnedAmountLlb.text = "You've earned " + NumberFormatter.formatDoubleToCurrency(schedule.klockWirkerProfitsShared())
                         self.timeRemainingOnSchedule.text = String(self.currentSchedule.getTimeReminingOnSchedule())
-                        
+                    
                         self.userInteractionEnabled(true)
                     }
                 }
@@ -136,7 +121,4 @@ class KlockWirkerActiveScheduleAchievedViewController: UIViewController, ChartVi
         self.navigationController?.navigationBar.userInteractionEnabled = shouldDisable
         self.navigationController?.view.userInteractionEnabled = shouldDisable;
     }
-    
-    
-    
 }

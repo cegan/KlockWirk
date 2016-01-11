@@ -93,6 +93,37 @@ class SettingsViewController: UITableViewController {
         setupViewProperties()
         setupTableViewProperties()
     }
+    
+    
+    
+    func confirmLogout(){
+        
+      
+        let optionMenu = UIAlertController(title: nil, message: "Confirm", preferredStyle: .ActionSheet)
+        
+        let logoutAction = UIAlertAction(title: "Log out", style: .Default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+           
+            ApplicationInformation.clearUserLogin()
+            
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window!.rootViewController = LoginViewController()
+            
+        })
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(logoutAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
 
     
     
@@ -143,13 +174,9 @@ class SettingsViewController: UITableViewController {
     //MARK: Events
     
     func logoutButtonPressed(){
-        
-        ApplicationInformation.clearUserLogin()
-        
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window!.rootViewController = LoginViewController()
-        
+
+        confirmLogout()
+
     }
 
 }

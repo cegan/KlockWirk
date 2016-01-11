@@ -15,7 +15,9 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var timeRemainingOnSchedule: UILabel!
     @IBOutlet weak var viewScheduleDetails: UIButton!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var profitsSharedLabel: UILabel!
+    
     var merchant          = Merchant()
     var klockWirker       = KlockWirker()
     var currentSchedule   = Schedule()
@@ -38,6 +40,10 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
+        activityIndicator.hidden = true
+        
         
         setupNavigationBar()
     }
@@ -81,6 +87,19 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
     
     
     
+    func startActivityIndicator(){
+        
+        activityIndicator.hidden = false;
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator(){
+        
+        activityIndicator.hidden = true;
+        activityIndicator.stopAnimating()
+    }
+    
+    
     
     
     
@@ -96,6 +115,7 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
                 
                 if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
                     
+                    startActivityIndicator()
                     let posSalesService = PosSalesService()
                     
                     currentSchedule = schedule
@@ -106,9 +126,10 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
                         
                         self.achievedLabel.text             = "Achieved " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.achieved)
                         self.goalLabel.text                 = "Goal " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.goal)
+                        self.profitsSharedLabel.text        = "Profits Shared " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.merchantProfitsShared())
                         self.timeRemainingOnSchedule.text   = String(self.currentSchedule.getTimeReminingOnSchedule())
                       
-                        
+                        self.stopActivityIndicator()
                         self.userInteractionEnabled(true)
                     }
                 }
@@ -125,12 +146,12 @@ class MerchantActiveScheduleAchievedViewController: UIViewController {
             if(merchant.schedules.count > 0){
                 
                 if let schedule = DateUtilities.getCurrentSchedule(merchant.schedules){
-                    
-                   
+                
                     currentSchedule = schedule
                     
                     goalLabel.text = "Goal " + NumberFormatter.formatDoubleToCurrency(currentSchedule.goal)
                     achievedLabel.text = "Achieved " + NumberFormatter.formatDoubleToCurrency(currentSchedule.achieved)
+                    profitsSharedLabel.text        = "Profits Shared " + NumberFormatter.formatDoubleToCurrency(self.currentSchedule.merchantProfitsShared())
                     timeRemainingOnSchedule.text = String(currentSchedule.getTimeReminingOnSchedule())
                 }
                 else{
