@@ -123,7 +123,6 @@ class KlockWirkerActiveScheduleViewController: UIViewController, ChartViewDelega
         xVals.append("Achieved")
         
     
-        
         let dataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.colors = colors
         

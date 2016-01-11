@@ -1380,7 +1380,7 @@
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff303628-7208-4864-9b34-eef03437bec3";
+				PROVISIONING_PROFILE = "2e4ff10c-83c0-4afb-86f6-b24b38a28389";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
@@ -1395,7 +1395,7 @@
 				INFOPLIST_FILE = KlockWirk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff303628-7208-4864-9b34-eef03437bec3";
+				PROVISIONING_PROFILE = "2e4ff10c-83c0-4afb-86f6-b24b38a28389";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;
