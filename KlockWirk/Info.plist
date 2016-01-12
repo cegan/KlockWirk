@@ -28,8 +28,6 @@
 	<string>https://microsoft-apiapp0d181cd8fad64cfaac3acd557485d4e2.azurewebsites.net/api/</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>RevelBaseAPI</key>
-	<string>https://gate25.revelup.com</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Gotham-Medium.tff</string>

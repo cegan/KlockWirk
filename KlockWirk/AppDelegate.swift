@@ -21,15 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
 
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = SplashScreenViewController()
         
-    
-        
+  
         setupActivityIndicator()
-        
+
         loadApplicationSettings()
         loadUserInterfaceDefaults()
         registerForApplicationNotifications(application)
@@ -86,6 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         
+        clearBadgeCount()
+
         if(ApplicationInformation.isUserLoggedIn()){
             
             if(ApplicationInformation.isKlockWirker()){
@@ -115,13 +117,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
+    func clearBadgeCount(){
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+    }
+    
     func setupActivityIndicator () {
         
         self.activityIndicator.center       = (window?.rootViewController!.view.center)!;
         activityIndicator.autoresizingMask  = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
         window?.rootViewController!.view.addSubview(activityIndicator)
     }
-    
     
     func displayUserInterface(){
         

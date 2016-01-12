@@ -20,7 +20,7 @@ class ApplicationInformation{
     
     class func setKlockWirkBaseUrl(baseUrl: String){
         
-        NSUserDefaults.standardUserDefaults().setObject(baseUrl, forKey: "RevelBaseAPI")
+        NSUserDefaults.standardUserDefaults().setObject(baseUrl, forKey: "KlockWirkBaseApiUrl")
     }
     
     class func setDeviceToken(deviceToken: String){
@@ -82,7 +82,7 @@ class ApplicationInformation{
     
     class func getKlockWirkBaseUrl() -> NSString{
         
-        if let value = NSUserDefaults.standardUserDefaults().objectForKey("RevelBaseAPI") as? String {
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("KlockWirkBaseApiUrl") as? String {
             
             return value
             

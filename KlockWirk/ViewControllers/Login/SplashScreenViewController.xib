@@ -29,7 +29,7 @@
                 <constraint firstItem="ZJg-s1-IEf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="qCW-L9-tfb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="704" y="210"/>
+            <point key="canvasLocation" x="709" y="47"/>
         </view>
     </objects>
     <resources>
