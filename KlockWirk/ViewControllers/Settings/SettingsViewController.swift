@@ -99,7 +99,7 @@ class SettingsViewController: UITableViewController {
     func confirmLogout(){
         
       
-        let optionMenu = UIAlertController(title: nil, message: "Confirm", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Confirm Logout", preferredStyle: .ActionSheet)
         
         let logoutAction = UIAlertAction(title: "Log out", style: .Default, handler: {
             

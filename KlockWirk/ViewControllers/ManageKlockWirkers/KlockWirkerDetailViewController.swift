@@ -186,7 +186,7 @@ class KlockWirkerDetailViewController: UIViewController , UITableViewDelegate, U
     
     func deleteButtonTapped(){
         
-        let optionMenu = UIAlertController(title: nil, message: "Confirm", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Confirm Delete", preferredStyle: .ActionSheet)
         
         
         let deleteAction = UIAlertAction(title: "Delete KlockWirker", style: .Default, handler: {

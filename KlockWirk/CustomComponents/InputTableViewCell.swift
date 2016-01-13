@@ -94,6 +94,9 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
             case .Phone:
                 textField.keyboardType = UIKeyboardType.PhonePad
             
+            case .ZipCode:
+                textField.keyboardType = UIKeyboardType.DecimalPad
+            
             default:
                 textField.keyboardType = UIKeyboardType.Alphabet
         }

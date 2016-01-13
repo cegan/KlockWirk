@@ -149,7 +149,7 @@ class MerchantSetupViewController: UITableViewController {
         merchantFields.append(AccountSetupField(lbl: "Address", val: "", type:.String, required:true, tag: 4))
         merchantFields.append(AccountSetupField(lbl: "City", val: "", type:.String, required:true, tag: 5))
         merchantFields.append(AccountSetupField(lbl: "State", val: "", type:.String, required:true, tag: 6))
-        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.String, required:true, tag: 7))
+        merchantFields.append(AccountSetupField(lbl: "ZipCode", val: "", type:.ZipCode, required:true, tag: 7))
         merchantFields.append(AccountSetupField(lbl: "Phone", val: "", type:.Phone, required:true, tag: 8))
         merchantFields.append(AccountSetupField(lbl: "Email", val: "", type:.Email, required:true, tag: 9))
         merchantFields.append(AccountSetupField(lbl: "Manager", val: "",type:.String, required:true, tag: 10))

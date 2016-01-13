@@ -34,7 +34,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ELB-Vv-LIT">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ELB-Vv-LIT">
                     <rect key="frame" x="142" y="164" width="317" height="35"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -45,7 +45,7 @@
                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faR-vW-8Fo">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faR-vW-8Fo">
                     <rect key="frame" x="142" y="208" width="317" height="35"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -53,9 +53,9 @@
                     </constraints>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Jf-om1">
                     <rect key="frame" x="142" y="305" width="317" height="40"/>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
@@ -74,13 +74,13 @@
                         <action selector="login:" destination="-1" eventType="touchUpInside" id="YKI-q0-Ncy"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
                     <rect key="frame" x="186" y="34" width="229" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="229" id="G6i-0q-bV3"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbS-bw-q3q">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbS-bw-q3q">
                     <rect key="frame" x="237" y="368" width="127" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="127" id="WVT-GH-2jF"/>
@@ -94,10 +94,10 @@
                         <action selector="forgotPasswordTouched:" destination="-1" eventType="touchUpInside" id="Uxh-lY-g3E"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-qN-TcL">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-qN-TcL">
                     <rect key="frame" x="424" y="314" width="20" height="20"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDc-8p-fX3" customClass="RadioButton">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDc-8p-fX3" customClass="RadioButton">
                     <rect key="frame" x="142" y="251" width="317" height="28"/>
                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                     <state key="normal" title=" Remember Me" image="unchecked">
@@ -107,7 +107,7 @@
                         <action selector="rememberMeTouched:" destination="-1" eventType="touchUpInside" id="pDf-De-aqF"/>
                     </connections>
                 </button>
-                <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
                     <rect key="frame" x="237" y="444" width="126" height="35"/>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -138,16 +138,20 @@
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="centerX" secondItem="fGU-Jf-om1" secondAttribute="centerX" id="MFH-1Q-REn"/>
                 <constraint firstItem="VDc-8p-fX3" firstAttribute="leading" secondItem="faR-vW-8Fo" secondAttribute="leading" id="Q1T-VU-uLX"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="top" secondItem="ELB-Vv-LIT" secondAttribute="bottom" constant="9" id="VZY-Iz-l5D"/>
+                <constraint firstAttribute="trailing" secondItem="ELB-Vv-LIT" secondAttribute="trailing" constant="20" symbolic="YES" id="Vb2-K1-d1B"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="top" secondItem="VDc-8p-fX3" secondAttribute="bottom" constant="26" id="dGU-du-XmI"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="ELB-Vv-LIT" secondAttribute="leading" id="dQh-fu-WOv"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hR6-7V-EBv"/>
+                <constraint firstItem="ELB-Vv-LIT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="i2Q-aT-GmR"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="mnF-sC-xt4"/>
                 <constraint firstItem="FvE-qN-TcL" firstAttribute="centerY" secondItem="fGU-Jf-om1" secondAttribute="centerY" constant="-1" id="qQX-DM-oOw"/>
+                <constraint firstItem="faR-vW-8Fo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="sFA-TQ-qp2"/>
                 <constraint firstItem="faR-vW-8Fo" firstAttribute="trailing" secondItem="ELB-Vv-LIT" secondAttribute="trailing" id="tIm-Nw-9nY"/>
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="tiI-J2-Fg6"/>
+                <constraint firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" constant="20" symbolic="YES" id="v7s-tL-8eb"/>
                 <constraint firstItem="UwO-KI-Vbu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="xTw-bZ-vhp"/>
             </constraints>
-            <point key="canvasLocation" x="-3796" y="-829"/>
+            <point key="canvasLocation" x="-3963" y="-1104"/>
         </view>
     </objects>
     <resources>

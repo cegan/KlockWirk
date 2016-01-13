@@ -222,8 +222,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     
     
-    //MARK: Actions
     
+    //MARK: Actions
     
     func storeUserLogin(){
         
@@ -237,7 +237,86 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         }
     }
     
+    func loginUser(){
+        
+        ApplicationInformation.clearSharedData()
+        
+        self.view.endEditing(true)
+        
+        if(areLoginFieldsValid()){
+            
+            startActivityIndicator()
+            
+            loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
+                
+                ApplicationInformation.setIsUserLoggedIn(true)
+                
+                let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
+                let isMerchant      = response.objectForKey("isMerchant") as? Bool
+                let merchantId      = response.objectForKey("MerchantId") as? Int
+                let klockWirkerId   = response.objectForKey("KlockWirkerId") as? Int
+                
+                if(isKlockWirker == true){
+                    
+                    ApplicationInformation.setIsKlockWirker(true)
+                    ApplicationInformation.setKlockWirkerId(klockWirkerId!)
+                    
+                    self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
+                        
+                        self.loadKlockWirkerTabBarController()
+                    }
+                }
+                if(isMerchant == true){
+                    
+                    ApplicationInformation.setIsMerchant(true)
+                    ApplicationInformation.setMerchantId(merchantId!)
+                    
+                    self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
+                        
+                        self.loadMerchantTabBarController()
+                    }
+                }
+                
+                self.storeUserLogin()
+            }
+        }
+        else{
+            
+            if(emaiAddress.text == ""){
+                
+                shakeTextField(emaiAddress)
+            }
+            if(password.text == ""){
+                
+                shakeTextField(password)
+            }
+        }
+        
+        
+    }
     
+    
+    
+    //MARK Keyboard event handlers
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if(textField == password){
+            
+            loginUser()
+        }
+        else{
+            
+            password.becomeFirstResponder()
+        }
+        
+        return true;
+    }
+    
+    
+
+    
+    //MARK Button event handlers
     
     @IBAction func register(sender: AnyObject) {
         
@@ -274,58 +353,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     @IBAction func login(sender: AnyObject) {
         
-        ApplicationInformation.clearSharedData()
-        
-        self.view.endEditing(true)
-        
-        if(areLoginFieldsValid()){
-            
-            startActivityIndicator()
-            
-            loginService.login(emaiAddress.text!, password: password.text!) { (response:NSDictionary) in
-                
-                ApplicationInformation.setIsUserLoggedIn(true)
-                
-                let isKlockWirker   = response.objectForKey("isKlockWirker") as? Bool
-                let isMerchant      = response.objectForKey("isMerchant") as? Bool
-                let merchantId      = response.objectForKey("MerchantId") as? Int
-                let klockWirkerId   = response.objectForKey("KlockWirkerId") as? Int
-                
-                if(isKlockWirker == true){
-                    
-                    ApplicationInformation.setIsKlockWirker(true)
-                    ApplicationInformation.setKlockWirkerId(klockWirkerId!)
-                                        
-                    self.klockWirkService.getKlockWirker(klockWirkerId!) {(response: KlockWirker) in
-                        
-                        self.loadKlockWirkerTabBarController()
-                    }
-                }
-                if(isMerchant == true){
-                    
-                    ApplicationInformation.setIsMerchant(true)
-                    ApplicationInformation.setMerchantId(merchantId!)
-                    
-                    self.merchantService.getMerchant(merchantId!) {(response: Merchant) in
-                        
-                        self.loadMerchantTabBarController()
-                    }
-                }
-                
-                self.storeUserLogin()
-            }
-        }
-        else{
-            
-            if(emaiAddress.text == ""){
-                
-                shakeTextField(emaiAddress)
-            }
-            if(password.text == ""){
-                
-                shakeTextField(password)
-            }
-        }
+        loginUser()
     }
     
     @IBAction func rememberMeTouched(sender: RadioButton) {

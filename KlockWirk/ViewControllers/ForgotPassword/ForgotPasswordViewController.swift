@@ -151,9 +151,9 @@ class ForgotPasswordViewController: UITableViewController {
         return true
     }
     
-    func displayAlert(message: String){
+    func displayAlert(message: String, title: String){
         
-        let alertController = UIAlertController(title: "Password Reset", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         
@@ -184,11 +184,11 @@ class ForgotPasswordViewController: UITableViewController {
                 
                 if(response == HTTPStatusCodes.HTTPNotFound){
                     
-                    self.displayAlert("User Not Found")
+                    self.displayAlert("Please try again or email support at support@klockwirk.com", title: "Password Reset")
                 }
                 else if(response == HTTPStatusCodes.HTTPUnauthorized){
                     
-                    self.displayAlert("Your device is not registered. Please email support@klockwirk.com to change your password.")
+                    self.displayAlert("Your device is not registered. Please email support@klockwirk.com to change your password.",title: "Password Reset")
                 }
                 else{
                     
@@ -198,7 +198,7 @@ class ForgotPasswordViewController: UITableViewController {
         }
         else{
             
-            displayAlert("Password mismatch")
+            displayAlert("Password mismatch",title: "Password Reset")
         }
     }
     

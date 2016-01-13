@@ -18,6 +18,7 @@ enum InputFieldTypes {
     case Email
     case Phone
     case Password
+    case ZipCode
 }
 
 
