@@ -12,7 +12,7 @@
             <string>Gotham-Light</string>
             <string>Gotham-Light</string>
         </mutableArray>
-        <mutableArray key="Gotham-Medium.ttf">
+        <mutableArray key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </mutableArray>
     </customFonts>
@@ -74,21 +74,6 @@
                         <action selector="login:" destination="-1" eventType="touchUpInside" id="YKI-q0-Ncy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
-                    <rect key="frame" x="258" y="439" width="85" height="35"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="85" id="2p3-Px-JIw"/>
-                        <constraint firstAttribute="height" constant="35" id="BFO-Ev-rsk"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
-                    <state key="normal" title="Register">
-                        <color key="titleColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KlockWirkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-KI-Vbu">
                     <rect key="frame" x="186" y="34" width="229" height="80"/>
                     <constraints>
@@ -122,6 +107,21 @@
                         <action selector="rememberMeTouched:" destination="-1" eventType="touchUpInside" id="pDf-De-aqF"/>
                     </connections>
                 </button>
+                <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-dW-Rc3">
+                    <rect key="frame" x="237" y="444" width="126" height="35"/>
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.26666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="126" id="2p3-Px-JIw"/>
+                        <constraint firstAttribute="height" constant="35" id="BFO-Ev-rsk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="register:" destination="-1" eventType="touchUpInside" id="C1T-rk-xmH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -131,7 +131,7 @@
                 <constraint firstItem="ZBe-dW-Rc3" firstAttribute="centerX" secondItem="cbS-bw-q3q" secondAttribute="centerX" id="EBA-qA-oJb"/>
                 <constraint firstItem="FvE-qN-TcL" firstAttribute="leading" secondItem="fGU-Jf-om1" secondAttribute="trailing" constant="-35" id="GON-Kc-Vea"/>
                 <constraint firstItem="VDc-8p-fX3" firstAttribute="top" secondItem="faR-vW-8Fo" secondAttribute="bottom" constant="8" symbolic="YES" id="GRk-jF-8z0"/>
-                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="cbS-bw-q3q" secondAttribute="bottom" constant="41" id="HWR-30-h95"/>
+                <constraint firstItem="ZBe-dW-Rc3" firstAttribute="top" secondItem="cbS-bw-q3q" secondAttribute="bottom" constant="46" id="HWR-30-h95"/>
                 <constraint firstItem="fGU-Jf-om1" firstAttribute="leading" secondItem="faR-vW-8Fo" secondAttribute="leading" id="JnD-rH-zRi"/>
                 <constraint firstItem="VDc-8p-fX3" firstAttribute="trailing" secondItem="faR-vW-8Fo" secondAttribute="trailing" id="KnT-A0-wDv"/>
                 <constraint firstItem="cbS-bw-q3q" firstAttribute="top" secondItem="fGU-Jf-om1" secondAttribute="bottom" constant="23" id="KsE-B0-yqO"/>
@@ -147,7 +147,7 @@
                 <constraint firstItem="ELB-Vv-LIT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="tiI-J2-Fg6"/>
                 <constraint firstItem="UwO-KI-Vbu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="xTw-bZ-vhp"/>
             </constraints>
-            <point key="canvasLocation" x="-3658" y="-761"/>
+            <point key="canvasLocation" x="-3796" y="-829"/>
         </view>
     </objects>
     <resources>

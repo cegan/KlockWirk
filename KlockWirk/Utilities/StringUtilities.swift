@@ -48,8 +48,14 @@ class StringUtilities{
         let findHourString = String(hours)
         let findMinutesString = String(minutes)
         
-        let f = (timeRemainingOnSchedule as NSString).rangeOfString(findHourString)
+        let range = (timeRemainingOnSchedule as NSString).rangeOfString(findHourString)
     
+        
+        let attributedString = NSMutableAttributedString(string:timeRemainingOnSchedule)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
+        
+        
+        return attributedString
         
         
 //        let text = "We tried to make this app as most intuitive as possible for you. If you have any questions don't hesitate to ask us. For a detailed manual just click here."

@@ -85,8 +85,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     
     func setupLoginButton(){
         
-        loginButton.layer.cornerRadius = 3
+       loginButton.layer.cornerRadius = 4
         activityIndicator.hidden = true
+    }
+    
+    
+    func setupRegisterButton(){
+        
+        registerButton.layer.cornerRadius = 4
     }
     
     func setupViewProperties(){
@@ -186,6 +192,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         setupViewProperties()
         setupInputFields()
         setupLoginButton()
+        setupRegisterButton()
         setupRememberMeButton() 
         setupNavigationButtons()
         setupDelegates()
