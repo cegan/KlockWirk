@@ -41,38 +41,38 @@ class StringUtilities{
         
     }
     
-    class func getPrettyTimeRemainingOnSchedule(hours: Int, minutes: Int) -> NSAttributedString?{
-        
-        
-        let timeRemainingOnSchedule = "\(hours) Hours and \(minutes) Minutes Remaining"
-        let findHourString = String(hours)
-        let findMinutesString = String(minutes)
-        
-        let range = (timeRemainingOnSchedule as NSString).rangeOfString(findHourString)
-    
-        
-        let attributedString = NSMutableAttributedString(string:timeRemainingOnSchedule)
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
-        
-        
-        return attributedString
-        
-        
-//        let text = "We tried to make this app as most intuitive as possible for you. If you have any questions don't hesitate to ask us. For a detailed manual just click here."
-//        let linkTextWithColor = "click here"
+//    class func getPrettyTimeRemainingOnSchedule(hours: Int, minutes: Int) -> NSAttributedString?{
 //        
-//        let range = (text as NSString).rangeOfString(linkTextWithColor)
 //        
-//        let attributedString = NSMutableAttributedString(string:text)
+//        let timeRemainingOnSchedule = "\(hours) Hours and \(minutes) Minutes Remaining"
+//        let findHourString = String(hours)
+//        let findMinutesString = String(minutes)
+//        
+//        let range = (timeRemainingOnSchedule as NSString).rangeOfString(findHourString)
+//    
+//        
+//        let attributedString = NSMutableAttributedString(string:timeRemainingOnSchedule)
 //        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
 //        
-//        self.helpText.attributedText = attributedString
-        
-        
-        
-        return nil
-        
-    }
+//        
+//        return attributedString
+//        
+//        
+////        let text = "We tried to make this app as most intuitive as possible for you. If you have any questions don't hesitate to ask us. For a detailed manual just click here."
+////        let linkTextWithColor = "click here"
+////        
+////        let range = (text as NSString).rangeOfString(linkTextWithColor)
+////        
+////        let attributedString = NSMutableAttributedString(string:text)
+////        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
+////        
+////        self.helpText.attributedText = attributedString
+//        
+//        
+//        
+//        return nil
+//        
+//    }
     
     class func formatPhoneNumber(phoneNumber:String) -> String{
         

@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>KlockWirkBaseAPI</key>
 	<string>https://microsoft-apiapp0d181cd8fad64cfaac3acd557485d4e2.azurewebsites.net/api/</string>
 	<key>LSRequiresIPhoneOS</key>
