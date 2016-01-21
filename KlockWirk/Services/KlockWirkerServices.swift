@@ -118,7 +118,7 @@ class KlockWirkerServices : BaseKlockWirkService {
                 if(httpResponse.statusCode == HTTPStatusCodes.HTTPOK){
                     
                     let result      = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                    let klockWirker = JSONUtilities.parseKlockWirker(result)
+                    let klockWirker = JSONUtilities.parseNewKlockWirker(result)
                     
                     MerchantManager.sharedInstance.merchant.klockWirkers.append(klockWirker)
                     

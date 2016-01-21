@@ -19,6 +19,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let image : UIImage = UIImage(named: "loading")!
         return CustomActivityIndicatorView(image: image)
     }()
+    
+    func getHttpClient() -> AFHTTPClient{
+        
+        let httpClient = AFHTTPClient(baseURL: NSURL(string: ApplicationInformation.getKlockWirkBaseUrl() as String))
+        
+        httpClient.parameterEncoding = AFFormURLParameterEncoding
+        
+        return httpClient
+    }
+    
+    
+//    func getUrlRequestForEndpoint(endPoint: String, httpMethod: String, parameters: [String: AnyObject]) -> NSMutableURLRequest{
+//        
+//        let request = getHttpClient().requestWithMethod(httpMethod, path:endPoint, parameters: parameters)
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        return request
+//    }
+//    
+//    func getUrlRequestForEndpoint(endPoint: String, httpMethod: String) -> NSMutableURLRequest{
+//        
+//        let request = getHttpClient().requestWithMethod(httpMethod, path:endPoint, parameters: nil)
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        
+//        return request
+//    }
+//    
+//    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+//        
+//        
+//        let urlSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+//        
+//        
+//        let params = ["userName":"",
+//            "password":"",
+//            "deviceUuid":UIDevice.currentDevice().identifierForVendor!.UUIDString,
+//            "deviceToken":ApplicationInformation.getDeviceToken()]
+//        
+//        
+//        let request = getUrlRequestForEndpoint(ServiceEndpoints.LoginEndpoint, httpMethod: HTTPConstants.HTTPMethodGet, parameters: params)
+//        
+//        
+//        let task = urlSession.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            
+//            if let httpResponse = response as? NSHTTPURLResponse {
+//                
+//                let jsonResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+//                
+//                
+//                print("Backgroun fetch called")
+//                
+//                if(httpResponse.statusCode == HTTPStatusCodes.HTTPOK){
+//                    
+//                   
+//                }
+//                
+//                if(httpResponse.statusCode == HTTPStatusCodes.HTTPUnauthorized){
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        
+//                        NotificationUtilities.postNotification(NotificationConstants.LoginFailed)
+//                    })
+//                }
+//            }
+//        })
+//        
+//        task.resume()
+//        
+//        
+//        
+//        
+//    }
 
 
     
@@ -27,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = SplashScreenViewController()
         
-  
+       
         setupActivityIndicator()
 
         loadApplicationSettings()

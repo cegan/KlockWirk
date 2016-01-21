@@ -15,6 +15,7 @@ class SchedulService: BaseKlockWirkService{
     
     func addSchedule(schedule: Schedule, merchantId: Int, onCompletion: (response: Schedule) -> ()){
         
+        
         let session = NSURLSession.sharedSession()
         let request = getUrlRequestForEndpoint(ServiceEndpoints.ScheduleEndpoint, httpMethod: HTTPConstants.HTTPMethodPost)
         

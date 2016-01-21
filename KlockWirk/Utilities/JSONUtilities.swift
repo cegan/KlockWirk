@@ -33,6 +33,31 @@ class JSONUtilities{
         return klockWirkers
     }
     
+    
+    class func parseNewKlockWirker(kw: NSDictionary) -> KlockWirker{
+        
+        
+        let klockWirker = KlockWirker()
+        
+        
+        klockWirker.merchantId = (kw.objectForKey("MerchantId") as? Int)!
+        klockWirker.klockWirkerId = (kw.objectForKey("KlockWirkerId") as? Int)!
+        klockWirker.firstName = (kw.objectForKey("FirstName") as? String)!
+        klockWirker.lastName = (kw.objectForKey("LastName") as? String)!
+        klockWirker.emailAddress = (kw.objectForKey("Email") as? String)!
+        klockWirker.phoneNumber = (kw.objectForKey("Phone") as? String)!
+        klockWirker.password = (kw.objectForKey("Password") as? String)!
+        
+        if let uuid = (kw.objectForKey("DeviceUUID") as? String){
+            
+            klockWirker.deviceUUID = uuid
+        }
+        
+        
+        return klockWirker;
+        
+    }
+    
     class func parseKlockWirker(kw: NSDictionary) -> KlockWirker{
         
         let klockWirker             = KlockWirker()
